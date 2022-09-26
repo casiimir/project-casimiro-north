@@ -1,0 +1,56 @@
+@import '../../styles/mixins';
+
+.NavBar {
+    @include flex-container($justify: space-between, $align: center);
+    padding: 0 30px;
+    height: 12vh;
+    background: rgb(5,40,55);
+    background: linear-gradient(180deg, rgba(5,40,55,1) 0%, rgba(9,9,121,0) 100%);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.267);
+
+    h2 {
+        font-weight: bold;
+        font-family: sans-serif;
+        color: white;
+        font-size: 1.4rem;
+    }
+
+    .navbar_container {
+        @include flex-container($align: center);
+
+        .search_icon {
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .ham_btn {
+            flex: 0 0 auto;
+            @include flex-container($direction: column, $justify: space-around, $align: flex-end);
+            height: 35px;
+            width: 35px;
+            padding: 4px 0;
+            box-sizing: border-box;
+
+            span:nth-child(1) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.2px;
+                width: 80%;
+            }
+
+            span:nth-child(2) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.2px;
+                width: 60%;
+            }
+
+            span:nth-child(3) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.2px;
+                width: 40%;
+            }
+        }
+    }
+}
