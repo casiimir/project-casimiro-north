@@ -5,6 +5,9 @@ const initialState = {
     cartList: [],
   },
   activities: {},
+  cities: {
+    cityData: {}
+  }
 };
 
 function cartDataReducer(state = {}, action) {
@@ -29,9 +32,19 @@ function activitiesReducer(state = {}, action) {
   }
 }
 
+function cityReducer(state = {}, action) {
+    switch (action.type) {
+        case "SET_CITY":
+            return {cityData: action.payload};
+        default:
+            return state;
+    }
+}
+
 const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
+  cities: cityReducer,
 });
 
 const store = createStore(rootReducer, initialState);
