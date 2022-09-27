@@ -26,15 +26,16 @@ export default function NavBar () {
             icon: <AiOutlineStar className={styles.icon}/>
         },
         {
+            name: 'Cart',
+            path: '/cart',
+            icon: <FaShoppingCart className={styles.icon}/>
+        },
+        {
             name: 'About us',
             path: '/aboutus',
             icon: <AiFillInfoCircle className={styles.icon}/>
         },
-        {
-            name: 'Cart',
-            path: '/cart',
-            icon: <FaShoppingCart className={styles.icon}/>
-        }
+
     ]
 
     const handleHamClick = () => {
@@ -45,22 +46,43 @@ export default function NavBar () {
         }
     }
 
+    const handleSearchClick = () => {
+        dispatch({type: 'SET_INPUT_ACTIVE'})
+
+        if (navBarStatus.isInputActive === true) {
+            dispatch({type: 'SET_INPUT_INACTIVE'})
+        }    
+    }
+
+    const handleOverlayClick = () => {
+        dispatch({type: 'SET_INPUT_INACTIVE'})
+    }
+
     return (
+        <div className={styles.Main_Navbar}>
         <div className={styles.NavBar}>
             <h2>LOGO</h2>
+            
+            
+            <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
+                <ul className={styles.navbar_list}>
+                    {menu.map((item, index)=> <li key={index}><span>{item.icon}</span><span>{item.name}</span></li>)}
+                </ul>
+            </div>
             <div className={styles.navbar_container}>
-                <HiSearch className={styles.search_icon}/>
+                <div className={styles.search_container}>
+                    <HiSearch onClick={handleSearchClick} className={`${styles.search_icon} ${navBarStatus.isInputActive ? styles.active : ''}`}/>
+                    <input type='text' className={`${styles.search_input} ${navBarStatus.isInputActive ? styles.active : ''}`} placeholder="Search"/>
+                </div>
                 <div onClick={handleHamClick} className={styles.ham_btn}>
                     <span />
                     <span />
                     <span />
                 </div>
             </div>
-            <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
-                <ul className={styles.navbar_list}>
-                    {menu.map((item, index)=> <li key={index}><span>{item.icon}</span><span>{item.name}</span></li>)}
-                </ul>
-            </div>
+            <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
+        </div>
+        <div className={styles.row} />
         </div>
     )
 }

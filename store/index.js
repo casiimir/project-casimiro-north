@@ -10,6 +10,7 @@ const initialState = {
   },
   navBarStatus: {
     isActive: false,
+    isInputActive: false,
   }
 };
 
@@ -50,6 +51,10 @@ function navBarStatusReducer(state = {}, action) {
           return {isActive: true};
         case "SET_CLOSE":
           return {isActive: false};
+        case "SET_INPUT_ACTIVE":
+          return {isInputActive: true};
+        case "SET_INPUT_INACTIVE":
+          return {isInputActive: false};
         default:
           return state
     }
