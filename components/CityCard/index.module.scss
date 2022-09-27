@@ -10,14 +10,17 @@
     rgba(1, 35, 49, 0.97) 100%
   );
   border-radius: 4px;
-  box-shadow: 0.8px 0.8px grey;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.333);
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  max-width: 200px;
-  max-height: 300px;
-  min-width: 130px;
-  min-height: 175px;
+  // max-width: 200px;
+  // max-height: 300px;
+  // min-width: 130px;
+  // min-height: 175px;
+  flex: 0 0 auto;
+  width: 200px;
+  height: 300px;
 
   &:hover {
     transform: scale(1.01, 1.01);
@@ -43,7 +46,7 @@
 
     .Text {
       box-sizing: border-box;
-      color: $MainDarkBlue;
+      color: white;
       font-family: "Montserrat";
       font-style: normal;
       font-weight: 700;
@@ -63,7 +66,7 @@
 
     .Description {
       box-sizing: border-box;
-      color: $MainDarkBlue;
+      color: white;
       font-family: "Montserrat";
       font-size: 0.6rem;
       font-style: normal;
@@ -83,5 +86,32 @@
     position: absolute;
     top: 8px;
     left: 8px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .CityCard {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 34%;
+    height: 300px;
+
+  .Content {
+    min-width: 28%;
+    .Text {
+      font-size: 1.4rem;
+      text-align: left;
+    }
+
+    .Row {
+      
+    }
+
+    .Description {
+      font-size: 0.8rem;
+      text-align: left;
+    }
+  }
+
   }
 }

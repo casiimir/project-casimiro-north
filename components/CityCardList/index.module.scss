@@ -1,6 +1,10 @@
 @import "../../styles/mixins";
+@import '../../styles/variables';
 
 .CityCardList {
+  @include flex-container($direction: column, $gap: 10px);
+  box-sizing: border-box;
+  padding: 20px 0;
   overflow-y: hidden;
   overflow-x: hidden;
 
@@ -8,19 +12,33 @@
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 1.2rem;
     line-height: 17px;
-    margin-bottom: 18px;
-    color: #052837;
+    color: $MainDarkBlue;
     text-transform: uppercase;
+    margin-left: 20px;
   }
   .List {
     @include flex-container($direction: row, $gap: 10px, $align: flex-start);
     width: 100vw;
     overflow-x: scroll;
     scroll-behavior: smooth;
+    box-sizing: border-box;
+    padding: 10px 20px;
+
     &::-webkit-scrollbar {
       display: none;
     }
   }
+}
+
+@media only screen and (min-width: 767px) {
+  .CityCardList {
+    padding: 40px 0;
+    gap: 30px;
+
+    .List {
+      gap: 40px;
+  }
+}
 }
