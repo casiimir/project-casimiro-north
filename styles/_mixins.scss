@@ -1,9 +1,71 @@
-@mixin flex-container ($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap, $gap: 0px, $grow: 0) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-    flex-wrap: $wrap;
-    gap: $gap;
-    flex-grow: $grow;
-  }
+@mixin flex-container(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap,
+  $gap: 0px,
+  $grow: 0
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+  flex-grow: $grow;
+}
+
+@mixin text(
+  $size: medium,
+  $weight: normal,
+  $transform: none,
+  $decoration: none
+) {
+  font-size: $size;
+  font-weight: $weight;
+  text-transform: $transform;
+  text-decoration: $decoration;
+}
+@mixin box-model($margin: 0, $padding: 0, $border: 0, $sizing: border-box) {
+  margin: $margin;
+  padding: $padding;
+  border: $border;
+  box-sizing: $sizing;
+}
+
+@mixin dimensions($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+@mixin element-position(
+  $position: static,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto,
+  $z-index: 1
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin border(
+  $border: 0,
+  $radius: 0,
+  $top-right: auto,
+  $bottom-right: auto,
+  $bottom-left: auto,
+  $top-left: auto
+) {
+  border: $border;
+  border-radius: $radius;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+  border-top-left-radius: $top-left;
+}
