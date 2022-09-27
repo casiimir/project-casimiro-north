@@ -1,19 +1,20 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import useFetch from "../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../utils/useFetch/URL";
-import CityCardList from "../components/CityCardList/CityCardList";
-import MiniCarousel from "../components/MiniCarousel/MiniCarousel";
+
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState} from 'react';
+import useFetch  from '../utils/useFetch/useFetch';
+import { IMPORT_URL } from '../utils/useFetch/URL';
+
+import Hero from '../components/Hero';
 
 export default function Home() {
   // const dispatch = useDispatch();
-  // const {cartData, cities} = useSelector(state => state)
+  // const {cities} = useSelector(state => state)
 
   // useEffect(() => {
-  //     useFetch(IMPORT_URL.CITIES, 1, dispatch, "SET_CITY" )
+  //     useFetch(IMPORT_URL.CITIES, '', dispatch, "SET_CITY_LIST" )
   // }, [])
 
   // console.log(cartData)
@@ -28,12 +29,13 @@ export default function Home() {
   // }
 
   return (
-    <div className={styles.container}>
+    <div>
+      <Hero />
+      {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
       <MiniCarousel />
-      <CityCardList />
     </div>
   );
 }
