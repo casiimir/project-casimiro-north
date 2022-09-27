@@ -7,6 +7,7 @@ const CityCard = ({ data }) => {
   const [fav, setFav] = useState(false);
   const onBtnClick = () => {};
   return (
+  
     <div className={styles.CityCard}>
       <img
         className={styles.Image}
