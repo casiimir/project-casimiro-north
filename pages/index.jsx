@@ -8,6 +8,7 @@ import useFetch  from '../utils/useFetch/useFetch';
 import { IMPORT_URL } from '../utils/useFetch/URL';
 
 import Hero from '../components/Hero';
+import MiniCarousel from '../components/MiniCarousel';
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export default function Home() {
   // }
 
   return (
-    <div>
+    <div className={styles.Home}>
       <Hero />
       {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>

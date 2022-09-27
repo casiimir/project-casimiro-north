@@ -3,9 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
 .miniCarousel {
-  @include flex-container(column, flex-start, stretch, nowrap, 10px);
-
+  @include flex-container(column, flex-start, stretch, nowrap, 20px);
+  box-sizing: border-box;
+  padding: 20px 0;
   width: 100%;
+  height: 25vh;
   background-color: $GreyBackground;
 
   .title {
@@ -13,16 +15,19 @@
     color: $MainDarkBlue;
     font-family: Montserrat;
     font-weight: bold;
-    margin: 20px 0 0 20px;
+    margin-left: 20px;
+    // margin: 20px 0 0 20px;
+    
     text-transform: uppercase;
   }
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
 
-    margin: 5px 20px 15px 20px;
+    // margin: 5px 20px 15px 20px;
     width: auto;
     overflow-x: scroll;
-    padding: 5px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
     &::-webkit-scrollbar {
       display: none;
     }
