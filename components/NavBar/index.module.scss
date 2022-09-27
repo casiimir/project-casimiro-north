@@ -2,10 +2,14 @@
 @import '../../styles/mixins';
 
 .Main_Navbar {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
     padding: 0 30px;
     background: rgb(5,40,55);
     background: linear-gradient(180deg, rgba(5,40,55,1) 0%, rgba(9,9,121,0) 100%);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.267);
+    box-sizing: border-box;
 
 .NavBar {
     position: relative;
@@ -13,7 +17,7 @@
     height: 12vh;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    z-index: 999;
+    
 
     .overlay {
         position:fixed;
@@ -137,7 +141,8 @@
             margin: 45px;
 
             li {
-                @include flex-container($gap: 20px, $align: center)
+                @include flex-container($gap: 20px, $align: center);
+                cursor: pointer;
             }
         }
 
@@ -156,7 +161,6 @@
 
 @media only screen and (min-width : 768px) {
     .Main_Navbar{
-        position: relative;
         padding: 0 45px;
         box-shadow: none;
 
@@ -220,6 +224,7 @@
 
                     li {
                         font-size: 1.0rem;
+                        text-transform: uppercase;
                         .icon {
                             display: none;
                         }

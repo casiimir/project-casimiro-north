@@ -6,6 +6,8 @@ import { useEffect, useState} from 'react';
 import useFetch  from '../utils/useFetch/useFetch';
 import { IMPORT_URL } from '../utils/useFetch/URL';
 
+import Hero from '../components/Hero';
+
 export default function Home() {
   // const dispatch = useDispatch();
   // const {cartData, cities} = useSelector(state => state)
@@ -27,6 +29,7 @@ export default function Home() {
 
   return (
     <div>
+      <Hero />
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
