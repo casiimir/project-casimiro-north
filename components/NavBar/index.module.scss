@@ -13,7 +13,7 @@
 .NavBar {
     position: relative;
     @include flex-container($justify: space-between, $align: center);
-    height: 12vh;
+    height: 12vmin;
     color: white;
 
     .overlay {
@@ -160,12 +160,13 @@
         position: fixed;
         padding: 0 45px;
         box-shadow: none;
+        min-height: 8vh;
 
         .row {
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 20%;
+            top: 80%;
             display: block;
             height: 2px;
             width: auto;
@@ -181,8 +182,7 @@
                 position: static;
 
                 .ham_btn {
-                    display: none;
-                    
+                    display: none;     
                 }
 
                 .search_container {
@@ -196,8 +196,7 @@
                     
                     .search_icon {
                         position: static;
-                    }
-                    
+                    }    
                 }
             }
 

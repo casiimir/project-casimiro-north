@@ -93,6 +93,11 @@
     object-fit: contain;
     height: 100vh;
 
+    .background { 
+      position: fixed;
+      z-index: -1;
+    }
+
     .maintexthero {
       z-index: 3;
       position: absolute;

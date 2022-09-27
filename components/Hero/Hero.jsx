@@ -1,14 +1,11 @@
 import styles from "./index.module.scss";
-import { useState } from "react";
 
 const Hero = () => {
-
-
 
   return (
     <div className={styles.hero}>
       <div className={styles.overlay_gradient} />
-        <img
+        <img className={styles.background}
           src="https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060"
           alt="heroimg"
         />
