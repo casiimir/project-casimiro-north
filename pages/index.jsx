@@ -10,10 +10,10 @@ import Hero from '../components/Hero';
 
 export default function Home() {
   // const dispatch = useDispatch();
-  // const {cartData, cities} = useSelector(state => state)
+  // const {cities} = useSelector(state => state)
 
   // useEffect(() => {
-  //     useFetch(IMPORT_URL.CITIES, 1, dispatch, "SET_CITY" )
+  //     useFetch(IMPORT_URL.CITIES, '', dispatch, "SET_CITY_LIST" )
   // }, [])
 
   // console.log(cartData)
@@ -30,6 +30,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}

@@ -6,7 +6,8 @@ const initialState = {
   },
   activities: {},
   cities: {
-    cityData: {}
+    cityData: {},
+    cityList: [],
   },
   navBarStatus: {
     isActive: false,
@@ -40,6 +41,8 @@ function cityReducer(state = {}, action) {
     switch (action.type) {
         case "SET_CITY":
             return {cityData: action.payload};
+        case "SET_CITY_LIST":
+            return {cityList: action.payload}
         default:
             return state;
     }
