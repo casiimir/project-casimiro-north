@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 const CityCard = ({ data }) => {
-  const [fav, setFav] = useState();
-  const onBtnclick = () => {};
+  const [fav, setFav] = useState(false);
+  const onBtnClick = () => {};
   return (
     <div className={styles.CityCard}>
       <img
@@ -14,16 +14,13 @@ const CityCard = ({ data }) => {
         alt="CityPhoto"
       />
       <div className={styles.Content}>
-        <h3 className={styles.Text}>Nomi</h3>
-        {/* <div>
-          <span>_____</span>
-        </div> */}
-        <p className={styles.Description}>Cose</p>
-      </div>
+        <h3 className={styles.Text}>Pisa</h3>
 
-      <button className={styles.Button} onClick={onBtnclick}>
-        <FaRegHeart />
-      </button>
+        <div className={styles.Row} />
+        <p className={styles.Description}>365 Experiences</p>
+      </div>
+      <FaRegHeart className={styles.Heart} onClick={onBtnClick} />
+      {/* <FaHeart/> */}
     </div>
   );
 };

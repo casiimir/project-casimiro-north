@@ -16,5 +16,11 @@
   }
   .List {
     @include flex-container($direction: row, $gap: 10px, $align: flex-start);
+    width: 100vw;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
