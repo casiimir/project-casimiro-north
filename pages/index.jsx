@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import useFetch from "../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../utils/useFetch/URL";
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.scss'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState} from 'react';
+import useFetch  from '../utils/useFetch/useFetch';
+import { IMPORT_URL } from '../utils/useFetch/URL';
 
 export default function Home() {
   // const dispatch = useDispatch();
