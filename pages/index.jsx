@@ -6,6 +6,7 @@ import { useEffect, useState} from 'react';
 import useFetch  from '../utils/useFetch/useFetch';
 import { IMPORT_URL } from '../utils/useFetch/URL';
 import NavBar from '../components/NavBar';
+import CityCardList from '../components/CityCardList';
 
 export default function Home() {
   // const dispatch = useDispatch();
