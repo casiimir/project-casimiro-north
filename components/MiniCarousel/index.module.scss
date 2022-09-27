@@ -25,7 +25,8 @@
 
     // margin: 5px 20px 15px 20px;
     width: auto;
-    overflow-x: scroll;
+    
+    overflow-x: scroll; 
     padding: 0 20px;
     box-sizing: border-box;
     &::-webkit-scrollbar {
@@ -36,15 +37,19 @@
 
 @media only screen and (min-width: 767px) {
   .miniCarousel {
+    @include flex-container($direction: column, $justify: center );
     gap: 40px;
     padding: 40px 0;
     height: auto;
+
     .title {
       font-size: 1.2rem;
+      margin-left: 40px;
     }
 
     .voucherDiv {
       gap: 30px;
+      padding: 0 40px;
     }
   }
 }

@@ -1,38 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
-@import '/styles/_mixins.scss';
-@import '/styles/_variables.scss';
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .ActivityCardList {
-    @include flex-container (column, flex-start, stretch, nowrap, 20px);
+    @include flex-container(column, flex-start, stretch, nowrap, 20px);
     font-family: Montserrat, sans-serif;
-    border: solid red;
+    box-sizing: border-box;
     position: relative;
-    // height: 200px;
+    padding: 0 0 20px 0;
 
-
-    .title {
-        position: absolute;
-        left: 15%;
-        top: 10%;
+    .Title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: $MainDarkBlue;
+        margin-left: 20px;
+        box-sizing: border-box;
 
     }
 
     .Sublist {
-    //     @include flex-container (row, flex-start, stretch, nowrap, 20px);
+        @include flex-container($gap: 20px);
+        
+        box-sizing: border-box;
+        width: 100%;
+        overflow-x: scroll;
+        padding: 0 20px;
 
-    //     position: absolute;
-
-    //     overflow: visible;
-    //     overflow-x: scroll;
-    //     scroll-behavior: smooth;
-    //     scroll-snap-type: x mandatory; 
-    //     scroll-padding: 20px 0 0 20px;
-
-    // //     width: auto;
-    //     height: 200px;
-    //     border: solid blue;
-
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 
+@media only screen and (min-width: 767px) {
+    .ActivityCardList {
+        gap: 40px;
+        padding-bottom: 40px;
+
+        .Title {
+            margin-left: 40px;
+        }
+
+        .Sublist {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 280px 280px auto;
+            // gap: 40px;
+            padding: 0 40px;
+        }
+    }
+}
  

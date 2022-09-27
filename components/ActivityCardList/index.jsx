@@ -1,3 +1,3 @@
-import ActivityCardList from "../ActivityCardList";
+import ActivityCardList from "./ActivityCardList";
 
 export default ActivityCardList

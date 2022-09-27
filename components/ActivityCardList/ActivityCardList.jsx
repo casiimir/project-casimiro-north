@@ -4,8 +4,9 @@ import ActivityCard from "../ActivityCard/ActivityCard";
 const ActivityCardList = () => {
   return (
     <div className={styles.ActivityCardList}>
-        <h2 className={styles.Title}>ACTIVITIES</h2>
+        <h2 className={styles.Title}>Top Activities</h2>
         <div className={styles.Sublist}> 
+          <ActivityCard />
           <ActivityCard />
           <ActivityCard />
           <ActivityCard />

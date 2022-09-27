@@ -93,8 +93,9 @@
   .CityCard {
     box-sizing: border-box;
     flex: 0 0 auto;
-    width: 34%;
-    height: 300px;
+    width: 50%;
+    max-width: 800px;
+    height: 550px;
 
   .Content {
     min-width: 28%;
@@ -113,5 +114,12 @@
     }
   }
 
+  .Heart {
+    font-size: 1.6rem;
+    top: 16px;
+    left: 16px;
   }
+
+  }
+  
 }

@@ -9,6 +9,7 @@ import { IMPORT_URL } from '../utils/useFetch/URL';
 import Hero from '../components/Hero';
 import MiniCarousel from '../components/MiniCarousel';
 import CityCardList from '../components/CityCardList';
+import ActivityCardList from '../components/ActivityCardList';
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export default function Home() {
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
       <MiniCarousel />
       <CityCardList />
+      <ActivityCardList />
     </div>
   );
 }
