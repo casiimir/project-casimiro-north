@@ -26,7 +26,7 @@ export default function Home() {
   // }
 
   return (
-    <div className={styles.container}>
+    <div>
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
