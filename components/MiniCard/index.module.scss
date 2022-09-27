@@ -1,0 +1,24 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+.miniCard {
+  height: 100px;
+  width: 100px;
+  flex: 0 0 auto;
+  overflow: hidden;
+
+  img {
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .miniCard {
+    height: 250px;
+    width: auto;
+  }
+}

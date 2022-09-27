@@ -1,0 +1,49 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+.miniCarousel {
+  @include flex-container(column, flex-start, stretch, nowrap, 20px);
+  box-sizing: border-box;
+  padding: 20px 0;
+  width: 100%;
+  height: 25vh;
+  background-color: $GreyBackground;
+
+  .title {
+    width: max-content;
+    color: $MainDarkBlue;
+    font-weight: bold;
+    margin-left: 20px;
+    text-transform: uppercase;
+  }
+  .voucherDiv {
+    @include flex-container(row, flex-start, stretch, nowrap, 20px);
+    width: auto;
+    overflow-x: scroll; 
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .miniCarousel {
+    @include flex-container($direction: column, $justify: center );
+    gap: 40px;
+    padding: 40px 0;
+    height: auto;
+
+    .title {
+      font-size: 1.2rem;
+      margin-left: 40px;
+    }
+
+    .voucherDiv {
+      gap: 30px;
+      padding: 0 40px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.ActivityCardList {
+    @include flex-container(column, flex-start, stretch, nowrap, 20px);
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 0 40px 0;
+    background-color: white;
+
+    .Title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: $MainDarkBlue;
+        margin-left: 20px;
+        box-sizing: border-box;
+
+    }
+
+    .Sublist {
+        @include flex-container($gap: 20px);
+        
+        box-sizing: border-box;
+        width: 100%;
+        overflow-x: scroll;
+        padding: 0 20px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .ActivityCardList {
+        gap: 40px;
+        padding-bottom: 40px;
+
+        .Title {
+            margin-left: 40px;
+        }
+
+        .Sublist {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 280px 280px auto;
+            // gap: 40px;
+            padding: 0 40px;
+        }
+    }
+}
+ 

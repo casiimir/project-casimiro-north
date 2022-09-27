@@ -6,7 +6,12 @@ const initialState = {
   },
   activities: {},
   cities: {
-    cityData: {}
+    cityData: {},
+    cityList: [],
+  },
+  navBarStatus: {
+    isActive: false,
+    isInputActive: false,
   }
 };
 
@@ -36,8 +41,25 @@ function cityReducer(state = {}, action) {
     switch (action.type) {
         case "SET_CITY":
             return {cityData: action.payload};
+        case "SET_CITY_LIST":
+            return {cityList: action.payload}
         default:
             return state;
+    }
+}
+
+function navBarStatusReducer(state = {}, action) {
+    switch (action.type) {
+        case "SET_OPEN":
+          return {isActive: true};
+        case "SET_CLOSE":
+          return {isActive: false};
+        case "SET_INPUT_ACTIVE":
+          return {isInputActive: true};
+        case "SET_INPUT_INACTIVE":
+          return {isInputActive: false};
+        default:
+          return state
     }
 }
 
@@ -45,6 +67,7 @@ const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
   cities: cityReducer,
+  navBarStatus: navBarStatusReducer
 });
 
 const store = createStore(rootReducer, initialState);

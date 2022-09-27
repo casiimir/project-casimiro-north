@@ -1,0 +1,232 @@
+@import '../../styles/mixins';
+
+.Main_Navbar {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    padding: 0 30px;
+    background: rgb(5,40,55);
+    background: linear-gradient(180deg, rgba(5,40,55,1) 0%, rgba(9,9,121,0) 100%);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.267);
+    box-sizing: border-box;
+
+.NavBar {
+    position: relative;
+    @include flex-container($justify: space-between, $align: center);
+    height: 12vmin;
+    color: white;
+
+    .overlay {
+        position:fixed;
+        top: 12vh;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    h2 {
+        font-weight: 800;
+        font-size: 1.4rem;
+    }
+
+    .navbar_container {
+        @include flex-container($align: center);
+
+        .search_container {
+            position: absolute;
+            right: 0;
+            height: 40px;
+            width: 55%;
+            margin: 0 18%;
+            
+
+            .search_icon {
+                position: absolute;
+                color: rgb(255, 255, 255);
+                font-size: 1.8rem;
+                height: 100%;
+                z-index: 1;
+                transition: all 0.5s;
+                right: -5%;
+
+                &.active { 
+                top: 0;
+                right: 83%;   
+                
+                }
+            }
+
+            .search_input {
+                position: absolute;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                outline: none;
+                height: 100%;
+                box-sizing: border-box;
+                width: 0;
+                transition: all 0.5s;
+                padding: 0 0 0 34px;
+                color: rgba(255, 255, 255, 0.801);
+                pointer-events: none;
+              
+
+                &.active {
+                    background-color: rgba(0, 0, 0, 0.334);
+                    width: 100%;
+                    pointer-events: all;
+                }
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.725);
+                }
+            }
+        }
+
+
+        .ham_btn {
+            flex: 0 0 auto;
+            @include flex-container($direction: column, $justify: space-around, $align: flex-end);
+            height: 35px;
+            width: 35px;
+            padding: 4px 0;
+            box-sizing: border-box;
+
+            span:nth-child(1) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.4px;
+                width: 80%;
+            }
+
+            span:nth-child(2) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.4px;
+                width: 60%;
+            }
+
+            span:nth-child(3) {
+                background-color: rgb(255, 255, 255);
+                display: block;
+                height: 1.4px;
+                width: 40%;
+            }
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 12vh;
+        height: calc(100vh - 12vh);
+        box-sizing: border-box;
+        width: 0;
+        overflow: hidden;
+        right: -30px;
+        background-color: rgba(0, 0, 0, 0.767);
+        backdrop-filter: blur(2px);
+        transition: all 0.35s;
+        color: rgba(255, 255, 255, 0);
+        opacity: 0;
+
+        .navbar_list {
+            @include flex-container($direction: column, $gap: 40px);
+            font-weight: 300;
+            font-size: 1.6rem;
+            margin: 45px;
+
+            li {
+                @include flex-container($gap: 20px, $align: center);
+                cursor: pointer;
+            }
+        }
+
+        &.active {
+            width: 100vw;
+            color: white;
+            opacity: 1;
+        }
+    }
+}
+
+.row {
+    display: none;
+}
+}
+
+@media only screen and (min-width : 768px) {
+    .Main_Navbar{
+        position: fixed;
+        padding: 0 45px;
+        box-shadow: none;
+        min-height: 8vh;
+
+        .row {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 80%;
+            display: block;
+            height: 2px;
+            width: auto;
+            margin: 0 45px;
+            background-color: rgba(255, 255, 255, 0.563);
+        }
+
+        .NavBar { 
+            height: 8vh;
+            box-sizing: border-box;
+
+            .navbar_container {
+                position: static;
+
+                .ham_btn {
+                    display: none;     
+                }
+
+                .search_container {
+                    position: static;
+                    margin: 0;
+                    padding: 0;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                    bottom: auto;
+                    
+                    .search_icon {
+                        position: static;
+                    }    
+                }
+            }
+
+            .menu {
+                position: static;
+                width: 100%;
+                height: auto;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                width: auto;
+                color: white;
+                background: none;
+                backdrop-filter: none;
+                opacity: 1;
+                
+
+                .navbar_list {
+                    @include flex-container($gap: 40px);
+                    box-sizing: border-box;
+
+                    li {
+                        font-size: 1.0rem;
+                        text-transform: uppercase;
+                        .icon {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
