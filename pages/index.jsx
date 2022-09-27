@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-import CityCardList from "../components/CityCardList";
+import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-
-export default function Home() {
-  return (
-    <div className={styles.Home}>
-      <CityCardList />
-=======
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState} from 'react';
-import useFetch  from '../utils/useFetch/useFetch';
-import { IMPORT_URL } from '../utils/useFetch/URL';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import useFetch from "../utils/useFetch/useFetch";
+import { IMPORT_URL } from "../utils/useFetch/URL";
+import CityCardList from "../components/CityCardList/CityCardList";
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -39,8 +31,7 @@ export default function Home() {
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
-     
->>>>>>> 874ac384a28be4dbb52e8536b118a96778f8de04
+      <CityCardList />
     </div>
   );
 }
