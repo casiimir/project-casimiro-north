@@ -13,7 +13,7 @@
 .NavBar {
     position: relative;
     @include flex-container($justify: space-between, $align: center);
-    height: 12vmin;
+    height: 12vh;
     color: white;
 
     .overlay {
