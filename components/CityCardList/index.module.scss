@@ -1,3 +1,26 @@
-.Footer {
-  border: 2px solid red;
+@import "../../styles/mixins";
+
+.CityCardList {
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  .Header {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 18px;
+    color: #052837;
+    text-transform: uppercase;
+  }
+  .List {
+    @include flex-container($direction: row, $gap: 10px, $align: flex-start);
+    width: 100vw;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
