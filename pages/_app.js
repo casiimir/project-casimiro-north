@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import { Provider } from 'react-redux';
 import store from '../store';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer/Footer';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <NavBar />
     <Component {...pageProps} />
+    <Footer />
   </Provider>
   )
 }

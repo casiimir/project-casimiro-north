@@ -1,6 +1,5 @@
 @import "../../styles/mixins";
 @import "../../styles/variables";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
 .CityCard {
   @include flex-container();
@@ -14,10 +13,6 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  // max-width: 200px;
-  // max-height: 300px;
-  // min-width: 130px;
-  // min-height: 175px;
   flex: 0 0 auto;
   width: 200px;
   height: 300px;
@@ -47,7 +42,6 @@
     .Text {
       box-sizing: border-box;
       color: white;
-      font-family: "Montserrat";
       font-style: normal;
       font-weight: 700;
       font-size: 0.9rem;
@@ -67,7 +61,6 @@
     .Description {
       box-sizing: border-box;
       color: white;
-      font-family: "Montserrat";
       font-size: 0.6rem;
       font-style: normal;
       font-weight: 400;
@@ -81,7 +74,6 @@
 
   .Heart {
     background: none;
-    // border: 2px solid red;
     color: white;
     position: absolute;
     top: 8px;
@@ -102,10 +94,6 @@
     .Text {
       font-size: 1.4rem;
       text-align: left;
-    }
-
-    .Row {
-      
     }
 
     .Description {

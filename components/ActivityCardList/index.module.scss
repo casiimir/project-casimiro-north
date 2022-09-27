@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
 .ActivityCardList {
     @include flex-container(column, flex-start, stretch, nowrap, 20px);
-    font-family: Montserrat, sans-serif;
     box-sizing: border-box;
     position: relative;
-    padding: 0 0 20px 0;
+    padding: 0 0 40px 0;
 
     .Title {
         font-weight: 700;

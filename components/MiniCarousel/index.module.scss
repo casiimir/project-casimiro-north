@@ -1,6 +1,5 @@
 @import "../../styles/_mixins.scss";
 @import "../../styles/_variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
 .miniCarousel {
   @include flex-container(column, flex-start, stretch, nowrap, 20px);
@@ -13,22 +12,17 @@
   .title {
     width: max-content;
     color: $MainDarkBlue;
-    font-family: Montserrat;
     font-weight: bold;
     margin-left: 20px;
-    // margin: 20px 0 0 20px;
-    
     text-transform: uppercase;
   }
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
-
-    // margin: 5px 20px 15px 20px;
     width: auto;
-    
     overflow-x: scroll; 
     padding: 0 20px;
     box-sizing: border-box;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -52,7 +46,4 @@
       padding: 0 40px;
     }
   }
-}
-
-@media only screen and (min-width: 1290px) {
 }

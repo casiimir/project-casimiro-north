@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 @import '../../styles/mixins';
 
 .Main_Navbar {
@@ -16,8 +15,6 @@
     @include flex-container($justify: space-between, $align: center);
     height: 12vh;
     color: white;
-    font-family: 'Montserrat', sans-serif;
-    
 
     .overlay {
         position:fixed;
@@ -30,7 +27,6 @@
 
     h2 {
         font-weight: 800;
-        
         font-size: 1.4rem;
     }
 
