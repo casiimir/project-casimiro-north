@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import useFetch from "../utils/useFetch/useFetch";
 import { IMPORT_URL } from "../utils/useFetch/URL";
 import CityCardList from "../components/CityCardList/CityCardList";
+import MiniCarousel from "../components/MiniCarousel/MiniCarousel";
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function Home() {
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
+      <MiniCarousel />
       <CityCardList />
     </div>
   );
