@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+@import '/styles/_mixins.scss';
+@import '/styles/_variables.scss';
+
+.ActivityCardList {
+    @include flex-container (column, flex-start, stretch, nowrap, 20px);
+    font-family: Montserrat, sans-serif;
+    border: solid red;
+    position: relative;
+    // height: 200px;
+
+
+    .title {
+        position: absolute;
+        left: 15%;
+        top: 10%;
+
+    }
+
+    .Sublist {
+    //     @include flex-container (row, flex-start, stretch, nowrap, 20px);
+
+    //     position: absolute;
+
+    //     overflow: visible;
+    //     overflow-x: scroll;
+    //     scroll-behavior: smooth;
+    //     scroll-snap-type: x mandatory; 
+    //     scroll-padding: 20px 0 0 20px;
+
+    // //     width: auto;
+    //     height: 200px;
+    //     border: solid blue;
+
+    }
+}
+
+ 
