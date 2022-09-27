@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 @import '../../styles/mixins';
 
 .NavBar {
+    position: relative;
     @include flex-container($justify: space-between, $align: center);
     padding: 0 30px;
     height: 12vh;
     background: rgb(5,40,55);
     background: linear-gradient(180deg, rgba(5,40,55,1) 0%, rgba(9,9,121,0) 100%);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.267);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 
     h2 {
-        font-weight: bold;
-        font-family: sans-serif;
-        color: white;
+        font-weight: 800;
+        
         font-size: 1.4rem;
     }
 
@@ -34,23 +37,53 @@
             span:nth-child(1) {
                 background-color: rgb(255, 255, 255);
                 display: block;
-                height: 1.2px;
+                height: 1.4px;
                 width: 80%;
             }
 
             span:nth-child(2) {
                 background-color: rgb(255, 255, 255);
                 display: block;
-                height: 1.2px;
+                height: 1.4px;
                 width: 60%;
             }
 
             span:nth-child(3) {
                 background-color: rgb(255, 255, 255);
                 display: block;
-                height: 1.2px;
+                height: 1.4px;
                 width: 40%;
             }
+        }
+    }
+
+    .menu {
+        position: absolute;
+        top: 12vh;
+        height: calc(100vh - 12vh);
+        box-sizing: border-box;
+        width: 0px;
+        overflow: hidden;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.767);
+        backdrop-filter: blur(2px);
+        transition: all 0.35s;
+        color: rgba(255, 255, 255, 0);
+
+        .navbar_list {
+            @include flex-container($direction: column, $gap: 40px);
+            font-weight: 300;
+            font-size: 1.6rem;
+            margin: 45px;
+
+            li {
+                @include flex-container($gap: 20px, $align: center)
+            }
+        }
+
+        &.active {
+            width: 100%;
+            color: white;
         }
     }
 }

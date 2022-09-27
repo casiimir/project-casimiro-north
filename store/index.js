@@ -7,6 +7,9 @@ const initialState = {
   activities: {},
   cities: {
     cityData: {}
+  },
+  navBarStatus: {
+    isActive: false,
   }
 };
 
@@ -41,10 +44,22 @@ function cityReducer(state = {}, action) {
     }
 }
 
+function navBarStatusReducer(state = {}, action) {
+    switch (action.type) {
+        case "SET_OPEN":
+          return {isActive: true};
+        case "SET_CLOSE":
+          return {isActive: false};
+        default:
+          return state
+    }
+}
+
 const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
   cities: cityReducer,
+  navBarStatus: navBarStatusReducer
 });
 
 const store = createStore(rootReducer, initialState);
