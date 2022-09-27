@@ -4,16 +4,17 @@
 
 .miniCarousel {
   @include flex-container(column, flex-start, stretch, nowrap, 10px);
-  //   position: relative;
+
   width: 100%;
   background-color: $GreyBackground;
 
   .title {
     width: max-content;
-    color: $MainButtonBlue;
+    color: $MainDarkBlue;
     font-family: Montserrat;
     font-weight: bold;
     margin: 20px 0 0 20px;
+    text-transform: uppercase;
   }
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
@@ -22,25 +23,9 @@
     width: auto;
     overflow-x: scroll;
     padding: 5px 0;
-
-    img {
-      border-radius: 6px;
-      //↓↓↓QUESTO E' UN BOXSHADOW DI PROVA ↓↓↓
-      box-shadow: 0 0 2px $MainButtonBlue;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    // .overlay {
-    //   position: absolute;
-    //   top: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   right: 0;
-    //   z-index: 3;
-    //   background: linear-gradient(
-    //     180deg,
-    //     rgba(0, 47, 57, 0) 55.21%,
-    //     rgba(1, 36, 51, 0.97) 100%
-    //   );
-    // }
   }
 }
 
@@ -53,10 +38,6 @@
     .voucherDiv {
       margin: 15px 30px 25px 30px;
       padding: 15px 0;
-
-      img {
-        height: 130px;
-      }
     }
   }
 }

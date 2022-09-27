@@ -10,6 +10,11 @@ const MiniCarousel = () => {
     { id: 5, url: "https://picsum.photos/100/100" },
     { id: 6, url: "https://picsum.photos/100/100" },
     { id: 7, url: "https://picsum.photos/100/100" },
+    { id: 8, url: "https://picsum.photos/100/100" },
+    { id: 9, url: "https://picsum.photos/100/100" },
+    { id: 10, url: "https://picsum.photos/100/100" },
+    { id: 11, url: "https://picsum.photos/100/100" },
+    { id: 12, url: "https://picsum.photos/100/100" },
   ];
 
   return (
