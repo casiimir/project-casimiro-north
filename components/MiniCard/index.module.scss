@@ -1,0 +1,38 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+.miniCard {
+  img {
+    border-radius: 6px;
+    height: 100px;
+    width: 100px;
+    //↓↓↓QUESTO E' UN BOXSHADOW DI PROVA ↓↓↓
+    box-shadow: 0 0 2px $MainButtonBlue;
+  }
+  // .overlay {
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 3;
+  //   background: linear-gradient(
+  //     180deg,
+  //     rgba(0, 47, 57, 0) 55.21%,
+  //     rgba(1, 36, 51, 0.97) 100%
+  //   );
+  // }
+}
+
+@media only screen and (min-width: 767px) {
+  .miniCard {
+    img {
+      height: 130px;
+      width: 130px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1290px) {
+}
