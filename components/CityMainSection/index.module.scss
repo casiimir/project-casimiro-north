@@ -1,0 +1,84 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+//ricorda che lo hai importato in [cityname].jsx
+
+.CityMainSection {
+  @include flex-container(column, flex-start, stretch, nowrap, 35px);
+
+  box-sizing: border-box;
+  padding: 35px 25px;
+
+  .description {
+    font-size: 19px;
+    font-weight: 300;
+  }
+
+  .activitiesDiv {
+    @include flex-container(column, $gap: 26px);
+    .title {
+      color: $MainDarkBlue;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .activitiesList {
+      @include flex-container(column, $gap: 15px);
+      .activity {
+        @include flex-container($align: center);
+        border-bottom: 1px solid $LightBlue;
+        height: 36px;
+
+        a {
+          color: $LightBlue;
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .CityMainSection {
+    @include flex-container(column, flex-start, stretch, nowrap, 50px);
+
+    padding: 50px 60px;
+
+    .description {
+      font-size: 1.5rem;
+    }
+
+    .activitiesDiv {
+      @include flex-container(column, $gap: 40px);
+      .title {
+        font-size: 1.8rem;
+      }
+
+      .activitiesList {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 20%;
+
+        justify-content: space-between;
+        box-sizing: border-box;
+
+        .activity {
+          height: 50px;
+          min-width: 200px;
+          max-width: 560px;
+
+          a {
+            color: $LightBlue;
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
