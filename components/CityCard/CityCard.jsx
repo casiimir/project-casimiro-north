@@ -23,13 +23,13 @@ const CityCard = ({ data }) => {
 
   return (
   
-    <div onClick={handleCityClick} className={styles.CityCard}>
+    <div  className={styles.CityCard}>
       <img
         className={styles.Image}
         src={cover_image_url}
         alt="CityPhoto"
       />
-      <div className={styles.overlay} />
+      <div onClick={handleCityClick} className={styles.overlay} />
       <div className={styles.Content}>
         <h3 className={styles.Text}>{name}</h3>
 
