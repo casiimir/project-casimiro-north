@@ -45,13 +45,15 @@ const Hero = () => {
       
         <div className={styles.slider_container}> 
 
-          {images.map((item) =><div style={{right: `${rightValue * 100}vw`}} className={styles.img_container}>    {/* IMAGE CONTAINER- QUELLO CHE SCROLLA */}
-            <div className={styles.overlay_gradient} />
-            <img className={styles.background}
-              src={item.url}
-              alt="heroimg"
-            />
-          </div>)}
+          {images.map((item, index) =>
+            <div style={{right: `${rightValue * 100}vw`}} className={styles.img_container} key={index}>
+              <div className={styles.overlay_gradient} />
+              <img className={styles.background}
+                src={item.url}
+                alt="heroimg"
+              />
+            </div>
+            )}
 
         </div>
         <div className={styles.maintexthero}>
