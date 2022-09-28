@@ -2,7 +2,7 @@
 @import '../../styles/variables';
 
 .ActivityCardList {
-    @include flex-container(column, flex-start, stretch, nowrap, 20px);
+    @include flex-container(column, flex-start, stretch, nowrap, 10px);
     box-sizing: border-box;
     position: relative;
     padding: 0 0 40px 0;
@@ -24,7 +24,7 @@
         box-sizing: border-box;
         width: 100%;
         overflow-x: scroll;
-        padding: 0 20px;
+        padding: 10px 20px;
 
         &::-webkit-scrollbar {
             display: none;
