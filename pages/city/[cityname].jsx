@@ -7,13 +7,21 @@ import { IMPORT_URL } from "../../utils/useFetch/URL";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CityPage() {
+  const router = useRouter();
+  const { cityname } = router.query;
+  const dispatch = useDispatch();
 
-    const router = useRouter();
-    const {cityname} = router.query;
-    const dispatch = useDispatch();
+  const data = useSelector((state) => state);
 
-    const data = useSelector(state => state);
-    
+  useEffect(() => {
+    cityname?.split("&=")[1] &&
+      useFetch(
+        IMPORT_URL.CITIES,
+        cityname?.split("&=")[1],
+        dispatch,
+        "SET_CITY"
+      );
+  }, [cityname?.split("&=")[1]]);
 
     useEffect(() => {
         cityname?.split('&=')[1] &&
@@ -27,5 +35,4 @@ export default function CityPage() {
             <Hero type="CityPage"/>
         </div>
     )
-
 }

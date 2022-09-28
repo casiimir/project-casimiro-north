@@ -13,7 +13,7 @@ export default function myTripPage() {
 
   return (
     <div className={YourTrip}>
-      <h2 className={styles.Theader}> Your trip in Palermo</h2>
+      <h2 className={styles.Theader}> My trip in Palermo</h2>
       {/* <h2 className={styles.Theader}> Your trip in {city.name}</h2> */}
     </div>
   );
