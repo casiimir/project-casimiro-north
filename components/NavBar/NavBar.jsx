@@ -4,6 +4,7 @@ import { AiFillHome, AiFillCompass, AiOutlineStar, AiFillInfoCircle } from 'reac
 import { FaShoppingCart } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
+import Link from 'next/link';
 
 export default function NavBar () {
 
@@ -72,7 +73,14 @@ export default function NavBar () {
             
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
                 <ul className={styles.navbar_list}>
-                    {menu.map((item, index)=> <li key={index}><span>{item.icon}</span><span>{item.name}</span></li>)}
+                    {menu.map((item, index)=> 
+                        <Link href={item.path} key={index}>
+                            <li >
+                                <span>{item.icon}</span>
+                                <span>{item.name}</span>
+                            </li>
+                        </Link>
+                    )}
                 </ul>
             </div>
             <div className={styles.navbar_container}>
