@@ -4,6 +4,29 @@ import { useState, useEffect } from 'react';
 const Hero = () => {
   const [rightValue, setRightValue] = useState(0)
 
+  const touchStartX = 0;
+  let touchEndX = 0;
+
+  const onTouchStart = (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+  };
+
+  const onTouchEnd = (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    change();
+  };
+
+  const change = () => {
+    if (touchStartX > touchEndX && rightValue < 3) {
+      setRightValue((prev) => prev + 1);
+    } else {
+      setRightValue(0);
+    }
+    if (touchStartX < touchEndX && rightValue > 0) {
+      setRightValue((prev) => prev - 1);
+    }
+  };
+
   const buttons = [1,2,3,4,5,6,7,8]
 
   const images = [
@@ -43,7 +66,7 @@ const Hero = () => {
   return (
     <div className={styles.hero}>
       
-        <div className={styles.slider_container}> 
+        <div onTouchStart={(e) => onTouchStart(e)} onTouchEnd={(e) => onTouchEnd(e)} className={styles.slider_container}> 
 
           {images.map((item, index) =>
             <div style={{right: `${rightValue * 100}vw`}} className={styles.img_container} key={index}>
