@@ -2,8 +2,8 @@ import styles from "./index.module.scss";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useFetch from "../../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import GET from "../../utils/GET/GET";
+import { IMPORT_URL } from "../../utils/GET/URL";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
@@ -51,7 +51,7 @@ const Hero = ({ type }) => {
   }, [rightValue]);
 
   useEffect(() => {
-    useFetch(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
+    GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
   }, []);
 
   return (

@@ -9,6 +9,13 @@
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.615);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.01);
+        filter: saturate(1.3) contrast(1.1);
+    }
 
     .img {
         width: 100%;

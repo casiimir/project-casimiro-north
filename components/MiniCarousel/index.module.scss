@@ -2,7 +2,7 @@
 @import "../../styles/_variables.scss";
 
 .miniCarousel {
-  @include flex-container(column, flex-start, stretch, nowrap, 20px);
+  @include flex-container(column, flex-start, stretch, nowrap, 10px);
   box-sizing: border-box;
   padding: 20px 0;
   width: 100%;
@@ -20,7 +20,7 @@
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     width: auto;
     overflow-x: scroll; 
-    padding: 0 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
 
     &::-webkit-scrollbar {
@@ -32,7 +32,7 @@
 @media only screen and (min-width: 767px) {
   .miniCarousel {
     @include flex-container($direction: column, $justify: center );
-    gap: 40px;
+    gap: 30px;
     padding: 40px 0;
     height: auto;
 
@@ -43,7 +43,7 @@
 
     .voucherDiv {
       gap: 30px;
-      padding: 0 40px;
+      padding: 10px 40px;
     }
   }
 }

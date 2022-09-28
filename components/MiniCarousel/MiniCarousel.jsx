@@ -1,9 +1,9 @@
 import MiniCard from "../MiniCard/MiniCard";
 import styles from "./index.module.scss";
 import { useEffect } from "react";
-import useFetch from "../../utils/useFetch/useFetch";
+import GET from "../../utils/GET/GET";
 import { useSelector, useDispatch } from "react-redux";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import { IMPORT_URL } from "../../utils/GET/URL";
 
 const MiniCarousel = () => {
 
@@ -11,7 +11,7 @@ const MiniCarousel = () => {
   const {activities} = useSelector(state => state);
 
   useEffect(() => {
-    useFetch(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=10', dispatch, "SET_DISCOUNT_LIST");
+    GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=10', dispatch, "SET_DISCOUNT_LIST");
   },[])
 
   return (

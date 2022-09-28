@@ -1,7 +1,6 @@
 import Head from "next/head";
 import "../styles/globals.css";
 import { Provider } from "react-redux";
-
 import store from "../store";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer/Footer";

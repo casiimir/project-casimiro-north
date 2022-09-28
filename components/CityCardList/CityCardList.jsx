@@ -2,14 +2,14 @@ import styles from "./index.module.scss";
 import CityCard from "../CityCard/CityCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useFetch from "../../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import GET from "../../utils/GET/GET";
+import { IMPORT_URL } from "../../utils/GET/URL";
 
 const CityCardList = () => {
   const dispatch = useDispatch();
   const { cities } = useSelector((state) => state);
   useEffect(() => {
-    useFetch(IMPORT_URL.CITIES, '?limit=20', dispatch, 'SET_CITY_LIST')
+    GET(IMPORT_URL.CITIES, '?limit=20', dispatch, 'SET_CITY_LIST')
   }, []);
   return (
     <div className={styles.CityCardList}>

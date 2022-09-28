@@ -2,8 +2,8 @@ import styles from "./index.module.scss";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
-import useFetch from "../../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import GET from "../../utils/GET/GET";
+import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
@@ -17,7 +17,7 @@ const CityCard = ({ data }) => {
 
   const handleCityClick = () => {
     console.log(id);
-    // useFecth(IMPORT_URL.CITIES, id, dispatch, 'SET_CITY')
+    // GET(IMPORT_URL.CITIES, id, dispatch, 'SET_CITY')
     router.push(`city/${name}&=${id}`);
   };
 
