@@ -11,11 +11,11 @@
 
   .description {
     font-size: 19px;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .activitiesDiv {
-    @include flex-container(column, $gap: 8px);
+    @include flex-container(column, $gap: 26px);
     .title {
       color: $MainDarkBlue;
       font-size: 1.2rem;
@@ -24,6 +24,7 @@
     }
 
     .activitiesList {
+      @include flex-container(column, $gap: 15px);
       .activity {
         @include flex-container($align: center);
         border-bottom: 1px solid $LightBlue;
@@ -52,7 +53,7 @@
     }
 
     .activitiesDiv {
-      @include flex-container(column, $gap: 23px);
+      @include flex-container(column, $gap: 40px);
       .title {
         font-size: 1.8rem;
       }
@@ -62,7 +63,7 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 20%;
-        // grid-row-gap: 20px;
+
         justify-content: space-between;
         box-sizing: border-box;
 
