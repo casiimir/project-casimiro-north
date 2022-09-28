@@ -1,15 +1,23 @@
 import styles from "./index.module.scss";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
-const ActivityCard = () => {
-    
-    return (
-      <div className={styles.ActivityCard}>
-        <img className={styles.img} src="https://images-sandbox.musement.com/cover/0024/83/thumb_2382476_cover_header.jpeg?w=540?fit=crop&h=225" alt="Activity photo" />
-        <div className={styles.overlay} /> 
-        <h5 className={styles.title}>EVERGLADES</h5>
-      </div>
-    );
+const ActivityCard = (catData) => {
+  const { name, code, cover_image_url, event_image_url, id, url } = catData;
+  const router = useRouter();
+  const handleActivityClick = () => {
+    console.log(id);
+    // useFecth(IMPORT_URL.CITIES, id, dispatch, 'SET_CITY')
+    // router.push(`city/${name}&=${id}`);
+    router.push(`activity/${url}-${id}`);
   };
-  
-  export default ActivityCard;
-  
+  return (
+    <div className={styles.ActivityCard}>
+      <img className={styles.img} src={cover_image_url} alt="Activity photo" />
+      <div onClick={handleActivityClick} className={styles.overlay} />
+      <h5 className={styles.title}>{name}</h5>
+    </div>
+  );
+};
+
+export default ActivityCard;
