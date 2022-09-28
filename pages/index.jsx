@@ -3,8 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState} from 'react';
-import useFetch  from '../utils/useFetch/useFetch';
-import { IMPORT_URL } from '../utils/useFetch/URL';
+import GET  from '../utils/GET/GET';
+import { IMPORT_URL } from '../utils/GET/URL';
 
 import Hero from '../components/Hero';
 import MiniCarousel from '../components/MiniCarousel';
@@ -16,7 +16,7 @@ export default function Home() {
   // const {cities} = useSelector(state => state)
 
   // useEffect(() => {
-  //     useFetch(IMPORT_URL.CITIES, '', dispatch, "SET_CITY_LIST" )
+  //     GET(IMPORT_URL.CITIES, '', dispatch, "SET_CITY_LIST" )
   // }, [])
 
   // console.log(cartData)

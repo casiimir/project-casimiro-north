@@ -2,14 +2,14 @@ import styles from "./index.module.scss";
 import ActivityCard from "../ActivityCard/ActivityCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useFetch from "../../utils/useFetch/useFetch";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import GET from "../../utils/GET/GET";
+import { IMPORT_URL } from "../../utils/GET/URL";
 
 const ActivityCardList = () => {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
   useEffect(() => {
-    useFetch(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
+    GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
   }, []);
 
   return (

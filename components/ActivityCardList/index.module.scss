@@ -34,7 +34,7 @@
 
 @media only screen and (min-width: 767px) {
     .ActivityCardList {
-        gap: 40px;
+        gap: 30px;
         padding-bottom: 40px;
 
         .Title {
@@ -46,7 +46,7 @@
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 280px 280px auto;
             // gap: 40px;
-            padding: 0 40px;
+            padding: 10px 40px;
         }
     }
 }
