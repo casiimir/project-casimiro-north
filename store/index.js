@@ -7,10 +7,12 @@ const initialState = {
   activities: {
     activityData: {},
     activityList: [],
+    discountList: []
   },
   cities: {
     cityData: {},
     cityList: [],
+    cityListHero: [],
   },
   navBarStatus: {
     isActive: false,
@@ -39,20 +41,26 @@ function activitiesReducer(state = {}, action) {
       return { ...state, activityData: action.payload };
     case "SET_ACTIVITY_LIST":
       return { ...state, activityList: action.payload };
+    case "SET_DISCOUNT_LIST":
+      return { ...state, discountList: action.payload};
     default:
       return state;
   }
 }
 
 function cityReducer(state = {}, action) {
-  switch (action.type) {
-    case "SET_CITY":
-      return { ...state, cityData: action.payload };
-    case "SET_CITY_LIST":
-      return { ...state, cityList: action.payload };
-    default:
-      return state;
-  }
+
+    switch (action.type) {
+        case "SET_CITY":
+            return {...state, cityData: action.payload};
+        case "SET_CITY_LIST":
+            return {...state, cityList: action.payload}
+        case "SET_CITY_HERO_LIST":
+            return {...state, cityListHero: action.payload}
+        default:
+            return state;
+    }
+
 }
 
 function navBarStatusReducer(state = {}, action) {

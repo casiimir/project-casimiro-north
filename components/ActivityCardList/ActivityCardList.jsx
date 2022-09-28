@@ -16,7 +16,7 @@ const ActivityCardList = () => {
     <div className={styles.ActivityCardList}>
       <h2 className={styles.Title}>Top Activities</h2>
       <div className={styles.Sublist}>
-        {activities.activityList.map((activity, index) => (
+        {activities?.activityList?.data?.filter((item) => item?.cover_image_url).filter((_, index) => index <= 5).map((activity, index) => (
           <ActivityCard catData={activity} key={index} />
         ))}
         {/* <ActivityCard />

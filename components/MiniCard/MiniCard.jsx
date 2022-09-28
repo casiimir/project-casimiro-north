@@ -1,10 +1,14 @@
 import styles from "./index.module.scss";
 
 const MiniCard = ({ cardData }) => {
-  const { id, url } = cardData;
+  const { id, discount, cover_image_url, city } = cardData;
+
+  console.log(cardData);
   return (
     <div className={styles.miniCard}>
-      <img src={url} key={id} id={id} />
+      <img src={cover_image_url} key={id} id={id} />
+      <p>{discount}</p>
+      <span>{city.name}</span>
     </div>
   );
 };
