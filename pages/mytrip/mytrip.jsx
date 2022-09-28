@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { IMPORT_URL } from "../../utils/useFetch/URL";
+import { IMPORT_URL } from "../../utils/GET/URL";
 import Link from "next/link";
 import CityCard from "../../components/CityCard/CityCard";
 
