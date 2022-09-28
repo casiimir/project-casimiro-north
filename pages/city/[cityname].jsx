@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
+import Hero from "../../components/Hero/Hero";
 import { useEffect } from "react";
 import useFetch from "../../utils/useFetch/useFetch";
 import styles from "./city.module.scss";
@@ -23,16 +23,16 @@ export default function CityPage() {
       );
   }, [cityname?.split("&=")[1]]);
 
-  return (
-    <div className={styles.City}>
-      <h1 style={{ color: "black", fontSize: "4rem" }}>
-        {cityname?.split("&=")[0]}
-      </h1>
-      <button onClick={() => console.log(data.cities.cityData)}>
-        città data
-      </button>
+    useEffect(() => {
+        cityname?.split('&=')[1] &&
+        useFetch(IMPORT_URL.CITIES, cityname?.split('&=')[1], dispatch, 'SET_CITY')
+    }, [cityname?.split('&=')[1]])
 
-      {/* <Link href="/yourtrip"></Link> */}
-    </div>
-  );
+    
+
+    return (
+        <div className={styles.City}>
+            <Hero type="CityPage"/>
+        </div>
+    )
 }
