@@ -121,19 +121,19 @@ const Hero = ({ type }) => {
             </div>
           </div>
           <div className={styles.maintexthero}>
-            <h1> PROVA </h1>
-            <h2>
-             Experiences
+            <h1> {cities.cityData.name} </h1>
+            <h2 >
+             {cities.cityData.headline}
             </h2>
           </div>
 
-          {/* <button
-            onClick={() => console.log(cities.cityListHero)}
+          <button
+            onClick={() => console.log(cities.cityData)}
             className={styles.explorebtn}
           >
             {" "}
             EXPLORE{" "}
-          </button> */}
+          </button>
         </>
       )}
     </div>
