@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { useEffect } from "react";
-import useFecth from "../../utils/useFetch/useFetch";
+import useFetch from "../../utils/useFetch/useFetch";
 import styles from "./city.module.scss";
 import { IMPORT_URL } from "../../utils/useFetch/URL";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ export default function CityPage() {
 
     useEffect(() => {
         cityname?.split('&=')[1] &&
-        useFecth(IMPORT_URL.CITIES, cityname?.split('&=')[1], dispatch, 'SET_CITY')
+        useFetch(IMPORT_URL.CITIES, cityname?.split('&=')[1], dispatch, 'SET_CITY')
     }, [cityname?.split('&=')[1]])
 
     

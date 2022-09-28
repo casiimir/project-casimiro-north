@@ -39,6 +39,7 @@
     bottom: 2%;
     left: 0;
     width: 100%;
+    
 
     .button_page {
       width: 20px;
@@ -47,6 +48,7 @@
       border: none;
       background: rgba(255, 255, 255, 0.212);
       transform: scale(0.7);
+      cursor: pointer;
 
       &.active {
         background: rgba(255, 255, 255, 0.788);
@@ -133,10 +135,10 @@
 
       h1 {
         font-weight: 800;
-        font-size: 5rem;
+        font-size: 4rem;
       }
       h2 {
-        font-size: 3rem;
+        font-size: 2rem;
       }
     }
 

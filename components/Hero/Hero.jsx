@@ -1,8 +1,14 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import useFetch from '../../utils/useFetch/useFetch';
+import { IMPORT_URL } from "../../utils/useFetch/URL";
 
 const Hero = () => {
   const [rightValue, setRightValue] = useState(0)
+  const dispatch = useDispatch();
+
+  const {cities} = useSelector(state => state);
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -17,62 +23,47 @@ const Hero = () => {
   };
 
   const change = () => {
-    if (touchStartX > touchEndX && rightValue < 3) {
+    if (touchStartX > touchEndX && rightValue < 7) {
       setRightValue((prev) => prev + 1);
-    } else {
-      setRightValue(0);
-    }
+    } 
     if (touchStartX < touchEndX && rightValue > 0) {
       setRightValue((prev) => prev - 1);
     }
   };
 
-  const buttons = [1,2,3,4,5,6,7,8]
-
-  const images = [
-    { 
-      url: "https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060",
-      title: 'Palermo'
-    },
-    { 
-      url:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      title: 'Catania'
-    },
-    {
-      url:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      title: 'Napoli'
-    },
-    {
-      url: "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80",
-      title: 'Milano'
-    }
-  ]
+  const handleRoundButtonClick = (item) => {
+    setRightValue(item)
+  }
 
   useEffect(() => {
     
     const interval = setInterval(() => {
       setRightValue(prev => prev + 1)
-    }, 4000)
+    }, 5000)
 
-    if (rightValue === 3) {
+    if (rightValue === 7) {
       setTimeout(()=>{
         setRightValue(0)
-      }, 4000) 
+      }, 5000) 
     }
 
     return () => clearInterval(interval);
   }, [rightValue])
+
+  useEffect(() => {
+    useFetch(IMPORT_URL.CITIES, '?limit=8', dispatch, 'SET_CITY_HERO_LIST')
+  },[])
 
   return (
     <div className={styles.hero}>
       
         <div onTouchStart={(e) => onTouchStart(e)} onTouchEnd={(e) => onTouchEnd(e)} className={styles.slider_container}> 
 
-          {images.map((item, index) =>
+          {cities?.cityListHero?.map((item, index) =>
             <div style={{right: `${rightValue * 100}vw`}} className={styles.img_container} key={index}>
               <div className={styles.overlay_gradient} />
               <img className={styles.background}
-                src={item.url}
+                src={item.cover_image_url}
                 alt="heroimg"
               />
             </div>
@@ -80,14 +71,15 @@ const Hero = () => {
 
         </div>
         <div className={styles.maintexthero}>
-          <h1> {images[rightValue].title} </h1>
-          <h2> Empty description </h2>
+          <h1> {cities?.cityListHero[rightValue]?.name} </h1>
+          <h2> {cities?.cityListHero[rightValue]?.headline ?? cities?.cityListHero[rightValue]?.meta_description
+.split(',')[0]} </h2>
         </div>
         <div className={styles.buttonslider}>
           {/*VVV TEST BUTTON VIEWS VVV*/}
-          {buttons.map((item)=> <button onClick={() => setRightValue(item - 1)} className={`${styles.button_page} ${(item - 1) === rightValue && styles.active}`} key={item}></button>)}
+          {cities?.cityListHero?.map((_, index)=> <button onClick={() => handleRoundButtonClick(index)} className={`${styles.button_page} ${(index) === rightValue && styles.active}`} key={index}></button>)}
         </div>
-        <button className={styles.explorebtn}> EXPLORE </button>
+        <button onClick={() => console.log(cities.cityListHero)} className={styles.explorebtn}> EXPLORE </button>
       </div>
    
   );

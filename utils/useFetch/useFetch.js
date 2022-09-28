@@ -1,6 +1,6 @@
 // import {useState, useEffect} from 'react';
 
-export default function useFecth(url, id = '', method = () => {}, type) {
+export default function useFetch(url, id = '', method = () => {}, type) {
 
 
 
