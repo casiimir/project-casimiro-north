@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useFetch from '../../utils/useFetch/useFetch';
 import { IMPORT_URL } from "../../utils/useFetch/URL";
 
-const Hero = () => {
+const Hero = ({type}) => {
   const [rightValue, setRightValue] = useState(0)
   const dispatch = useDispatch();
 
@@ -57,7 +57,8 @@ const Hero = () => {
   return (
     <div className={styles.hero}>
       
-        <div onTouchStart={(e) => onTouchStart(e)} onTouchEnd={(e) => onTouchEnd(e)} className={styles.slider_container}> 
+       { type === "Home" && <>
+       <div onTouchStart={(e) => onTouchStart(e)} onTouchEnd={(e) => onTouchEnd(e)} className={styles.slider_container}> 
 
           {cities?.cityListHero?.map((item, index) =>
             <div style={{right: `${rightValue * 100}vw`}} className={styles.img_container} key={index}>
@@ -73,13 +74,16 @@ const Hero = () => {
         <div className={styles.maintexthero}>
           <h1> {cities?.cityListHero[rightValue]?.name} </h1>
           <h2> {cities?.cityListHero[rightValue]?.headline ?? cities?.cityListHero[rightValue]?.meta_description
-.split(',')[0]} </h2>
+                .split(',')[0]} </h2>
         </div>
         <div className={styles.buttonslider}>
-          {/*VVV TEST BUTTON VIEWS VVV*/}
+         
           {cities?.cityListHero?.map((_, index)=> <button onClick={() => handleRoundButtonClick(index)} className={`${styles.button_page} ${(index) === rightValue && styles.active}`} key={index}></button>)}
         </div>
         <button onClick={() => console.log(cities.cityListHero)} className={styles.explorebtn}> EXPLORE </button>
+        </> 
+        }
+        {type === "City" && <div><p>PIPPO</p></div>}
       </div>
    
   );
