@@ -6,14 +6,45 @@
   width: 100px;
   flex: 0 0 auto;
   overflow: hidden;
+  position: relative;
 
   img {
     border-radius: 6px;
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
   }
+
+  p {
+    @include flex-container($align: center, $justify: center);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);
+
+    &::after {
+      content: '%'
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);
+  }
+
 }
 
 @media only screen and (min-width: 767px) {

@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
-      <Hero />
+      <Hero type="Home"/>
       {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>

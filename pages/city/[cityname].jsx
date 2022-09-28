@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
+import Hero from "../../components/Hero/Hero";
 import { useEffect } from "react";
-import useFecth from "../../utils/useFetch/useFetch";
+import useFetch from "../../utils/useFetch/useFetch";
 import styles from "./city.module.scss";
 import { IMPORT_URL } from "../../utils/useFetch/URL";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +16,7 @@ export default function CityPage() {
 
   useEffect(() => {
     cityname?.split("&=")[1] &&
-      useFecth(
+      useFetch(
         IMPORT_URL.CITIES,
         cityname?.split("&=")[1],
         dispatch,
@@ -23,15 +24,10 @@ export default function CityPage() {
       );
   }, [cityname?.split("&=")[1]]);
 
-  return (
-    <div className={styles.City}>
-      <h1 style={{ color: "black", fontSize: "2rem" }}>
-        {cityname?.split("&=")[0]}
-      </h1>
-      <CityMainSection />
-      <button onClick={() => console.log(data.cities.cityData)}>
-        città data
-      </button>
-    </div>
-  );
+    return (
+        <div className={styles.City}>
+            <Hero type="CityPage"/>
+            <CityMainSection />
+        </div>
+    )
 }
