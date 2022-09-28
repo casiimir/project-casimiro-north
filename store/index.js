@@ -7,6 +7,7 @@ const initialState = {
   activities: {
     activityData: {},
     activityList: [],
+    discountList: []
   },
   cities: {
     cityData: {},
@@ -40,6 +41,8 @@ function activitiesReducer(state = {}, action) {
       return { ...state, activityData: action.payload };
     case "SET_ACTIVITY_LIST":
       return { ...state, activityList: action.payload };
+    case "SET_DISCOUNT_LIST":
+      return { ...state, discountList: action.payload};
     default:
       return state;
   }

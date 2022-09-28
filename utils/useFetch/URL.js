@@ -4,6 +4,6 @@ export const IMPORT_URL = {
         return this.BASE_URL + "cities/"
     },
     get ACTIVITIES () {
-        return this.BASE_URL + "activities/"
+        return this.BASE_URL + "activities"
     }
 }
