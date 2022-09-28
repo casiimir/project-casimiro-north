@@ -32,7 +32,7 @@ export default function CityPage() {
         città data
       </button>
 
-      {/* <Link to="../yourtrip/yourtrip"></Link> */}
+      {/* <Link href="/yourtrip"></Link> */}
     </div>
   );
 }
