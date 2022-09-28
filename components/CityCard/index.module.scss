@@ -3,13 +3,9 @@
 
 .CityCard {
   @include flex-container();
-  background: linear-gradient(
-    180deg,
-    rgba(16, 43, 49, 0) 55.21%,
-    rgba(1, 35, 49, 0.97) 100%
-  );
+  
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.333);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.615);
   cursor: pointer;
   overflow: hidden;
   position: relative;
@@ -22,6 +18,19 @@
     box-shadow: 0 4px 12px 0 rgb(0 0 0 / 6%);
     transition: 0.2s;
     filter: saturate(1.3) contrast(1.1);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+    180deg,
+    rgba(16, 43, 49, 0) 55.21%,
+    rgba(1, 35, 49, 0.75) 100%
+  );
   }
 
   .Image {
@@ -37,18 +46,18 @@
     right: 0;
     position: absolute;
     z-index: 1;
-    min-width: 20%;
+    min-width: 50%;
 
     .Text {
       box-sizing: border-box;
       color: white;
       font-style: normal;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 15px;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.72);
       width: 100%;
-      text-align: center;
+      text-align: left;
       padding: 0 5px;
     }
 
@@ -67,7 +76,7 @@
       position: relative;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.72);
       width: 100%;
-      text-align: center;
+      text-align: left;
       padding: 0 5px;
     }
   }
@@ -91,8 +100,10 @@
 
   .Content {
     min-width: 28%;
+    gap: 7px;
+
     .Text {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       text-align: left;
     }
 

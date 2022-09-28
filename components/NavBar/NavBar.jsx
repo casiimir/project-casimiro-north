@@ -3,11 +3,13 @@ import {HiSearch} from 'react-icons/hi';
 import { AiFillHome, AiFillCompass, AiOutlineStar, AiFillInfoCircle } from 'react-icons/ai';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
+import { useRouter } from "next/router"
 
 export default function NavBar () {
 
     const {navBarStatus} = useSelector(state => state)
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const menu = [
         {
@@ -58,10 +60,14 @@ export default function NavBar () {
         dispatch({type: 'SET_INPUT_INACTIVE'})
     }
 
+    const handleLogoClick = () => {
+        router.push('/');
+    }
+
     return (
         <div className={styles.Main_Navbar}>
         <div className={styles.NavBar}>
-            <h2>LOGO</h2>
+            <h2 onClick={handleLogoClick}>LOGO</h2>
             
             
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>

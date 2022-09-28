@@ -40,9 +40,9 @@ function activitiesReducer(state = {}, action) {
 function cityReducer(state = {}, action) {
     switch (action.type) {
         case "SET_CITY":
-            return {cityData: action.payload};
+            return {...state, cityData: action.payload};
         case "SET_CITY_LIST":
-            return {cityList: action.payload}
+            return {...state, cityList: action.payload}
         default:
             return state;
     }
