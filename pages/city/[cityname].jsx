@@ -7,32 +7,26 @@ import { IMPORT_URL } from "../../utils/useFetch/URL";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CityPage() {
-  const router = useRouter();
-  const { cityname } = router.query;
-  const dispatch = useDispatch();
 
-  const data = useSelector((state) => state);
+    const router = useRouter();
+    const {cityname} = router.query;
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    cityname?.split("&=")[1] &&
-      useFetch(
-        IMPORT_URL.CITIES,
-        cityname?.split("&=")[1],
-        dispatch,
-        "SET_CITY"
-      );
-  }, [cityname?.split("&=")[1]]);
+    const data = useSelector(state => state);
+    
 
-  return (
-    <div className={styles.City}>
-      <h1 style={{ color: "black", fontSize: "4rem" }}>
-        {cityname?.split("&=")[0]}
-      </h1>
-      <button onClick={() => console.log(data.cities.cityData)}>
-        città data
-      </button>
+    useEffect(() => {
+        cityname?.split('&=')[1] &&
+        useFetch(IMPORT_URL.CITIES, cityname?.split('&=')[1], dispatch, 'SET_CITY')
+    }, [cityname?.split('&=')[1]])
 
-      {/* <Link to="../yourtrip/yourtrip"></Link> */}
-    </div>
-  );
+    
+
+    return (
+        <div className={styles.City}>
+            <h1 style={{color: 'black', fontSize: '4rem'}}>{cityname?.split('&=')[0]}</h1>
+            <button onClick={() => console.log(data.cities.cityData)}>città data</button>
+        </div>
+    )
+
 }

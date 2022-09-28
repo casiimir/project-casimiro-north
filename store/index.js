@@ -11,6 +11,7 @@ const initialState = {
   cities: {
     cityData: {},
     cityList: [],
+    cityListHero: [],
   },
   navBarStatus: {
     isActive: false,
@@ -45,14 +46,18 @@ function activitiesReducer(state = {}, action) {
 }
 
 function cityReducer(state = {}, action) {
-  switch (action.type) {
-    case "SET_CITY":
-      return { ...state, cityData: action.payload };
-    case "SET_CITY_LIST":
-      return { ...state, cityList: action.payload };
-    default:
-      return state;
-  }
+
+    switch (action.type) {
+        case "SET_CITY":
+            return {...state, cityData: action.payload};
+        case "SET_CITY_LIST":
+            return {...state, cityList: action.payload}
+        case "SET_CITY_HERO_LIST":
+            return {...state, cityListHero: action.payload}
+        default:
+            return state;
+    }
+
 }
 
 function navBarStatusReducer(state = {}, action) {
