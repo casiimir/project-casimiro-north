@@ -140,6 +140,10 @@
             li {
                 @include flex-container($gap: 20px, $align: center);
                 cursor: pointer;
+
+                .circle {
+                    display: none;
+                }
             }
         }
 
@@ -163,21 +167,10 @@
         box-shadow: none;
         min-height: 8vh;
 
-        .row {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 80%;
-            display: block;
-            height: 2px;
-            width: auto;
-            margin: 0 45px;
-            background-color: rgba(255, 255, 255, 0.563);
-        }
-
         .NavBar { 
             height: 8vh;
             box-sizing: border-box;
+            justify-content: flex-start;
 
             .navbar_container {
                 position: static;
@@ -197,7 +190,19 @@
                     
                     .search_icon {
                         position: static;
+                        font-size: 1.2rem;
+                        color: rgba(255, 255, 255, 0.811);
+                        cursor: pointer;
+
+                        &:hover {
+                            color: white;
+                            transform: scale(1.2);
+                        }
                     }    
+                        // NASCOSTO AL MOMENTO vvvvv
+                    .search_input {
+                        display: none;
+                    }
                 }
             }
 
@@ -209,21 +214,63 @@
                 left: auto;
                 right: auto;
                 width: auto;
-                color: white;
+                color: rgba(255, 255, 255, 0.726);
                 background: none;
                 backdrop-filter: none;
                 opacity: 1;
+                flex-grow: 1;
+                
                 
 
                 .navbar_list {
-                    @include flex-container($gap: 40px);
+                    @include flex-container($justify: space-evenly);
                     box-sizing: border-box;
+                    position: relative;
+
+                    .row {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -100%;
+                        display: block;
+                        height: 1px;
+                        margin: 0;
+                        background-color: rgba(255, 255, 255, 0.385);
+                    }
 
                     li {
-                        font-size: 1.0rem;
+                        font-size: 0.8rem;
                         text-transform: uppercase;
+                        letter-spacing: 4px;
+                        transition: all .35s;
+                        position: relative;
+                        padding: 0;
+                        margin: 0;
+                        flex: 0 0 auto;
+
+                        &:hover {
+                            color: white;
+                            transform: scale(1.01);
+                            text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                            font-weight: 300;
+                        }
                         .icon {
                             display: none;
+                        }
+
+                        .circle {
+                            position: absolute;
+                            left: 52%;
+                            bottom: -136%;
+                            display: block;
+                            height: 10px;
+                            width: 10px;
+                            background-color: rgba(255, 255, 255, 0);
+                            border-radius: 100%;
+
+                            &.active {
+                                background-color: rgb(255, 255, 255);
+                            }
                         }
                     }
                 }

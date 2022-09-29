@@ -12,6 +12,8 @@ export default function NavBar () {
     const dispatch = useDispatch();
     const router = useRouter();
 
+    console.log(router)
+
     const menu = [
         {
             name: 'Home',
@@ -78,9 +80,14 @@ export default function NavBar () {
                             <li >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
+                                <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>
                             </li>
                         </Link>
                     )}
+                    
+                    <div className={styles.row} >
+        </div>
+
                 </ul>
             </div>
             <div className={styles.navbar_container}>
@@ -96,7 +103,7 @@ export default function NavBar () {
             </div>
             <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
         </div>
-        <div className={styles.row} />
+        
         </div>
     )
 }
