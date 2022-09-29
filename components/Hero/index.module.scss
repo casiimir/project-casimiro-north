@@ -20,6 +20,7 @@
     padding: 0 30px;
     box-sizing: border-box;
     width: 100%;
+    pointer-events: none;
 
     h1 {
       font-weight: 800;
@@ -30,6 +31,46 @@
     h2 {
       font-size: 1.5rem;
       flex: 0 0 auto;
+    }
+  }
+
+  .text_container_city {
+    @include flex-container($direction:column);
+    z-index: 3;
+    position: absolute;
+    bottom: 10%;
+    width: 50%;
+    gap: 8px;
+    left: 0;
+    padding: 20px 0;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
+    
+
+    h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      padding-left: 50px;
+      text-align: right;
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    .row_title {
+      height: 2px;
+      background-color: white;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1rem;
+      padding-left: 50px;
+      text-align: right;
+      box-sizing: border-box;
+      font-weight: 200;
+      width: 100%;
+      text-transform: uppercase;
     }
   }
   .buttonslider {
@@ -62,6 +103,10 @@
     width: 100vw;
     overflow: hidden;
 
+    .swiper_button_container {
+      display: none;
+    }
+
     .img_container{
       position: relative;
       width: 100vw;
@@ -92,21 +137,37 @@
     }
 }
 
-  .explorebtn {
-    color: white;
-    width: 110px;
-    height: 40px;
-    z-index: 4;
-    position: absolute;
-    bottom: 10%;
-    right: 0;
-    margin-right: 30px;
-    font-weight: 500;
-    font-size: 1.0rem;
-    background-color: $MainButtonBlue;
-    border: none;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
-    border-radius: 5px;
+  .button_shadow {
+        z-index: 4;
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        margin-right: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 4 8px rgba(0, 0, 0, 0.344);
+
+      .explorebtn {
+        color: white;
+        width: 110px;
+        height: 40px;
+        font-weight: 500;
+        font-size: 1.0rem;
+        background-color: $MainButtonBlue;
+        border: none;
+        box-shadow: inset 0px 8px 8px rgba(255, 255, 255, 0.253);
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0b697e;
+        }
+        
+
+        &:active {
+          box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
+        }
+      }
   }
 }
 
@@ -142,6 +203,43 @@
       }
     }
 
+    .text_container_city {
+      @include flex-container($direction:column);
+      z-index: 3;
+      position: absolute;
+      bottom: 10%;
+      width: 40%;
+      gap: 16px;
+      left: 0;
+      padding: 50px 0;
+      color: white;
+      text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
+
+      h1 {
+        font-weight: 800;
+        font-size: 4rem;
+        padding-left: 50px;
+        text-align: right;
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        width: 100%;
+      }
+
+      .row_title {
+        height: 2px;
+        background-color: white;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 2rem;
+        padding-left: 50px;
+        text-align: right;
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+
     .buttonslider {
       @include flex-container(row, center, stretch, nowrap, 5px);
       z-index: 1;
@@ -159,34 +257,73 @@
       }
     }
 
-    // img {
-    //   width: 100%;
-    //   height: 100%;
-    //   object-fit: cover;
-    //   filter: blur(3px);
-    // }
-
     .slider_container {
   
+      .swiper_button_container {
+        @include flex-container($align: center, $justify: space-between); 
+        position: absolute;
+        color: white;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        pointer-events: none;
+
+        button {
+          color: rgba(255, 255, 255, 0.68);
+          font-size: 2.5rem;
+          border: 0;
+          background: none;
+          height: 100%;
+          cursor: pointer;
+          transition: all 0.2s;
+          pointer-events: all;
+          padding: 0;
+
+          &:hover {
+            transform: scale(1.08);
+            background-color: rgba(0, 0, 0, 0.088);
+          }
+        }
+      }
+
       .img_container{
         flex: 0 0 auto;
       }
   }
 
+  .button_shadow {
+    z-index: 4;
+    position: absolute;
+    bottom: 18%;
+    left: 84%;
+    width: max-content;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4 8px rgba(0, 0, 0, 0.344);
+
     .explorebtn {
+      padding: 0;
+      margin: 0;
       color: white;
       width: 140px;
       height: 60px;
-      z-index: 4;
-      position: absolute;
-      bottom: 18%;
-      left: 84%;
       font-weight: 500;
       font-size: 1.3rem;
       background-color: $MainButtonBlue;
       border: none;
-      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
-      border-radius: 5px;
-    }
+      box-shadow: inset 0px 8px 8px rgba(255, 255, 255, 0.253);
+
+      &:hover {
+        background-color: #0b697e;
+      }
+      
+
+      &:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
+      }
   }
+}
+}
 }

@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../../components/Hero/Hero";
 import { useEffect } from "react";
-import GET from "../../utils/GET/GET";
+import GET from "../../../utils/GET/GET";
 import styles from "./city.module.scss";
-import { IMPORT_URL } from "../../utils/GET/URL";
+import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
-import CityMainSection from "../../components/CityMainSection/CityMainSection";
+import CityMainSection from "../../../components/CityMainSection/CityMainSection";
 
 export default function CityPage() {
   const router = useRouter();

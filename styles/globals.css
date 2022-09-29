@@ -20,7 +20,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -43,4 +43,20 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+.myswiper {
+	height: 40vh;
+}
+
+.swiper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+	.myswiper {
+		height: 60vh;
+	}
 }

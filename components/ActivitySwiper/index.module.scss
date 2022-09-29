@@ -1,0 +1,78 @@
+@import "../../styles/mixins";
+
+.ActivitySwiper {
+    position: relative;
+
+    .today_text {
+        @include flex-container($align: center);
+        position: absolute;
+        top: 10%;
+        left: 0;
+        color:rgba(255, 255, 255, 0.94);
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.246);
+        padding: 0 20px;
+        height: 20%;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 2;
+        background: linear-gradient(90deg, rgba(109, 164, 187, 0.76) 0%, rgba(217, 217, 217, 0) 75.69%);
+    }
+
+    .swiper_container {
+        height: 100%;
+        position: relative;
+
+        .text_container {
+            @include flex-container($direction: column, $gap: 10px);
+            position: absolute;
+            bottom: 0;
+            height: 50%;
+            width: 100%;
+            padding: 0 50px;
+            box-sizing: border-box;
+            background: rgb(5,40,55);
+            background: linear-gradient(0deg, rgba(5,40,55,0.8519782913165266) 0%, rgba(9,9,121,0) 100%);
+            color: white;
+            text-shadow: 0 0 8px rgb(5,40,55);
+
+            h3 {
+                font-weight: bold;
+                text-shadow: 0 0 10px rgb(5,40,55);
+            }
+
+            .description {
+                font-size: 0.6rem;
+                line-height: 12px;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+
+    .ActivitySwiper {
+
+        .today_text {
+            padding: 0 50px;
+            letter-spacing: 8px;
+            font-size: 5rem;
+        }
+
+        .swiper_container {
+            
+            .text_container {
+                height: 40%;
+                h3 {
+                    font-size: 2rem;
+                }
+                .description {
+                    font-size: 1.2rem;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}

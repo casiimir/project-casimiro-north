@@ -20,6 +20,7 @@
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     width: auto;
     overflow-x: scroll; 
+    overflow-y: hidden;
     padding: 10px 20px;
     box-sizing: border-box;
 

@@ -1,24 +1,20 @@
 import styles from "./index.module.scss";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { useState } from "react";
-import Link from "next/link";
-import GET from "../../utils/GET/GET";
-import { IMPORT_URL } from "../../utils/GET/URL";
+import { FaRegHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 const CityCard = ({ data }) => {
-  // const [fav, setFav] = useState(false);
 
   const { name, cover_image_url, activities_count, id } = data;
-  const dispatch = useDispatch();
   const router = useRouter();
   const onBtnClick = () => {};
+  const dispatch = useDispatch();
 
   const handleCityClick = () => {
     console.log(id);
-    // GET(IMPORT_URL.CITIES, id, dispatch, 'SET_CITY')
     router.push(`city/${name}&=${id}`);
+    dispatch({type: "SET_CITY", payload: []})
+    dispatch({type: "SET_ACTIVITY_TOP_LIST", payload: []})
   };
 
   return (
@@ -31,8 +27,7 @@ const CityCard = ({ data }) => {
         <div className={styles.Row} />
         <p className={styles.Description}>{activities_count} Experiences</p>
       </div>
-      <FaRegHeart className={styles.Heart} onClick={onBtnClick} />
-      {/* <FaHeart/> */}
+      {/* <FaRegHeart className={styles.Heart} onClick={onBtnClick} /> */}
     </div>
   );
 };

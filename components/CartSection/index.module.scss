@@ -1,0 +1,91 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+.cartSection {
+  @include flex-container(column, $gap: 2.5rem);
+
+  color: white;
+  box-sizing: border-box;
+  padding: 40px;
+
+  .title {
+    font-size: 1.7rem;
+
+    span {
+      color: rgba(255, 255, 255, 0.47);
+      font-weight: bold;
+    }
+  }
+
+  .cartList {
+    @include flex-container(column, $gap: 1rem);
+
+    margin-bottom: 2rem;
+  }
+  .cartTotal {
+    @include flex-container($align: center);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.333);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.663);
+    height: 2.9rem;
+
+    .cartTotalText {
+      display: inline-block;
+      width: 50%;
+      font-size: 1.2rem;
+    }
+
+    .cartTotalText:nth-child(1) {
+      font-weight: bold;
+    }
+
+    .cartTotalText:nth-child(2) {
+      text-align: end;
+    }
+  }
+
+  .paymentDiv {
+    @include flex-container(column, $gap: 1.9rem);
+    color: white;
+
+    h4 {
+      font-weight: 400;
+    }
+
+    .paymentChoices {
+      @include flex-container(column, $gap: 1rem);
+
+      .paymentChoice {
+        
+        span:nth-child(1) {
+          margin-right: 1rem;
+        }
+
+        .paymentMethod {
+          font-weight: 300;
+
+          &.active {
+            border-bottom: 2px solid white;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .paymentBtn {
+    color: $MainButtonBlue;
+    font-weight: 700;
+    font-size: 0.9rem;
+    align-self: flex-end;
+    padding: 6px;
+    width: 65px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: inset 3px 4px 10px rgba(0, 0, 0, 0.401);
+    background-color: white;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+}
