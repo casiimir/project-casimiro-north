@@ -21,7 +21,7 @@ export default function ActivitySwiper () {
   useEffect(()=>{
     cityname?.split("&=")[1] &&
       GET(IMPORT_URL.CITIES, `${cityname?.split("&=")[1]}/activities?limit=10`, dispatch, "SET_TODAY_ACTIVITIES")
-  }, [])
+  }, [cityname])
 
   
 
