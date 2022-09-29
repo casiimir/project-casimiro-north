@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
@@ -39,8 +40,21 @@ const Hero = ({ type }) => {
     }
   };
 
+  const handleBackClick = () => {
+    if (rightValue > 0) {
+      setRightValue((prev) => prev - 1);
+    }
+  }
+
+  const handleNextClick = () => {
+    if (rightValue < 7) {
+      setRightValue((prev) => prev + 1);
+    }
+  }
+
   const handleRoundButtonClick = (item) => {
     setRightValue(item);
+    setIsStoppedInterval(true);
   };
 
   const handleExploreButtonClick = () => {
@@ -76,6 +90,14 @@ if (!isStoppedInterval) {
             onTouchEnd={(e) => onTouchEnd(e)}
             className={styles.slider_container}
           >
+            <div className={styles.swiper_button_container}>
+              <button onClick={handleBackClick} style={rightValue > 0 ? {opacity: '1'} : {opacity: 0, pointerEvents: 'none'}}>
+                <MdArrowBackIosNew />
+              </button>
+              <button onClick={handleNextClick} style={rightValue < 7 ? {opacity: '1'} : {opacity: 0, pointerEvents: 'none'}}>
+                <MdArrowForwardIos />
+              </button>
+            </div>
             {cities?.cityListHero?.map((item, index) => (
               <div
                 style={{ right: `${rightValue * 100}vw` }}

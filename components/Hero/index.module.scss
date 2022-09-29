@@ -62,6 +62,10 @@
     width: 100vw;
     overflow: hidden;
 
+    .swiper_button_container {
+      display: none;
+    }
+
     .img_container{
       position: relative;
       width: 100vw;
@@ -168,6 +172,35 @@
 
     .slider_container {
   
+      .swiper_button_container {
+        @include flex-container($align: center, $justify: space-between); 
+        position: absolute;
+        color: white;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        pointer-events: none;
+
+        button {
+          color: white;
+          font-size: 2.5rem;
+          border: 0;
+          background: none;
+          height: 100%;
+          cursor: pointer;
+          transition: all 0.2s;
+          pointer-events: all;
+          padding: 0;
+
+          &:hover {
+            transform: scale(1.08);
+            background-color: rgba(0, 0, 0, 0.088);
+          }
+        }
+      }
+
       .img_container{
         flex: 0 0 auto;
       }
