@@ -59,6 +59,7 @@ const Hero = ({ type }) => {
 
   const handleExploreButtonClick = () => {
     router.push(`city/${cities?.cityListHero[rightValue]?.name}&=${cities?.cityListHero[rightValue]?.id}`);
+    dispatch({type: "SET_CITY", payload: []})
   }
 
   useEffect(() => {
@@ -149,7 +150,7 @@ if (!isStoppedInterval) {
               <div className={styles.overlay_gradient} />
               <img
                 className={styles.background}
-                src="https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060"
+                src={cities.cityData.cover_image_url}
                 alt="heroimg"
               />
             </div>

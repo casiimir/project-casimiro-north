@@ -1,9 +1,5 @@
 import styles from "./index.module.scss";
 import { FaRegHeart } from "react-icons/fa";
-import { useState } from "react";
-import Link from "next/link";
-import GET from "../../utils/GET/GET";
-import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
@@ -12,10 +8,12 @@ const CityCard = ({ data }) => {
   const { name, cover_image_url, activities_count, id } = data;
   const router = useRouter();
   const onBtnClick = () => {};
+  const dispatch = useDispatch();
 
   const handleCityClick = () => {
     console.log(id);
     router.push(`city/${name}&=${id}`);
+    dispatch({type: "SET_CITY", payload: []})
   };
 
   return (
