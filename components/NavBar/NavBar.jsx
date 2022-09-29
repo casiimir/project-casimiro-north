@@ -19,8 +19,8 @@ export default function NavBar () {
             icon: <AiFillHome className={styles.icon}/>
         },
         {
-            name: 'Discover',
-            path: '/discover',
+            name: 'My Trip',
+            path: '/mytrip',
             icon: <AiFillCompass className={styles.icon}/>
         },
         {
