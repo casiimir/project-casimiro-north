@@ -12,8 +12,6 @@ export default function NavBar () {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    console.log(router)
-
     const menu = [
         {
             name: 'Home',
@@ -21,8 +19,8 @@ export default function NavBar () {
             icon: <AiFillHome className={styles.icon}/>
         },
         {
-            name: 'Discover',
-            path: '/discover',
+            name: 'My Trip',
+            path: '/mytrip',
             icon: <AiFillCompass className={styles.icon}/>
         },
         {
@@ -65,6 +63,7 @@ export default function NavBar () {
 
     const handleLogoClick = () => {
         router.push('/');
+        dispatch({type: 'SET_CLOSE'})
     }
 
     return (
@@ -77,7 +76,7 @@ export default function NavBar () {
                 <ul className={styles.navbar_list}>
                     {menu.map((item, index)=> 
                         <Link href={item.path} key={index}>
-                            <li >
+                            <li onClick={() => dispatch({type: 'SET_CLOSE'})} >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
                                 <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>

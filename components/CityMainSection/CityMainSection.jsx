@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import ActivitySwiper from "../ActivitySwiper/ActivitySwiper";
 import styles from "./index.module.scss";
 
 const CityMainSection = () => {
@@ -43,13 +44,21 @@ const CityMainSection = () => {
       <div className={styles.activitiesDiv}>
         <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
         <div className={styles.activitiesList}>
-          {activities?.activityTopList?.map((data) => (
+          {!activities.activityTopList.message ? 
+          
+          activities?.activityTopList?.map((data) => (
             <div className={styles.activity} key={data.id}>
               <a>{data.title}</a>
-            </div>
-          ))}
+            </div> 
+          ))
+          
+          : <div className={styles.activity}>
+          <a>No Activities!</a>
+        </div> 
+        }
         </div>
       </div>
+      <ActivitySwiper />
     </div>
   );
 };
