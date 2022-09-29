@@ -1,10 +1,10 @@
 import styles from "./activity.module.scss";
 import { useRouter } from "next/router";
-import Hero from "../../components/Hero/Hero";
-import ActivityMainSection from "../../components/ActivityMainSection/ActivityMainSection";
+import Hero from "../../../components/Hero/Hero";
+import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
 import { useEffect } from "react";
-import GET from "../../utils/GET/GET";
-import { IMPORT_URL } from "../../utils/GET/URL";
+import GET from "../../../utils/GET/GET";
+import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function ActivityPage() {

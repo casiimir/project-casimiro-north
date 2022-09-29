@@ -24,19 +24,6 @@ const CityMainSection = () => {
       );
   }, [cityname]);
 
-  const arrayActivities = [
-    { id: 1, title: "arte e cultura" },
-    { id: 2, title: "arte e cultura" },
-    { id: 3, title: "arte e cultura" },
-    { id: 4, title: "arte e cultura" },
-    { id: 5, title: "arte e cultura" },
-    { id: 6, title: "arte e cultura" },
-    { id: 7, title: "arte e cultura" },
-    { id: 8, title: "arte e cultura" },
-    { id: 9, title: "arte e cultura" },
-    { id: 10, title: "arte e cultura" },
-  ];
-
   console.log(activities.activityTopList);
   return (
     <div className={styles.CityMainSection}>
@@ -48,7 +35,7 @@ const CityMainSection = () => {
           
           activities?.activityTopList?.map((data) => (
             <div className={styles.activity} key={data.id}>
-              <a>{data.title}</a>
+              <Link href={`${cityname}/category/${data.title}`}><a className={styles.categorylink}>{data.title}</a></Link>
             </div> 
           ))
           
