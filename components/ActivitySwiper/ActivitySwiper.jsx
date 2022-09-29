@@ -26,7 +26,8 @@ export default function ActivitySwiper () {
   
 
     return (
-      <div>
+      <div className={styles.ActivitySwiper}>
+        <div className={styles.today_text}>Today</div>
         <Swiper 
         className='myswiper'
         modules={[Navigation]}
@@ -36,16 +37,20 @@ export default function ActivitySwiper () {
           "--swiper-pagination-color": "#fff",
         }}
          >
+          
+            
           {!activities.activitiesTodayList.message && 
             activities?.activitiesTodayList?.data?.map((item, index) =>
               <SwiperSlide key={index}>
                 <div className={styles.swiper_container}>
                     <img src={item.cover_image_url} alt="activity" /> 
-                    <h3>{item.title}</h3>
+                    <div className={styles.text_container}>
+                      <h3>{item.title}</h3>
+                      <p className={styles.description}>{item.description}</p>
+                    </div>
                 </div>
               </SwiperSlide>
           )}
-          
         </Swiper>
       </div>
     );
