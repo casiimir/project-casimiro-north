@@ -4,12 +4,17 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import { useRouter } from "next/router";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
+  const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();
 
+  const interval = () => {}
+
   const { cities } = useSelector((state) => state);
+  const router = useRouter();
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -26,9 +31,11 @@ const Hero = ({ type }) => {
   const change = () => {
     if (touchStartX > touchEndX && rightValue < 7) {
       setRightValue((prev) => prev + 1);
+      setIsStoppedInterval(true);
     }
     if (touchStartX < touchEndX && rightValue > 0) {
       setRightValue((prev) => prev - 1);
+      setIsStoppedInterval(true);
     }
   };
 
@@ -36,8 +43,13 @@ const Hero = ({ type }) => {
     setRightValue(item);
   };
 
+  const handleExploreButtonClick = () => {
+    router.push(`city/${cities?.cityListHero[rightValue]?.name}&=${cities?.cityListHero[rightValue]?.id}`);
+  }
+
   useEffect(() => {
-    const interval = setInterval(() => {
+if (!isStoppedInterval) {
+    interval = setInterval(() => {
       setRightValue((prev) => prev + 1);
     }, 5000);
 
@@ -46,9 +58,10 @@ const Hero = ({ type }) => {
         setRightValue(0);
       }, 5000);
     }
+  } else { clearInterval(interval) }
 
     return () => clearInterval(interval);
-  }, [rightValue]);
+  }, [rightValue, isStoppedInterval]);
 
   useEffect(() => {
     GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
@@ -100,11 +113,10 @@ const Hero = ({ type }) => {
             ))}
           </div>
           <button
-            onClick={() => console.log(cities.cityListHero)}
+            onClick={handleExploreButtonClick}
             className={styles.explorebtn}
           >
-            {" "}
-            EXPLORE{" "}
+            EXPLORE
           </button>
         </>
       )}

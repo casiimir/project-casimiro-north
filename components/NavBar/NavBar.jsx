@@ -75,7 +75,7 @@ export default function NavBar () {
                 <ul className={styles.navbar_list}>
                     {menu.map((item, index)=> 
                         <Link href={item.path} key={index}>
-                            <li >
+                            <li onClick={() => dispatch({type: 'SET_CLOSE'})} >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
                                 <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>

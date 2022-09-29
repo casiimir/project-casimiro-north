@@ -41,11 +41,18 @@ const CityMainSection = () => {
       <div className={styles.activitiesDiv}>
         <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
         <div className={styles.activitiesList}>
-          {activities?.activityTopList?.map((data) => (
+          {!activities.activityTopList.message ? 
+          
+          activities?.activityTopList?.map((data) => (
             <div className={styles.activity} key={data.id}>
               <a>{data.title}</a>
-            </div>
-          ))}
+            </div> 
+          ))
+          
+          : <div className={styles.activity}>
+          <a>No Activities!</a>
+        </div> 
+        }
         </div>
       </div>
     </div>

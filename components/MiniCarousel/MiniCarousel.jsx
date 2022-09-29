@@ -18,12 +18,9 @@ const MiniCarousel = () => {
     <div className={styles.miniCarousel}>
       <h3 className={styles.title}>Voucher for you</h3>
       <div className={styles.voucherDiv}>
-        {activities?.discountList?.data?.map((cardData) => (
-          // <div>
-          //   <img src={cardData.url} key={cardData.id} id={cardData.id} />
-          // </div>
-          <MiniCard cardData={cardData} key={cardData.id} />
-        ))}
+        {activities?.discountList?.data?.map((cardData, index) => 
+          <MiniCard cardData={cardData} key={index} />
+        )}
       </div>
     </div>
   );
