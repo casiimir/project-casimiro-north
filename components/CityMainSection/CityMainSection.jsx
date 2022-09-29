@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import ActivitySwiper from "../ActivitySwiper/ActivitySwiper";
 import styles from "./index.module.scss";
 
 const CityMainSection = () => {
@@ -55,6 +56,7 @@ const CityMainSection = () => {
         }
         </div>
       </div>
+      <ActivitySwiper />
     </div>
   );
 };
