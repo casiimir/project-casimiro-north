@@ -1,4 +1,6 @@
 import CartSectionItem from "../CartSectionItem/CartSectionItem";
+import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
+import { FaGooglePay } from "react-icons/fa";
 import styles from "./index.module.scss";
 
 const CartSection = () => {
@@ -41,6 +43,21 @@ const CartSection = () => {
     },
   ];
 
+  const paymentmethods = [
+    {
+      name: "CREDIT CARD / DEBIT CARD",
+      icon: <BsFillCreditCard2BackFill className={styles.icon} />,
+    },
+    {
+      name: "PAYPAL",
+      icon: <BsPaypal className={styles.icon} />,
+    },
+    {
+      name: "G-PAY",
+      icon: <FaGooglePay className={styles.icon} />,
+    },
+  ];
+
   return (
     <div className={styles.cartSection}>
       <h1 className={styles.title}>
@@ -55,7 +72,19 @@ const CartSection = () => {
         <h3 className={styles.cartTotalText}>TOT</h3>
         <h3 className={styles.cartTotalText}>millemila euri</h3>
       </div>
-      <div className={styles.paymentDiv}>pagamento</div>
+
+      <div className={styles.paymentDiv}>
+        <h4>PAYMENT METHOD</h4>
+        <div className={styles.paymentChoices}>
+          {paymentmethods.map((item) => (
+            <div className={styles.paymentChoice}>
+              <span>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button className={styles.paymentBtn}>PAY</button>
     </div>
   );
 };

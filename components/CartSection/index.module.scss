@@ -10,6 +10,7 @@
 
   .title {
     font-size: 1.7rem;
+
     span {
       color: rgba(255, 255, 255, 0.47);
       font-weight: bold;
@@ -20,59 +21,10 @@
     @include flex-container(column, $gap: 1rem);
 
     margin-bottom: 2rem;
-
-    //QUI COMINCIA LO STYLE CHE SPOSTERO' SU CARTITEM
-    .cartItem {
-      @include flex-container(column, $gap: 1rem);
-
-      color: white;
-
-      .ticketType {
-        h3 {
-          display: inline-block;
-          width: 50%;
-          font-size: 1.2rem;
-        }
-
-        .ticketName {
-          text-transform: uppercase;
-        }
-
-        .ticketPrice {
-          text-align: end;
-        }
-      }
-      .ticketAmount {
-        @include flex-container();
-        .ticketAmountText {
-          padding-left: 0.9rem;
-          width: 50%;
-        }
-
-        .ticketAmountSelection {
-          @include flex-container($justify: end);
-          width: 50%;
-
-          button,
-          p {
-            display: inline;
-          }
-
-          button {
-            background: none;
-            border: none;
-            color: white;
-          }
-
-          p {
-            margin: 0 1rem;
-          }
-        }
-      }
-    }
   }
   .cartTotal {
     @include flex-container($align: center);
+
     border-top: 1px solid white;
     border-bottom: 2px solid white;
     height: 2.9rem;
@@ -93,8 +45,27 @@
   }
 
   .paymentDiv {
+    @include flex-container(column, $gap: 1.9rem);
     border: 1px solid yellow;
     color: white;
+
+    h4 {
+      font-weight: 500;
+    }
+
+    .paymentChoices {
+      @include flex-container(column, $gap: 1rem);
+
+      .paymentChoice {
+        span:nth-child(1) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .paymentBtn {
+    color: red;
   }
 }
 
