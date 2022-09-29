@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
 import GET from "../../utils/GET/GET";
@@ -8,16 +8,13 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 const CityCard = ({ data }) => {
-  // const [fav, setFav] = useState(false);
 
   const { name, cover_image_url, activities_count, id } = data;
-  const dispatch = useDispatch();
   const router = useRouter();
   const onBtnClick = () => {};
 
   const handleCityClick = () => {
     console.log(id);
-    // GET(IMPORT_URL.CITIES, id, dispatch, 'SET_CITY')
     router.push(`city/${name}&=${id}`);
   };
 
@@ -32,7 +29,6 @@ const CityCard = ({ data }) => {
         <p className={styles.Description}>{activities_count} Experiences</p>
       </div>
       <FaRegHeart className={styles.Heart} onClick={onBtnClick} />
-      {/* <FaHeart/> */}
     </div>
   );
 };

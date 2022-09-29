@@ -32,6 +32,45 @@
       flex: 0 0 auto;
     }
   }
+
+  .text_container_city {
+    @include flex-container($direction:column);
+    z-index: 3;
+    position: absolute;
+    bottom: 10%;
+    width: 50%;
+    gap: 8px;
+    left: 0;
+    padding: 20px 0;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
+
+    h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      padding-left: 50px;
+      text-align: right;
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    .row_title {
+      height: 2px;
+      background-color: white;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1rem;
+      padding-left: 50px;
+      text-align: right;
+      box-sizing: border-box;
+      font-weight: 200;
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
   .buttonslider {
     @include flex-container(row, center, stretch, nowrap, 3px);
     z-index: 1;
@@ -146,6 +185,43 @@
       }
     }
 
+    .text_container_city {
+      @include flex-container($direction:column);
+      z-index: 3;
+      position: absolute;
+      bottom: 10%;
+      width: 40%;
+      gap: 16px;
+      left: 0;
+      padding: 50px 0;
+      color: white;
+      text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
+
+      h1 {
+        font-weight: 800;
+        font-size: 4rem;
+        padding-left: 50px;
+        text-align: right;
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        width: 100%;
+      }
+
+      .row_title {
+        height: 2px;
+        background-color: white;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 2rem;
+        padding-left: 50px;
+        text-align: right;
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+
     .buttonslider {
       @include flex-container(row, center, stretch, nowrap, 5px);
       z-index: 1;
@@ -162,13 +238,6 @@
         background: rgba(255, 255, 255, 0.34);
       }
     }
-
-    // img {
-    //   width: 100%;
-    //   height: 100%;
-    //   object-fit: cover;
-    //   filter: blur(3px);
-    // }
 
     .slider_container {
   

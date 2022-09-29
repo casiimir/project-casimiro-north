@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaRegHeart} from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -154,20 +154,13 @@ if (!isStoppedInterval) {
               />
             </div>
           </div>
-          <div className={styles.maintexthero}>
+          <div className={styles.text_container_city}>
             <h1> {cities.cityData.name} </h1>
+            <span className={styles.row_title}/>
             <h2 >
-             {cities.cityData.headline}
+             {cities.cityData.activities_count} Experiences
             </h2>
           </div>
-
-          <button
-            onClick={() => console.log(cities.cityData)}
-            className={styles.explorebtn}
-          >
-            {" "}
-            EXPLORE{" "}
-          </button>
         </>
       )}
     </div>
