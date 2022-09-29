@@ -1,0 +1,12 @@
+@import "../../styles/_variables.scss";
+
+.cart {
+  min-height: 71vh;
+  background: rgb(4, 43, 52);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 43, 52, 1) 0%,
+    rgba(13, 100, 119, 1) 100%
+  );
+  padding-top: 12vh;
+}

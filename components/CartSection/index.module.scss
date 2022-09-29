@@ -1,0 +1,73 @@
+@import "../../styles/_mixins.scss";
+@import "../../styles/_variables.scss";
+
+.cartSection {
+  @include flex-container(column, $gap: 2.5rem);
+
+  color: white;
+  box-sizing: border-box;
+  padding: 20px;
+
+  .title {
+    font-size: 1.7rem;
+
+    span {
+      color: rgba(255, 255, 255, 0.47);
+      font-weight: bold;
+    }
+  }
+
+  .cartList {
+    @include flex-container(column, $gap: 1rem);
+
+    margin-bottom: 2rem;
+  }
+  .cartTotal {
+    @include flex-container($align: center);
+
+    border-top: 1px solid white;
+    border-bottom: 2px solid white;
+    height: 2.9rem;
+
+    .cartTotalText {
+      display: inline-block;
+      width: 50%;
+      font-size: 1.2rem;
+    }
+
+    .cartTotalText:nth-child(1) {
+      font-weight: bold;
+    }
+
+    .cartTotalText:nth-child(2) {
+      text-align: end;
+    }
+  }
+
+  .paymentDiv {
+    @include flex-container(column, $gap: 1.9rem);
+    border: 1px solid yellow;
+    color: white;
+
+    h4 {
+      font-weight: 500;
+    }
+
+    .paymentChoices {
+      @include flex-container(column, $gap: 1rem);
+
+      .paymentChoice {
+        span:nth-child(1) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .paymentBtn {
+    color: red;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+}
