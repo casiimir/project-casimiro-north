@@ -111,7 +111,7 @@ const Hero = ({ type }) => {
       {type === "CityPage" && (
         <>
           <div className={styles.slider_container}>
-            <div className={styles.img_container} >
+            <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
                 className={styles.background}
@@ -122,9 +122,7 @@ const Hero = ({ type }) => {
           </div>
           <div className={styles.maintexthero}>
             <h1> {cities.cityData.name} </h1>
-            <h2 >
-             {cities.cityData.headline}
-            </h2>
+            <h2>{cities.cityData.headline}</h2>
           </div>
 
           <button
@@ -136,9 +134,28 @@ const Hero = ({ type }) => {
           </button>
         </>
       )}
+      {type === "ActivityPage" && (
+        <>
+          <div className={styles.slider_container}>
+            <div className={styles.img_container}>
+              <div className={styles.overlay_gradient} />
+              <img
+                className={styles.background}
+                src="https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060"
+                alt="heroimg"
+              />
+            </div>
+          </div>
+          <div className={styles.maintexthero}>
+            <h1> {cities.cityData.name} </h1>
+            <h2>{cities.cityData.headline}</h2>
+          </div>
+
+          <button className={styles.explorebtn}> EXPLORE </button>
+        </>
+      )}
     </div>
   );
 };
 
 export default Hero;
-
