@@ -27,7 +27,7 @@ const CityCard = ({ data }) => {
         <div className={styles.Row} />
         <p className={styles.Description}>{activities_count} Experiences</p>
       </div>
-      <FaRegHeart className={styles.Heart} onClick={onBtnClick} />
+      {/* <FaRegHeart className={styles.Heart} onClick={onBtnClick} /> */}
     </div>
   );
 };

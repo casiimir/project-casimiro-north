@@ -137,21 +137,37 @@
     }
 }
 
-  .explorebtn {
-    color: white;
-    width: 110px;
-    height: 40px;
-    z-index: 4;
-    position: absolute;
-    bottom: 10%;
-    right: 0;
-    margin-right: 30px;
-    font-weight: 500;
-    font-size: 1.0rem;
-    background-color: $MainButtonBlue;
-    border: none;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
-    border-radius: 5px;
+  .button_shadow {
+        z-index: 4;
+        position: absolute;
+        bottom: 10%;
+        right: 0;
+        margin-right: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 4 8px rgba(0, 0, 0, 0.344);
+
+      .explorebtn {
+        color: white;
+        width: 110px;
+        height: 40px;
+        font-weight: 500;
+        font-size: 1.0rem;
+        background-color: $MainButtonBlue;
+        border: none;
+        box-shadow: inset 0px 8px 8px rgba(255, 255, 255, 0.253);
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0b697e;
+        }
+        
+
+        &:active {
+          box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
+        }
+      }
   }
 }
 
@@ -255,7 +271,7 @@
         pointer-events: none;
 
         button {
-          color: white;
+          color: rgba(255, 255, 255, 0.68);
           font-size: 2.5rem;
           border: 0;
           background: none;
@@ -277,20 +293,37 @@
       }
   }
 
+  .button_shadow {
+    z-index: 4;
+    position: absolute;
+    bottom: 18%;
+    left: 84%;
+    width: max-content;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4 8px rgba(0, 0, 0, 0.344);
+
     .explorebtn {
+      padding: 0;
+      margin: 0;
       color: white;
       width: 140px;
       height: 60px;
-      z-index: 4;
-      position: absolute;
-      bottom: 18%;
-      left: 84%;
       font-weight: 500;
       font-size: 1.3rem;
       background-color: $MainButtonBlue;
       border: none;
-      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
-      border-radius: 5px;
-    }
+      box-shadow: inset 0px 8px 8px rgba(255, 255, 255, 0.253);
+
+      &:hover {
+        background-color: #0b697e;
+      }
+      
+
+      &:active {
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 49%);
+      }
   }
+}
+}
 }

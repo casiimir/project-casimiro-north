@@ -43,12 +43,14 @@ const Hero = ({ type }) => {
   const handleBackClick = () => {
     if (rightValue > 0) {
       setRightValue((prev) => prev - 1);
+      setIsStoppedInterval(true);
     }
   }
 
   const handleNextClick = () => {
     if (rightValue < 7) {
       setRightValue((prev) => prev + 1);
+      setIsStoppedInterval(true);
     }
   }
 
@@ -136,12 +138,14 @@ if (!isStoppedInterval) {
               ></button>
             ))}
           </div>
-          <button
-            onClick={handleExploreButtonClick}
-            className={styles.explorebtn}
-          >
-            EXPLORE
-          </button>
+          <div className={styles.button_shadow}>
+            <button
+              onClick={handleExploreButtonClick}
+              className={styles.explorebtn}
+            >
+              EXPLORE
+            </button>
+          </div>
         </>
       )}
       {type === "CityPage" && (
