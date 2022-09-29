@@ -8,17 +8,21 @@ import ActivitySwiper from "../ActivitySwiper/ActivitySwiper";
 import styles from "./index.module.scss";
 
 const CityMainSection = () => {
-
   const { cities, activities } = useSelector((state) => state);
-  const rotuer = useRouter();
+  const router = useRouter();
   const dispatch = useDispatch();
 
-  const { cityname } = rotuer.query
+  const { cityname } = router.query;
 
   useEffect(() => {
     cityname?.split("&=")[1] &&
-    GET(IMPORT_URL.CITIES, `${cityname?.split('&=')[1]}/lists?limit=10`, dispatch, "SET_ACTIVITY_TOP_LIST")
-  },[cityname])
+      GET(
+        IMPORT_URL.CITIES,
+        `${cityname?.split("&=")[1]}/lists?limit=10`,
+        dispatch,
+        "SET_ACTIVITY_TOP_LIST"
+      );
+  }, [cityname]);
 
   const arrayActivities = [
     { id: 1, title: "arte e cultura" },
@@ -33,12 +37,10 @@ const CityMainSection = () => {
     { id: 10, title: "arte e cultura" },
   ];
 
-  console.log(activities.activityTopList)
+  console.log(activities.activityTopList);
   return (
     <div className={styles.CityMainSection}>
-      <p className={styles.description}>
-        {cities.cityData.content}
-      </p>
+      <p className={styles.description}>{cities.cityData.content}</p>
       <div className={styles.activitiesDiv}>
         <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
         <div className={styles.activitiesList}>

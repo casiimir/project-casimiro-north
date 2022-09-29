@@ -151,7 +151,7 @@ if (!isStoppedInterval) {
       {type === "CityPage" && (
         <>
           <div className={styles.slider_container}>
-            <div className={styles.img_container} >
+            <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
                 className={styles.background}
@@ -162,11 +162,33 @@ if (!isStoppedInterval) {
           </div>
           <div className={styles.text_container_city}>
             <h1> {cities.cityData.name} </h1>
+
             <span className={styles.row_title}/>
             <h2 >
              {cities.cityData.activities_count} Experiences
             </h2>
+
           </div>
+        </>
+      )}
+      {type === "ActivityPage" && (
+        <>
+          <div className={styles.slider_container}>
+            <div className={styles.img_container}>
+              <div className={styles.overlay_gradient} />
+              <img
+                className={styles.background}
+                src="https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060"
+                alt="heroimg"
+              />
+            </div>
+          </div>
+          <div className={styles.maintexthero}>
+            <h1> {cities.cityData.name} </h1>
+            <h2>{cities.cityData.headline}</h2>
+          </div>
+
+          <button className={styles.explorebtn}> EXPLORE </button>
         </>
       )}
     </div>
@@ -174,4 +196,3 @@ if (!isStoppedInterval) {
 };
 
 export default Hero;
-
