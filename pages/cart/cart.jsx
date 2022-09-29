@@ -4,16 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import Link from "next/link";
-import CityCard from "../../components/CityCard/CityCard";
+import CartSection from "../../components/CartSection/CartSection";
 
-export default function MyCartPage() {
+export default function CartPage() {
   const router = useRouter();
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
 
   return (
-    <div className={styles.MyCart}>
-      <h2 className={styles.title}> My cart yuppi!!</h2>
+    <div className={styles.cart}>
+      <CartSection />
     </div>
   );
 }
