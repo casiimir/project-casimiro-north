@@ -63,6 +63,7 @@ export default function NavBar () {
 
     const handleLogoClick = () => {
         router.push('/');
+        dispatch({type: 'SET_CLOSE'})
     }
 
     return (
