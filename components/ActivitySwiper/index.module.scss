@@ -1,5 +1,31 @@
-.mySwiper {
-    border: 2px solid red;
-    height: 400px;
-    
+@import "../../styles/mixins";
+
+.swiper_container {
+    height: 100%;
+    position: relative;
+
+    h3 {
+        @include flex-container($align: flex-end);
+        position: absolute;
+        bottom: 0;
+        color: white;
+        font-weight: bold;
+        height: 50%;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.516);
+        background: rgb(5,40,55);
+        background: linear-gradient(0deg, rgba(5,40,55,0.8519782913165266) 0%, rgba(9,9,121,0) 100%);
+     
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .swiper_container {
+        h3 {
+            font-size: 2rem;
+        }
+    }
+
 }
