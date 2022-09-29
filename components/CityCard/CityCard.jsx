@@ -14,6 +14,7 @@ const CityCard = ({ data }) => {
     console.log(id);
     router.push(`city/${name}&=${id}`);
     dispatch({type: "SET_CITY", payload: []})
+    dispatch({type: "SET_ACTIVITY_TOP_LIST", payload: []})
   };
 
   return (

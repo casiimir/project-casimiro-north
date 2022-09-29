@@ -60,6 +60,7 @@ const Hero = ({ type }) => {
   const handleExploreButtonClick = () => {
     router.push(`city/${cities?.cityListHero[rightValue]?.name}&=${cities?.cityListHero[rightValue]?.id}`);
     dispatch({type: "SET_CITY", payload: []})
+    dispatch({type: "SET_ACTIVITY_TOP_LIST", payload: []})
   }
 
   useEffect(() => {
