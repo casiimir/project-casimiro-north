@@ -7,30 +7,47 @@
   color: white;
 
   .ticketType {
+    @include flex-container($direction: row, $justify: space-between);
+
     h3 {
-      display: inline-block;
-      width: 50%;
       font-size: 1.2rem;
     }
 
     .ticketName {
       text-transform: uppercase;
+      font-size: 1rem;
+
+      &::before {
+        content: "●";
+        margin-right: 20px;
+      }
     }
 
     .ticketPrice {
       text-align: end;
+      font-weight: 300;
+      
+      &::before {
+        content: "€";
+        font-weight: 600;
+        margin-right: 10px;
+      }
     }
   }
   .ticketAmount {
     @include flex-container();
     .ticketAmountText {
-      padding-left: 0.9rem;
+      margin-left: 32px;
       width: 50%;
+      font-size: 0.8rem;
+      font-weight: 200;
+      color: rgba(255, 255, 255, 0.838);
     }
 
     .ticketAmountSelection {
-      @include flex-container($justify: end);
+      @include flex-container($justify: end, $align: center);
       width: 50%;
+      font-size: 0.8rem;
 
       button,
       p {
@@ -45,6 +62,7 @@
 
       p {
         margin: 0 1rem;
+        
       }
     }
   }

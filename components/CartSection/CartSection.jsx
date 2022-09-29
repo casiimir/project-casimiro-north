@@ -1,25 +1,29 @@
 import CartSectionItem from "../CartSectionItem/CartSectionItem";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
-import { FaGooglePay } from "react-icons/fa";
+import { AiOutlineGooglePlus } from "react-icons/ai";
 import styles from "./index.module.scss";
+import { useState } from "react";
 
 const CartSection = () => {
+
+  const [paymentMethod, setPaymentMethod] = useState();
+
   const arrayitem = [
     {
       id: 1,
       obj: "museo",
 
       luogo: "barcellona",
-      prezzo: "1 €",
+      prezzo: "1",
       pezzi: "x4",
-      tot: "4€",
+      tot: "4",
     },
     {
       id: 2,
       obj: "giro turistico",
 
       luogo: "londra",
-      prezzo: "2 $",
+      prezzo: "2",
       pezzi: "x15",
       tot: "30 cents",
     },
@@ -28,9 +32,9 @@ const CartSection = () => {
       obj: "aperitivo",
 
       luogo: "parigi",
-      prezzo: "150.000€",
+      prezzo: "150.000",
       pezzi: "x2",
-      tot: "300.000€",
+      tot: "300.000",
     },
     {
       id: 4,
@@ -54,7 +58,7 @@ const CartSection = () => {
     },
     {
       name: "G-PAY",
-      icon: <FaGooglePay className={styles.icon} />,
+      icon: <AiOutlineGooglePlus className={styles.icon} />,
     },
   ];
 
@@ -79,7 +83,7 @@ const CartSection = () => {
           {paymentmethods.map((item) => (
             <div className={styles.paymentChoice}>
               <span>{item.icon}</span>
-              <span>{item.name}</span>
+              <span onClick={() => setPaymentMethod(item.name)} className={`${styles.paymentMethod} ${paymentMethod === item.name && styles.active}`}>{item.name}</span>
             </div>
           ))}
         </div>

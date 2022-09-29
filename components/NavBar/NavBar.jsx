@@ -5,6 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function NavBar () {
 
@@ -65,6 +66,15 @@ export default function NavBar () {
         router.push('/');
         dispatch({type: 'SET_CLOSE'})
     }
+
+    useEffect(() => {
+        if (navBarStatus.isActive === true ) {
+            window.document.body.style.overflow = 'hidden'
+        } else {
+            window.document.body.style.overflow = 'scroll'
+        }
+
+    }, [navBarStatus.isActive])
 
     return (
         <div className={styles.Main_Navbar}>

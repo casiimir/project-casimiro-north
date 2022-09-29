@@ -9,19 +9,22 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function ActivityPage() {
   const router = useRouter();
-  const { activityname } = router.query;
+  const { uuid } = router.query;
   const dispatch = useDispatch();
-  const data = useSelector((state) => state);
+  const {activities} = useSelector((state) => state);
 
+  // OGGETTO DELL'ATTIVITA' VVVVV
+  console.log(activities.activityData) 
+ 
   useEffect(() => {
-    cityname?.split("&=")[1] &&
+    uuid &&
       GET(
         IMPORT_URL.ACTIVITIES,
-        cityname?.split("&=")[1],
+        `/${uuid}`,
         dispatch,
-        "SET_CITY"
+        "SET_ACTIVITY"
       );
-  }, [cityname?.split("&=")[1]]);
+  }, [uuid]);
 
   return (
     <div className={styles.Activity}>
