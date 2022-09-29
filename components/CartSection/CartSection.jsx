@@ -68,8 +68,8 @@ const CartSection = () => {
         Join your <span>CART</span>
       </h1>
       <ul className={styles.cartList}>
-        {arrayitem.map((data) => (
-          <CartSectionItem cartData={data} />
+        {arrayitem.map((data, index) => (
+          <CartSectionItem cartData={data} key={index}/>
         ))}
       </ul>
       <div className={styles.cartTotal}>
@@ -80,8 +80,8 @@ const CartSection = () => {
       <div className={styles.paymentDiv}>
         <h4>PAYMENT METHOD</h4>
         <div className={styles.paymentChoices}>
-          {paymentmethods.map((item) => (
-            <div className={styles.paymentChoice}>
+          {paymentmethods.map((item, index) => (
+            <div className={styles.paymentChoice} key={index}>
               <span>{item.icon}</span>
               <span onClick={() => setPaymentMethod(item.name)} className={`${styles.paymentMethod} ${paymentMethod === item.name && styles.active}`}>{item.name}</span>
             </div>

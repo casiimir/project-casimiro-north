@@ -45,7 +45,7 @@
     }
 
     .ticketAmountSelection {
-      @include flex-container($justify: end, $align: center);
+      @include flex-container($justify: flex-end, $align: center);
       width: 50%;
       font-size: 0.8rem;
 

@@ -24,7 +24,6 @@ const CityMainSection = () => {
       );
   }, [cityname]);
 
-  console.log(activities.activityTopList);
   return (
     <div className={styles.CityMainSection}>
       <p className={styles.description}>{cities.cityData.content}</p>
