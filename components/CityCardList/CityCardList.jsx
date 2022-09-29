@@ -9,13 +9,13 @@ const CityCardList = () => {
   const dispatch = useDispatch();
   const { cities } = useSelector((state) => state);
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, '?limit=20', dispatch, 'SET_CITY_LIST')
+    GET(IMPORT_URL.CITIES, '', dispatch, 'SET_CITY_LIST')
   }, []);
   return (
     <div className={styles.CityCardList}>
       <h2 className={styles.Header}>Top Cities</h2>
       <div className={styles.List}>
-        {cities.cityList.map((city, index) => <CityCard data={city} key={index}/>)}
+        {cities.cityList.filter((city) => city.list_count > 0).filter((_, index) => index <= 9).map((city, index) => <CityCard data={city} key={index}/>)}
       </div>
     </div>
   );

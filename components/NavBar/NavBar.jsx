@@ -12,8 +12,6 @@ export default function NavBar () {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    console.log(router)
-
     const menu = [
         {
             name: 'Home',
