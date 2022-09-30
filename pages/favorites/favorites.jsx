@@ -20,6 +20,9 @@ export default function Favorites() {
 
   return (
     <div className={styles.Favorites}>
+    <div className={styles.titleContainer}>
+      <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
+      <span className={styles.LineTitle}></span></div>
       <ItemCardList />
     </div>
   );

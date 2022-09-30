@@ -16,8 +16,6 @@ const ItemCardList = () => {
   return (
     <div className={styles.ItemCardList}>
       <div className={styles.FavoritesSublist}>
-        <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
-        <span className={styles.LineTitle}></span>
         {activities?.activityList?.data
           ?.filter((item) => item?.cover_image_url)
           .filter((_, index) => index <= 10)

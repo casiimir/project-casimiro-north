@@ -1,10 +1,29 @@
 @import "../../styles/_variables.scss";
-
+@import "../../styles/mixins.scss";
 .Favorites {
   min-height: 71vh;
-  background: rgb(137,165,171);
-  background: linear-gradient(180deg, rgba(137,165,171,1) 0%, rgba(5,40,55,1) 100%);
+  background: rgb(137, 165, 171);
+  background: linear-gradient(
+    180deg,
+    rgba(137, 165, 171, 1) 0%,
+    rgba(5, 40, 55, 1) 100%
+  );
   padding-top: 18vh;
-  
-  
+
+.titleContainer{  
+  @include flex-container(column, $gap:11px);
+  padding: 0 32px 15px 52px;
+  .FavoritesTitle {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.73);
+    box-sizing: border-box;
+  }
+
+  .LineTitle {
+    width:100%;
+    height: 0.069px;
+    background-color: rgba(255, 255, 255, 0.798);
+  }}
 }

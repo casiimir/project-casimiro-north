@@ -7,13 +7,7 @@
   position: relative;
   padding: 0 0 40px 0;
 
-  
-  .LineTitle {
-    position: absolute;
-    width: 192px;
-    height: 2px;
-    background-color: white;
-  }
+
   .FavoritesSublist {
     @include flex-container(column, $gap: 20px);
 
@@ -25,13 +19,7 @@
     &::-webkit-scrollbar {
       display: none;
     }
-    .FavoritesTitle {
-    font-weight: 700;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.73);
-    box-sizing: border-box;
-  }
+    
   }
 }
 
