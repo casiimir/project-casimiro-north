@@ -138,14 +138,14 @@ if (!isStoppedInterval) {
               ></button>
             ))}
           </div>
-          <div className={styles.button_shadow}>
+          
             <button
               onClick={handleExploreButtonClick}
               className={styles.explorebtn}
             >
               EXPLORE
             </button>
-          </div>
+          
         </>
       )}
       {type === "CityPage" && (

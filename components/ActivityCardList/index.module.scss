@@ -14,7 +14,19 @@
         text-transform: uppercase;
         color: $MainDarkBlue;
         margin-left: 20px;
+        box-sizing: border-box;  
+    }
+
+    .Title_cat_page {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: $MainDarkBlue;
         box-sizing: border-box;
+
+        span:nth-child(1) {
+            font-weight: 400;
+        }
 
     }
 
@@ -32,6 +44,10 @@
     }
 }
 
+.Sublist_cat_page {
+    @include flex-container($direction: column);
+}
+
 @media only screen and (min-width: 767px) {
     .ActivityCardList {
         gap: 30px;
@@ -47,6 +63,15 @@
             grid-template-rows: 280px 280px auto;
             // gap: 40px;
             padding: 10px 40px;
+        }
+
+        .Sublist_cat_page {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            // grid-template-rows: repeat(auto-fill ,minmax(200px, 1fr));
+            row-gap: 200px;
+            column-gap: 50px;
+            
         }
     }
 }
