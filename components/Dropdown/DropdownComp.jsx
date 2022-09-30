@@ -1,4 +1,5 @@
 import styles from "./index.module.scss";
+import CatDiv from './CatDiv';
 
 const DropdownComp = (classType) => {
   return (
