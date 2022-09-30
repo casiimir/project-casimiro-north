@@ -62,33 +62,43 @@ const CartSection = () => {
     },
   ];
 
+  const handleOnClickPay = () => {
+    console.log('pagamento cliccato');
+  }
+
   return (
     <div className={styles.cartSection}>
-      <h1 className={styles.title}>
-        Join your <span>CART</span>
-      </h1>
-      <ul className={styles.cartList}>
-        {arrayitem.map((data, index) => (
-          <CartSectionItem cartData={data} key={index}/>
-        ))}
-      </ul>
-      <div className={styles.cartTotal}>
-        <h3 className={styles.cartTotalText}>TOT</h3>
-        <h3 className={styles.cartTotalText}>millemila euri</h3>
-      </div>
-
-      <div className={styles.paymentDiv}>
-        <h4>PAYMENT METHOD</h4>
-        <div className={styles.paymentChoices}>
-          {paymentmethods.map((item, index) => (
-            <div className={styles.paymentChoice} key={index}>
-              <span>{item.icon}</span>
-              <span onClick={() => setPaymentMethod(item.name)} className={`${styles.paymentMethod} ${paymentMethod === item.name && styles.active}`}>{item.name}</span>
-            </div>
+      <div className={styles.one_side}>
+        <h1 className={styles.title}>
+          Join your <span>CART</span>
+        </h1>
+        <ul className={styles.cartList}>
+          {arrayitem.map((data, index) => (
+            <CartSectionItem cartData={data} key={index}/>
           ))}
+        </ul>
+        <div className={styles.cartTotal}>
+          <h3 className={styles.cartTotalText}>TOT</h3>
+          <h3 className={styles.cartTotalText}>millemila euri</h3>
         </div>
       </div>
-      <button className={styles.paymentBtn}>PAY</button>
+      <span className={styles.row}/>
+
+      <div className={styles.two_side}>
+        <div className={styles.paymentDiv}>
+          <h4>PAYMENT METHOD</h4>
+          <div className={styles.paymentChoices}>
+            {paymentmethods.map((item, index) => (
+              <div className={styles.paymentChoice} key={index}>
+                <span>{item.icon}</span>
+                <span onClick={() => setPaymentMethod(item.name)} className={`${styles.paymentMethod} ${paymentMethod === item.name && styles.active}`}>{item.name}</span>
+              </div>
+            ))}
+          </div>
+          <button onClick={handleOnClickPay} className={styles.paymentBtn}>PAY</button>
+        </div>
+        
+      </div>
     </div>
   );
 };
