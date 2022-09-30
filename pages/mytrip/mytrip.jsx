@@ -1,10 +1,9 @@
 import styles from "./index.module.scss";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import Link from "next/link";
-import CityCard from "../../components/CityCard/CityCard";
 
 export default function MyTripPage() {
   const router = useRouter();
@@ -12,9 +11,8 @@ export default function MyTripPage() {
   const data = useSelector((state) => state);
 
   return (
-    <div className={styles.YourTrip}>
-      <h2 className={styles.Theader}> My trip in Palermo</h2>
-      {/* <h2 className={styles.Theader}> Your trip in {city.name}</h2> */}
+    <div className={styles.MyTrip}>
+      <h2 className={styles.header}> My trip in <h2 className={styles.city}>Palermo</h2></h2>
     </div>
   );
 }
