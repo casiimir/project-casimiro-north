@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-const ItemCard = ({ cardData }) => {
+const ItemCard = ({ cardData, modalVisibility }) => {
   const { id, title, cover_image_url, description, retail_price } = cardData;
 
   return (
@@ -17,9 +17,9 @@ const ItemCard = ({ cardData }) => {
         </div>
         <div className={styles.CartItem}>
           <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>{" "}
-          <a href="/">
-            <p className={styles.addCart}> add to cart </p>
-          </a>
+          
+            <p className={styles.addCart}  onClick={() => modalVisibility(true)}> add to cart </p>
+        
         </div>
       </div>
     </div>

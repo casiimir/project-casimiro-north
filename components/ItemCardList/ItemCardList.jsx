@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 
-const ItemCardList = () => {
+const ItemCardList = ({modalVisibility}) => {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
@@ -20,7 +20,7 @@ const ItemCardList = () => {
           ?.filter((item) => item?.cover_image_url)
           .filter((_, index) => index <= 10)
           .map((activity, index) => (
-            <ItemCard cardData={activity} key={index} />
+            <ItemCard cardData={activity} key={index} modalVisibility={modalVisibility}/>
           ))}
         <div></div>
       </div>
