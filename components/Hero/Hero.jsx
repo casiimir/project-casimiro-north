@@ -68,6 +68,11 @@ const Hero = ({ type }) => {
     dispatch({type: "SET_ACTIVITY_TOP_LIST", payload: []})
   }
 
+  const handleOnCityClick = () => {
+    // router.push(`/../city/${cityname.split('&=')[0]}`)
+    router.back();
+  }
+
   useEffect(() => {
 
     if (type === "Home") {
@@ -189,7 +194,7 @@ if (!isStoppedInterval) {
             </div>
           </div>
           <div className={styles.maintext_act}>
-            {cityname && <h1> {cityname.split('&=')[0]} </h1>}
+            {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
             <DropdownComp />
             {/* <h2>{cities.cityData.headline}</h2> */}
           </div>

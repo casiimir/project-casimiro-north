@@ -3,10 +3,16 @@ import styles from "./index.module.scss";
 import { useState } from "react";
 import {MdPlayArrow } from 'react-icons/md';
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import Link from "next/link";
 
-export default function DropdownComp({className}) {
+export default function DropdownComp() {
 
   const [category, setCategory] = useState("Arts and Culture");
+
+  const state = useSelector(state => state)
+
+  console.log(state)
 
   const listItems = [
     {
@@ -39,9 +45,6 @@ export default function DropdownComp({className}) {
     const router = useRouter();
     const {categoryname} = router.query
 
-    console.log(categoryname)
-
-
     return (
       <li className={styles.menuItems} onClick={closeDropdown}>
         {items.submenu ? (
@@ -64,20 +67,23 @@ export default function DropdownComp({className}) {
 
   const Dropdown = ({ submenus, dropdown }) => {
 
-    const handleLiClick = (e) => {
-      setCategory(e.target.text)
-    }
+    const router = useRouter();
+    const {categoryname, cityname} = router.query
+
+
+
+    const {activities} = useSelector(state => state);
 
     return (
       <ul className={`${styles.dropdown} ${dropdown && styles.show}`}>
-        {submenus.map((submenu, index) => (
+        {activities?.activityTopList?.filter((item) => item.title != categoryname).map((submenu, index) => (
           <li
             key={index}
             className={styles.menuItems}
             style={dropdown ? { transitionDelay: `0.${index}s` } : {}}
-            onClick={e => handleLiClick(e)}
+            
           >
-            <a href={submenu.url}>{submenu.title}</a>
+            <Link href={`/city/${cityname}/category/${submenu.title}`}>{submenu.title}</Link>
           </li>
         ))}
       </ul>
