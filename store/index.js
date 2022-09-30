@@ -21,6 +21,8 @@ const initialState = {
     isActive: false,
     isInputActive: false,
   },
+
+  moneyValue: '€'
 };
 
 function cartDataReducer(state = {}, action) {
@@ -85,11 +87,21 @@ function navBarStatusReducer(state = {}, action) {
   }
 }
 
+function moneyValueReducer(state = {}, action) {
+    switch (action.type) {
+      case "SET_MONEY_VALUE":
+        return state = action.payload;
+      default:
+        return state;
+    }
+}
+
 const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
   cities: cityReducer,
   navBarStatus: navBarStatusReducer,
+  moneyValue: moneyValueReducer,
 });
 
 const store = createStore(rootReducer, initialState);
