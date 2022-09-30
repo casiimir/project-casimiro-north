@@ -69,9 +69,9 @@ export default function NavBar () {
 
     useEffect(() => {
         if (navBarStatus.isActive === true ) {
-            window.document.body.style.overflow = 'hidden'
+            window.document.body.style.overflowY = 'hidden'
         } else {
-            window.document.body.style.overflow = 'scroll'
+            window.document.body.style.overflowY = 'scroll'
         }
 
     }, [navBarStatus.isActive])
