@@ -11,7 +11,7 @@ const ItemCardList = ({modalVisibility}) => {
 
   useEffect(() => {
     GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.ItemCardList}>

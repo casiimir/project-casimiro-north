@@ -21,7 +21,7 @@ const ActivityCardList = () => {
     // else {
         GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
     // }
-  }, [cityname]);
+  }, [cityname, dispatch]);
 
   return (
     <div className={styles.ActivityCardList}>

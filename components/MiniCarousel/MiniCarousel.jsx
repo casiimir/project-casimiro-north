@@ -12,7 +12,7 @@ const MiniCarousel = () => {
 
   useEffect(() => {
     GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=10', dispatch, "SET_DISCOUNT_LIST");
-  },[])
+  },[dispatch])
 
   return (
     <div className={styles.miniCarousel}>

@@ -9,7 +9,7 @@ const ItemCard = ({ cardData, modalVisibility }) => {
       <div className={styles.ItemCard}>
         <div className={styles.imgContainer}>
         <div className={styles.overlayimg}/>
-          <img src={cover_image_url} key={id} id={id} />
+          <img src={cover_image_url} key={id} id={id} alt="img"/>
         </div>
         <div className={styles.MainText}>
           <h1 className={styles.ActivityTitle}>{title}</h1>

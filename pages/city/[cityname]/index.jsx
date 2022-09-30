@@ -22,7 +22,7 @@ export default function CityPage() {
         dispatch,
         "SET_CITY"
       );
-  }, [cityname?.split("&=")[1]]);
+  }, [cityname, dispatch]);
 
     return (
         <div className={styles.City}>

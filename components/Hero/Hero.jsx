@@ -83,7 +83,7 @@ if (!isStoppedInterval) {
 
   useEffect(() => {
     GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.hero}>

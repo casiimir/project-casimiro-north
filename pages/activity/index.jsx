@@ -9,7 +9,7 @@ export default function ActivityRe() {
 
     useLayoutEffect(() => {
         router.back();
-    }, []) 
+    }, [router]) 
 
     return (
         <div></div>

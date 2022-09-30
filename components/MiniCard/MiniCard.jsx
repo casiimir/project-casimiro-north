@@ -15,7 +15,7 @@ const MiniCard = ({ cardData }) => {
 
   return (
     <div onClick={handleOnDiscountClick} className={styles.miniCard}>
-      <img src={cover_image_url} key={id} id={id} />
+      <img src={cover_image_url} key={id} id={id} alt="discount"/>
       <p>{discount}</p>
       <span>{city.name}</span>
     </div>

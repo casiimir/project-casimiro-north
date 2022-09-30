@@ -1,10 +1,15 @@
 
 import styles from "./index.module.scss";
 import { useState } from "react";
+import {MdPlayArrow } from 'react-icons/md';
+
 export default function DropdownComp() {
+
+  const [category, setCategory] = useState("Arts and Culture");
+
   const listItems = [
     {
-      title: "Arts and Culture",
+      title: category,
       submenu: [
         {
           title: "Sightseeing",
@@ -31,6 +36,8 @@ export default function DropdownComp() {
     const [dropdown, setDropdown] = useState(false);
     const closeDropdown = () => dropdown && setDropdown(false);
 
+
+
     return (
       <li className={styles.menuItems} onClick={closeDropdown}>
         {items.submenu ? (
@@ -40,7 +47,7 @@ export default function DropdownComp() {
               aria-haspopup={dropdown ? "true" : false}
               onClick={() => setDropdown((prev) => !prev)}
             >
-              {items.title}{" "}
+              {items.title}<MdPlayArrow className={`${styles.arrow_menu} ${dropdown ? styles.active : ''}`}/>
             </button>
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>
@@ -52,13 +59,19 @@ export default function DropdownComp() {
   };
 
   const Dropdown = ({ submenus, dropdown }) => {
+
+    const handleLiClick = (e) => {
+      setCategory(e.target.text)
+    }
+
     return (
       <ul className={`${styles.dropdown} ${dropdown && styles.show}`}>
         {submenus.map((submenu, index) => (
           <li
             key={index}
             className={styles.menuItems}
-            style={{ transitionDelay: `0.${index * 2}s` }}
+            style={dropdown ? { transitionDelay: `0.${index}s` } : {}}
+            onClick={e => handleLiClick(e)}
           >
             <a href={submenu.url}>{submenu.title}</a>
           </li>

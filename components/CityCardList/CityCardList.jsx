@@ -10,7 +10,7 @@ const CityCardList = () => {
   const { cities } = useSelector((state) => state);
   useEffect(() => {
     GET(IMPORT_URL.CITIES, '', dispatch, 'SET_CITY_LIST')
-  }, []);
+  }, [dispatch]);
   return (
     <div className={styles.CityCardList}>
       <h2 className={styles.Header}>Top Cities</h2>

@@ -20,7 +20,7 @@ export default function ActivityPage() {
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
-  }, [uuid]);
+  }, [uuid, dispatch]);
 
   return (
     <div className={styles.Activity}>

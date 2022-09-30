@@ -21,7 +21,7 @@ export default function Favorites() {
   };
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
-  }, [uuid]);
+  }, [uuid, dispatch]);
 
   return (
     <div className={styles.Favorites}>

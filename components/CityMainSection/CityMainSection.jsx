@@ -22,7 +22,7 @@ const CityMainSection = () => {
         dispatch,
         "SET_ACTIVITY_TOP_LIST"
       );
-  }, [cityname]);
+  }, [cityname, dispatch]);
 
   return (
     <div className={styles.CityMainSection}>
