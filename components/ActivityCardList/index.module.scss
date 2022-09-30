@@ -14,7 +14,19 @@
         text-transform: uppercase;
         color: $MainDarkBlue;
         margin-left: 20px;
+        box-sizing: border-box;  
+    }
+
+    .Title_cat_page {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: $MainDarkBlue;
         box-sizing: border-box;
+
+        span:nth-child(1) {
+            font-weight: 400;
+        }
 
     }
 
@@ -30,6 +42,10 @@
             display: none;
         }
     }
+}
+
+.Sublist_cat_page {
+    @include flex-container($direction: column, $gap: 20px);
 }
 
 @media only screen and (min-width: 767px) {
