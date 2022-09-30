@@ -12,9 +12,14 @@ const ActivityCard = ({catData}) => {
 
   const {cityname} = router.query
 
+  console.log(cityname)
+
   const handleActivityClick = () => {
     console.log(id);
-    router.push(`activity/${uuid}`);
+    router.push({
+      pathname: `/../activity/[uuid]`,
+      query: {uuid: uuid}
+    });
   };
 
   const  handleOnSeeMoreClick = () => {
