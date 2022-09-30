@@ -66,6 +66,7 @@ export default function DropdownComp() {
       </ul>
     );
   };
+  
   const CatDiv = () => {
     return (
       <nav>
