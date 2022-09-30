@@ -20,6 +20,7 @@
     "swiper": "^8.4.2"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1"
   }
