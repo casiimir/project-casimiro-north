@@ -63,7 +63,7 @@ const CartSection = () => {
   ];
 
   const handleOnClickPay = () => {
-    console.log('pagamento cliccato');
+    console.log(paymentMethod);
   }
 
   return (
