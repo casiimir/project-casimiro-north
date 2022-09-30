@@ -18,13 +18,14 @@ const ActivityCard = ({catData}) => {
   };
   return (
     <div className={styles.ActivityCard_main} style={cityname && {width: '100%'}}>
-      <div className={styles.ActivityCard}>
+      {cityname && <h5 className={styles.title_cat_page}>{title}</h5>}
+      <div className={styles.ActivityCard} style={cityname && {borderRadius: '2px'}}>
         <img className={styles.img} src={cover_image_url} alt="Activity photo" />
         <div onClick={handleActivityClick} className={styles.overlay} />
         {!cityname ? 
         <h5 className={styles.title}>{title}</h5> 
         : <>
-        <h5 className={styles.title_cat_page}>{title}</h5>
+        {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
           <p className={styles.hours}>12:00 - 13:00</p>
           <FaRegHeart className={styles.Heart} />
