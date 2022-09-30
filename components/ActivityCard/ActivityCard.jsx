@@ -16,12 +16,21 @@ const ActivityCard = ({catData}) => {
     console.log(id);
     router.push(`activity/${uuid}`);
   };
+
+  const  handleOnSeeMoreClick = () => {
+    console.log('vuoi vedere altro?')
+  }
+
+  const handleOnAddCart = () => {
+    console.log('vuoi comprare o pescc')
+  }
+
   return (
     <div className={styles.ActivityCard_main} style={cityname && {width: '100%'}}>
       {cityname && <h5 className={styles.title_cat_page}>{title}</h5>}
       <div className={styles.ActivityCard} style={cityname && {borderRadius: '2px'}}>
         <img className={styles.img} src={cover_image_url} alt="Activity photo" />
-        <div onClick={handleActivityClick} className={styles.overlay} />
+       {!cityname ? <div onClick={handleActivityClick} className={styles.overlay} /> : <div className={styles.overlay} />}
         {!cityname ? 
         <h5 className={styles.title}>{title}</h5> 
         : <>
@@ -39,8 +48,8 @@ const ActivityCard = ({catData}) => {
           <h3><span>{moneyValue}</span>12,00</h3>
         </div>
         <div className={styles.more_details}>
-          <p>see more</p>
-          <BsCart2 className={styles.cart}/>
+          <p onClick={handleActivityClick}>see more</p>
+          <BsCart2 onClick={handleOnAddCart} className={styles.cart}/>
         </div>
         </div> : null
         }

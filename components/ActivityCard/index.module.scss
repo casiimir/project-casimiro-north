@@ -121,12 +121,14 @@
                 color: $MainDarkBlue;
                 border-bottom: 1px solid $MainDarkBlue;
                 font-weight: 600;
+                cursor: pointer;
             }
 
             .cart {
                 color: $MidBlue;
                 opacity: 0.55;
                 font-size: 1.3rem;
+                cursor: pointer;
             }
         }
     }
