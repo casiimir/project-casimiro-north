@@ -36,7 +36,7 @@ export default function ActivityPage() {
         <div className={styles.activityPriceInfo}>
           <span className={styles.activityPriceTitle}>PRICE</span>
           <span className={styles.activityPriceValue}>
-            {/* {activities.activityData.retail_price.formatted_value} */}
+            {activities?.activityData?.retail_price?.formatted_value}
           </span>
         </div>
         <div className={styles.cartIconDiv}>
@@ -45,10 +45,18 @@ export default function ActivityPage() {
 
         <div className={styles.activityInfo}>
           <h2 className={styles.activityInfoTitle}>TIMETABLE</h2>
-          <div className={styles.activityInfoTimetable}>
-            {activities.activityData.when_text} <br />
-            {activities.activityData.where_text}
-          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: activities?.activityData?.when_text,
+            }}
+            className={styles.activityInfoTimetable}
+          />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: activities?.activityData?.where_text,
+            }}
+            className={styles.activityInfoTimetable}
+          />
         </div>
       </div>
     </div>
