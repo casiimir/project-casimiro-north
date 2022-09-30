@@ -38,11 +38,12 @@
     @include flex-container($direction:column, $gap:5px);
     position: absolute;
     z-index: 3;
-    top: 16vh;
+    top: 15vh;
     font-weight: 800;
     font-size: 2rem;
-    left: 8%;
+    left: 5%;
     color: rgba(255, 255, 255, 0.486);
+    transform: scale(0.9);
   }
 
   .text_container_city {
