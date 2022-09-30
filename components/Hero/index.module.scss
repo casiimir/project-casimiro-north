@@ -34,6 +34,17 @@
     }
   }
 
+  .maintext_act {
+    @include flex-container($direction:column, $gap:5px);
+    position: absolute;
+    z-index: 3;
+    top: 16vh;
+    font-weight: 800;
+    font-size: 2rem;
+    left: 8%;
+    color: rgba(255, 255, 255, 0.486);
+  }
+
   .text_container_city {
     @include flex-container($direction:column);
     z-index: 3;

@@ -7,7 +7,7 @@ export default function CategoryPage() {
   return (
     <div className={styles.CategoryPage}>
       <Hero type="ActivityPage" />
-      <DropdownComp />
+      
       <ActivityCardList />
     </div>
   );

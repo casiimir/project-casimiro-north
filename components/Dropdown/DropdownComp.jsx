@@ -2,8 +2,9 @@
 import styles from "./index.module.scss";
 import { useState } from "react";
 import {MdPlayArrow } from 'react-icons/md';
+import { useRouter } from "next/router";
 
-export default function DropdownComp() {
+export default function DropdownComp({className}) {
 
   const [category, setCategory] = useState("Arts and Culture");
 
@@ -35,7 +36,10 @@ export default function DropdownComp() {
   const MenuItems = ({ items }) => {
     const [dropdown, setDropdown] = useState(false);
     const closeDropdown = () => dropdown && setDropdown(false);
+    const router = useRouter();
+    const {categoryname} = router.query
 
+    console.log(categoryname)
 
 
     return (
@@ -47,7 +51,7 @@ export default function DropdownComp() {
               aria-haspopup={dropdown ? "true" : false}
               onClick={() => setDropdown((prev) => !prev)}
             >
-              {items.title}<MdPlayArrow className={`${styles.arrow_menu} ${dropdown ? styles.active : ''}`}/>
+              {categoryname}<MdPlayArrow className={`${styles.arrow_menu} ${dropdown ? styles.active : ''}`}/>
             </button>
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>

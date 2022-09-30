@@ -2,11 +2,12 @@
 @import "../../styles/_variables.scss";
 
 .Main {
-  position: absolute;
-  top: 40%;
-  left: 10%;
+  position: relative;
+  top: 0;
+  left:0 ;
   z-index: 3;
 }
+
 .menu {
   display: flex;
   align-items: center;
@@ -37,18 +38,22 @@
   background-color: transparent;
   cursor: pointer;
   width: 100%;
-  margin-left: 3px;
+  
   letter-spacing: 5px;
 }
 
 .menuItems > a,
 .menuItems button {
+  @include flex-container($gap:5px, $align: center);
   text-align: left;
-  padding: 0.7rem 1rem;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
   .arrow_menu {
     transform: rotate(180deg);
     transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.672);
 
     &.active {
       transform: rotate(90deg);
@@ -74,26 +79,44 @@
 }
 
 .dropdown {
+  @include flex-container($direction: column, $gap: 14px);
   position: absolute;
   right: 0;
-  left: 4px;
-  font-size: 0.875rem;
+  left: 20%;
+  border-left: 2px solid rgba(255, 255, 255, 0.397);
+  
+  font-weight: 600;
+  text-transform: uppercase;
   z-index: 9999;
-  min-width: 15rem;
-  padding: 0.5rem 0;
+  // min-width: 15rem;
+  margin-top: 16px;
+  padding: 0;
+  padding-left: 15px;
   list-style: none;
-  border-radius: 0.5rem;
   height: 0;
   overflow: hidden;
   box-sizing: border-box;
 
   li {
     letter-spacing: 10px;
+    padding: 0;
     opacity: 0;
+    font-size: 1rem;
     transform: scale(0.8) translateX(30px);
     transition: all 0.6s;
     color: $GreyBackground;
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.641);
+
+    a {
+      padding: 0;
+      transition: all 0.25s;
+
+      &:hover {
+        transform: scale(1.04);
+        color: rgb(255, 255, 255);
+      }
+    }
   }
 }
 

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useRouter } from "next/router";
+import DropdownComp from "../Dropdown/DropdownComp";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
@@ -16,6 +17,8 @@ const Hero = ({ type }) => {
 
   const { cities } = useSelector((state) => state);
   const router = useRouter();
+
+  const {cityname} = router.query
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -66,6 +69,8 @@ const Hero = ({ type }) => {
   }
 
   useEffect(() => {
+
+    if (type === "Home") {
 if (!isStoppedInterval) {
     interval = setInterval(() => {
       setRightValue((prev) => prev + 1);
@@ -77,7 +82,7 @@ if (!isStoppedInterval) {
       }, 5000);
     }
   } else { clearInterval(interval) }
-
+    }
     return () => clearInterval(interval);
   }, [rightValue, isStoppedInterval]);
 
@@ -183,12 +188,13 @@ if (!isStoppedInterval) {
               />
             </div>
           </div>
-          <div className={styles.maintexthero}>
-            <h1> {cities.cityData.name} </h1>
-            <h2>{cities.cityData.headline}</h2>
+          <div className={styles.maintext_act}>
+            {cityname && <h1> {cityname.split('&=')[0]} </h1>}
+            <DropdownComp />
+            {/* <h2>{cities.cityData.headline}</h2> */}
           </div>
 
-          <button className={styles.explorebtn}> EXPLORE </button>
+          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
     </div>
