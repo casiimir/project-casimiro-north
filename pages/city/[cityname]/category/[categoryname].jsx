@@ -1,11 +1,14 @@
-import styles from './category.module.scss';
-import ActivityCardList from '../../../../components/ActivityCardList/ActivityCardList';
+import styles from "./category.module.scss";
+import ActivityCardList from "../../../../components/ActivityCardList/ActivityCardList";
+import DropdownComp from "../../../../components/Dropdown/DropdownComp";
+import Hero from "../../../../components/Hero/Hero";
 
-export default function CategoryPage () {
-
-    return (
-        <div className={styles.CategoryPage}>
-            <ActivityCardList />
-        </div>
-    )
+export default function CategoryPage() {
+  return (
+    <div className={styles.CategoryPage}>
+      <Hero type="ActivityPage" />
+      <DropdownComp />
+      <ActivityCardList />
+    </div>
+  );
 }
