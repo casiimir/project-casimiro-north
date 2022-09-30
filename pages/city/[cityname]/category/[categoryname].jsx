@@ -1,6 +1,8 @@
+import styles from './category.module.scss';
+
 export default function CategoryPage () {
 
     return (
-        <div>CATEGORY PAGE</div>
+        <div className={styles.CategoryPage}>CATEGORY PAGE</div>
     )
 }
