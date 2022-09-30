@@ -1,2 +1,2 @@
-import MyTrip from "./MyTrip";
-export default MyTrip;
+// import MyTrip from "./MyTrip";
+// export default MyTrip;

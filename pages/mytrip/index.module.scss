@@ -1,0 +1,53 @@
+@import "../../styles/_variables.scss";
+@import "../../styles/_mixins.scss";
+
+.MyTrip {
+  min-height: 71vh;
+  background: rgb(4, 43, 52);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 43, 52, 1) 0%,
+    rgba(13, 100, 119, 1) 100%
+  );
+  padding-top: 12vh;
+
+
+  .container {
+    padding: 5% 10%;
+    
+  .header {
+    min-width: 60vw;
+    margin-top: 5%;
+    font-size: x-large;
+    color: white;
+    filter: opacity(73%);
+    .city{
+        font-weight: bold;
+      }
+  }
+
+  .row{
+    height: 1.5px;
+    width: 80vw;
+    background-color: white;
+    margin-top: 5%;
+  }
+
+  .activities {
+    @include flex-container(column, $gap: 4rem);
+    margin-top: 5%;
+    list-style-type: disc;
+    color: white;
+    filter: opacity(73%);
+
+    .activity {
+        font-size: large;
+        padding: 0 0 20% 0;
+      }
+  }
+
+    
+  }    
+
+}
+
