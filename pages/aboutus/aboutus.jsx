@@ -21,7 +21,7 @@ export default function AboutUsPage() {
             breve descrizione di quanto siamo bravi ❤️
           </p>
           <div className={styles.info}>
-            <span className={styles.logoForse}>logo(credo)</span>
+            <span className={styles.logoGithub}>logo(credo)</span>
             <span className={styles.githubLink}>Github repository link</span>
           </div>
         </div>
