@@ -12,6 +12,23 @@
   box-sizing: border-box;
   padding-top: 18vh;
 
+  .favorite_empty {
+    @include flex-container($align: center, $justify: center, $gap: 10px);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+
+    .broken {
+      font-size: 1.8rem;
+    }
+  }
+
 .titleContainer{
   @include flex-container(column, $gap:5px);
   padding: 0 40px; 

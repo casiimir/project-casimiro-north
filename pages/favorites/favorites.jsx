@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
+import { HiEmojiSad } from 'react-icons/hi';
+import { FaHeartBroken } from 'react-icons/fa';
 
 export default function Favorites() {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
-  const { activities, modalVisibility } = useSelector((state) => state);
+  const { activities } = useSelector((state) => state);
 
   // console.log(activities.activityData);
   
@@ -24,8 +26,8 @@ export default function Favorites() {
     <div className={styles.titleContainer}>
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
       <span className={styles.LineTitle}/>
-      </div>
-      
+    </div>
+      {activities.favorites.length === 0 && <div className={styles.favorite_empty}><FaHeartBroken className={styles.broken}/>Your Favorite List Seems Empty <HiEmojiSad /></div>}
       <ItemCardList />
       
     </div>
