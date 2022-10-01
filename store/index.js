@@ -13,7 +13,7 @@ const initialState = {
     discountList: [],
     lists: {},
     indexOfCat: 0,
-    
+    favorites: [],
   },
   cities: {
     cityData: {},
@@ -60,6 +60,10 @@ function activitiesReducer(state = {}, action) {
       return { ...state, catActList: action.payload};
     case "SET_INDEX_CAT":
       return { ...state, indexOfCat: action.payload};
+    case "SET_FAVORITE":
+      return {...state, favorites: [...state.favorites, action.payload]};
+    case "REMOVE_FAVORITE":
+      return {...state, favorites: state.favorites.filter((item) => item.uuid !== action.payload)}
     default:
       return state;
   }
