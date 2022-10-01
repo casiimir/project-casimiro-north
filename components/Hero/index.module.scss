@@ -146,6 +146,16 @@
       object-fit: cover;
       filter: blur(3px);
     }
+
+    .background_city {
+      flex: 0 0 auto;
+      
+      height:100%;
+      
+      object-fit: cover;
+      filter: blur(0.6px);
+
+    }
     }
 }      
 

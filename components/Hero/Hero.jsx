@@ -166,7 +166,7 @@ if (!isStoppedInterval) {
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
-                className={styles.background}
+                className={type !== 'CityPage' ? styles.background : styles.background_city}
                 src={cities.cityData.cover_image_url}
                 alt="heroimg"
               />
@@ -189,7 +189,7 @@ if (!isStoppedInterval) {
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
-                className={styles.background}
+                className={type !== 'ActivityPage' ? styles.background : styles.background_city}
                 src={activities?.categoryList[activities?.indexOfCat]?.cover_image_url}
                 alt="heroimg"
               />
