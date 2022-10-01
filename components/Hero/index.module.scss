@@ -12,8 +12,8 @@
   .maintexthero {
     @include flex-container($direction:column, $gap:10px);
     z-index: 3;
-    position: relative;
-    bottom: 40%;
+    position: absolute;
+    bottom: 10%;
     left: 0;
     color: white;
     text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
