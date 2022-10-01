@@ -72,5 +72,24 @@
     @include flex-container(column, $gap: 4rem);
 
     padding: 100px;
+
+    .activityPriceInfo {
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+
+      .activityPriceTitle {
+        font-size: 1.2rem;
+
+        &::after {
+          content: ":";
+        }
+      }
+
+      .activityPriceValue {
+        box-sizing: border-box;
+        padding: 5px 0;
+      }
+    }
   }
 }

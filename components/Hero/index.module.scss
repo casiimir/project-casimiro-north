@@ -258,6 +258,10 @@
       }
     }
 
+    .maintext_sng_act {
+      width: 50vw;
+    }
+
     .text_container_city {
       @include flex-container($direction:column);
       z-index: 3;
