@@ -40,7 +40,7 @@ const CityMainSection = () => {
           
           activities?.categoryList?.map((data, index) => (
             <div onClick={() => handleActivityCatClick(index)} className={styles.activity} key={data.id}>
-              <Link href={`${cityname}/category/${data.name}`}><a className={styles.categorylink}>{data.name}</a></Link>
+              <Link href={`${cityname}/category/${data.name}&=${data.code}`}><a className={styles.categorylink}>{data.name}</a></Link>
             </div> 
           ))
           
