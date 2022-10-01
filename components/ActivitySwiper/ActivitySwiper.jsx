@@ -41,7 +41,7 @@ export default function ActivitySwiper () {
             activities?.activitiesTodayList?.data?.map((item, index) =>
               <SwiperSlide key={index}>
                 <div className={styles.swiper_container}>
-                    <img src={item.cover_image_url.split('?w=')[0]+"?w=1000"} alt="activity" /> 
+                    <img src={item?.cover_image_url?.split('?w=')[0]+"?w=1000"} alt="activity" /> 
                     <div className={styles.text_container}>
                       <h3>{item.title}</h3>
                       <p className={styles.description}>{item.description}</p>
