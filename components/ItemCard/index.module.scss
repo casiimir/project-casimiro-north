@@ -18,7 +18,7 @@
     cursor: pointer;
   }
   .ItemCard {
-    @include flex-container($gap: 20px);
+    @include flex-container($gap: 20px, $align: center);
     height: 100%;
     width: 100%;
     flex: 0 0 auto;
@@ -78,11 +78,9 @@
         }
       }
       .CartItem {
-        @include flex-container(column, $gap: 1.5rem);
-        width: 20%;
-        // position: absolute;
-        // right: 0;
-        // top: 10%;
+        @include flex-container(column, $gap: 1.5rem, $justify: space-between);
+        flex: 0 0 auto;
+
         .retailprice {
           color: white;
           font-size: 0.6rem;

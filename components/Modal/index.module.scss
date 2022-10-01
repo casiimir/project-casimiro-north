@@ -5,15 +5,19 @@
   background-color: rgba(9, 15, 17, 0.72);
 
   @include element-position(fixed, 0, 0, 0, 0, 99);
-
-  width: 100%;
-  height: 100%;
+  @include flex-container($align: center, $justify: center);
+   
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 0, 0, 0);
+    }
 
   .modal {
-    @include element-position(absolute, 20%, 50%, auto, 18%, 2);
     width: 48%;
-    height: 20%;
-    @include flex-container(column, flex-start, $gap: 1.875rem);
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.945);
     border-radius: 4px;
@@ -21,6 +25,9 @@
     color: rgb(255, 255, 255);
     cursor: pointer;
     box-shadow: 0 0 60px rgba(255, 255, 255, 0.168);
+    position: relative;
+
+   
 
     .mainText {
       text-align: center;
@@ -30,38 +37,24 @@
       padding: 2px;
     }
 
-    .cart {
-      color: #78989f;
-      @include element-position(absolute, 33%, 40%, auto, 33%);
-      font-size: 5.8625rem;
-      transform: rotate(-38deg);
-    }
-
-    .check {
-      color: $MainButtonBlue;
-      background-color: white;
-      border-radius: 100%;
-      font-size: 2.9625rem;
-      @include element-position(absolute, 33%, 44%, auto, auto, 999);
-    }
+ .cart_icon {
+  text-align: center;
+  .carrello {
+    width: 80%;
+  }
+ }
   }
 }
 
 @media only screen and (min-width: 767px) {
   .modaloverlay {
     background-color: rgba(9, 15, 17, 0.72);
-
     @include element-position(fixed, 0, 0, 0, 0, 99);
 
-    width: 100%;
-    height: 100%;
-
     .modal {
-      @include element-position(absolute, 20%, 50%, auto, 26%, 2);
-      width: 41%;
-      height: 45%;
-      @include flex-container(column, flex-start, $gap: 1.875rem);
-      padding: 30px;
+      width: auto;
+      @include flex-container($direction: column, $gap: 10px);
+      padding: 30px 10px;
       background-color: rgba(255, 255, 255, 0.945);
       border-radius: 4px;
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
@@ -69,22 +62,18 @@
       cursor: pointer;
       box-shadow: 0 0 60px rgba(255, 255, 255, 0.168);
 
+
       .mainText {
-        text-align: center;
-        color: $MainDarkBlue;
-        font-size: 1.5rem;
-        font-weight: 700;
-        padding: 5px;
+        font-size: 1.4rem;
       }
 
-      .cart {
-        color: #78989f;
-        font-size: 9.5625rem;
-        position: fixed;
-        transform: rotate(-38deg);
-        @include element-position(absolute, 25%, 40%, auto, 31%);
-      }
+      .cart_icon {
+        position: relative;
 
+        .carrello {
+          width: 60%;
+        }
+    }
       .check {
         color: $MainButtonBlue;
         background-color: white;

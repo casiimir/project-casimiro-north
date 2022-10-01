@@ -2,7 +2,7 @@
 @import "../../styles/mixins.scss";
 .Favorites {
   @include flex-container(column, $gap:25px);
-  min-height: 65vh;
+  min-height: 83vh;
   background: rgb(137, 165, 171);
   background: linear-gradient(
     180deg,
