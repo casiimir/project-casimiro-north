@@ -15,13 +15,12 @@ const ActivityCardList = () => {
   const {cityname, categoryname} = router.query
 
   useEffect(() => {
-    // if (cityname) {
-    //   GET(IMPORT_URL.ACTIVITIES, `${cityname.split('&=')[1]}`, dispatch, "SET_ACTIVITY_LIST");
-    // } 
-    // else {
+
         GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
+
+        if (categoryname) {
         GET(IMPORT_URL.ACTIVITIES, `?category_in=${categoryname?.split('&=')[1]}&city_in=${cityname?.split('&=')[1]}`, dispatch, "SET_CAT_ACT")
-    // }
+        }
   }, [cityname, dispatch, categoryname]);
 
   return (
