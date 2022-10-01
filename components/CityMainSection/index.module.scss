@@ -15,6 +15,15 @@
     line-height: 1.8rem;
     color: $MainDarkBlue;
     font-weight: 300;
+    height: 40vh;
+      overflow-y: scroll;
+      letter-spacing: 2px;
+
+      a {
+        text-decoration: none;
+        color: $LightBlue;
+        font-weight: 600;
+      }
   }
 
   .activitiesDiv {
@@ -52,7 +61,8 @@
     padding: 50px 60px;
 
     .description {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      
     }
 
     .activitiesDiv {
@@ -64,7 +74,6 @@
       .activitiesList {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 20%;
 
         justify-content: space-between;

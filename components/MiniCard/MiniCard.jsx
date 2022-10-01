@@ -5,10 +5,6 @@ const MiniCard = ({ cardData }) => {
   const { id, discount, cover_image_url, city, uuid } = cardData;
   const router = useRouter();
 
-  const data = cardData
-
-  console.log(data)
-
   const handleOnDiscountClick = () => {
     router.push("/activity/"+uuid)
   }

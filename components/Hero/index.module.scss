@@ -41,9 +41,9 @@
     top: 15vh;
     font-weight: 800;
     font-size: 2rem;
-    left: 5%;
+    left: 30px;
     color: rgba(255, 255, 255, 0.486);
-    transform: scale(0.9);
+    transform: scale(1);
   }
 
   .text_container_city {
@@ -207,6 +207,17 @@
       }
       h2 {
         font-size: 2rem;
+      }
+    }
+
+    .maintext_act {
+      top: 12vh;
+      left: 45px;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+
+      h1 {
+        cursor: pointer;
       }
     }
 

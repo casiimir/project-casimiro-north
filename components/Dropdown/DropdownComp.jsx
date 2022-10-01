@@ -3,81 +3,65 @@ import styles from "./index.module.scss";
 import { useState } from "react";
 import {MdPlayArrow } from 'react-icons/md';
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
-export default function DropdownComp({className}) {
+export default function DropdownComp({heroRef}) {
 
-  const [category, setCategory] = useState("Arts and Culture");
-
-  const listItems = [
-    {
-      title: category,
-      submenu: [
-        {
-          title: "Sightseeing",
-        },
-        {
-          title: "Food and Wine",
-        },
-        {
-          title: "Entertainment",
-        },
-        {
-          title: "Sports",
-        },
-        {
-          title: "Adventure",
-        },
-        {
-          title: "Nightlife",
-        },
-      ],
-    },
-  ];
   const MenuItems = ({ items }) => {
     const [dropdown, setDropdown] = useState(false);
     const closeDropdown = () => dropdown && setDropdown(false);
     const router = useRouter();
     const {categoryname} = router.query
 
-    console.log(categoryname)
-
-
     return (
       <li className={styles.menuItems} onClick={closeDropdown}>
-        {items.submenu ? (
-          <>
+      
             <button
               type="button"
               aria-haspopup={dropdown ? "true" : false}
               onClick={() => setDropdown((prev) => !prev)}
             >
-              {categoryname}<MdPlayArrow className={`${styles.arrow_menu} ${dropdown ? styles.active : ''}`}/>
+              {categoryname?.split('&=')[0]}<MdPlayArrow className={`${styles.arrow_menu} ${dropdown ? styles.active : ''}`}/>
             </button>
-            <Dropdown submenus={items.submenu} dropdown={dropdown} />
-          </>
-        ) : (
-          <a href={items.url}>{items.title}</a>
-        )}
+            <Dropdown  dropdown={dropdown} />
+        
       </li>
     );
   };
 
-  const Dropdown = ({ submenus, dropdown }) => {
+  const Dropdown = ({ dropdown }) => {
 
-    const handleLiClick = (e) => {
-      setCategory(e.target.text)
+    const dispatch = useDispatch();
+    const router = useRouter();
+    const {categoryname, cityname} = router.query
+
+    const handleClickLink = (id) => {
+
+      dispatch({type: "SET_INDEX_CAT", payload: id})
+
+      if (typeof window !== 'undefined') {
+        window.scrollTo({
+          top: heroRef.current.offsetTop + heroRef.current.offsetHeight,
+          behavior: 'smooth'
+        })
+      }
+        console.log(heroRef.current.offsetTop + heroRef.current.offsetHeight )
     }
+
+
+    const {activities} = useSelector(state => state);
 
     return (
       <ul className={`${styles.dropdown} ${dropdown && styles.show}`}>
-        {submenus.map((submenu, index) => (
+        {activities?.categoryList?.filter((item) => item.name != categoryname).map((submenu, index) => (
           <li
             key={index}
             className={styles.menuItems}
             style={dropdown ? { transitionDelay: `0.${index}s` } : {}}
-            onClick={e => handleLiClick(e)}
+            onClick={() => handleClickLink(index)}  
           >
-            <a href={submenu.url}>{submenu.title}</a>
+            <Link scroll={false} href={`/city/${cityname}/category/${submenu.name}&=${submenu.code}`}>{submenu.name}</Link>
           </li>
         ))}
       </ul>
@@ -85,12 +69,11 @@ export default function DropdownComp({className}) {
   };
   
   const CatDiv = () => {
+
     return (
       <nav>
-        <ul className={styles.menu}>
-          {listItems.map((menu, index) => {
-            return <MenuItems items={menu} key={index} />;
-          })}
+        <ul className={styles.menu}>    
+            <MenuItems  /> 
         </ul>
       </nav>
     );
