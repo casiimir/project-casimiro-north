@@ -13,7 +13,7 @@ const initialState = {
     discountList: [],
     lists: {},
     indexOfCat: 0,
-    
+    favorites: [],
   },
   cities: {
     cityData: {},
@@ -24,6 +24,7 @@ const initialState = {
     isActive: false,
     isInputActive: false,
   },
+  modalVisibility: false,
 
   moneyValue: '€'
 };
@@ -60,6 +61,10 @@ function activitiesReducer(state = {}, action) {
       return { ...state, catActList: action.payload};
     case "SET_INDEX_CAT":
       return { ...state, indexOfCat: action.payload};
+    case "SET_FAVORITE":
+      return {...state, favorites: [...state.favorites, action.payload]};
+    case "REMOVE_FAVORITE":
+      return {...state, favorites: state.favorites.filter((item) => item.uuid !== action.payload)}
     default:
       return state;
   }
@@ -104,12 +109,24 @@ function moneyValueReducer(state = {}, action) {
     }
 }
 
+function modalVisibilityChangeReducer(state = {}, action) {
+  switch (action.type) {
+    case "SET_TRUE":
+      return state = true;
+    case "SET_FALSE":
+      return state = false;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
   cities: cityReducer,
   navBarStatus: navBarStatusReducer,
   moneyValue: moneyValueReducer,
+  modalVisibility: modalVisibilityChangeReducer,
 });
 
 const store = createStore(rootReducer, initialState);

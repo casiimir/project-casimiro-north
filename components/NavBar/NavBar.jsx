@@ -6,12 +6,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
 import { useEffect } from 'react';
+import Modal from '../Modal/Modal';
+import Logo from '../../assets/Logo.png';
 
 export default function NavBar () {
 
-    const {navBarStatus} = useSelector(state => state)
+    const {navBarStatus, modalVisibility} = useSelector(state => state)
     const dispatch = useDispatch();
     const router = useRouter();
+
+    console.log(Logo)
 
     const menu = [
         {
@@ -79,7 +83,8 @@ export default function NavBar () {
     return (
         <div className={styles.Main_Navbar}>
         <div className={styles.NavBar}>
-            <h2 onClick={handleLogoClick}>LOGO</h2>
+            {/* <h2 onClick={handleLogoClick}>LOGO</h2> */}
+            <img src={Logo.src} className={styles.logo} alt=""/>
             
             
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
@@ -112,7 +117,7 @@ export default function NavBar () {
             </div>
             <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
         </div>
-        
+        {modalVisibility && <Modal />}
         </div>
     )
 }

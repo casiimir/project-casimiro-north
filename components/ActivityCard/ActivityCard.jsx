@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
@@ -7,6 +7,7 @@ import { BsCart2 } from "react-icons/bs";
 const ActivityCard = ({catData}) => {
   const { cover_image_url, id,  title, uuid } = catData;
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const {moneyValue } = useSelector(state => state);
 
@@ -25,6 +26,12 @@ const ActivityCard = ({catData}) => {
 
   const handleOnAddCart = () => {
     console.log('vuoi comprare o pescc')
+    dispatch({type: "SET_TRUE"})
+  }
+
+  const handleHeartClick = () => {
+    console.log('cliccato il cuore');
+    dispatch({type: "SET_FAVORITE", payload: catData});
   }
 
   return (
@@ -39,7 +46,7 @@ const ActivityCard = ({catData}) => {
         {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
           <p className={styles.hours}>12:00 - 13:00</p>
-          <FaRegHeart className={styles.Heart} />
+          <FaRegHeart onClick={handleHeartClick} className={styles.Heart} />
         </div>
         </>}
       </div>

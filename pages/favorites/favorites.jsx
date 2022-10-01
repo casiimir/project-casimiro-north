@@ -8,17 +8,13 @@ import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Favorites() {
-  const [isModalVisibile, setModalVisibility] = useState(false);
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
-  const { activities } = useSelector((state) => state);
+  const { activities, modalVisibility } = useSelector((state) => state);
 
   // console.log(activities.activityData);
   
-  const onHandleModal = () => {
-    setModalVisibility(!isModalVisibile);
-  };
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
   }, [uuid, dispatch]);
@@ -27,12 +23,11 @@ export default function Favorites() {
     <div className={styles.Favorites}>
     <div className={styles.titleContainer}>
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
-      <span className={styles.LineTitle}></span></div>
-      <ItemCardList modalVisibility={onHandleModal}/>
-      <Modal
-        isVisibile={isModalVisibile}
-        onModalClick={setModalVisibility}
-      />
+      <span className={styles.LineTitle}/>
+      </div>
+      
+      <ItemCardList />
+      
     </div>
   );
 }

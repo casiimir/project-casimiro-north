@@ -20,7 +20,7 @@ const Hero = ({ type }) => {
   const { cities, activities } = useSelector((state) => state);
   const router = useRouter();
 
-  const {cityname} = router.query
+  const {cityname, uuid} = router.query
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -98,7 +98,7 @@ if (!isStoppedInterval) {
   }, [dispatch]);
 
   return (
-    <div ref={heroRef} className={styles.hero}>
+    <div ref={heroRef} className={styles.hero} style={type === "SingleActivity" ? {height: "45vh"} : {}}>
       {type === "Home" && (
         <>
           <div
@@ -166,7 +166,7 @@ if (!isStoppedInterval) {
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
-                className={styles.background}
+                className={type !== 'CityPage' ? styles.background : styles.background_city}
                 src={cities.cityData.cover_image_url}
                 alt="heroimg"
               />
@@ -189,7 +189,7 @@ if (!isStoppedInterval) {
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
               <img
-                className={styles.background}
+                className={type !== 'ActivityPage' ? styles.background : styles.background_city}
                 src={activities?.categoryList[activities?.indexOfCat]?.cover_image_url}
                 alt="heroimg"
               />
@@ -198,6 +198,28 @@ if (!isStoppedInterval) {
           <div className={styles.maintext_act}>
             {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
             <DropdownComp heroRef={heroRef}/>
+            {/* <h2>{cities.cityData.headline}</h2> */}
+          </div>
+
+          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
+        </>
+      )}
+      {type === "SingleActivity" && (
+        <>
+          <div className={styles.slider_container}>
+            <div className={styles.img_container}>
+              <div className={styles.overlay_gradient} />
+              <img
+                className={type !== 'ActivityPage' ? styles.background : styles.background_city}
+                src={activities.activityData.cover_image_url}
+                alt="heroimg"
+              />
+            </div>
+          </div>
+          <div className={styles.maintext_sng_act}>
+            
+            <h1 onClick={handleOnCityClick}> {activities.activityData.title} </h1>
+            <span className={styles.row_title}/>
             {/* <h2>{cities.cityData.headline}</h2> */}
           </div>
 

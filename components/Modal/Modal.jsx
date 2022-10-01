@@ -1,15 +1,40 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
-import { BsCart2, BsCheckCircleFill } from "react-icons/bs";
+import ModalIcon from "./modalIcon";
 
-const Modal = ({ isVisibile, onModalClick }) => {
+const Modal = () => {
+
+  const dispatch = useDispatch();
+  const {modalVisibility} = useSelector(state => state)
+  const [status, setStatus] = useState("")
+
+  const handleOnOverlayClick = () => {
+    dispatch({type: "SET_FALSE"})
+  }
+
+  useEffect(()=> {
+    setStatus("active")
+    if (modalVisibility) {
+      setTimeout(() => {
+        setStatus("")
+      }, 600)
+
+      setTimeout(() => {
+        dispatch({type: "SET_FALSE"})
+      },800)
+    }
+  }, [modalVisibility])
+
   return (
-    isVisibile && (
-      <div className={styles.modaloverlay} onClick={() => onModalClick(false)}>
-        <div className={styles.modal}>
+    modalVisibility && (
+      <div className={styles.modaloverlay}>
+        <div className={styles.overlay} onClick={handleOnOverlayClick}/>
+        <div className={`${styles.modal} ${styles[status]}`}>
           <h2 className={styles.mainText}>ADDED TO CART!</h2>
-
-          <BsCart2 className={styles.cart} />
-          <BsCheckCircleFill className={styles.check} />
+          <div className={styles.cart_icon}>
+          <ModalIcon className={styles.carrello}/>
+          </div>
         </div>
       </div>
     )

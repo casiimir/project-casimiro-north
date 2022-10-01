@@ -5,16 +5,19 @@
   @include flex-container(column, flex-start, stretch, nowrap, 10px);
   box-sizing: border-box;
   position: relative;
-  padding: 0 0 40px 0;
-
+  padding: 0;
+  
 
   .FavoritesSublist {
     @include flex-container(column, $gap: 20px);
 
     box-sizing: border-box;
     width: 100%;
-    padding: 0 28px;
-    background-color: transparent;
+    height: 58vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 20px 0px;
+    
   }
 }
 
@@ -23,7 +26,8 @@
         @include flex-container(column, flex-start, stretch, nowrap, 10px);
         box-sizing: border-box;
         position: relative;
-        padding: 0 0 40px 0;
+        padding: 0;
+        margin: 0 70px;
       
         
         .LineTitle {
@@ -34,11 +38,12 @@
         }
         .FavoritesSublist {
           @include flex-container(column, $gap: 20px);
-      
+          padding: 40px 0;
           box-sizing: border-box;
           width: 100%;
+          height: 66vh;
          
-          padding: 0 70px;
+          // padding: 0 70px;
           background-color: transparent;
       
           .FavoritesTitle {
