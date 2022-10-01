@@ -84,7 +84,7 @@ export default function NavBar () {
         <div className={styles.Main_Navbar}>
         <div className={styles.NavBar}>
             {/* <h2 onClick={handleLogoClick}>LOGO</h2> */}
-            <img src={Logo.src} className={styles.logo} alt=""/>
+            <img src={Logo.src} onClick={handleLogoClick} className={styles.logo} alt=""/>
             
             
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
