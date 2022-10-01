@@ -1,12 +1,56 @@
 @import "../../styles/_variables.scss";
+@import "../../styles/_mixins.scss";
 
-.cart {
+.aboutUsPage {
   min-height: 71vh;
-  background: rgb(4, 43, 52);
-  background: linear-gradient(
-    180deg,
-    rgba(4, 43, 52, 1) 0%,
-    rgba(13, 100, 119, 1) 100%
-  );
   padding-top: 12vh;
+  background-color: $MainDarkBlue;
+
+  .mainSection {
+    @include flex-container(column, space-between);
+
+    border: 1px solid blue;
+    padding-top: 40px;
+    height: 64vh;
+
+    .infoSection {
+      @include flex-container(column, $gap: 20px);
+
+      padding: 0 40px;
+      color: white;
+
+      .title {
+        border-bottom: 1px solid white;
+        height: 2rem;
+
+        .titleText {
+          font-size: 1.2rem;
+        }
+      }
+      .description {
+      }
+
+      .info {
+        .logoGithub {
+        }
+        .githubLink {
+        }
+      }
+    }
+
+    .swiper {
+      border: 1px solid pink;
+    }
+
+    .creditsSection {
+      @include flex-container(column, center, center);
+      color: white;
+
+      .logo {
+      }
+
+      .creditsText {
+      }
+    }
+  }
 }
