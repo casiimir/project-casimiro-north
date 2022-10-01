@@ -14,6 +14,10 @@ export default function ActivityPage() {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
+  const handleOnCartClick = () => {
+    dispatch({type: "SET_TRUE"})
+  }
+
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
   }, [uuid, dispatch]);
@@ -36,7 +40,7 @@ export default function ActivityPage() {
           </span>
         </div>
         <div className={styles.cartIconDiv}>
-          <BsCart className={styles.cartIcon} />
+          <BsCart onClick={handleOnCartClick} className={styles.cartIcon} />
         </div>
 
         <div className={styles.activityInfo}>
