@@ -18,7 +18,7 @@ const ItemCardList = ({modalVisibility}) => {
       <div className={styles.FavoritesSublist}>
         {activities?.activityList?.data
           ?.filter((item) => item?.cover_image_url)
-          .filter((_, index) => index <= 10)
+          .filter((_, index) => index <= 5)
           .map((activity, index) => (
             <ItemCard cardData={activity} key={index} modalVisibility={modalVisibility}/>
           ))}

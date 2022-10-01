@@ -27,7 +27,9 @@ export default function Favorites() {
     <div className={styles.Favorites}>
     <div className={styles.titleContainer}>
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
-      <span className={styles.LineTitle}></span></div>
+      <span className={styles.LineTitle}/>
+      </div>
+      
       <ItemCardList modalVisibility={onHandleModal}/>
       <Modal
         isVisibile={isModalVisibile}

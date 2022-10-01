@@ -61,21 +61,18 @@
 
       .MainText {
         @include flex-container(column, $gap: 0.3125rem);
-        // position: absolute;
-        // left: 20%;
-        // top: 10%;
 
         .ActivityTitle {
           color: white;
           text-transform: uppercase;
           width: 80%;
-          font-size: 0.41rem;
+          font-size: 0.6rem;
           font-weight: 600;
         }
         .ActivityDescription {
           color: white;
           width: 80%;
-          font-size: 0.38rem;
+          font-size: 0.6rem;
           font-weight: 200;
         }
       }
@@ -87,7 +84,7 @@
         // top: 10%;
         .retailprice {
           color: white;
-          font-size: 0.35rem;
+          font-size: 0.6rem;
           font-weight: 700;
           text-align: right;
         }
@@ -95,7 +92,7 @@
         
           .addCart {
             color: #bbdfeec2;
-            font-size: 0.35rem;
+            font-size: 0.5rem;
             font-weight: 700;
             width: 100%;
             text-align: right;
@@ -149,22 +146,19 @@
       .all_text_container {
 
         .MainText {
-          @include flex-container(column, $gap: 0.3125rem);
-          // position: absolute;
-          // left: 20%;
-          // top: 10%;
+          @include flex-container(column, $gap: 10px);
 
           .ActivityTitle {
             color: white;
             text-transform: uppercase;
             width: 90%;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             font-weight: 700;
           }
           .ActivityDescription {
             color: white;
             width: 80%;
-            font-size: 0.55rem;
+            font-size: 0.8rem;
             font-weight: 400;
           }
         }
@@ -176,14 +170,14 @@
           top: 10%;
           .retailprice {
             color: white;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-align: right;
           }
         
             .addCart {
               color: #bbdfeec2;
-              font-size: 0.55rem;
+              font-size: 0.7rem;
               font-weight: 700;
               width: 100%;
               text-align: right;  
