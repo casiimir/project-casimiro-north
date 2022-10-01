@@ -8,7 +8,6 @@ import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Favorites() {
-  const [isModalVisibile, setModalVisibility] = useState(false);
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
@@ -31,10 +30,7 @@ export default function Favorites() {
       </div>
       
       <ItemCardList modalVisibility={onHandleModal}/>
-      <Modal
-        isVisibile={isModalVisibile}
-        onModalClick={setModalVisibility}
-      />
+      <Modal />
     </div>
   );
 }

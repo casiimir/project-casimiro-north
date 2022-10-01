@@ -10,6 +10,10 @@ const ItemCard = ({ cardData, modalVisibility }) => {
     dispatch({type: "REMOVE_FAVORITE", payload: uuid})
   }
 
+  const handleOnAddCartClick = () => {
+    dispatch({type: "SET_TRUE"})
+  }
+
   return (
     <div className={styles.CardContainer}>
       <span onClick={handleOnDeleteBtn} className={styles.DeleteFavorite}>x</span>
@@ -26,7 +30,7 @@ const ItemCard = ({ cardData, modalVisibility }) => {
           <div className={styles.CartItem}>
             <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>{" "}
             
-              <p className={styles.addCart}  onClick={() => modalVisibility(true)}> add to cart </p>
+              <p className={styles.addCart}  onClick={handleOnAddCartClick}> add to cart </p>
           
           </div>
         </div>

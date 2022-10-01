@@ -31,8 +31,10 @@
     .imgContainer {
       position: relative;
       border-radius: 6px;
-      height: 43px;
-      width: 43px;
+      overflow: hidden;
+      height: 50px;
+      width: 50px;
+      flex: 0 0 auto;
       box-shadow: 1px -5px 10px 3px rgba(255, 255, 255, 0.25);
       .overlayimg {
         position: absolute;
@@ -40,13 +42,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: inset 0px 0px 8px 10px rgba(2, 77, 94, 0.29);
+        box-shadow: inset 0px 0px 8px 6px rgba(2, 77, 94, 0.29);
         z-index: 1;
       }
       img {
-        border-radius: 6px;
-        height: 43px;
-        width: 43px;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
         filter: blur(0.05px) drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.45));
         &:hover {
@@ -67,13 +68,13 @@
           color: white;
           text-transform: uppercase;
           width: 80%;
-          font-size: 0.6rem;
+          font-size: 0.68rem;
           font-weight: 600;
         }
         .ActivityDescription {
           color: white;
           width: 80%;
-          font-size: 0.6rem;
+          font-size: 0.68rem;
           font-weight: 200;
         }
       }
@@ -83,7 +84,7 @@
 
         .retailprice {
           color: white;
-          font-size: 0.6rem;
+          font-size: 0.68rem;
           font-weight: 700;
           text-align: right;
         }

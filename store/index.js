@@ -24,6 +24,7 @@ const initialState = {
     isActive: false,
     isInputActive: false,
   },
+  modalVisibility: false,
 
   moneyValue: '€'
 };
@@ -108,12 +109,24 @@ function moneyValueReducer(state = {}, action) {
     }
 }
 
+function modalVisibilityChangeReducer(state = {}, action) {
+  switch (action.type) {
+    case "SET_TRUE":
+      return state = true;
+    case "SET_FALSE":
+      return state = false;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   cartData: cartDataReducer,
   activities: activitiesReducer,
   cities: cityReducer,
   navBarStatus: navBarStatusReducer,
   moneyValue: moneyValueReducer,
+  modalVisibility: modalVisibilityChangeReducer,
 });
 
 const store = createStore(rootReducer, initialState);
