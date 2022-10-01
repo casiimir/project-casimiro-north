@@ -11,15 +11,17 @@ const ItemCard = ({ cardData, modalVisibility }) => {
         <div className={styles.overlayimg}/>
           <img src={cover_image_url} key={id} id={id} alt="img"/>
         </div>
-        <div className={styles.MainText}>
-          <h1 className={styles.ActivityTitle}>{title}</h1>
-          <p className={styles.ActivityDescription}>{description}</p>
-        </div>
-        <div className={styles.CartItem}>
-          <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>{" "}
+        <div className={styles.all_text_container}>
+          <div className={styles.MainText}>
+            <h1 className={styles.ActivityTitle}>{title}</h1>
+            <p className={styles.ActivityDescription}>{description}</p>
+          </div>
+          <div className={styles.CartItem}>
+            <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>{" "}
+            
+              <p className={styles.addCart}  onClick={() => modalVisibility(true)}> add to cart </p>
           
-            <p className={styles.addCart}  onClick={() => modalVisibility(true)}> add to cart </p>
-        
+          </div>
         </div>
       </div>
     </div>

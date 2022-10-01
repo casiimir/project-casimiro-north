@@ -1,24 +1,32 @@
 @import "../../styles/_mixins.scss";
 @import "../../styles/_variables.scss";
 .CardContainer {
-  @include flex-container(row);
+  @include flex-container($justify: space-between);
   position: relative;
-  width: 90%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px;
+
   .DeleteFavorite {
     position: absolute;
     left: 0;
     align-self: center;
     color: rgba(255, 255, 255, 0.62);
+    box-sizing: border-box;
+    width: 40px;
+    text-align: center;
   }
   .ItemCard {
-    @include flex-container(row);
+    @include flex-container($gap: 20px);
     height: 100%;
     width: 100%;
     flex: 0 0 auto;
     position: relative;
-    left: 10%;
+    // left: 10%;
     cursor: pointer;
     transition: all 0.2s;
+    box-sizing: border-box;
+
     .imgContainer {
       position: relative;
       border-radius: 6px;
@@ -46,48 +54,54 @@
         }
       }
     }
-    .MainText {
-      @include flex-container(column, $gap: 0.3125rem);
-      position: absolute;
-      left: 20%;
-      top: 10%;
 
-      .ActivityTitle {
-        color: white;
-        text-transform: uppercase;
-        width: 80%;
-        font-size: 0.41rem;
-        font-weight: 600;
+    .all_text_container {
+      @include flex-container($justify: space-between);
+      width: 100%;
+
+      .MainText {
+        @include flex-container(column, $gap: 0.3125rem);
+        // position: absolute;
+        // left: 20%;
+        // top: 10%;
+
+        .ActivityTitle {
+          color: white;
+          text-transform: uppercase;
+          width: 80%;
+          font-size: 0.41rem;
+          font-weight: 600;
+        }
+        .ActivityDescription {
+          color: white;
+          width: 80%;
+          font-size: 0.38rem;
+          font-weight: 200;
+        }
       }
-      .ActivityDescription {
-        color: white;
-        width: 80%;
-        font-size: 0.38rem;
-        font-weight: 200;
-      }
-    }
-    .CartItem {
-      @include flex-container(column, $gap: 1.5rem);
-      width: 20%;
-      position: absolute;
-      right: 0;
-      top: 10%;
-      .retailprice {
-        color: white;
-        font-size: 0.35rem;
-        font-weight: 700;
-        text-align: right;
-      }
-     
-      
-        .addCart {
-          color: #bbdfeec2;
+      .CartItem {
+        @include flex-container(column, $gap: 1.5rem);
+        width: 20%;
+        // position: absolute;
+        // right: 0;
+        // top: 10%;
+        .retailprice {
+          color: white;
           font-size: 0.35rem;
           font-weight: 700;
-          width: 100%;
           text-align: right;
-          text-decoration: underline;
+        }
+      
         
+          .addCart {
+            color: #bbdfeec2;
+            font-size: 0.35rem;
+            font-weight: 700;
+            width: 100%;
+            text-align: right;
+            text-decoration: underline;
+          
+        }
       }
     }
   }
@@ -95,20 +109,22 @@
 @media only screen and (min-width: 767px) {
   .CardContainer {
     @include flex-container(row);
-    width: 90%;
+    // width: 90%;
     position: relative;
+    padding: 0 70px;
+
     .DeleteFavorite {
-      padding-right: 20px;
+      // padding-right: 20px;
       color: rgba(255, 255, 255, 0.62);
       align-self: center;
+      width: 70px
+
     }
     .ItemCard {
-      @include flex-container(row);
+      @include flex-container($justify: space-between, $gap: 20px);
       height: 100%;
       width: 100%;
       flex: 0 0 auto;
-      position: relative;
-      left: 10%;
       cursor: pointer;
       transition: all 0.2s;
       .imgContainer {
@@ -129,49 +145,53 @@
           }
         }
       }
-      .MainText {
-        @include flex-container(column, $gap: 0.3125rem);
-        position: absolute;
-        left: 20%;
-        top: 10%;
 
-        .ActivityTitle {
-          color: white;
-          text-transform: uppercase;
-          width: 90%;
-          font-size: 0.65rem;
-          font-weight: 700;
-        }
-        .ActivityDescription {
-          color: white;
-          width: 80%;
-          font-size: 0.55rem;
-          font-weight: 400;
-        }
-      }
-      .CartItem {
-        @include flex-container(column, $gap: 2rem);
-        width: 20%;
-        position: absolute;
-        right: 0;
-        top: 10%;
-        .retailprice {
-          color: white;
-          font-size: 0.65rem;
-          font-weight: 700;
-          text-align: right;
-        }
-       
-          .addCart {
-            color: #bbdfeec2;
-            font-size: 0.55rem;
+      .all_text_container {
+
+        .MainText {
+          @include flex-container(column, $gap: 0.3125rem);
+          // position: absolute;
+          // left: 20%;
+          // top: 10%;
+
+          .ActivityTitle {
+            color: white;
+            text-transform: uppercase;
+            width: 90%;
+            font-size: 0.65rem;
             font-weight: 700;
-            width: 100%;
-            text-align: right;  
-            cursor: pointer;
-            text-decoration: underline;
+          }
+          .ActivityDescription {
+            color: white;
+            width: 80%;
+            font-size: 0.55rem;
+            font-weight: 400;
+          }
+        }
+        .CartItem {
+          @include flex-container(column, $gap: 2rem);
+          width: 20%;
+          position: absolute;
+          right: 0;
+          top: 10%;
+          .retailprice {
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-align: right;
           }
         
+            .addCart {
+              color: #bbdfeec2;
+              font-size: 0.55rem;
+              font-weight: 700;
+              width: 100%;
+              text-align: right;  
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          
+        }
       }
     }
   }
