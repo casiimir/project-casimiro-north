@@ -8,7 +8,6 @@ import { IMPORT_URL } from "../../../../utils/GET/URL";
 import { useRouter } from "next/router";
 
 export default function CategoryPage() {
-  console.clear()
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -18,9 +17,9 @@ export default function CategoryPage() {
     cityname?.split("&=")[1] &&
       GET(
         IMPORT_URL.CITIES,
-        `${cityname?.split("&=")[1]}/lists?limit=10`,
+        `${cityname?.split("&=")[1]}/categories`,
         dispatch,
-        "SET_ACTIVITY_TOP_LIST"
+        "SET_CATEGORY_LIST"
       );
   }, [cityname, dispatch]);
 

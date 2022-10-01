@@ -7,9 +7,12 @@ const initialState = {
   activities: {
     activityData: {},
     activityList: [],
-    activityTopList: [],
+    categoryList: [],
+    catActList: [],
     activitiesTodayList: [],
     discountList: [],
+    lists: {},
+    indexOfCat: null,
     
   },
   cities: {
@@ -30,7 +33,6 @@ function cartDataReducer(state = {}, action) {
     case "ADD_PRODUCT":
       return { ...state, cartList: [...state.cartList, action.payload] };
     case "REMOVE_PRODUCT":
-      console.log(action.payload);
       return {
         ...state,
         cartList: state.cartList.filter((_, id) => id !== action.payload),
@@ -48,10 +50,16 @@ function activitiesReducer(state = {}, action) {
       return { ...state, activityList: action.payload };
     case "SET_DISCOUNT_LIST":
       return { ...state, discountList: action.payload};
-    case "SET_ACTIVITY_TOP_LIST":
-      return { ...state, activityTopList: action.payload}
+    case "SET_CATEGORY_LIST":
+      return { ...state, categoryList: action.payload}
     case "SET_TODAY_ACTIVITIES":
       return { ...state, activitiesTodayList: action.payload};
+    case "SET_LISTS":
+      return { ...state, lists: action.payload};
+    case "SET_CAT_ACT":
+      return { ...state, catActList: action.payload};
+    case "SET_INDEX_CAT":
+      return { ...state, indexOfCat: action.payload};
     default:
       return state;
   }

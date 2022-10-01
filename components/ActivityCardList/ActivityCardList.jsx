@@ -20,9 +20,9 @@ const ActivityCardList = () => {
     // } 
     // else {
         GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
-        
+        GET(IMPORT_URL.ACTIVITIES, `?category_in=${categoryname?.split('&=')[1]}&city_in=${cityname?.split('&=')[1]}`, dispatch, "SET_CAT_ACT")
     // }
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, categoryname]);
 
   return (
     <div className={styles.ActivityCardList}>
@@ -30,17 +30,17 @@ const ActivityCardList = () => {
       !cityname 
       ? "Top Activities" 
       : <>
-          <span>{categoryname} in </span> 
+          <span>{categoryname.split('&=')[0]} in </span> 
           <span>{cityname.split('&=')[0]}</span>
         </>
         }
       </h2>
       <div className={!cityname ? styles.Sublist : styles.Sublist_cat_page}>
-        {activities?.activityList?.data?.filter((item) => item?.cover_image_url).filter((_, index) => index <= 5).map((activity, index) => (
+        {!categoryname ? activities?.activityList?.data?.filter((item) => item?.cover_image_url).filter((_, index) => index <= 5).map((activity, index) => (
           
-            <ActivityCard catData={activity} key={index} />
-          
-        ))}
+            <ActivityCard catData={activity} key={index} /> ))
+          : activities?.catActList?.data?.map((item, index) => <ActivityCard catData={item} key={index} />)
+          }
       </div>
     </div>
   );

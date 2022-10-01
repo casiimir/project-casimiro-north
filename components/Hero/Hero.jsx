@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { FaRegHeart} from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -13,9 +13,11 @@ const Hero = ({ type }) => {
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();
 
+  const heroRef = useRef(null);
+
   const interval = () => {}
 
-  const { cities } = useSelector((state) => state);
+  const { cities, activities } = useSelector((state) => state);
   const router = useRouter();
 
   const {cityname} = router.query
@@ -96,7 +98,7 @@ if (!isStoppedInterval) {
   }, [dispatch]);
 
   return (
-    <div className={styles.hero}>
+    <div ref={heroRef} className={styles.hero}>
       {type === "Home" && (
         <>
           <div
@@ -188,14 +190,14 @@ if (!isStoppedInterval) {
               <div className={styles.overlay_gradient} />
               <img
                 className={styles.background}
-                src="https://img.freepik.com/premium-photo/haew-narok-chasm-hell-waterfall-kao-yai-national-park-thailand_109643-40.jpg?w=1060"
+                src={activities?.categoryList[activities.indexOfCat]?.cover_image_url}
                 alt="heroimg"
               />
             </div>
           </div>
           <div className={styles.maintext_act}>
             {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
-            <DropdownComp />
+            <DropdownComp heroRef={heroRef}/>
             {/* <h2>{cities.cityData.headline}</h2> */}
           </div>
 

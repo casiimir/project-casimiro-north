@@ -18,25 +18,29 @@ const CityMainSection = () => {
     cityname?.split("&=")[1] &&
       GET(
         IMPORT_URL.CITIES,
-        `${cityname?.split("&=")[1]}/lists?limit=10`,
+        `${cityname?.split("&=")[1]}/categories`,
         dispatch,
-        "SET_ACTIVITY_TOP_LIST"
+        "SET_CATEGORY_LIST"
       );
   }, [cityname, dispatch]);
 
   console.log(activities)
 
+  const handleActivityCatClick = (id) => {
+    dispatch({type: "SET_INDEX_CAT", payload: id})
+  }
+
   return (
     <div className={styles.CityMainSection}>
-      <p className={styles.description}>{cities.cityData.content}</p>
+      <p className={styles.description} dangerouslySetInnerHTML={{__html: cities.cityData.content}}/>
       <div className={styles.activitiesDiv}>
         <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
         <div className={styles.activitiesList}>
-          {!activities.activityTopList.message ? 
+          {!activities.categoryList.message ? 
           
-          activities?.activityTopList?.map((data) => (
-            <div className={styles.activity} key={data.id}>
-              <Link href={`${cityname}/category/${data.title}`}><a className={styles.categorylink}>{data.title}</a></Link>
+          activities?.categoryList?.map((data, index) => (
+            <div onClick={() => handleActivityCatClick(index)} className={styles.activity} key={data.id}>
+              <Link href={`${cityname}/category/${data.name}`}><a className={styles.categorylink}>{data.name}</a></Link>
             </div> 
           ))
           

@@ -16,7 +16,7 @@ export default function ActivityPage() {
   const { activities } = useSelector((state) => state);
 
   // OGGETTO DELL'ATTIVITA' VVVVV
-  console.log(activities.activityData);
+  // console.log(activities.activityData);
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");

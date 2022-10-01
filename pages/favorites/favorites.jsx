@@ -14,7 +14,7 @@ export default function Favorites() {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
-  console.log(activities.activityData);
+  // console.log(activities.activityData);
   
   const onHandleModal = () => {
     setModalVisibility(!isModalVisibile);
