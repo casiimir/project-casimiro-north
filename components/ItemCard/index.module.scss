@@ -62,13 +62,13 @@
       width: 100%;
 
       .MainText {
-        @include flex-container(column, $gap: 0.3125rem);
+        @include flex-container(column, $gap: 0.3125rem, $justify: center);
 
         .ActivityTitle {
           color: white;
           text-transform: uppercase;
           width: 80%;
-          font-size: 0.68rem;
+          font-size: 0.6rem;
           font-weight: 600;
         }
         .ActivityDescription {
@@ -146,7 +146,7 @@
       .all_text_container {
 
         .MainText {
-          @include flex-container(column, $gap: 10px);
+          @include flex-container(column, $gap: 10px, $justify: center);
 
           .ActivityTitle {
             color: white;

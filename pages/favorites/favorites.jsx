@@ -11,13 +11,10 @@ export default function Favorites() {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
-  const { activities } = useSelector((state) => state);
+  const { activities, modalVisibility } = useSelector((state) => state);
 
   // console.log(activities.activityData);
   
-  const onHandleModal = () => {
-    setModalVisibility(!isModalVisibile);
-  };
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
   }, [uuid, dispatch]);
@@ -29,8 +26,8 @@ export default function Favorites() {
       <span className={styles.LineTitle}/>
       </div>
       
-      <ItemCardList modalVisibility={onHandleModal}/>
-      <Modal />
+      <ItemCardList />
+      {modalVisibility && <Modal />}
     </div>
   );
 }
