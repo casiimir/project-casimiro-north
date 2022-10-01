@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
 import { useEffect } from 'react';
+import Modal from '../Modal/Modal';
 
 export default function NavBar () {
 
-    const {navBarStatus} = useSelector(state => state)
+    const {navBarStatus, modalVisibility} = useSelector(state => state)
     const dispatch = useDispatch();
     const router = useRouter();
 
@@ -112,7 +113,7 @@ export default function NavBar () {
             </div>
             <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
         </div>
-        
+        {modalVisibility && <Modal />}
         </div>
     )
 }

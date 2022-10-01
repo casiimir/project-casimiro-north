@@ -27,7 +27,7 @@ export default function Favorites() {
       </div>
       
       <ItemCardList />
-      {modalVisibility && <Modal />}
+      
     </div>
   );
 }

@@ -26,6 +26,7 @@ const ActivityCard = ({catData}) => {
 
   const handleOnAddCart = () => {
     console.log('vuoi comprare o pescc')
+    dispatch({type: "SET_TRUE"})
   }
 
   const handleHeartClick = () => {

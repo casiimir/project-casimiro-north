@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
-import { icons } from "react-icons/lib";
 
 export default function ActivityPage() {
   const router = useRouter();
@@ -15,21 +14,18 @@ export default function ActivityPage() {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
-  // OGGETTO DELL'ATTIVITA' VVVVV
-  // console.log(activities.activityData);
-
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
   }, [uuid, dispatch]);
 
   return (
     <div className={styles.Activity}>
-      <Hero type="ActivityPage" />
-      {/* <ActivityMainSection /> */}
+
+      <Hero type="SingleActivity" />
       <div className={styles.activityMainSection}>
-        <h1 className={styles.activityTitle}>
+        {/* <h1 className={styles.activityTitle}>
           {activities.activityData.title}
-        </h1>
+        </h1> */}
         <p className={styles.activityDescription}>
           {activities.activityData.about}
         </p>
