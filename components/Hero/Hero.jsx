@@ -190,7 +190,7 @@ if (!isStoppedInterval) {
               <div className={styles.overlay_gradient} />
               <img
                 className={styles.background}
-                src={activities?.categoryList[activities.indexOfCat]?.cover_image_url}
+                src={activities?.categoryList[activities?.indexOfCat]?.cover_image_url}
                 alt="heroimg"
               />
             </div>

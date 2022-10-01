@@ -12,7 +12,7 @@ const initialState = {
     activitiesTodayList: [],
     discountList: [],
     lists: {},
-    indexOfCat: null,
+    indexOfCat: 0,
     
   },
   cities: {
