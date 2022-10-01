@@ -21,11 +21,20 @@
     right: 0;
     pointer-events: none;
     color: white;
-    font-size: 2rem;
     font-weight: 200;
+    text-align: center;
+
+    h2 {
+      flex: 0 0 auto;
+      font-size: 1.2rem;
+    }
 
     .broken {
-      font-size: 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    .sad {
+      font-size: 1.5rem;
     }
   }
 
@@ -59,6 +68,9 @@
     padding-top: 10vh;
     min-height: 83vh;
 
+    .favorite_empty {
+      transform: scale(1.6);
+    }
 
   .titleContainer{
     @include flex-container(column, $gap:5px);

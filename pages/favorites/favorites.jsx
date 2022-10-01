@@ -27,7 +27,7 @@ export default function Favorites() {
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
       <span className={styles.LineTitle}/>
     </div>
-      {activities.favorites.length === 0 && <div className={styles.favorite_empty}><FaHeartBroken className={styles.broken}/>Your Favorite List Seems Empty <HiEmojiSad /></div>}
+      {activities.favorites.length === 0 && <div className={styles.favorite_empty}><FaHeartBroken className={styles.broken}/><h2>Your Favorite List Seems Empty</h2> <HiEmojiSad className={styles.sad}/></div>}
       <ItemCardList />
       
     </div>
