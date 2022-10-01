@@ -21,6 +21,7 @@
     box-sizing: border-box;
     width: 100%;
     pointer-events: none;
+    pointer-events: none;
 
     h1 {
       font-weight: 800;
@@ -31,6 +32,36 @@
     h2 {
       font-size: 1.5rem;
       flex: 0 0 auto;
+    }
+
+    .explorebtn {
+      z-index: 4;
+      position: relative;
+      align-self: flex-end;
+      bottom: 10%;
+      right: 6%;
+      // margin-right: 30px;
+      border-radius: 40px;
+      overflow: hidden;
+      color: white;
+      width: 110px;
+      height: 40px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      background-color: $MainButtonBlue;
+      border: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      pointer-events: all;
+
+      &:hover {
+        background-color: #0b697e;
+      }
+      
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 
@@ -185,35 +216,6 @@
     }
     }
 }      
-
-      .explorebtn {
-        z-index: 4;
-        position: relative;
-        align-self: flex-end;
-        bottom: 10%;
-        right: 6%;
-        // margin-right: 30px;
-        border-radius: 40px;
-        overflow: hidden;
-        color: white;
-        width: 110px;
-        height: 40px;
-        font-weight: 500;
-        font-size: 0.8rem;
-        background-color: $MainButtonBlue;
-        border: none;
-        transition: all 0.25s;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #0b697e;
-        }
-        
-
-        &:active {
-          transform: scale(0.9);
-        }
-      }
 }
 
 @media only screen and (min-width: 768px) {
