@@ -11,6 +11,8 @@ export default function AboutUsPage() {
   const router = useRouter();
   const dispatch = useDispatch();
   const data = useSelector((state) => state);
+  const githubRepositoryLink =
+    "https://github.com/casiimir/project-casimiro-north";
 
   return (
     <div className={styles.aboutUsPage}>
@@ -26,7 +28,9 @@ export default function AboutUsPage() {
             <span className={styles.iconSpan}>
               <AiFillGithub className={styles.icon} />
             </span>
-            <span className={styles.githubLink}>Github repository link</span>
+            <Link href={githubRepositoryLink}>
+              <span className={styles.githubLink}>Github repository link</span>
+            </Link>
           </div>
         </div>
         <ActivitySwiper type="aboutUs" />

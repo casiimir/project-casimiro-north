@@ -20,20 +20,22 @@ export default function ActivitySwiper({ type }) {
     {
       personalImg: "https://picsum.photos/50/50",
       name: "Noemi Fazio",
-      description: "ma è necessaria la descrizione?",
-      fbprofile: "face",
-      liprofile: "linkedin",
-      ghprofile: "github",
-      igprofile: "instagram",
+      description:
+        "Ma è necessaria la descrizione? Che ce dovrei scrive? *romano mode ON*",
+      fbprofile: "https://www.facebook.com/noemi.fazio.5/",
+      liprofile: "https://www.linkedin.com/in/noemi-fazio/",
+      ghprofile: "https://github.com/Waterlilyrr",
+      igprofile: "https://www.instagram.com/emyfazi/",
     },
     {
       personalImg: "https://picsum.photos/50/50",
-      name: "Martina Venasco",
-      description: "ma è necessaria la descrizione?",
-      fbprofile: "face",
-      liprofile: "linkedin",
-      ghprofile: "github",
-      igprofile: "instagram",
+      name: "Noemi Fazio",
+      description:
+        "Ma è necessaria la descrizione? Che ce dovrei scrive? *romano mode ON*",
+      fbprofile: "https://www.facebook.com/noemi.fazio.5/",
+      liprofile: "https://www.linkedin.com/in/noemi-fazio/",
+      ghprofile: "https://github.com/Waterlilyrr",
+      igprofile: "https://www.instagram.com/emyfazi/",
     },
   ];
 

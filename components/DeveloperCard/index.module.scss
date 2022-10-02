@@ -4,14 +4,54 @@
 .DeveloperCard {
   @include flex-container(column, center, center, $gap: 10px);
 
-  color: white;
+  color: rgba(255, 255, 255, 0.749);
+  padding: 20px 60px;
 
   .personalImg {
     height: 120px;
     width: 120px;
     border-radius: 100px;
   }
+
+  h1 {
+    font-weight: bold;
+  }
+
+  p {
+  }
+
+  .socials {
+    @include flex-container($gap: 10px);
+
+    .icon {
+      height: 1.3rem;
+      width: 1.3rem;
+    }
+  }
 }
 
 @media only screen and (min-width: 767px) {
+  .DeveloperCard {
+    @include flex-container(column, center, center, $gap: 10px);
+
+    color: rgba(255, 255, 255, 0.749);
+    padding: 30px 60px;
+
+    .personalImg {
+      height: 120px;
+      width: 120px;
+      border-radius: 100px;
+    }
+
+    h1 {
+      font-weight: bold;
+    }
+
+    p {
+    }
+
+    .socials {
+      @include flex-container($gap: 10px);
+    }
+  }
 }

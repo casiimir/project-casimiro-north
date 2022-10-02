@@ -13,7 +13,7 @@
   // background-position: -19.7rem;
 
   .mainSection {
-    @include flex-container(column, space-between, $gap: 40px);
+    @include flex-container(column, space-between, $gap: 30px);
 
     padding: 40px 0;
 
