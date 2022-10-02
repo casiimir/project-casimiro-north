@@ -3,7 +3,7 @@
 
 .MyTrip {
   min-height: 71vh;
-  background: rgb(4, 43, 52);
+  background: rgba(4, 43, 52, 0.388);
   background: linear-gradient(
     180deg,
     rgba(4, 43, 52, 1) 0%,
@@ -11,6 +11,26 @@
   );
   padding-top: 12vh;
 
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+    filter: blur(2px);
+  }
+
+  .background_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(4, 43, 52, 0.721);
+  }
 
   .container {
     padding: 5% 10%;

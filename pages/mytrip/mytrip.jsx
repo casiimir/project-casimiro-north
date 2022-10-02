@@ -12,6 +12,8 @@ export default function MyTripPage() {
 
   return (
     <div className={styles.MyTrip}>
+      <img className={styles.background} src="https://images.unsplash.com/photo-1496950866446-3253e1470e8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"/>
+      <div className={styles.background_overlay}/>
       <div className={styles.container}>
         <h2 className={styles.header}>My trip in <b className={styles.city}>PALERMO</b></h2>
         <div className={styles.row}/> 

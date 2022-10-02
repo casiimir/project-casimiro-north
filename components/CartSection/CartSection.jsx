@@ -2,50 +2,25 @@ import CartSectionItem from "../CartSectionItem/CartSectionItem";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import styles from "./index.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+// import { GET_CART } from "../../utils/GET/CART_METHOD";
 
 const CartSection = () => {
 
   const [paymentMethod, setPaymentMethod] = useState();
 
-  const arrayitem = [
-    {
-      id: 1,
-      obj: "museo",
+  const {cartData} = useSelector(state => state);
+  // const dispatch = useDispatch();
 
-      luogo: "barcellona",
-      prezzo: "1",
-      pezzi: "x4",
-      tot: "4",
-    },
-    {
-      id: 2,
-      obj: "giro turistico",
+  // useEffect(() => {
 
-      luogo: "londra",
-      prezzo: "2",
-      pezzi: "x15",
-      tot: "30 cents",
-    },
-    {
-      id: 3,
-      obj: "aperitivo",
+  //   if (typeof window !== 'undefined' && localStorage.getItem('cart_uuid')) {
+  //     dispatch({type: "SET_UUID", payload: localStorage.getItem('cart_uuid')})
+  //     GET_CART(localStorage.getItem('cart_uuid'))
+  //   }
 
-      luogo: "parigi",
-      prezzo: "150.000",
-      pezzi: "x2",
-      tot: "300.000",
-    },
-    {
-      id: 4,
-      obj: "ODIO",
-      type: "",
-      luogo: "roma",
-      prezzo: "c'è mastercard",
-      pezzi: "x2",
-      tot: "ci sono 2 mastercard",
-    },
-  ];
+  // }, [])
 
   const paymentmethods = [
     {
@@ -73,17 +48,16 @@ const CartSection = () => {
           Join your <span>CART</span>
         </h1>
         <ul className={styles.cartList}>
-          {arrayitem.map((data, index) => (
-            <CartSectionItem cartData={data} key={index}/>
+          {cartData.cartList.map((data, index) => (
+            <CartSectionItem cartData={data} id={index} key={index}/>
           ))}
         </ul>
         <div className={styles.cartTotal}>
           <h3 className={styles.cartTotalText}>TOT</h3>
-          <h3 className={styles.cartTotalText}>millemila euri</h3>
+          <h3 className={styles.cartTotalText}>{cartData.cartList.reduce((a, b) => a + Number(b.retail_price.formatted_value.split(" ")[1] ), 0 )}</h3>
         </div>
       </div>
       <span className={styles.row}/>
-
       <div className={styles.two_side}>
         <div className={styles.paymentDiv}>
           <h4>PAYMENT METHOD</h4>

@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
+import { HiEmojiSad } from 'react-icons/hi';
+import { FaHeartBroken } from 'react-icons/fa';
 
 export default function Favorites() {
-  const [isModalVisibile, setModalVisibility] = useState(false);
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
@@ -16,9 +17,6 @@ export default function Favorites() {
 
   // console.log(activities.activityData);
   
-  const onHandleModal = () => {
-    setModalVisibility(!isModalVisibile);
-  };
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
   }, [uuid, dispatch]);
@@ -27,12 +25,11 @@ export default function Favorites() {
     <div className={styles.Favorites}>
     <div className={styles.titleContainer}>
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
-      <span className={styles.LineTitle}></span></div>
-      <ItemCardList modalVisibility={onHandleModal}/>
-      <Modal
-        isVisibile={isModalVisibile}
-        onModalClick={setModalVisibility}
-      />
+      <span className={styles.LineTitle}/>
+    </div>
+      {/* {activities.favorites.length === 0 && <div className={styles.favorite_empty}><FaHeartBroken className={styles.broken}/><h2>Your Favorite List Seems Empty</h2> <HiEmojiSad className={styles.sad}/></div>} */}
+      <ItemCardList />
+      
     </div>
   );
 }

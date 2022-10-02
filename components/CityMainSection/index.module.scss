@@ -39,11 +39,11 @@
       @include flex-container(column, $gap: 15px);
       .activity {
         @include flex-container($align: center);
-        border-bottom: 1px solid $LightBlue;
+        border-bottom: 1px solid #77a4ad29;
         height: 36px;
 
         .categorylink {
-          color: $LightBlue;
+          color: #77a4ad;
           font-size: 16px;
           font-weight: 600;
           text-transform: uppercase;

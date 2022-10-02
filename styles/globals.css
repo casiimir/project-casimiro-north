@@ -62,18 +62,34 @@ table {
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 11px;
+    width: 8px;
   }
 
   *::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: #ffffff7b;
   }
 
   *::-webkit-scrollbar-thumb {
     background-color: #49677e;
     border-radius: 10px;
-    border: 3px solid #ffffff;
+    border: 1px solid #ffffff00;
   }
+
+  .carrello {
+	width: 60%;
+  }
+
+  .cls-1{
+	fill:#78989f;
+}
+
+.cls-2{
+	fill:#fff;
+}
+
+.cls-3{
+	fill:#024d5e;
+}
 
 @media only screen and (min-width: 768px) {
 	.myswiper {

@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
-import { icons } from "react-icons/lib";
 
 export default function ActivityPage() {
   const router = useRouter();
@@ -15,8 +14,10 @@ export default function ActivityPage() {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
-  // OGGETTO DELL'ATTIVITA' VVVVV
-  // console.log(activities.activityData);
+  const handleOnCartClick = () => {
+    dispatch({type: "SET_TRUE"})
+    dispatch({type: "ADD_PRODUCT", payload: activities.activityData})
+  }
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
@@ -24,12 +25,12 @@ export default function ActivityPage() {
 
   return (
     <div className={styles.Activity}>
-      <Hero type="ActivityPage" />
-      {/* <ActivityMainSection /> */}
+
+      <Hero type="SingleActivity" />
       <div className={styles.activityMainSection}>
-        <h1 className={styles.activityTitle}>
+        {/* <h1 className={styles.activityTitle}>
           {activities.activityData.title}
-        </h1>
+        </h1> */}
         <p className={styles.activityDescription}>
           {activities.activityData.about}
         </p>
@@ -40,7 +41,7 @@ export default function ActivityPage() {
           </span>
         </div>
         <div className={styles.cartIconDiv}>
-          <BsCart className={styles.cartIcon} />
+          <BsCart onClick={handleOnCartClick} className={styles.cartIcon} />
         </div>
 
         <div className={styles.activityInfo}>

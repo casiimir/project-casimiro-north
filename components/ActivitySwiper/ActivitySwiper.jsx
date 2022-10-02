@@ -11,6 +11,7 @@ import { IMPORT_URL } from "../../utils/GET/URL";
 import developersData from "../../constants";
 import DeveloperCard from "../DeveloperCard/DeveloperCard";
 
+
 export default function ActivitySwiper({ type }) {
   const { activities } = useSelector((state) => state);
   const rotuer = useRouter();
@@ -26,6 +27,7 @@ export default function ActivitySwiper({ type }) {
         "SET_TODAY_ACTIVITIES"
       );
   }, [cityname, dispatch]);
+
 
   return (
     <div className={styles.ActivitySwiper}>

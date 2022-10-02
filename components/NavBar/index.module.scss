@@ -16,6 +16,11 @@
     height: 12vh;
     color: white;
 
+    .logo {
+        cursor: pointer;
+        width: 180px;
+    }
+
     .overlay {
         position:fixed;
         top: 12vh;
@@ -36,30 +41,32 @@
 
         .search_container {
             position: absolute;
+            @include flex-container($justify: flex-start);
             right: 0;
             height: 40px;
-            width: 55%;
-            margin: 0 18%;
-            
+            width: 100.2%;
+            pointer-events: none;
+            z-index: 2;
 
             .search_icon {
-                position: absolute;
-                color: rgb(255, 255, 255);
+                position: absolute; 
+                color: rgba(255, 255, 255, 0.814);
                 font-size: 1.8rem;
                 height: 100%;
-                z-index: 1;
+                z-index: 2;
                 transition: all 0.5s;
-                right: -5%;
+                pointer-events: all;
+                left: 80%;
 
                 &.active { 
                 top: 0;
-                right: 83%;   
-                
+                left: 4px;
                 }
             }
 
             .search_input {
                 position: absolute;
+                z-index: 1;
                 right: 0;
                 background-color: rgba(0, 0, 0, 0);
                 border: none;
@@ -71,16 +78,48 @@
                 padding: 0 0 0 34px;
                 color: rgba(255, 255, 255, 0.801);
                 pointer-events: none;
-              
+                opacity: 0; 
 
                 &.active {
-                    background-color: rgba(0, 0, 0, 0.334);
+                    right: 0;
+                    background-color: rgba(0, 0, 0, 0.39);
                     width: 100%;
                     pointer-events: all;
+                    backdrop-filter: blur(6px);
+                    opacity: 1;  
                 }
 
                 &::placeholder {
                     color: rgba(255, 255, 255, 0.725);
+                }
+            }
+
+            .results {
+                
+                position: relative;
+                top: 40px;
+                height: 0;
+                background-color: rgba(0, 0, 0, 0.629);
+                width: 100%;
+                transition: all 0.35s;
+                opacity: 0;
+                pointer-events: none;
+                z-index: 0;
+                backdrop-filter: blur(6px);
+                
+                &.active {
+                    height: fit-content;
+                    pointer-events: all;
+                    opacity: 1;
+
+                    ul {
+                        @include flex-container($direction: column, );
+                        transition: all 0.35s;
+
+                        li {
+                            padding: 10px 10px;
+                        }
+                    }
                 }
             }
         }
@@ -189,19 +228,59 @@
                     bottom: auto;
                     
                     .search_icon {
-                        position: static;
-                        font-size: 1.2rem;
+                        position: relative;
+                        right: 0;
+                        top: 0;
+                        left: auto;
+                        width: 40px;
                         color: rgba(255, 255, 255, 0.811);
                         cursor: pointer;
+                        font-size: 1rem ;
+                        transform: scale(0.6);
+
+                        &.active {
+                            
+                            left: auto;
+                            right: 10px;
+                            // transform: scale(1.04);
+                        }
 
                         &:hover {
                             color: white;
-                            transform: scale(1.2);
+                            transform: scale(0.8);
                         }
                     }    
-                        // NASCOSTO AL MOMENTO vvvvv
+                        
                     .search_input {
-                        display: none;
+                        padding: 0 0 0 15px;
+                        height: 40px;
+                        font-size: 1.1rem;
+                    }
+
+                    .results {
+                        position: absolute;
+                        top: 40px;
+                        padding-top: 30px;
+                        left: 0;
+                        width: 100%;
+                        box-sizing: border-box;
+                        backdrop-filter: blur(4px);
+
+                        &.active {
+                            ul {
+                                li {
+                                    padding: 15px 20px;
+                                    font-weight: 300;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: rgba(255, 255, 255, 0.242);
+                                        font-weight: 600;
+                                    }
+
+                                }
+                            }
+                        }
                     }
                 }
             }
