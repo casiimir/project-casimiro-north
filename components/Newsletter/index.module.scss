@@ -1,0 +1,70 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.newsletter {
+    border: solid red 2px;
+    @include flex-container(column, flex-start, stretch, nowrap, 10px);
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 5% 10% 5%;
+    background-color: white;
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    p {
+     font-size: .8rem;
+        .coupon{
+            font-weight: bold;
+        }
+    }
+
+    .container {
+        @include flex-container(row, $gap: 2rem);
+
+        .form {
+            @include flex-container(column, $gap: 1rem);
+            width: 60%;
+
+            input{
+                border-style: none none solid none;
+                color: black;
+                width: 100px;
+            }
+
+            button {
+                border-radius: 40px;
+                background-color: $MainButtonBlue;
+                color: white;
+                font-size: .4rem;
+                width: 55px;
+                height: 20px;
+                border: none;
+                    &:hover {
+                    background-color: #0b697e;
+                    }
+                
+            
+                    &:active {
+                    transform: scale(0.9);
+                    }
+                }
+            }
+
+            img {
+                width: 20%;
+                border: solid red 2px;
+                position: relative;
+                top: 0;
+                left: 10%;
+            }
+
+            .fullname {
+                @include flex-container(row, $gap: 1rem);
+                border: solid blue 2px;
+                width: 60vw;
+            }
+    }
+}
