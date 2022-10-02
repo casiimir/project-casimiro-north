@@ -58,6 +58,12 @@
         font-weight: 700;
         font-size: 0.8rem;
         padding: 5px 8px;
+        cursor: pointer;
+        transition: all 0.35s;
+
+        &:hover {
+          transform: scale(1.02);
+        }
       }
     }
   }

@@ -10,6 +10,7 @@ import Hero from '../components/Hero';
 import MiniCarousel from '../components/MiniCarousel';
 import CityCardList from '../components/CityCardList';
 import ActivityCardList from '../components/ActivityCardList';
+import Newsletter from '../components/Newsletter';
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -40,6 +41,7 @@ export default function Home() {
       <MiniCarousel />
       <CityCardList />
       <ActivityCardList />
+      <Newsletter />
     </div>
   );
 }

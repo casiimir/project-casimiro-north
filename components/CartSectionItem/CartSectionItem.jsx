@@ -15,7 +15,7 @@ const CartSectionItem = ({ cartData, id }) => {
     <li className={styles.cartItem}>
       <div className={styles.ticketType}>
         <span>●</span><h3 className={styles.ticketName}>{title}</h3>
-        <h3 className={styles.ticketPrice}>{retail_price.formatted_value.split("€")[1]}</h3>
+        <h3 className={styles.ticketPrice}>{retail_price.formatted_value.split(" ")[1]}</h3>
       </div>
 
       <div className={styles.ticketAmount}>

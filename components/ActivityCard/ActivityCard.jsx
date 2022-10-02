@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 // import {POST_ITEM} from "../../utils/GET/CART_METHOD";
 
@@ -10,7 +10,9 @@ const ActivityCard = ({catData}) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const {moneyValue, cartData } = useSelector(state => state);
+  const {moneyValue, cartData, activities } = useSelector(state => state);
+
+  
 
   const {cityname} = router.query
 
@@ -21,20 +23,19 @@ const ActivityCard = ({catData}) => {
     });
   };
 
-  const  handleOnSeeMoreClick = () => {
-    console.log('vuoi vedere altro?')
-  }
-
   const handleOnAddCart = () => {
-    console.log('vuoi comprare o pescc')
     dispatch({type: "SET_TRUE"})
     dispatch({type: "ADD_PRODUCT", payload: catData})
     // POST_ITEM(catData, localStorage.getItem('cart_uuid'))
   }
 
   const handleHeartClick = () => {
-    console.log('cliccato il cuore');
     dispatch({type: "SET_FAVORITE", payload: catData});
+
+    if (activities.favorites.find((item) => item.uuid === uuid)) {
+      dispatch({type: "REMOVE_FAVORITE", payload: uuid});
+
+    }
     
   }
 
@@ -42,7 +43,7 @@ const ActivityCard = ({catData}) => {
     <div className={styles.ActivityCard_main} style={cityname && {width: '100%'}}>
       {cityname && <h5 className={styles.title_cat_page}>{title}</h5>}
       <div className={styles.ActivityCard} style={cityname && {borderRadius: '2px'}}>
-        <img className={styles.img} src={cover_image_url} alt="Activity photo" />
+        <img  className={styles.img} src={cover_image_url} alt="Activity photo" />
        {!cityname ? <div onClick={handleActivityClick} className={styles.overlay} /> : <div className={styles.overlay} />}
         {!cityname ? 
         <h5 className={styles.title}>{title}</h5> 
@@ -50,7 +51,7 @@ const ActivityCard = ({catData}) => {
         {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
           <p className={styles.hours}>12:00 - 13:00</p>
-          <FaRegHeart onClick={handleHeartClick} className={styles.Heart} />
+          { !activities.favorites.find((item) => item.uuid === uuid) ? <FaRegHeart onClick={handleHeartClick} className={styles.Heart} /> : <FaHeart onClick={handleHeartClick} className={styles.Heart}/>}
         </div>
         </>}
       </div>

@@ -16,6 +16,7 @@ export default function ActivityPage() {
 
   const handleOnCartClick = () => {
     dispatch({type: "SET_TRUE"})
+    dispatch({type: "ADD_PRODUCT", payload: activities.activityData})
   }
 
   useEffect(() => {

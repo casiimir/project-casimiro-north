@@ -7,15 +7,14 @@
     background-color: $MainDarkBlue;
     height: 17vh;
     box-shadow: 0px 0px 8px 6px $MainDarkBlue;
-    padding: 30px;
+    padding: 10px 30px;
     box-sizing: border-box;
     color: white;
 
     .FooterContainer {
         @include flex-container($align: center, $justify: space-between);
-        h2 {
-            font-weight: 800;
-            font-size: 1.4rem;
+        .logo {
+            width: 150px;
         }
 
         .icon_container{

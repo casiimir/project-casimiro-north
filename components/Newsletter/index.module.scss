@@ -1,0 +1,115 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.newsletter {
+    @include flex-container(column, flex-start, stretch, nowrap, 40px);
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 5% 10% 5%;
+    background-color: white;
+
+    .newsletter_main_title {
+        @include flex-container($direction: column, $gap: 8px);
+        h2 {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        p {
+        font-size: .8rem;
+            .coupon{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .container {
+        @include flex-container();
+
+        .form {
+            @include flex-container(column, $gap: 20px, $justify: space-evenly);
+            width: 60%;
+
+            .fullname {
+                @include flex-container(row, $gap: 1rem);
+            
+            input{
+                border: none;
+                border-bottom: 1px solid #05283789;
+                color: $MainDarkBlue;
+                width: 50%;
+                padding: 0 0 10px 0;
+                font-weight: 500;
+                outline: none;
+                box-sizing: border-box;
+
+                &::placeholder {
+                    color: $MainDarkBlue;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+            button {
+                border-radius: 40px;
+                background-color: $MainButtonBlue;
+                color: white;
+                font-size: .6rem;
+                padding: 8px 0;
+                width: 55px;
+                border: none;
+                align-self: flex-end;
+
+                    &:hover {
+                    background-color: #0b697e;
+                    }
+                
+            
+                    &:active {
+                    transform: scale(0.9);
+                    }
+                }
+
+
+                .email { 
+                    border: none;
+                    border-bottom: 1px solid #05283789;
+                    color: $MainDarkBlue;
+                    padding: 0 0 10px 0;
+                    font-weight: 500;
+                    outline: none;
+                    box-sizing: border-box;
+                    width: 100%;
+                    
+                    &::placeholder {
+                            color: $MainDarkBlue;
+                            font-size: 0.8rem;
+                        }
+                }
+            }
+
+            .newsletter_img {
+                width: 180px;
+               
+            }
+
+            
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    .newsletter {
+        .container {
+            .form {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+
+            .newsletter_img {
+                flex: 0 0 auto;
+                margin: 0 auto;
+                width: 380px;
+            }
+        }
+    }
+}
