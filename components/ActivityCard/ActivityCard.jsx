@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
+// import {POST_ITEM} from "../../utils/GET/CART_METHOD";
 
 const ActivityCard = ({catData}) => {
   const { cover_image_url, id,  title, uuid } = catData;
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const {moneyValue } = useSelector(state => state);
+  const {moneyValue, cartData } = useSelector(state => state);
 
   const {cityname} = router.query
 
@@ -27,11 +28,14 @@ const ActivityCard = ({catData}) => {
   const handleOnAddCart = () => {
     console.log('vuoi comprare o pescc')
     dispatch({type: "SET_TRUE"})
+    dispatch({type: "ADD_PRODUCT", payload: catData})
+    // POST_ITEM(catData, localStorage.getItem('cart_uuid'))
   }
 
   const handleHeartClick = () => {
     console.log('cliccato il cuore');
     dispatch({type: "SET_FAVORITE", payload: catData});
+    
   }
 
   return (

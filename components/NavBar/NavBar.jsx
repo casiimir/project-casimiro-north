@@ -8,14 +8,13 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import Modal from '../Modal/Modal';
 import Logo from '../../assets/Logo.png';
+// import { POST, GET_CART } from '../../utils/GET/CART_METHOD';
 
 export default function NavBar () {
 
     const {navBarStatus, modalVisibility} = useSelector(state => state)
     const dispatch = useDispatch();
     const router = useRouter();
-
-    console.log(Logo)
 
     const menu = [
         {
@@ -79,6 +78,17 @@ export default function NavBar () {
         }
 
     }, [navBarStatus.isActive])
+
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined' && !localStorage.getItem('cart_uuid')) {
+    //     POST().then(data => {
+    //         dispatch({type: "SET_UUID", payload: data.uuid})
+    //         if (typeof window !== 'undefined') {
+    //             localStorage.setItem('cart_uuid', data.uuid)
+    //         }
+    //     })
+    // } 
+    // }, [])
 
     return (
         <div className={styles.Main_Navbar}>

@@ -2,6 +2,7 @@ import { combineReducers, createStore } from "redux";
 
 const initialState = {
   cartData: {
+    Uuid: "",
     cartList: [],
   },
   activities: {
@@ -31,13 +32,15 @@ const initialState = {
 
 function cartDataReducer(state = {}, action) {
   switch (action.type) {
-    case "ADD_PRODUCT":
+    case "ADD_PRODUCT": 
       return { ...state, cartList: [...state.cartList, action.payload] };
     case "REMOVE_PRODUCT":
       return {
         ...state,
         cartList: state.cartList.filter((_, id) => id !== action.payload),
       };
+    case "SET_UUID":
+      return {...state, Uuid: action.payload}
     default:
       return state;
   }

@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 
-export default function ActivitySwiper () {
+export default function ActivitySwiper ({type}) {
 
   const { activities } = useSelector((state) => state);
   const rotuer = useRouter();
@@ -20,8 +20,6 @@ export default function ActivitySwiper () {
     cityname?.split("&=")[1] &&
       GET(IMPORT_URL.CITIES, `${cityname?.split("&=")[1]}/activities?limit=10`, dispatch, "SET_TODAY_ACTIVITIES")
   }, [cityname, dispatch]);
-
-  
 
     return (
       <div className={styles.ActivitySwiper}>
@@ -35,7 +33,6 @@ export default function ActivitySwiper () {
           "--swiper-pagination-color": "#fff",
         }}
          >
-          
             
           {!activities.activitiesTodayList.message && 
             activities?.activitiesTodayList?.data?.map((item, index) =>
