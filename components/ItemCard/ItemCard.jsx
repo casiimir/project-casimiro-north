@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
@@ -5,6 +6,7 @@ const ItemCard = ({ cardData }) => {
   const { id, title, cover_image_url, retail_price, uuid } = cardData;
 
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleOnDeleteBtn = () => {
     dispatch({type: "REMOVE_FAVORITE", payload: uuid})
@@ -14,6 +16,13 @@ const ItemCard = ({ cardData }) => {
     dispatch({type: "SET_TRUE"})
     dispatch({type: "ADD_PRODUCT", payload: cardData})
   }
+
+  const handleActivityClick = () => {
+    router.push({
+      pathname: `/../activity/[uuid]`,
+      query: {uuid: uuid}
+    });
+  };
 
   return (
     <div className={styles.CardContainer}>
@@ -25,7 +34,7 @@ const ItemCard = ({ cardData }) => {
         </div>
         <div className={styles.all_text_container}>
           <div className={styles.MainText}>
-            <h1 className={styles.ActivityTitle}>{title}</h1>
+            <h1 onClick={handleActivityClick} className={styles.ActivityTitle}>{title}</h1>
             {/* <p className={styles.ActivityDescription}>{description}</p> */}
           </div>
           <div className={styles.CartItem}>

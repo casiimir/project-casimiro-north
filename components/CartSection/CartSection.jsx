@@ -56,7 +56,7 @@ const CartSection = () => {
         </ul>
         <div className={styles.cartTotal}>
           <h3 className={styles.cartTotalText}>TOT</h3>
-          <h3 className={styles.cartTotalText}>{cartData.cartList.reduce((a, b) => a + Number(b.retail_price.formatted_value.split("€")[1]), 0 )}</h3>
+          <h3 className={styles.cartTotalText}>{cartData.cartList.reduce((a, b) => a + Number(b.retail_price.formatted_value.split(" ")[1] ), 0 )}</h3>
         </div>
       </div>
       <span className={styles.row}/>
