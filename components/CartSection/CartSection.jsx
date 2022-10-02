@@ -13,8 +13,6 @@ const CartSection = () => {
   const {cartData} = useSelector(state => state);
   // const dispatch = useDispatch();
 
-  console.log(cartData.cartList);
-
   // useEffect(() => {
 
   //   if (typeof window !== 'undefined' && localStorage.getItem('cart_uuid')) {

@@ -15,6 +15,7 @@ const initialState = {
     lists: {},
     indexOfCat: 0,
     favorites: [],
+    searchResults: {},
   },
   cities: {
     cityData: {},
@@ -68,6 +69,10 @@ function activitiesReducer(state = {}, action) {
       return {...state, favorites: [...state.favorites, action.payload]};
     case "REMOVE_FAVORITE":
       return {...state, favorites: state.favorites.filter((item) => item.uuid !== action.payload)}
+    case "SET_SEARCH_RESULTS":
+      return { ...state, searchResults: action.payload}
+    case "CLEAN_SEARCH_RESULTS":
+      return { ...state, searchResults: {}}    
     default:
       return state;
   }

@@ -11,8 +11,6 @@ const CartSectionItem = ({ cartData, id }) => {
     dispatch({type: "REMOVE_PRODUCT", payload: id})
   }
 
-  console.log(retail_price.formatted_value.split(" ")[1])
-
   return (
     <li className={styles.cartItem}>
       <div className={styles.ticketType}>
