@@ -7,20 +7,21 @@
   background-color: $MainDarkBlue;
   background-image: linear-gradient(#052837c5, #052837c5, #052837c5),
     url("../../assets/aboutusbg.jpg");
-  background-size: 63rem;
+  // background-size: 63rem;
+  background-size: 250%;
+  background-position: 52%;
+  // background-position: -19.7rem;
 
-  background-position: -19.7rem;
   .mainSection {
-    @include flex-container(column, space-between);
+    @include flex-container(column, space-between, $gap: 40px);
 
-    padding-top: 40px;
-    height: 64vh;
+    padding: 40px 0;
 
     .infoSection {
       @include flex-container(column, $gap: 20px);
 
       padding: 0 40px;
-      color: white;
+      color: rgba(255, 255, 255, 0.749);
 
       .title {
         border-bottom: 1px solid white;
@@ -28,15 +29,22 @@
 
         .titleText {
           font-size: 1.2rem;
+          font-weight: bold;
         }
       }
-      .description {
+      .description,
+      .githubLink {
+        font-weight: 500;
       }
 
       .info {
-        .logoGithub {
-        }
-        .githubLink {
+        @include flex-container($align: center, $gap: 20px);
+
+        .iconSpan {
+          .icon {
+            height: 1.6rem;
+            width: 1.6rem;
+          }
         }
       }
     }
@@ -53,6 +61,8 @@
       }
 
       .creditsText {
+        font-weight: 600;
+        font-size: small;
       }
     }
   }

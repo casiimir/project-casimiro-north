@@ -1,8 +1,10 @@
 import styles from "./index.module.scss";
+import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import ActivitySwiper from "../../components/ActivitySwiper";
 import Link from "next/link";
 
 export default function AboutUsPage() {
@@ -21,11 +23,13 @@ export default function AboutUsPage() {
             breve descrizione di quanto siamo bravi ❤️
           </p>
           <div className={styles.info}>
-            <span className={styles.logoGithub}>logo(credo)</span>
+            <span className={styles.iconSpan}>
+              <AiFillGithub className={styles.icon} />
+            </span>
             <span className={styles.githubLink}>Github repository link</span>
           </div>
         </div>
-        <div className={styles.swiper}>qui andrebbe lo swiper</div>
+        <ActivitySwiper type="aboutUs" />
 
         <div className={styles.creditsSection}>
           <img src="" alt="logoPolarix" className={styles.logo} />

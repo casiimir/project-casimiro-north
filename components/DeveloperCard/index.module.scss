@@ -1,0 +1,17 @@
+@import "/styles/_mixins.scss";
+@import "/styles/_variables.scss";
+
+.DeveloperCard {
+  @include flex-container(column, center, center, $gap: 10px);
+
+  color: white;
+
+  .personalImg {
+    height: 120px;
+    width: 120px;
+    border-radius: 100px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+}
