@@ -41,18 +41,14 @@
 
         .search_container {
             position: absolute;
-            // position: relative;
             @include flex-container($justify: flex-start);
             right: 0;
             height: 40px;
             width: 100.2%;
             pointer-events: none;
-            // margin: 0 18%;
-            
 
             .search_icon {
-                position: absolute;
-                
+                position: absolute; 
                 color: rgba(255, 255, 255, 0.814);
                 font-size: 1.8rem;
                 height: 100%;
@@ -60,18 +56,14 @@
                 transition: all 0.5s;
                 pointer-events: all;
                 left: 80%;
-                
-                // left: 190px;
 
                 &.active { 
                 top: 0;
                 left: 4px;
-                // right: 92px; 
                 }
             }
 
             .search_input {
-                // position: absolute;
                 position: absolute;
                 z-index: 1;
                 right: 0;
@@ -85,9 +77,7 @@
                 padding: 0 0 0 34px;
                 color: rgba(255, 255, 255, 0.801);
                 pointer-events: none;
-                opacity: 0;
-                
-              
+                opacity: 0; 
 
                 &.active {
                     right: 0;
@@ -95,8 +85,7 @@
                     width: 100%;
                     pointer-events: all;
                     backdrop-filter: blur(6px);
-                    opacity: 1;
-                    
+                    opacity: 1;  
                 }
 
                 &::placeholder {
