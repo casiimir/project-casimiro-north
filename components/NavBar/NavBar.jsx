@@ -116,8 +116,10 @@ export default function NavBar () {
             </div>
             <div className={styles.navbar_container}>
                 <div className={styles.search_container}>
+                    
                     <HiSearch onClick={handleSearchClick} className={`${styles.search_icon} ${navBarStatus.isInputActive ? styles.active : ''}`}/>
                     <input type='text' className={`${styles.search_input} ${navBarStatus.isInputActive ? styles.active : ''}`} placeholder="Search"/>
+                    
                 </div>
                 <div onClick={handleHamClick} className={styles.ham_btn}>
                     <span />
