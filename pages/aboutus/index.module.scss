@@ -70,21 +70,6 @@
 @media only screen and (min-width: 767px) {
   .aboutUsPage {
     .mainSection {
-      .infoSection {
-        .title {
-          .titleText {
-          }
-        }
-
-        .info {
-          .iconSpan {
-            .icon {
-            }
-            .githubLink {
-            }
-          }
-        }
-      }
 
       .swiper {
         display: none;
@@ -97,8 +82,6 @@
       }
 
       .creditsSection {
-        .logo {
-        }
 
         .creditsText {
           font-weight: 600;

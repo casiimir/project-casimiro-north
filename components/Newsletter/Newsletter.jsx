@@ -17,7 +17,7 @@ const Newsletter = () => {
                     <input type="text" placeholder="Email"  className={styles.email}/>
                     <button>SUBMIT</button>
                 </form>                    
-                <img src={newsLetterImg.src} alt="newsletter"/>
+                <img className={styles.newsletter_img} src={newsLetterImg.src} alt="newsletter"/>
                 </div>
         </div>
     )

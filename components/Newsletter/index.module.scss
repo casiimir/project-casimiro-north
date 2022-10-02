@@ -88,9 +88,9 @@
                 }
             }
 
-            img {
-                width: 20%;
-                flex-grow: 1;
+            .newsletter_img {
+                width: 180px;
+               
             }
 
             
@@ -105,9 +105,10 @@
                 width: 50%;
             }
 
-            img {
+            .newsletter_img {
                 flex: 0 0 auto;
                 margin: 0 auto;
+                width: 380px;
             }
         }
     }
