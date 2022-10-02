@@ -138,6 +138,12 @@ if (!isStoppedInterval) {
                   ","
                 )[0]}{" "}
             </h2>
+            <button
+              onClick={handleExploreButtonClick}
+              className={styles.explorebtn}
+            >
+              EXPLORE
+            </button>
           </div>
           <div className={styles.buttonslider}>
             {cities?.cityListHero?.map((_, index) => (
@@ -151,12 +157,7 @@ if (!isStoppedInterval) {
             ))}
           </div>
           
-            <button
-              onClick={handleExploreButtonClick}
-              className={styles.explorebtn}
-            >
-              EXPLORE
-            </button>
+            
           
         </>
       )}

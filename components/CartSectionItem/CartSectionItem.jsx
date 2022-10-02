@@ -1,19 +1,27 @@
+import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
-const CartSectionItem = ({ cartData }) => {
+const CartSectionItem = ({ cartData, id }) => {
+
+  // console.log(cartData)
+  const dispatch = useDispatch();
+  const {title, retail_price, uuid } = cartData
+
+  const handleOnRemoveClick = () => {
+    dispatch({type: "REMOVE_PRODUCT", payload: id})
+  }
+
   return (
     <li className={styles.cartItem}>
       <div className={styles.ticketType}>
-        <h3 className={styles.ticketName}>{cartData.obj}</h3>
-        <h3 className={styles.ticketPrice}>{cartData.prezzo}</h3>
+        <span>●</span><h3 className={styles.ticketName}>{title}</h3>
+        <h3 className={styles.ticketPrice}>{retail_price.formatted_value.split("€")[1]}</h3>
       </div>
 
       <div className={styles.ticketAmount}>
-        <h3 className={styles.ticketAmountText}>quantità</h3>
+        {/* <h3 className={styles.ticketAmountText}>quantità</h3> */}
         <div className={styles.ticketAmountSelection}>
-          <button>-</button>
-          <p>2</p>
-          <button>+</button>
+          <button className={styles.removeBtn} onClick={handleOnRemoveClick}>remove</button>
         </div>
       </div>
     </li>

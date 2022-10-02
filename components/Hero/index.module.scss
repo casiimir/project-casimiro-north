@@ -12,14 +12,15 @@
   .maintexthero {
     @include flex-container($direction:column, $gap:10px);
     z-index: 3;
-    position: relative;
-    bottom: 40%;
+    position: absolute;
+    bottom: 10%;
     left: 0;
     color: white;
     text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
     padding: 0 30px;
     box-sizing: border-box;
     width: 100%;
+    pointer-events: none;
     pointer-events: none;
 
     h1 {
@@ -31,6 +32,36 @@
     h2 {
       font-size: 1.5rem;
       flex: 0 0 auto;
+    }
+
+    .explorebtn {
+      z-index: 4;
+      position: relative;
+      align-self: flex-end;
+      bottom: 10%;
+      right: 6%;
+      // margin-right: 30px;
+      border-radius: 40px;
+      overflow: hidden;
+      color: white;
+      width: 110px;
+      height: 40px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      background-color: $MainButtonBlue;
+      border: none;
+      transition: all 0.25s;
+      cursor: pointer;
+      pointer-events: all;
+
+      &:hover {
+        background-color: #0b697e;
+      }
+      
+
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 
@@ -185,34 +216,6 @@
     }
     }
 }      
-
-      .explorebtn {
-        z-index: 4;
-        position: absolute;
-        bottom: 10%;
-        right: 6%;
-        margin-right: 30px;
-        border-radius: 40px;
-        overflow: hidden;
-        color: white;
-        width: 110px;
-        height: 40px;
-        font-weight: 500;
-        font-size: 0.8rem;
-        background-color: $MainButtonBlue;
-        border: none;
-        transition: all 0.25s;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #0b697e;
-        }
-        
-
-        &:active {
-          transform: scale(0.9);
-        }
-      }
 }
 
 @media only screen and (min-width: 768px) {
@@ -354,9 +357,7 @@
 
     .explorebtn {
       z-index: 4;
-      position: absolute;
-      bottom: 18%;
-      right: 16%;
+      position: relative;
       width: max-content;
       overflow: hidden;
       padding: 0;
