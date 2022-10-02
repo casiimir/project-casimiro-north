@@ -101,9 +101,13 @@
                 background-color: rgba(0, 0, 0, 0.629);
                 width: 100%;
                 transition: all 0.35s;
+                opacity: 0;
+                pointer-events: none;
                 
                 &.active {
                     height: fit-content;
+                    pointer-events: all;
+                    opacity: 1;
 
                     ul {
                         @include flex-container($direction: column, );
@@ -247,6 +251,13 @@
                         // display: none;
                         height: 40px;
                         font-size: 1.1rem;
+                    }
+
+                    .results {
+                        position: relative;
+                        border: 2px solid red;
+                        top: 0;
+                        width: 100%;
                     }
                 }
             }

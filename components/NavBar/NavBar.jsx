@@ -64,11 +64,13 @@ export default function NavBar () {
 
         if (navBarStatus.isInputActive === true) {
             dispatch({type: 'SET_INPUT_INACTIVE'})
+            setSearchInpt(prev => prev = "")
         }    
     }
 
     const handleOverlayClick = () => {
         dispatch({type: 'SET_INPUT_INACTIVE'})
+        setSearchInpt(prev => prev = "")
     }
 
     const handleLogoClick = () => {
