@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import ActivitySwiper from "../../components/ActivitySwiper";
+import DeveloperCard from "../../components/DeveloperCard/DeveloperCard";
+import developersData from "../../constants";
 import Link from "next/link";
 
 export default function AboutUsPage() {
@@ -33,7 +35,14 @@ export default function AboutUsPage() {
             </Link>
           </div>
         </div>
-        <ActivitySwiper type="aboutUs" />
+        <div className={styles.swiper}>
+          <ActivitySwiper type="aboutUs" />{" "}
+        </div>
+        <div className={styles.profilesDiv}>
+          {developersData?.map((data, i) => (
+            <DeveloperCard data={data} key={i} />
+          ))}
+        </div>
 
         <div className={styles.creditsSection}>
           <img src="" alt="logoPolarix" className={styles.logo} />

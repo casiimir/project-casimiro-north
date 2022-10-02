@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import developersData from "../../constants";
 import DeveloperCard from "../DeveloperCard/DeveloperCard";
 
 export default function ActivitySwiper({ type }) {
@@ -15,29 +16,6 @@ export default function ActivitySwiper({ type }) {
   const rotuer = useRouter();
   const dispatch = useDispatch();
   const { cityname } = rotuer.query;
-
-  const developersData = [
-    {
-      personalImg: "https://picsum.photos/50/50",
-      name: "Noemi Fazio",
-      description:
-        "Ma è necessaria la descrizione? Che ce dovrei scrive? *romano mode ON*",
-      fbprofile: "https://www.facebook.com/noemi.fazio.5/",
-      liprofile: "https://www.linkedin.com/in/noemi-fazio/",
-      ghprofile: "https://github.com/Waterlilyrr",
-      igprofile: "https://www.instagram.com/emyfazi/",
-    },
-    {
-      personalImg: "https://picsum.photos/50/50",
-      name: "Noemi Fazio",
-      description:
-        "Ma è necessaria la descrizione? Che ce dovrei scrive? *romano mode ON*",
-      fbprofile: "https://www.facebook.com/noemi.fazio.5/",
-      liprofile: "https://www.linkedin.com/in/noemi-fazio/",
-      ghprofile: "https://github.com/Waterlilyrr",
-      igprofile: "https://www.instagram.com/emyfazi/",
-    },
-  ];
 
   useEffect(() => {
     cityname?.split("&=")[1] &&

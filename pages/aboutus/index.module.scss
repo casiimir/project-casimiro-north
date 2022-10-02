@@ -7,10 +7,8 @@
   background-color: $MainDarkBlue;
   background-image: linear-gradient(#052837c5, #052837c5, #052837c5),
     url("../../assets/aboutusbg.jpg");
-  // background-size: 63rem;
   background-size: 250%;
   background-position: 52%;
-  // background-position: -19.7rem;
 
   .mainSection {
     @include flex-container(column, space-between, $gap: 30px);
@@ -49,8 +47,8 @@
       }
     }
 
-    .swiper {
-      text-align: center;
+    .profilesDiv {
+      display: none;
     }
 
     .creditsSection {
@@ -63,6 +61,84 @@
       .creditsText {
         font-weight: 600;
         font-size: small;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .aboutUsPage {
+    .mainSection {
+      .infoSection {
+        .title {
+          .titleText {
+          }
+        }
+
+        .info {
+          @include flex-container($align: center, $gap: 20px);
+
+          .iconSpan {
+            .icon {
+            }
+            .githubLink {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .swiper {
+      }
+
+      .creditsSection {
+        .logo {
+        }
+
+        .creditsText {
+          font-weight: 600;
+          font-size: small;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1290px) {
+  .aboutUsPage {
+    .mainSection {
+      .infoSection {
+        .title {
+          .titleText {
+          }
+        }
+
+        .info {
+          .iconSpan {
+            .icon {
+            }
+            .githubLink {
+            }
+          }
+        }
+      }
+
+      .swiper {
+        display: none;
+      }
+
+      .profilesDiv {
+        @include flex-container(row, space-around);
+      }
+
+      .creditsSection {
+        .logo {
+        }
+
+        .creditsText {
+          font-weight: 600;
+          font-size: small;
+        }
       }
     }
   }
