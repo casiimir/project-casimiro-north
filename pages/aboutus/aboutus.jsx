@@ -1,18 +1,13 @@
 import styles from "./index.module.scss";
 import { AiFillGithub } from "react-icons/ai";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { IMPORT_URL } from "../../utils/GET/URL";
+import Logo from "../../assets/Logo.png";
 import ActivitySwiper from "../../components/ActivitySwiper";
 import DeveloperCard from "../../components/DeveloperCard/DeveloperCard";
 import developersData from "../../constants";
 import Link from "next/link";
 
 export default function AboutUsPage() {
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state);
+
   const githubRepositoryLink =
     "https://github.com/casiimir/project-casimiro-north";
 
@@ -36,7 +31,7 @@ export default function AboutUsPage() {
           </div>
         </div>
         <div className={styles.swiper}>
-          <ActivitySwiper type="aboutUs" />{" "}
+          <ActivitySwiper type="aboutUs" />
         </div>
         <div className={styles.profilesDiv}>
           {developersData?.map((data, i) => (
@@ -45,7 +40,7 @@ export default function AboutUsPage() {
         </div>
 
         <div className={styles.creditsSection}>
-          <img src="" alt="logoPolarix" className={styles.logo} />
+          <img src={Logo.src} alt="logoPolarix" className={styles.logo} />
           <h4 className={styles.creditsText}>made to always be with you</h4>
         </div>
       </div>

@@ -56,6 +56,7 @@
       color: white;
 
       .logo {
+        width: 200px;
       }
 
       .creditsText {
@@ -67,44 +68,6 @@
 }
 
 @media only screen and (min-width: 767px) {
-  .aboutUsPage {
-    .mainSection {
-      .infoSection {
-        .title {
-          .titleText {
-          }
-        }
-
-        .info {
-          @include flex-container($align: center, $gap: 20px);
-
-          .iconSpan {
-            .icon {
-            }
-            .githubLink {
-              cursor: pointer;
-            }
-          }
-        }
-      }
-
-      .swiper {
-      }
-
-      .creditsSection {
-        .logo {
-        }
-
-        .creditsText {
-          font-weight: 600;
-          font-size: small;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 1290px) {
   .aboutUsPage {
     .mainSection {
       .infoSection {
@@ -128,7 +91,9 @@
       }
 
       .profilesDiv {
-        @include flex-container(row, space-around);
+        @include flex-container(row, $justify: center, $gap: 20px);
+        width: 60%;
+        margin: 0 auto; 
       }
 
       .creditsSection {
@@ -143,3 +108,4 @@
     }
   }
 }
+

@@ -37,7 +37,7 @@ export default function ActivitySwiper({ type }) {
         <div className={styles.today_text}>Today</div>
       )}
       <Swiper
-        className="myswiper"
+        className={type !== "aboutUs" ? "myswiper" : "myswiper dev"}
         modules={[Navigation]}
         navigation={true}
         style={{
