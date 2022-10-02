@@ -21,10 +21,6 @@ const ActivityCard = ({catData}) => {
     });
   };
 
-  const  handleOnSeeMoreClick = () => {
-    console.log('vuoi vedere altro?')
-  }
-
   const handleOnAddCart = () => {
     console.log('vuoi comprare o pescc')
     dispatch({type: "SET_TRUE"})

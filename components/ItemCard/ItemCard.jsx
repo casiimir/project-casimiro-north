@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
-const ItemCard = ({ cardData, modalVisibility }) => {
-  const { id, title, cover_image_url, description, retail_price, uuid } = cardData;
+const ItemCard = ({ cardData }) => {
+  const { id, title, cover_image_url, retail_price, uuid } = cardData;
 
   const dispatch = useDispatch();
 
@@ -12,6 +12,7 @@ const ItemCard = ({ cardData, modalVisibility }) => {
 
   const handleOnAddCartClick = () => {
     dispatch({type: "SET_TRUE"})
+    dispatch({type: "ADD_PRODUCT", payload: cardData})
   }
 
   return (
@@ -28,10 +29,8 @@ const ItemCard = ({ cardData, modalVisibility }) => {
             {/* <p className={styles.ActivityDescription}>{description}</p> */}
           </div>
           <div className={styles.CartItem}>
-            <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>{" "}
-            
+            <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>
               <p className={styles.addCart}  onClick={handleOnAddCartClick}> add to cart </p>
-          
           </div>
         </div>
       </div>

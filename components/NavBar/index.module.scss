@@ -198,19 +198,32 @@
                     bottom: auto;
                     
                     .search_icon {
-                        position: static;
+                        position: relative;
+                        right: 0;
+                        top: 0;
+                        left: auto;
                         font-size: 1.2rem;
                         color: rgba(255, 255, 255, 0.811);
                         cursor: pointer;
+                        font-size: 1.4rem;
+
+                        &.active {
+                            
+                            left: auto;
+                            right: 10px;
+                            transform: scale(1.3);
+                        }
 
                         &:hover {
                             color: white;
-                            transform: scale(1.2);
+                            transform: scale(1.3);
                         }
                     }    
                         // NASCOSTO AL MOMENTO vvvvv
                     .search_input {
-                        display: none;
+                        // display: none;
+                        height: 40px;
+                        font-size: 1.1rem;
                     }
                 }
             }
