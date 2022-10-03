@@ -9,8 +9,8 @@
   overflow: hidden;
   position: relative;
   flex: 0 0 auto;
-  width: 200px;
-  height: 300px;
+  width: 185px;
+  height: 280px;
 
   &:hover {
     transform: scale(1.01, 1.01);
@@ -95,28 +95,32 @@
     box-sizing: border-box;
     flex: 0 0 auto;
     width: 50%;
-    max-width: 800px;
-    height: 550px;
+    max-width: 200px;
+    height: 280px;
+    transition: all 0.35s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     .Content {
       min-width: 28%;
-      gap: 7px;
+      gap: 4px;
 
       .Text {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         text-align: left;
       }
-
+      .Row {
+        height: 1px;
+        width: 100%;
+        background-color: white;
+      }
       .Description {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         text-align: left;
       }
     }
 
-    .Heart {
-      font-size: 1.6rem;
-      top: 16px;
-      left: 16px;
-    }
   }
 }

@@ -128,6 +128,7 @@
 .dropdown.show {
   opacity: 1;
   height: max-content;
+  width:max-content ;
   li {
     transform: scale(1) translateX(0);
     opacity: 1;
@@ -155,6 +156,7 @@
 
   .menuItems button {
     font-size: 1.6rem;
+    width: 100%;
   }
 
   .dropdown {

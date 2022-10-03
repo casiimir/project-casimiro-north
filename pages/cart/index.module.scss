@@ -1,4 +1,5 @@
 @import "../../styles/_variables.scss";
+@import "../../styles/mixins.scss";
 
 .cart {
   min-height: 71vh;
@@ -9,4 +10,11 @@
     rgba(13, 100, 119, 1) 100%
   );
   padding-top: 12vh;
+}
+
+@media only screen and (min-width: 767px) {
+  .cart {
+    min-height: 76vh;
+    @include flex-container($align: center)
+  }
 }

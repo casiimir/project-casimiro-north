@@ -1,54 +1,60 @@
-@import '../../styles/mixins';
-@import '../../styles/variables';
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .Footer {
-    position: relative;
+  position: relative;
+  width: 100%;
+  background-color: $MainDarkBlue;
+  height: 17vh;
+  box-shadow: 0px 0px 8px 6px $MainDarkBlue;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  color: white;
+
+  .logo {
+    cursor: pointer;
+  }
+  .FooterContainer {
+    @include flex-container($align: center, $justify: space-between);
+    .logo {
+      width: 150px;
+    }
+
+    .icon_container {
+      @include flex-container($gap: 8px);
+      .icon {
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+    }
+  }
+  p {
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    font-weight: 200;
+    text-align: center;
+    bottom: 18%;
     width: 100%;
-    background-color: $MainDarkBlue;
-    height: 17vh;
-    box-shadow: 0px 0px 8px 6px $MainDarkBlue;
-    padding: 10px 30px;
-    box-sizing: border-box;
-    color: white;
-
-    .FooterContainer {
-        @include flex-container($align: center, $justify: space-between);
-        .logo {
-            width: 150px;
-        }
-
-        .icon_container{
-            @include flex-container($gap: 8px);
-            .icon {
-                font-size: 1.6rem;
-            }
-        }    
-    }
-    p {
-        position: absolute;
-        left: 0;
-        font-size: 0.8rem;
-        font-weight: 200;
-        text-align: center;
-        bottom: 18%;
-        width: 100%;
-    }
+  }
 }
 
-@media only screen and (min-width : 768px) {
-    .Footer {
-        padding: 60px;
+@media only screen and (min-width: 768px) {
+  .Footer {
+    padding: 40px;
+    height: 12vh;
+    box-sizing: border-box;
 
-        .FooterContainer {
-            h2 {
-                font-size: 1.8rem;
-            }
+    .FooterContainer {
+      h2 {
+        font-size: 1.8rem;
+      }
 
-            .icon_container {
-                .icon {
-                    font-size: 1.8rem;
-                }
-            }
+      .icon_container {
+        .icon {
+          font-size: 1.8rem;
         }
+      }
     }
+  }
 }

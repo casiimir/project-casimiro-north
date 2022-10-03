@@ -10,12 +10,18 @@
   background-color: $GreyBackground;
 
   .title {
-    width: max-content;
-    color: $MainDarkBlue;
-    font-weight: bold;
-    margin-left: 20px;
-    text-transform: uppercase;
+    @include flex-container($justify: space-between);  
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    h3 {
+      color: #174c5887;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
   }
+  
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     width: auto;
@@ -34,12 +40,15 @@
   .miniCarousel {
     @include flex-container($direction: column, $justify: center );
     gap: 30px;
-    padding: 40px 0;
+    padding: 40px 100px;
     height: auto;
 
     .title {
-      font-size: 1.2rem;
-      margin-left: 40px;
+      padding: 0;
+
+      h3 {
+        font-size: 1.2rem;
+      }
     }
 
     .voucherDiv {

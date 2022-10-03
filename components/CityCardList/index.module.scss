@@ -10,16 +10,20 @@
   background-color: white;
 
   .Header {
-    font-style: normal;
+    padding: 0 20px;
+
+    h2 {
+      font-style: normal;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 17px;
     color: $MainDarkBlue;
     text-transform: uppercase;
-    margin-left: 20px;
+    // margin-left: 20px;
+    }
   }
   .List {
-    @include flex-container($direction: row, $gap: 10px, $align: flex-start);
+    @include flex-container($direction: row, $gap: 16px, $align: flex-start);
     width: 100vw;
     overflow-x: scroll;
     scroll-behavior: smooth;
@@ -34,16 +38,18 @@
 
 @media only screen and (min-width: 767px) {
   .CityCardList {
-    padding: 40px 0;
+    padding: 40px 100px;
     gap: 20px;
 
     .Header {
-      margin-left: 40px;
+      @include flex-container($justify: space-between, $align: center);
+      padding: 0;
     }
 
     .List {
-      gap: 40px;
-      padding: 20px 40px;
+      gap: 20px;
+      padding: 20px 0px;
+      width: 100%;
   }
 }
 }

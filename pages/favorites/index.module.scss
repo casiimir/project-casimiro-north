@@ -66,7 +66,7 @@
   .Favorites {
     @include flex-container($direction: column, $gap: 60px);
     padding-top: 10vh;
-    min-height: 83vh;
+    min-height: 88vh;
 
     .favorite_empty {
       transform: scale(1.6);

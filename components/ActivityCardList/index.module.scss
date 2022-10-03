@@ -52,19 +52,20 @@
 
 @media only screen and (min-width: 767px) {
     .ActivityCardList {
-        gap: 30px;
+        gap: 10px;
+        padding: 0 100px;
         padding-bottom: 40px;
 
         .Title {
-            margin-left: 40px;
+            margin-left: 0px;
         }
 
         .Sublist {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 280px 280px auto;
+            grid-template-rows: 185px 280px -1px;
             // gap: 40px;
-            padding: 10px 40px;
+            padding: 10px 0px;
         }
 
         .Sublist_cat_page {

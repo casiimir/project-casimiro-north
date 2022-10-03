@@ -13,12 +13,14 @@
         h2 {
             font-weight: 700;
             font-size: 1.2rem;
+            color: $MainDarkBlue;
         }
 
         p {
         font-size: .8rem;
             .coupon{
                 font-weight: bold;
+                color: $MainDarkBlue;
             }
         }
     }
@@ -51,7 +53,7 @@
         }
 
             button {
-                border-radius: 40px;
+                border-radius: 1px;
                 background-color: $MainButtonBlue;
                 color: white;
                 font-size: .6rem;
@@ -59,9 +61,11 @@
                 width: 55px;
                 border: none;
                 align-self: flex-end;
-
+                cursor: pointer;
+                transition: all 0.25s;
                     &:hover {
                     background-color: #0b697e;
+                    transform: scale(1.1);
                     }
                 
             
@@ -89,8 +93,8 @@
             }
 
             .newsletter_img {
-                width: 180px;
-               
+                width: 150px;
+              
             }
 
             
@@ -99,6 +103,9 @@
 
 @media only screen and (min-width : 768px) {
     .newsletter {
+        padding: 0 100px;
+        padding-bottom: 50px;
+        padding-top: 20px;
         .container {
             .form {
                 flex: 0 0 auto;
@@ -108,7 +115,7 @@
             .newsletter_img {
                 flex: 0 0 auto;
                 margin: 0 auto;
-                width: 380px;
+                width: 400px;
             }
         }
     }
