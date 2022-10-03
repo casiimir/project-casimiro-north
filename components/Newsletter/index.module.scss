@@ -13,12 +13,14 @@
         h2 {
             font-weight: 700;
             font-size: 1.2rem;
+            color: $MainDarkBlue;
         }
 
         p {
         font-size: .8rem;
             .coupon{
                 font-weight: bold;
+                color: $MainDarkBlue;
             }
         }
     }
@@ -51,7 +53,7 @@
         }
 
             button {
-                border-radius: 40px;
+                border-radius: 1px;
                 background-color: $MainButtonBlue;
                 color: white;
                 font-size: .6rem;
@@ -89,8 +91,8 @@
             }
 
             .newsletter_img {
-                width: 180px;
-               
+                width: 150px;
+              
             }
 
             
@@ -108,7 +110,7 @@
             .newsletter_img {
                 flex: 0 0 auto;
                 margin: 0 auto;
-                width: 380px;
+                width: 400px;
             }
         }
     }
