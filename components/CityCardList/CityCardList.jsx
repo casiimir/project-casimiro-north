@@ -12,7 +12,7 @@ const CityCardList = () => {
   const cityListRef = useRef(null);
 
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, '', dispatch, 'SET_CITY_LIST')
+    GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST')
   }, [dispatch]);
 
   return (
@@ -22,7 +22,7 @@ const CityCardList = () => {
         <ScrollBtn itemRef={cityListRef} />
       </div>
       <div ref={cityListRef} className={styles.List}>
-        {cities.cityList.filter((city) => city.list_count > 0).filter((_, index) => index <= 9).map((city, index) => <CityCard data={city} key={index}/>)}
+        {cities.cityList.filter((city) => city.list_count > 0).map((city, index) => <CityCard data={city} key={index}/>)}
       </div>
     </div>
   );
