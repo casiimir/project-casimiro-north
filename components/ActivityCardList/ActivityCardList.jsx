@@ -24,7 +24,7 @@ const ActivityCardList = () => {
   }, [cityname, dispatch, categoryname]);
 
   return (
-    <div className={styles.ActivityCardList}>
+    <div className={styles.ActivityCardList} style={categoryname ? {paddingTop: '100px'} : {}}>
       <h2 className={!cityname ? styles.Title : styles.Title_cat_page}>{
       !cityname 
       ? "Top Activities" 
