@@ -47,11 +47,21 @@
         height: 36px;
 
         .categorylink {
+          @include flex-container($align: center);
           color: #77a4ad;
+          padding-left: 5px;
           font-size: 16px;
           font-weight: 600;
           text-transform: uppercase;
           text-decoration: none;
+          height: 100%;
+          width: 100%;
+          transition: all 0.25s;
+
+          &:hover {
+            background-color: #77a4adb6;
+            color: white;
+          }
         }
       }
     }
@@ -62,7 +72,7 @@
   .CityMainSection {
     @include flex-container(column, flex-start, stretch, nowrap, 70px);
 
-    padding: 70px 70px;
+    padding: 70px 100px;
 
     .CityMainData {
       @include flex-container(row, space-between, flex-start, $gap: 35px);
