@@ -12,7 +12,7 @@ const MiniCarousel = () => {
   const {activities} = useSelector(state => state);
 
   useEffect(() => {
-    GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=10', dispatch, "SET_DISCOUNT_LIST");
+    GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=20', dispatch, "SET_DISCOUNT_LIST");
   },[dispatch])
 
   return (
