@@ -10,6 +10,7 @@ import Modal from '../Modal/Modal';
 import Logo from '../../assets/Logo.png';
 import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
+import ArrowUp from '../ArrowUp';
 // import { POST, GET_CART } from '../../utils/GET/CART_METHOD';
 
 export default function NavBar () {
@@ -165,6 +166,7 @@ export default function NavBar () {
             <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
         </div>
         {modalVisibility && <Modal />}
+        <ArrowUp />
         </div>
     )
 }

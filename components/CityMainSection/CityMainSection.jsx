@@ -24,7 +24,7 @@ const CityMainSection = () => {
       );
   }, [cityname, dispatch]);
 
-  console.log(activities)
+  console.log(cities.cityData)
 
   const handleActivityCatClick = (id) => {
     dispatch({type: "SET_INDEX_CAT", payload: id})
@@ -32,7 +32,7 @@ const CityMainSection = () => {
 
   return (
     <div className={styles.CityMainSection}>
-      <p className={styles.description} dangerouslySetInnerHTML={{__html: cities.cityData.content}}/>
+      <p className={styles.description} dangerouslySetInnerHTML={{__html: cities.cityData.meta_description}}/>
       <div className={styles.activitiesDiv}>
         <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
         <div className={styles.activitiesList}>
