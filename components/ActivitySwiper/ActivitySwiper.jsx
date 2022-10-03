@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
-import developersData from "../../constants";
+import {developersData} from "../../constants";
 import DeveloperCard from "../DeveloperCard/DeveloperCard";
 
 

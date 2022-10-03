@@ -3,7 +3,7 @@ import { AiFillGithub } from "react-icons/ai";
 import Logo from "../../assets/Logo.png";
 import ActivitySwiper from "../../components/ActivitySwiper";
 import DeveloperCard from "../../components/DeveloperCard/DeveloperCard";
-import developersData from "../../constants";
+import {developersData} from "../../constants";
 import Link from "next/link";
 
 export default function AboutUsPage() {
