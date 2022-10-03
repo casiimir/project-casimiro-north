@@ -3,7 +3,6 @@ import styles from "./index.module.scss";
 
 const CartSectionItem = ({ cartData, id }) => {
 
-  // console.log(cartData)
   const dispatch = useDispatch();
   const {title, retail_price, uuid } = cartData
 

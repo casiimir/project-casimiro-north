@@ -14,8 +14,8 @@
     border-radius: 100px;
   }
 
-  h1 {
-    font-weight: bold;
+  h2 {
+    font-weight: 600;
   }
 
   p {
@@ -46,18 +46,19 @@
     width: 300px;
 
     .personalImg {
-      height: 100px;
-      width: 100px;
+      height: 120px;
+      width: 120px;
     }
 
-    h1 {
-      font-weight: bold;
-      font-size: 1.7rem;
+
+    h2 {
+      font-weight: 600;
+      font-size: 1.1rem;
       text-align: center;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       text-align: center;
     }
 

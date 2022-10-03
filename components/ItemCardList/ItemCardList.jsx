@@ -11,8 +11,6 @@ const ItemCardList = ({modalVisibility}) => {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
-  console.log(activities.favorites)
-
   // useEffect(() => {
   //   GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
   // }, [dispatch]);
