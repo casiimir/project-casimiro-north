@@ -1,12 +1,13 @@
 import MiniCard from "../MiniCard/MiniCard";
 import styles from "./index.module.scss";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import GET from "../../utils/GET/GET";
 import { useSelector, useDispatch } from "react-redux";
 import { IMPORT_URL } from "../../utils/GET/URL";
+import ScrollBtn from "../ScrollBtn";
 
 const MiniCarousel = () => {
-
+  const miniCarouselRef = useRef(null);
   const dispatch = useDispatch();
   const {activities} = useSelector(state => state);
 
@@ -16,8 +17,11 @@ const MiniCarousel = () => {
 
   return (
     <div className={styles.miniCarousel}>
-      <h3 className={styles.title}>Voucher for you</h3>
-      <div className={styles.voucherDiv}>
+      <div className={styles.title}>
+        <h3>Voucher for you</h3>
+        <ScrollBtn itemRef={miniCarouselRef} />
+      </div>
+      <div ref={miniCarouselRef} className={styles.voucherDiv}>
         {activities?.discountList?.data?.map((cardData, index) => 
           <MiniCard cardData={cardData} key={index} />
         )}

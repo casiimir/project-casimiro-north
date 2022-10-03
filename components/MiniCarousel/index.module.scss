@@ -10,11 +10,16 @@
   background-color: $GreyBackground;
 
   .title {
-    width: max-content;
-    color: $MainDarkBlue;
-    font-weight: bold;
-    margin-left: 20px;
-    text-transform: uppercase;
+    @include flex-container($justify: space-between);  
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    h3 {
+      color: $MainDarkBlue;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   }
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
@@ -38,8 +43,11 @@
     height: auto;
 
     .title {
-      font-size: 1.2rem;
-      margin-left: 40px;
+      padding: 0 40px;
+
+      h3 {
+        font-size: 1.2rem;
+      }
     }
 
     .voucherDiv {

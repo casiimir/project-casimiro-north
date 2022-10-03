@@ -10,13 +10,17 @@
   background-color: white;
 
   .Header {
-    font-style: normal;
+    padding: 0 20px;
+
+    h2 {
+      font-style: normal;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 17px;
     color: $MainDarkBlue;
     text-transform: uppercase;
-    margin-left: 20px;
+    // margin-left: 20px;
+    }
   }
   .List {
     @include flex-container($direction: row, $gap: 10px, $align: flex-start);
@@ -38,7 +42,8 @@
     gap: 20px;
 
     .Header {
-      margin-left: 40px;
+      @include flex-container($justify: space-between, $align: center);
+      padding: 0 40px;
     }
 
     .List {
