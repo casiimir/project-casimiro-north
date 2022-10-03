@@ -7,6 +7,13 @@ import EleonoraImg from "../assets/eleonora.jpg";
 
 const developersData = [
   {
+    personalImg: NoemiImg.src,
+    name: "Noemi Fazio",
+    description: "Front-end Developer",
+    liprofile: "https://www.linkedin.com/in/noemi-fazio/",
+    ghprofile: "https://github.com/Waterlilyrr",
+  },
+  {
     personalImg: MarcoImg.src,
     name: "Marco Guglielmino",
     description: "Front-end Developer",
@@ -20,13 +27,7 @@ const developersData = [
     liprofile: "https://www.linkedin.com/in/drichard-mangano/",
     ghprofile: "https://github.com/SeferMetatron",
   },
-  {
-    personalImg: NoemiImg.src,
-    name: "Noemi Fazio",
-    description: "Front-end Developer",
-    liprofile: "https://www.linkedin.com/in/noemi-fazio/",
-    ghprofile: "https://github.com/Waterlilyrr",
-  },
+
   {
     personalImg: MartinaImg.src,
     name: "Martina Venasco",

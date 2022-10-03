@@ -7,7 +7,6 @@ import developersData from "../../constants";
 import Link from "next/link";
 
 export default function AboutUsPage() {
-
   const githubRepositoryLink =
     "https://github.com/casiimir/project-casimiro-north";
 
@@ -16,10 +15,25 @@ export default function AboutUsPage() {
       <div className={styles.mainSection}>
         <div className={styles.infoSection}>
           <div className={styles.title}>
-            <h1 className={styles.titleText}>ABOUT US</h1>
+            <h2 className={styles.titleText}>ABOUT US</h2>
           </div>
           <p className={styles.description}>
-            breve descrizione di quanto siamo bravi ❤️
+            {/* breve descrizione di quanto siamo bravi ❤️ */}
+            Polarix is the stellar portal to discover, book and manage your
+            travel experiences around the world.
+            <br />
+            Polarix is a mobile-first, user friendly travel app developed with
+            Next.js . It was created by a team of five enthusiastic people in a
+            SCRUM agile framework.
+            <br />
+            Languages and technologies used include:
+            <ul className={styles.list}>
+              <li>Next.js</li>
+              <li>React.js</li>
+              <li>Redux</li>
+              <li>Sass</li>
+              <li>Firebase</li>
+            </ul>
           </p>
           <div className={styles.info}>
             <span className={styles.iconSpan}>
@@ -41,7 +55,7 @@ export default function AboutUsPage() {
 
         <div className={styles.creditsSection}>
           <img src={Logo.src} alt="logoPolarix" className={styles.logo} />
-          <h4 className={styles.creditsText}>made to always be with you</h4>
+          <h4 className={styles.creditsText}>Made to always be with you</h4>
         </div>
       </div>
     </div>

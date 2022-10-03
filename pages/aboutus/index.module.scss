@@ -3,7 +3,7 @@
 
 .aboutUsPage {
   min-height: 71vh;
-  padding-top: 12vh;
+  padding-top: 7vh;
   background-color: $MainDarkBlue;
   background-image: linear-gradient(#052837c5, #052837c5, #052837c5),
     url("../../assets/aboutusbg.jpg");
@@ -11,28 +11,41 @@
   background-position: 52%;
 
   .mainSection {
-    @include flex-container(column, space-between, $gap: 30px);
+    @include flex-container(column, space-between, $gap: 10px);
 
-    padding: 40px 0;
+    padding: 33px 0;
 
     .infoSection {
-      @include flex-container(column, $gap: 20px);
+      @include flex-container(column, $gap: 10px);
 
       padding: 0 40px;
       color: rgba(255, 255, 255, 0.749);
 
       .title {
         border-bottom: 1px solid white;
-        height: 2rem;
+        height: 1.5rem;
 
         .titleText {
           font-size: 1.2rem;
           font-weight: bold;
         }
       }
+      .description {
+        .list {
+          list-style: inside;
+          margin-left: 20px;
+          margin-top: 8px;
+        }
+      }
       .description,
       .githubLink {
         font-weight: 500;
+      }
+      .githubLink {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       .info {
@@ -70,7 +83,6 @@
 @media only screen and (min-width: 767px) {
   .aboutUsPage {
     .mainSection {
-
       .swiper {
         display: none;
       }
@@ -78,11 +90,10 @@
       .profilesDiv {
         @include flex-container(row, $justify: center, $gap: 20px);
         width: 60%;
-        margin: 0 auto; 
+        margin: 0 auto;
       }
 
       .creditsSection {
-
         .creditsText {
           font-weight: 600;
           font-size: small;
@@ -91,4 +102,3 @@
     }
   }
 }
-
