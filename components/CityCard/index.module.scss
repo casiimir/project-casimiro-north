@@ -91,12 +91,17 @@
 
 @media only screen and (min-width: 767px) {
   .CityCard {
-    @include border($radius: 1px);
+    @include border($radius: $MainBorderRadius);
     box-sizing: border-box;
     flex: 0 0 auto;
     width: 50%;
-    max-width: 150px;
-    height: 220px;
+    max-width: 200px;
+    height: 280px;
+    transition: all 0.35s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     .Content {
       min-width: 28%;
