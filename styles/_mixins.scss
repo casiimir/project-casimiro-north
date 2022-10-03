@@ -56,7 +56,7 @@
 }
 
 @mixin border(
-  $border: 0,
+  $border: auto,
   $radius: 0,
   $top-right: auto,
   $bottom-right: auto,

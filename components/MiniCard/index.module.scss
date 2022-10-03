@@ -9,6 +9,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
+  @include border($radius: $MoreBorderRadius);
 
   &:hover {
     transform: scale(1.01);
@@ -16,7 +17,6 @@
   }
 
   img {
-    border-radius: 6px;
     height: 100%;
     width: 100%;
     object-fit: cover;

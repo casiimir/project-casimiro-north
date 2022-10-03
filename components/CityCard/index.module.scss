@@ -3,8 +3,7 @@
 
 .CityCard {
   @include flex-container();
-
-  border-radius: 4px;
+  @include border($radius: $MainBorderRadius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.615);
   cursor: pointer;
   overflow: hidden;
@@ -92,6 +91,7 @@
 
 @media only screen and (min-width: 767px) {
   .CityCard {
+    @include border($radius: $MainBorderRadius);
     box-sizing: border-box;
     flex: 0 0 auto;
     width: 50%;

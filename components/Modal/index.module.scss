@@ -17,10 +17,10 @@
     }
 
   .modal {
+    @include border($radius: $MainBorderRadius);
     width: 48%;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.945);
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.945);  
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
     color: rgb(255, 255, 255);
     cursor: pointer;
@@ -58,11 +58,11 @@
     @include element-position(fixed, 0, 0, 0, 0, 99);
 
     .modal {
+      @include border($radius: $MainBorderRadius);
       width: auto;
       @include flex-container($direction: column, $gap: 10px);
       padding: 30px 10px;
       background-color: rgba(255, 255, 255, 0.945);
-      border-radius: 4px;
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
       color: rgb(255, 255, 255);
       cursor: pointer;
