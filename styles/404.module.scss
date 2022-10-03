@@ -3,12 +3,13 @@
 
 .page404 {
   @include flex-container(column, $gap: 25px);
-  min-height: 89vh;
+  min-height: 100vh;
   background-image: url("../assets/404.png");
   background-repeat: no-repeat;
-  padding-top: 18vh;
+  padding: 18%;
   background-position-x: 29%;
   position: relative;
+  box-sizing: border-box;
 
   .maintext {
     color: white;
@@ -96,7 +97,7 @@
     right: 0;
     top: 80%;
     bottom: 0;
-    border-radius: 40px;
+    border-radius: $MainBorderRadius;
     border: none;
     color: rgb(59, 76, 91);
     font-weight: 600;
@@ -112,12 +113,12 @@
 @media only screen and (min-width: 767px) {
   .page404 {
     @include flex-container(column, $gap: 25px);
-    min-height: 83vh;
+    min-height: 100vh;
     background-image: url("../assets/404.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
-    padding-top: 18vh;
+    // padding-top: 18vh;
 
     .maintext {
       color: white;
@@ -125,6 +126,7 @@
       align-self: flex-end;
       text-align: left;
       transform: scale(0.94);
+      font-size: 1.3rem;
       animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
     }
 
@@ -136,7 +138,7 @@
       right: 0;
       top: 50%;
       bottom: 0;
-      border-radius: 2px;
+      border-radius: $MainBorderRadius;
       border: none;
       color: rgb(59, 76, 91);
       font-weight: 600;
@@ -145,17 +147,19 @@
       text-align: center;
       box-shadow: 0 0 8px rgba(0, 0, 0, 68%);
       filter: blur(4px);
-      animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      transition: all 0.15s;
+      transition: transform 0.45s;
+      animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
       cursor: pointer;
 
       &:hover::after {
+        
         transform: scaleX(1.4) scaleY(1.6);
         opacity: 0;
       }
       &:hover {
+        
         transform: scale(1.02);
-		box-shadow: 0 0 8px rgba(211, 210, 210, 0.68);
+		    box-shadow: 0 0 8px rgba(211, 210, 210, 0.68);
       }
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
