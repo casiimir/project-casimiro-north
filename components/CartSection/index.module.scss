@@ -113,6 +113,7 @@
 
 @media only screen and (min-width: 767px) {
   .cartSection {
+    flex-grow: 1;
     flex-direction: row;
     padding: 100px;
     gap: 80px;

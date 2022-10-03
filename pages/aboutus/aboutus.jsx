@@ -22,20 +22,23 @@ export default function AboutUsPage() {
             {/* breve descrizione di quanto siamo bravi ❤️ */}
             Polarix is the stellar portal to discover, book and manage your
             travel experiences around the world.
-            <br />
-            Polarix is a mobile-first, user friendly travel app developed with
-            Next.js . It was created by a team of five enthusiastic people in a
-            SCRUM agile framework.
-            <br />
+            </p>
+            <p className={styles.description}>
+            Polarix is a <span className={styles.bold}> mobile-first</span>, user friendly travel app developed with
+            <span className={styles.bold}> Next.js</span> . It was created by a <span className={styles.bold}> team of five</span> enthusiastic people in a
+            <span className={styles.bold}> SCRUM agile framework.</span>
+            </p>
+            <p className={styles.description}>
             Languages and technologies used include:
-            <ul className={styles.list}>
+            </p>
+            <ul >
               <li>Next.js</li>
               <li>React.js</li>
               <li>Redux</li>
               <li>Sass</li>
               <li>Firebase</li>
             </ul>
-          </p>
+          
           <div className={styles.info}>
             <span className={styles.iconSpan}>
               <AiFillGithub className={styles.icon} />

@@ -14,12 +14,14 @@
     @include flex-container(column, space-between, $gap: 30px);
 
     padding: 40px 0;
+    box-sizing: border-box;
 
     .infoSection {
       @include flex-container(column, $gap: 20px);
 
       padding: 0 40px;
       color: rgba(255, 255, 255, 0.749);
+      box-sizing: border-box;
 
       .title {
         border-bottom: 0.7px solid rgba(255, 255, 255, 0.388);
@@ -31,19 +33,19 @@
         }
       }
       
-      .fullText {
-        @include flex-container(column, $gap: 20px);
-        text-align: justify;
+
         .description {
-          font-weight: 400;
+          font-weight: 300 !important;
+          letter-spacing: 1px;
+          
           .bold{
-            font-weight: bold;
+            font-weight: 600;
           }
         }
         .tech{
           list-style: inside;
         }
-      }
+      
 
       .description,
       .githubLink {
@@ -83,8 +85,13 @@
 
 @media only screen and (min-width: 767px) {
   .aboutUsPage {
+    min-height: 88vh;
+    box-sizing: border-box;
+
     .mainSection {
       padding: 20px;
+      box-sizing: border-box;
+
       .swiper {
         display: none;
       }
