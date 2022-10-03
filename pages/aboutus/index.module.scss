@@ -30,11 +30,25 @@
           font-weight: bold;
         }
       }
+      
+      .fullText {
+        @include flex-container(column, $gap: 20px);
+        text-align: justify;
+        .description {
+          font-weight: 400;
+          .bold{
+            font-weight: bold;
+          }
+        }
+        .tech{
+          list-style: inside;
+        }
+      }
+
       .description,
       .githubLink {
         font-weight: 500;
       }
-
       .info {
         @include flex-container($align: center, $gap: 20px);
 

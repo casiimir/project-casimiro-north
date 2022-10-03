@@ -14,7 +14,7 @@ const DeveloperCard = ({ data }) => {
         alt={`${name} personal image`}
         className={styles.personalImg}
       />
-      <h1>{name}</h1>
+      <h2>{name}</h2>
       <p>{description}</p>
       <div className={styles.socials}>
         <Link href={liprofile} alt={name}>

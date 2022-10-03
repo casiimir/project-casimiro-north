@@ -46,7 +46,6 @@ export default function DropdownComp({heroRef}) {
           behavior: 'smooth'
         })
       }
-        console.log(heroRef.current.offsetTop + heroRef.current.offsetHeight )
     }
 
 

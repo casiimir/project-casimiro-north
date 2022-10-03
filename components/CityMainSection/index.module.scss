@@ -10,12 +10,15 @@
   padding: 35px 25px;
   background-color: white;
 
-  .description {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    color: $MainDarkBlue;
-    font-weight: 300;
-    height: 40vh;
+  .CityMainData {
+    @include flex-container(column, flex-start, stretch, nowrap, 35px);
+
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: $MainDarkBlue;
+      font-weight: 300;
+      height: 40vh;
       overflow-y: scroll;
       letter-spacing: 2px;
 
@@ -24,6 +27,7 @@
         color: $LightBlue;
         font-weight: 600;
       }
+    }
   }
 
   .activitiesDiv {
@@ -56,37 +60,45 @@
 
 @media only screen and (min-width: 767px) {
   .CityMainSection {
-    @include flex-container(column, flex-start, stretch, nowrap, 50px);
+    @include flex-container(column, flex-start, stretch, nowrap, 70px);
 
-    padding: 50px 60px;
+    padding: 70px 70px;
 
-    .description {
-      font-size: 1.3rem;
-      
+    .CityMainData {
+      @include flex-container(row, space-between, flex-start, $gap: 35px);
+      height: max-content;
+      .description {
+        font-size: 1rem;
+        width: 50%;
+        height: auto;
+      }
     }
 
     .activitiesDiv {
-      @include flex-container(column, $gap: 40px);
+      @include flex-container(column, space-between, $gap: 15px);
+
+      flex: 0 0 auto;
+      width: 50%;
+
       .title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
 
       .activitiesList {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 20%;
+        grid-column-gap: 2%;
 
         justify-content: space-between;
         box-sizing: border-box;
 
         .activity {
-          height: 50px;
+          height: 30px;
           min-width: 200px;
           max-width: 560px;
 
-          a {
-            color: $LightBlue;
-            font-size: 16px;
+          .categorylink {
+            font-size: 0.8rem;
             font-weight: 600;
           }
         }
