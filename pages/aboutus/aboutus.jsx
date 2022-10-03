@@ -25,8 +25,7 @@ export default function AboutUsPage() {
               </p>
                 <h6>Latest technology used include:</h6>
                 <ul className={styles.tech}>  
-                  <li>App: Next.js</li>
-                  <li>Logics: Javascript, Redux</li>
+                  <li>Framework: Next.js built in React</li>
                   <li>Style: Sass, node modules</li>
                   <li>Database: Firebase</li>
                 </ul>
