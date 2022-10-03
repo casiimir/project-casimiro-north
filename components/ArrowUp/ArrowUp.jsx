@@ -7,11 +7,14 @@ export default function ArrowUp() {
     const [isVisible, setIsVisible] = useState(false)
 
     const eventScrollUp = () => {
-        if (window?.scrollY > 100) {
+        
+        if (window.scrollY > 400) {
             setIsVisible(true);
         } else if (window.scrollY === 0){
             setIsVisible(false);
         }
+        console.log(window.scrollY)
+    
     }
 
     const handleOnArrowClick = () => {
@@ -24,10 +27,10 @@ export default function ArrowUp() {
     useEffect(() => {
 
         if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', eventScrollUp())
+            window.addEventListener('scroll', () => eventScrollUp())
     }
-    return removeEventListener('scroll', eventScrollUp())
-    }, [])
+    return removeEventListener('scroll', () => eventScrollUp())
+    })
 
     return (
         
