@@ -15,6 +15,7 @@ import ArrowUp from '../ArrowUp';
 
 export default function NavBar () {
     const searchRef = useRef(null);
+    const [isScrollDown, setIsScrollDown] = useState(false)
 
     const {navBarStatus, modalVisibility} = useSelector(state => state)
     const dispatch = useDispatch();
@@ -22,7 +23,14 @@ export default function NavBar () {
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
 
-    
+    const eventScrollDown = () => {
+        
+        if (window.scrollY > 400) {
+            setIsScrollDown(true);
+        } else if (window.scrollY === 0){
+            setIsScrollDown(false);
+        }  
+    }
 
     const handleHamClick = () => {
         dispatch({type: 'SET_OPEN'})
@@ -79,6 +87,13 @@ export default function NavBar () {
             }
     }, [searchInput])
 
+    useEffect(()=> {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', () => eventScrollDown())
+        }
+    return removeEventListener('scroll', () => eventScrollDown())
+    }, [])
+
     // useEffect(() => {
     //     if (typeof window !== 'undefined' && !localStorage.getItem('cart_uuid')) {
     //     POST().then(data => {
@@ -91,7 +106,8 @@ export default function NavBar () {
     // }, [])
 
     return (
-        <div className={styles.Main_Navbar}>
+        <>
+        <div className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ''}`}>
         <div className={styles.NavBar}>
             {/* <h2 onClick={handleLogoClick}>LOGO</h2> */}
             <img src={Logo.src} onClick={handleLogoClick} className={styles.logo} alt=""/>
@@ -134,7 +150,9 @@ export default function NavBar () {
             <div className={styles.overlay} onClick={handleOverlayClick} style={{display: navBarStatus.isInputActive ? 'block': 'none'}}/>
         </div>
         {modalVisibility && <Modal />}
-        <ArrowUp />
+        
         </div>
+        <ArrowUp />
+        </>
     )
 }

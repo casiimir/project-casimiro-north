@@ -26,9 +26,9 @@ export default function ArrowUp() {
 
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', () => eventScrollUp())
-    }
+        }
     return removeEventListener('scroll', () => eventScrollUp())
-    })
+    },[])
 
     return (
         

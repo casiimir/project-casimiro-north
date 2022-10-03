@@ -83,14 +83,15 @@
           color: rgba(255, 255, 255, 0.801);
           pointer-events: none;
           opacity: 0;
+          backdrop-filter: blur(6px);
+          
 
           &.active {
             right: 0;
-            background-color: rgba(0, 0, 0, 0.39);
+            background-color: rgba(0, 0, 0, 0.766);
             width: 100%;
             pointer-events: all;
-            backdrop-filter: blur(6px);
-            opacity: 1;
+            opacity: 1;   
           }
 
           &::placeholder {
@@ -210,7 +211,7 @@
     position: fixed;
     padding: 0 45px;
     box-shadow: none;
-    min-height: 14vh;
+    height: 8vh;
     // background: hsla(199, 100%, 9%, 1);
 
     // background: linear-gradient(
@@ -219,12 +220,17 @@
     //   rgba(36, 70, 86, 0.934) 50%,
     //   rgb(53, 106, 130, 0) 100%
     // );
-    background: none;
-    background-color: rgba(0, 0, 0, 0.486);
+    
+    
     backdrop-filter: blur(6px);
+    transition: all 0.35s;
+
+    &.active {
+      background-color: rgba(0, 0, 0, 0.486);
+    }
 
     .NavBar {
-      height: 14vh;
+      height: auto;
       box-sizing: border-box;
       justify-content: flex-start;
 
@@ -243,6 +249,7 @@
           left: auto;
           right: auto;
           bottom: auto;
+          
 
           .search_icon {
             position: relative;
