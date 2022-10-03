@@ -149,11 +149,12 @@ export default function NavBar () {
             </div>
             
         </div>
-        {modalVisibility && <Modal />}
+        
         
         </div>
         <div className={styles.overlay} onClick={handleOverlayClick} style={navBarStatus.isInputActive ? {display: 'block'} :{display: 'none', pointerEvents: "none"} }/>
         <ArrowUp />
+        {modalVisibility && <Modal />}
         </>
     )
 }
