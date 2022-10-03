@@ -65,11 +65,12 @@
     padding: 70px 70px;
 
     .CityMainData {
-      @include flex-container(row, space-between, center, $gap: 35px);
-
+      @include flex-container(row, space-between, flex-start, $gap: 35px);
+      height: max-content;
       .description {
         font-size: 1rem;
         width: 50%;
+        height: auto;
       }
     }
 
