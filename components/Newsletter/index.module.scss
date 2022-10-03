@@ -61,9 +61,11 @@
                 width: 55px;
                 border: none;
                 align-self: flex-end;
-
+                cursor: pointer;
+                transition: all 0.25s;
                     &:hover {
                     background-color: #0b697e;
+                    transform: scale(1.1);
                     }
                 
             
