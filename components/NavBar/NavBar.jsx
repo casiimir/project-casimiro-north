@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import {HiSearch} from 'react-icons/hi';
-import { AiFillHome, AiFillCompass, AiOutlineStar, AiFillInfoCircle } from 'react-icons/ai';
-import { FaShoppingCart } from 'react-icons/fa';
+
+import { menu } from '../../constants';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
@@ -22,36 +22,7 @@ export default function NavBar () {
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
 
-    console.log(data.activities.searchResults.data)
-
-    const menu = [
-        {
-            name: 'Home',
-            path: '/',
-            icon: <AiFillHome className={styles.icon}/>
-        },
-        {
-            name: 'My Trip',
-            path: '/mytrip',
-            icon: <AiFillCompass className={styles.icon}/>
-        },
-        {
-            name: 'Favorites',
-            path: '/favorites',
-            icon: <AiOutlineStar className={styles.icon}/>
-        },
-        {
-            name: 'Cart',
-            path: '/cart',
-            icon: <FaShoppingCart className={styles.icon}/>
-        },
-        {
-            name: 'About us',
-            path: '/aboutus',
-            icon: <AiFillInfoCircle className={styles.icon}/>
-        },
-
-    ]
+    
 
     const handleHamClick = () => {
         dispatch({type: 'SET_OPEN'})
@@ -101,14 +72,11 @@ export default function NavBar () {
     }, [navBarStatus.isActive])
 
     useEffect(() => {
-        console.log(searchInput)
-        console.log(data.activities.searchResults)
         if (searchInput.length > 3) {
             GET(IMPORT_URL.ACTIVITIES, `?text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS")
             } else {
                 dispatch({type: "CLEAN_SEARCH_RESULTS"})
             }
-
     }, [searchInput])
 
     // useEffect(() => {

@@ -12,9 +12,7 @@ export default function ArrowUp() {
             setIsVisible(true);
         } else if (window.scrollY === 0){
             setIsVisible(false);
-        }
-        console.log(window.scrollY)
-    
+        }  
     }
 
     const handleOnArrowClick = () => {

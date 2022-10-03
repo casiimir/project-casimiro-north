@@ -24,8 +24,6 @@ const CityMainSection = () => {
       );
   }, [cityname, dispatch]);
 
-  console.log(cities.cityData)
-
   const handleActivityCatClick = (id) => {
     dispatch({type: "SET_INDEX_CAT", payload: id})
   }
