@@ -38,17 +38,18 @@
 
 @media only screen and (min-width: 767px) {
   .CityCardList {
-    padding: 40px 0;
+    padding: 40px 100px;
     gap: 20px;
 
     .Header {
       @include flex-container($justify: space-between, $align: center);
-      padding: 0 40px;
+      padding: 0;
     }
 
     .List {
       gap: 20px;
-      padding: 20px 40px;
+      padding: 20px 0px;
+      width: 100%;
   }
 }
 }

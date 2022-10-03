@@ -40,11 +40,11 @@
   .miniCarousel {
     @include flex-container($direction: column, $justify: center );
     gap: 30px;
-    padding: 40px 0;
+    padding: 40px 100px;
     height: auto;
 
     .title {
-      padding: 0 40px;
+      padding: 0;
 
       h3 {
         font-size: 1.2rem;
