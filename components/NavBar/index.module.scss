@@ -1,5 +1,14 @@
 @import "../../styles/mixins";
 
+.overlay {
+  position: fixed;
+  top: 12vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 .Main_Navbar {
   position: absolute;
   z-index: 999;
@@ -23,15 +32,6 @@
     .logo {
       cursor: pointer;
       width: 180px;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 12vh;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
     }
 
     h2 {
@@ -207,21 +207,22 @@
 }
 
 @media only screen and (min-width: 768px) {
+
+  .overlay {
+    position: fixed;
+    display: block !important;
+    top: 8vh;
+    bottom: 0;
+    left: 0; 
+    width: 100vw !important;
+    z-index: 3;
+  }
+
   .Main_Navbar {
     position: fixed;
     padding: 0 45px;
     box-shadow: none;
     height: 8vh;
-    // background: hsla(199, 100%, 9%, 1);
-
-    // background: linear-gradient(
-    //   180deg,
-    //   hsla(199, 100%, 9%, 1) 0%,
-    //   rgba(36, 70, 86, 0.934) 50%,
-    //   rgb(53, 106, 130, 0) 100%
-    // );
-    
-    
     backdrop-filter: blur(6px);
     transition: all 0.35s;
 
@@ -230,9 +231,11 @@
     }
 
     .NavBar {
-      height: auto;
+      height: 8vh;
       box-sizing: border-box;
       justify-content: flex-start;
+
+      
 
       .navbar_container {
         position: static;
@@ -265,7 +268,6 @@
             &.active {
               left: auto;
               right: 10px;
-              // transform: scale(1.04);
             }
 
             &:hover {
