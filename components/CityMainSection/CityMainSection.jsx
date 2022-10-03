@@ -25,29 +25,43 @@ const CityMainSection = () => {
   }, [cityname, dispatch]);
 
   const handleActivityCatClick = (id) => {
-    dispatch({type: "SET_INDEX_CAT", payload: id})
-  }
+    dispatch({ type: "SET_INDEX_CAT", payload: id });
+  };
 
-  return (
+ return (
     <div className={styles.CityMainSection}>
-      <p className={styles.description} dangerouslySetInnerHTML={{__html: cities.cityData.meta_description}}/>
-      <div className={styles.activitiesDiv}>
-        <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
-        <div className={styles.activitiesList}>
-          {!activities.categoryList.message ? 
-          
-          activities?.categoryList?.map((data, index) => (
-            <div onClick={() => handleActivityCatClick(index)} className={styles.activity} key={data.id}>
-              <Link href={`${cityname}/category/${data.name}&=${data.code}`}><a className={styles.categorylink}>{data.name}</a></Link>
-            </div> 
-          ))
-          
-          : <div className={styles.activity}>
-          <a>No Activities!</a>
-        </div> 
-        }
+      <div className={styles.CityMainData}>
+        <p
+          className={styles.description}
+          dangerouslySetInnerHTML={{ __html: cities.cityData.meta_description }}
+        />
+
+        <div className={styles.activitiesDiv}>
+          <h3 className={styles.title}>Activities in {cities.cityData.name}</h3>
+          <div className={styles.activitiesList}>
+            {!activities.categoryList.message ? (
+              activities?.categoryList?.map((data, index) => (
+                <div
+                  onClick={() => handleActivityCatClick(index)}
+                  className={styles.activity}
+                  key={data.id}
+                >
+                  <Link
+                    href={`${cityname}/category/${data.name}&=${data.code}`}
+                  >
+                    <a className={styles.categorylink}>{data.name}</a>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <div className={styles.activity}>
+                <a>No Activities!</a>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
       <ActivitySwiper />
     </div>
   );
