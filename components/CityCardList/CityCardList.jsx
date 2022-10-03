@@ -13,7 +13,13 @@ const CityCardList = () => {
   }, [dispatch]);
   return (
     <div className={styles.CityCardList}>
-      <h2 className={styles.Header}>Top Cities</h2>
+      <div className={styles.Header}>
+        <h2>Top Cities</h2>
+        <div className={styles.button_container_scroll}>
+          <button className={styles.button_prev}>{"<"}</button>
+          <button className={styles.button_next}>{">"}</button>
+        </div>
+      </div>
       <div className={styles.List}>
         {cities.cityList.filter((city) => city.list_count > 0).filter((_, index) => index <= 9).map((city, index) => <CityCard data={city} key={index}/>)}
       </div>

@@ -10,13 +10,22 @@
   background-color: white;
 
   .Header {
-    font-style: normal;
+    padding: 0 20px;
+    border: 2px solid red;
+
+    .button_container_scroll {
+      display: none;
+    }
+
+    h2 {
+      font-style: normal;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 17px;
     color: $MainDarkBlue;
     text-transform: uppercase;
-    margin-left: 20px;
+    // margin-left: 20px;
+    }
   }
   .List {
     @include flex-container($direction: row, $gap: 10px, $align: flex-start);
@@ -38,7 +47,28 @@
     gap: 20px;
 
     .Header {
-      margin-left: 40px;
+      @include flex-container($justify: space-between, $align: center);
+      padding: 0 40px;
+
+      h2 {
+        // margin-left: 40px;
+      }
+
+      .button_container_scroll {
+        @include flex-container($gap: 8px);
+
+        button {
+          @include border($radius: 100%, $border: none);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.391);
+          font-size: 1.4rem;
+          font-weight: 200;
+          color: rgba(0, 0, 0, 0.525);
+          height: 40px;
+          width: 40px;
+          background-color: white;
+
+        }
+      }
     }
 
     .List {
