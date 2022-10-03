@@ -2,8 +2,8 @@
 @import "../../styles/_variables.scss";
 
 .miniCard {
-  height: 100px;
-  width: 100px;
+  height: 70px;
+  width: 70px;
   flex: 0 0 auto;
   overflow: hidden;
   position: relative;
@@ -26,13 +26,13 @@
   p {
     @include flex-container($align: center, $justify: center);
     position: absolute;
-    top: 0;
+    top: 20%;
     bottom: 0;
     left: 0;
     right: 0;
     color: rgba(255, 255, 255, 0.785);
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.204);
 
     &::after {
@@ -48,7 +48,7 @@
     text-align: center;
     color: white;
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.489);
   }
 
@@ -56,15 +56,15 @@
 
 @media only screen and (min-width: 767px) {
   .miniCard {
-    height: 250px;
-    width: 250px;
+    height: 110px;
+    width: 110px;
 
     p {
-      font-size: 5rem;
+      font-size: 2.6rem;
     }
 
     span {
-      font-size: 1.5rem;
+      font-size:0.9rem;
     }
   }
 }

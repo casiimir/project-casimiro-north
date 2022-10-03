@@ -22,7 +22,7 @@
       color: rgba(255, 255, 255, 0.749);
 
       .title {
-        border-bottom: 1px solid white;
+        border-bottom: 0.7px solid rgba(255, 255, 255, 0.388);
         height: 2rem;
 
         .titleText {
@@ -84,19 +84,18 @@
 @media only screen and (min-width: 767px) {
   .aboutUsPage {
     .mainSection {
-
+      padding: 20px;
       .swiper {
         display: none;
       }
 
       .profilesDiv {
         @include flex-container(row, $justify: center, $gap: 20px);
-        width: 60%;
-        margin: 0 auto; 
+        width: 77%;
+        margin: 0 auto;
       }
 
       .creditsSection {
-
         .creditsText {
           font-weight: 600;
           font-size: small;
@@ -105,4 +104,3 @@
     }
   }
 }
-

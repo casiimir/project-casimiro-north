@@ -16,11 +16,12 @@
     box-sizing: border-box;
 
     h3 {
-      color: $MainDarkBlue;
-      font-weight: bold;
+      color: #174c5887;
+      font-weight: 800;
       text-transform: uppercase;
     }
   }
+  
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     width: auto;

@@ -23,7 +23,7 @@
     }
   }
   .List {
-    @include flex-container($direction: row, $gap: 10px, $align: flex-start);
+    @include flex-container($direction: row, $gap: 16px, $align: flex-start);
     width: 100vw;
     overflow-x: scroll;
     scroll-behavior: smooth;
@@ -47,7 +47,7 @@
     }
 
     .List {
-      gap: 40px;
+      gap: 20px;
       padding: 20px 40px;
   }
 }
