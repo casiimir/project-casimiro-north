@@ -1,5 +1,118 @@
+@import "./mixins";
+@import "./variables";
+
 .Home {
+
+  .overlayanimation {
+    background-color: rgba(9, 15, 17, 0.932);
+    @include element-position(fixed, 0, 0, 0, 0, 99);
+    @include flex-container($align: center, $justify: center);
+
+    .star {
+      width: 150px;
+      animation: fade-in 5s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0.5);
+      transition: all 0.25s;
+    }
+    @keyframes fade-in {
+      30% {
+        opacity: 0.7;
+        transform: scale(-2);
+      }
+      50% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(198px) translateY(4px);
+      }
+    }
+    @keyframes fade-out {
+      30% {
+        opacity: 0.7;
+      }
+      50% {
+        transition: opacity 3s;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    &.disactive {
+      animation: fade-out 4s 0.4s forwards cubic-bezier(0.22, 0, 0, 0);
+	  transition: all 0.25s;
+    }
+    .polari {
+      opacity: 0;
+      animation: fade-in2 4s forwards cubic-bezier(0, 0, 1, 1);
+      transition: all 0.25s;
+      width: 200px;
+    }
+    @keyframes fade-in2 {
+      30% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0;
+        transform: translateX(0);
+      }
+      100% {
+        opacity: 0.7;
+        transform: translateX(-99px);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .Home {
+    .overlayanimation {
+      background-color: rgba(9, 15, 17, 0.92);
+      @include element-position(fixed, 0, 0, 0, 0, 99);
+      @include flex-container($align: center, $justify: center);
+
+      .star {
+        width: 300px;
+        animation: fade-in 2s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+        transition: all 0.25s;
+      }
+      @keyframes fade-in {
+        30% {
+          opacity: 0.7;
+          transform: scale(-2);
+        }
+        50% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(370px) translateY(5px);
+        }
+      }
+      .polari::before {
+        opacity: 0;
+      }
+      .polari {
+        opacity: 0;
+        animation: fade-in2 2s forwards cubic-bezier(0, 0, 1, 1);
+        transition: all 0.25s;
+        width: 400px;
+      }
+      @keyframes fade-in2 {
+        30% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+          transform: translateX(0);
+        }
+        100% {
+          opacity: 0.7;
+          transform: translateX(-235px);
+        }
+      }
+    }
+  }
     .section {
         height: 100vh;
     }
+
 }
