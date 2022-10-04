@@ -3,7 +3,7 @@
 
 .hero {
   position: relative;
-  height:75vh;
+  height:70vh;
   width: 100%;
   overflow: hidden;
 
@@ -226,7 +226,7 @@
     top: 0;
     right: 0;
     object-fit: contain;
-    height: 100vh;
+    height: 70vh;
 
     .background { 
       position: fixed;
@@ -236,7 +236,7 @@
     .maintexthero {
       z-index: 3;
       position: absolute;
-      bottom: 320px;
+      bottom: 8%;
       left: 0;
       padding: 50px;
       color: white;
@@ -307,7 +307,7 @@
       @include flex-container(row, center, stretch, nowrap, 5px);
       z-index: 1;
       position: absolute;
-      bottom: 280px;
+      bottom: 3%;
       left: 0;
       width: 100%;
 
@@ -321,20 +321,17 @@
     }
 
     .slider_container {
-      
   
       .swiper_button_container {
         @include flex-container($align: center, $justify: space-between); 
         position: absolute;
         color: white;
-        bottom: 245px;
+        top: 0;
         left: 0;
         right: 0;
-        height: calc(100vh - 245px);
+        bottom: 0;
         z-index: 3;
         pointer-events: none;
-        box-sizing: border-box;
-        overflow: hidden;
 
         button {
           color: rgba(255, 255, 255, 0.68);
@@ -346,7 +343,6 @@
           transition: all 0.2s;
           pointer-events: all;
           padding: 0;
-          box-sizing: border-box;
 
           &:hover {
             transform: scale(1.08);

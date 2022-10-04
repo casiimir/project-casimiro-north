@@ -7,7 +7,6 @@ import { IMPORT_URL } from "../../utils/GET/URL";
 import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
 import Image from "next/image";
-import MiniCarousel from "../MiniCarousel";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
@@ -233,7 +232,7 @@ if (!isStoppedInterval) {
           {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
-      {type === "Home" && <MiniCarousel />}
+      
     </div>
   );
 };

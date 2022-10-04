@@ -41,7 +41,7 @@
     @include flex-container($direction: column, $justify: center );
     gap: 8px;
     padding: 20px 100px 30px 100px;
-    height: 300px;
+    height: 30vh;
 
     .title {
       padding: 0;
