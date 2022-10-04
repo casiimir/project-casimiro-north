@@ -138,6 +138,11 @@
     .ActivityCard_main {
         width: 100%;
         height: 180px;
+        
+        .title_cat_page {
+            @include flex-container($align: flex-end);
+            margin-bottom: 3px;
+        }
 
         .ActivityCard {
             width: 100%;
@@ -147,6 +152,8 @@
                 font-size: 0.7rem;
                 height: 23%;
             }
+
+            
         }
     }
 }

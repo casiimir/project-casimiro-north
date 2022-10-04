@@ -39,6 +39,7 @@ export default function DropdownComp({heroRef}) {
     const handleClickLink = (id) => {
 
       dispatch({type: "SET_INDEX_CAT", payload: id})
+      dispatch({type: "SET_ACTIVITY_LIST", payload: {}})
 
       if (typeof window !== 'undefined') {
         window.scrollTo({
