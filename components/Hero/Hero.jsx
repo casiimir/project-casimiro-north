@@ -228,13 +228,16 @@ if (!isStoppedInterval) {
               />
             </div>
           </div>
-          <div className={styles.maintext_sng_act}>
-            
-            <h1 onClick={handleOnCityClick}> {activities.activityData.title} </h1>
-            <span className={styles.row_title}/>
-            {/* <h2>{cities.cityData.headline}</h2> */}
+          <div className={styles.single_activity_container_text}>
+            <div className={styles.maintext_sng_act}>
+              <h1 onClick={handleOnCityClick}> {activities.activityData.title} </h1>
+              <span className={styles.row_title}/>
+              {/* <h2>{cities.cityData.headline}</h2> */}
+            </div>
+            <div className={styles.category_marker}>
+              Activity
+            </div>
           </div>
-
           {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
