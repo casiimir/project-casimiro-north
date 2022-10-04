@@ -235,7 +235,7 @@ if (!isStoppedInterval) {
               {/* <h2>{cities.cityData.headline}</h2> */}
             </div>
             <div className={styles.category_marker}>
-              Activity
+              {activities.activityData.categories[0].name}
             </div>
           </div>
           {/* <button className={styles.explorebtn}> EXPLORE </button> */}
