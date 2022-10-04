@@ -61,11 +61,18 @@ export default function ActivityPage() {
             </div>
           </div>
           <div className={styles.activityInfolanguagesDiv}>
+            <h2>LANGUAGES</h2>
             { activities.activityData.languages.length > 0 && <div>
-              <h2>LANGUAGES</h2>
+              
               { 
               // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
-              languages.filter(flag => activities?.activityData?.languages?.find((source) => source.code === flag.code))?.map((language)=> <span>{language.icon}</span>)
+              languages.filter(flag => activities?.activityData?.languages?.find((source) => source.code === flag.code))?.map((language, i)=> 
+              <img 
+                key={i} 
+                src={language.icon} 
+                alt={language.name} 
+                />
+                )
               }
             </div>}
           </div>
@@ -73,17 +80,18 @@ export default function ActivityPage() {
       </div>
 
       <section className={styles.servicesSection}>
-        <div className={styles.servicesListDiv}>
+        {activities.activityData.services.length > 0 && <div className={styles.servicesListDiv}>
           <h2 className={styles.servicesListTitle}>SERVICES:</h2>
           <ul className={styles.servicesList}>
+            {activities?.activityData?.services?.map((item, index) => <li key={index} className={styles.servicesListItem}>{item.name}</li>)}
+            {/* <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li> */}
           </ul>
-        </div>
+        </div>}
         <div className={styles.activityPriceInfoDiv}>
           <div className={styles.activityPriceInfo}>
             <span className={styles.activityPriceValue}>
