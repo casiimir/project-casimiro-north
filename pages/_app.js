@@ -14,7 +14,6 @@ import polari from "../public/polari.png";
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
-  console.log(router.pathname)
 
   const [loadVisible, setLoadVisible] = useState(true);
   const [status, setStatus] = useState("");
@@ -39,8 +38,6 @@ function MyApp({ Component, pageProps }) {
       {loadVisible && (
         <div
           className={`${styles.overlayanimation} ${styles[status]}`}
-          loadVisible={loadVisible}
-          setLoadVisible={setLoadVisible}
         >
           <img src={star.src} className={styles.star} alt="starX" />{" "}
           <img src={polari.src} className={styles.polari} alt="polari" />{" "}
