@@ -17,10 +17,10 @@ export default function App () {
         centeredSlides={true}
         slidesPerView={3}
         coverflowEffect={{
-          rotate: 100,
-          stretch: 2,
+          rotate: 30,
+          stretch: 10,
           depth: 10,
-          modifier: 1,
+          modifier: 2,
           slideShadows: true,
         }}
         pagination={true}
