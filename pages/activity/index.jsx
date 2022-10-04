@@ -12,6 +12,7 @@ export default function ActivityRe() {
     }, [router]) 
 
     return (
-        <div></div>
+        <div>
+        </div>
     )
 }
