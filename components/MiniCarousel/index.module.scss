@@ -2,11 +2,11 @@
 @import "../../styles/_variables.scss";
 
 .miniCarousel {
-  @include flex-container(column, flex-start, stretch, nowrap, 10px);
+  @include flex-container($direction: column, $gap: 10px, $justify: center);
   box-sizing: border-box;
   padding: 20px 0;
   width: 100%;
-  height: 25vh;
+  height: 30vh;
   background-color: $GreyBackground;
 
   .title {
