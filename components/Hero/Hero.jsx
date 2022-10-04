@@ -6,6 +6,8 @@ import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
+import Image from "next/image";
+import MiniCarousel from "../MiniCarousel";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
@@ -120,11 +122,16 @@ if (!isStoppedInterval) {
                 key={index}
               >
                 <div className={styles.overlay_gradient} />
-                <img
+
+                {/* <img
                   className={styles.background}
                   src={item.cover_image_url}
                   alt="heroimg"
-                />
+                /> */}
+
+                <div className={styles.background}>
+                  <Image src={item.cover_image_url} alt="heroimg" layout="fill"/>
+                </div>
               </div>
             ))}
           </div>
@@ -226,6 +233,7 @@ if (!isStoppedInterval) {
           {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
+      {type === "Home" && <MiniCarousel />}
     </div>
   );
 };

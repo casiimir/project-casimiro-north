@@ -38,7 +38,7 @@ export default function Home() {
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
-      <MiniCarousel />
+
       <CityCardList />
       <ActivityCardList />
       <Newsletter />
