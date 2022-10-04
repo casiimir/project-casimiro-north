@@ -1,5 +1,4 @@
 import styles from "./index.module.scss";
-import { FaRegHeart} from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
