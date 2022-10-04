@@ -63,7 +63,7 @@ export default function ActivityPage() {
           </div>
           <div className={styles.activityInfolanguagesDiv}>
             <h2>LANGUAGES</h2>
-            { activities.activityData.languages.length > 0 && <div>
+            { activities?.activityData?.languages?.length > 0 && <div>
               
               { 
               // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
@@ -84,7 +84,7 @@ export default function ActivityPage() {
       </div>
 
       <section className={styles.servicesSection}>
-        {activities.activityData.services.length > 0 && <div className={styles.servicesListDiv}>
+        {activities?.activityData?.services?.length > 0 && <div className={styles.servicesListDiv}>
           <h2 className={styles.servicesListTitle}>SERVICES:</h2>
           <ul className={styles.servicesList}>
             {activities?.activityData?.services?.map((item, index) => <li key={index} className={styles.servicesListItem}>{item.name}</li>)}
