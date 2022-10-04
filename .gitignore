@@ -14,10 +14,13 @@
 
 # production
 /build
+/components/SecretComponent
 
 # misc
 .DS_Store
 *.pem
+k.js
+
 
 # debug
 npm-debug.log*

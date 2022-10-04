@@ -4,9 +4,14 @@ import MartinaImg from "../assets/martina.jpg";
 import NoemiImg from "../assets/noemi.jpg";
 import RichardImg from "../assets/richard.jpg";
 import EleonoraImg from "../assets/eleonora.jpg";
-import { AiFillHome, AiFillCompass, AiOutlineStar, AiFillInfoCircle } from 'react-icons/ai';
-import { FaShoppingCart } from 'react-icons/fa';
-import styles from '../components/NavBar/index.module.scss';
+import {
+  AiFillHome,
+  AiFillCompass,
+  AiOutlineStar,
+  AiFillInfoCircle,
+} from "react-icons/ai";
+import { FaShoppingCart } from "react-icons/fa";
+import styles from "../components/NavBar/index.module.scss";
 
 export const developersData = [
   {
@@ -30,14 +35,6 @@ export const developersData = [
     liprofile: "https://www.linkedin.com/in/drichard-mangano/",
     ghprofile: "https://github.com/SeferMetatron",
   },
-
-  {
-    personalImg: MartinaImg.src,
-    name: "Martina Venasco",
-    description: "Front-end Developer, Visual Designer",
-    liprofile: "https://www.linkedin.com/in/martina-venasco/",
-    ghprofile: "https://github.com/MartinaVenasco",
-  },
   {
     personalImg: EleonoraImg.src,
     name: "Eleonora Rizzitello",
@@ -45,33 +42,39 @@ export const developersData = [
     liprofile: "https://www.linkedin.com/in/eleonora-rizzitello/",
     ghprofile: "https://github.com/elerizz",
   },
+  {
+    personalImg: MartinaImg.src,
+    name: "Martina Venasco",
+    description: "Front-end Developer, Visual Designer",
+    liprofile: "https://www.linkedin.com/in/martina-venasco/",
+    ghprofile: "https://github.com/MartinaVenasco",
+  },
 ];
 
 export const menu = [
   {
-      name: 'Home',
-      path: '/',
-      icon: <AiFillHome className={styles.icon}/>
+    name: "Home",
+    path: "/",
+    icon: <AiFillHome className={styles.icon} />,
   },
   {
-      name: 'My Trip',
-      path: '/mytrip',
-      icon: <AiFillCompass className={styles.icon}/>
+    name: "My Trip",
+    path: "/mytrip",
+    icon: <AiFillCompass className={styles.icon} />,
   },
   {
-      name: 'Favorites',
-      path: '/favorites',
-      icon: <AiOutlineStar className={styles.icon}/>
+    name: "Favorites",
+    path: "/favorites",
+    icon: <AiOutlineStar className={styles.icon} />,
   },
   {
-      name: 'Cart',
-      path: '/cart',
-      icon: <FaShoppingCart className={styles.icon}/>
+    name: "Cart",
+    path: "/cart",
+    icon: <FaShoppingCart className={styles.icon} />,
   },
   {
-      name: 'About us',
-      path: '/aboutus',
-      icon: <AiFillInfoCircle className={styles.icon}/>
+    name: "About us",
+    path: "/aboutus",
+    icon: <AiFillInfoCircle className={styles.icon} />,
   },
-
-]
+];
