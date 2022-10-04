@@ -6,6 +6,7 @@ import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa";
 import Link from "next/link";
+// import Carousel from '../components/Carousel';
 
 const ActivityMainSection = () => {
   const { activities } = useSelector((state) => state);
