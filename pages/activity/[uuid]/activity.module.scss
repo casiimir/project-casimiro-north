@@ -152,7 +152,7 @@
 @media only screen and (min-width: 767px) {
   .Activity {
     .activityMainSection {
-      // @include flex-container(column, $gap: 2.5rem);
+      gap: 80px;
 
       padding: 80px;
 
