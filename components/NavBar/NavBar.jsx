@@ -1,6 +1,5 @@
 import styles from './index.module.scss';
 import {HiSearch} from 'react-icons/hi';
-
 import { menu } from '../../constants';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
@@ -27,7 +26,7 @@ export default function NavBar () {
         
         if (window.scrollY > 400) {
             setIsScrollDown(true);
-        } else if (window.scrollY === 0){
+        } else if (window.scrollY < 400){
             setIsScrollDown(false);
         }  
     }

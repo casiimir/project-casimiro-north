@@ -1,3 +1,9 @@
+@import "./mixins";
+@import "./variables";
+
 .Home {
+    .section {
+        height: 100vh;
+    }
     
 }
