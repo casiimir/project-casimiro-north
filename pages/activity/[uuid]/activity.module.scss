@@ -73,6 +73,7 @@
 
     .servicesListDiv {
       @include flex-container(column, $gap: 1.5rem);
+      width: 100%;
 
       .servicesListTitle {
         color: $MidBlue;
@@ -98,57 +99,157 @@
       }
     }
 
-    .activityPriceInfo {
-      @include flex-container($justify: center);
+    .activityPriceInfoDiv {
+      @include flex-container(column, $align: center, $gap: 1.9rem);
 
-      font-weight: 700;
+      .activityPriceInfo {
+        @include flex-container($justify: center);
 
-      .activityPriceValue {
-        font-size: 1.5rem;
-        color: #6e939b;
+        font-weight: 700;
+
+        .activityPriceValue {
+          font-size: 1.5rem;
+          color: #6e939b;
+        }
       }
-    }
 
-    .cartBtn {
-      @include flex-container($justify: center, $align: center);
+      .cartBtn {
+        @include flex-container($justify: center, $align: center);
 
-      border: none;
-      border-radius: $MainBorderRadius;
-      color: white;
-      background-color: #6e939b;
-      height: 48px;
-      width: 145px;
-      font-weight: 700;
+        border: none;
+        border-radius: $MainBorderRadius;
+        color: white;
+        background-color: #6e939b;
+        height: 48px;
+        width: 145px;
+        font-weight: 700;
+      }
     }
   }
 }
 
+//PRIMA MEDIA QUERYYYYYYYY
+
 @media only screen and (min-width: 767px) {
+  .Activity {
+    .activityMainSection {
+      // @include flex-container(column, $gap: 2.5rem);
+
+      padding: 80px;
+
+      .activityDescriptionDiv {
+        @include flex-container(column, $align: flex-end, $gap: 1rem);
+
+        .activityDescription {
+          font-weight: 500;
+          line-height: 1.5rem;
+        }
+
+        .activityDescriptionBtn {
+          cursor: pointer;
+        }
+      }
+
+      .activityInfo {
+        @include flex-container($justify: flex-start);
+
+        .activityInfoTextDiv {
+          @include flex-container(row, $gap: 2rem);
+
+          color: rgba(2, 85, 104, 0.79);
+
+          width: 66.66%;
+
+          .activityInfoText {
+            @include flex-container(column, $gap: 0.5rem);
+            width: 50%;
+
+            h2 {
+              color: $MidBlue;
+              font-weight: 600;
+              text-align: start;
+            }
+
+            .activityInfoTimetable {
+              line-height: 1.4rem;
+            }
+          }
+        }
+
+        .activityInfolanguagesDiv {
+          @include flex-container(column, $align: center);
+
+          color: $MidBlue;
+          font-weight: 600;
+          width: 33.33%;
+
+          div {
+            @include flex-container(column, $align: center, $gap: 0.8rem);
+          }
+        }
+      }
+    }
+
+    .servicesSection {
+      @include flex-container(row, $align: stretch, $gap: 0%);
+
+      background-color: white;
+
+      padding: 0 80px 80px;
+
+      .servicesListDiv {
+        @include flex-container(column, $gap: 2rem);
+
+        .servicesListTitle {
+          font-weight: 600;
+        }
+        .servicesList {
+          @include flex-container(
+            row,
+            $justify: space-between,
+            $wrap: wrap,
+            $gap: 1.5rem
+          );
+
+          .servicesListItem {
+            &::before {
+              font-weight: 600;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .activityPriceInfoDiv {
+        @include flex-container(
+          column,
+          $justify: flex-end,
+          $align: center,
+          $gap: 1.9rem
+        );
+
+        .activityPriceInfo {
+          @include flex-container($justify: center);
+
+          font-weight: 700;
+
+          .activityPriceValue {
+            font-size: 1.5rem;
+          }
+        }
+
+        .cartBtn {
+          @include flex-container($justify: center, $align: center);
+
+          height: 48px;
+          width: 145px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1290px) {
-  //   .activityMainSection {
-  //     @include flex-container(column, $gap: 4rem);
-
-  //     padding: 100px;
-
-  //     .activityPriceInfo {
-  //       justify-content: flex-end;
-  //       align-items: center;
-  //       gap: 10px;
-
-  //       .activityPriceTitle {
-  //         font-size: 1.2rem;
-
-  //         &::after {
-  //           content: ":";
-  //         }
-  //       }
-
-  //       .activityPriceValue {
-  //         box-sizing: border-box;
-  //         padding: 5px 0;
-  //       }
-  //     }
-  //   }
 }

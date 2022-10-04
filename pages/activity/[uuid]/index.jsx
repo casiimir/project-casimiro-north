@@ -77,14 +77,16 @@ export default function ActivityPage() {
             <li className={styles.servicesListItem}>boh</li>
           </ul>
         </div>
-        <div className={styles.activityPriceInfo}>
-          <span className={styles.activityPriceValue}>
-            {activities?.activityData?.retail_price?.formatted_value}
-          </span>
+        <div className={styles.activityPriceInfoDiv}>
+          <div className={styles.activityPriceInfo}>
+            <span className={styles.activityPriceValue}>
+              {activities?.activityData?.retail_price?.formatted_value}
+            </span>
+          </div>
+          <button onClick={handleOnCartClick} className={styles.cartBtn}>
+            BUY NOW
+          </button>
         </div>
-        <button onClick={handleOnCartClick} className={styles.cartBtn}>
-          BUY NOW
-        </button>
       </section>
     </div>
   );
