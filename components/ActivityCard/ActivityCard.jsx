@@ -55,7 +55,7 @@ const ActivityCard = ({catData}) => {
         {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
           <p className={styles.rating}>{reviews_avg}</p>
-          { !activities.favorites.find((item) => item.uuid === uuid) ? <FaRegHeart onClick={handleHeartClick} className={styles.Heart} /> : <FaHeart onClick={handleHeartClick} className={styles.Heart}/>}
+          { !activities.favorites.find((item) => item.uuid === uuid) ? <FaRegHeart onClick={handleHeartClick} className={styles.Heart} /> : <FaHeart onClick={handleHeartClick} className={`${styles.Heart} ${styles.active}`}/>}
         </div>
         </>}
       </div>

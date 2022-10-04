@@ -81,6 +81,19 @@
 
             .Heart {
                 font-size: 1.2rem;
+                transition: all 0.55s;
+
+                @keyframes example {
+                    from {transform: scale(2);}
+                    to {transform: scale(1);}
+                  }
+
+                &.active {
+                    animation-name: example;
+                    animation-duration: 0.55s;
+                   
+                }
+
             }
             p {
                 font-weight: 600;
