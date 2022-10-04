@@ -12,6 +12,7 @@ import {developersData} from "../../constants";
 import DeveloperCard from "../DeveloperCard/DeveloperCard";
 import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
+import Placeholder from "../../assets/placeholder.gif";
 
 
 export default function ActivitySwiper({ type }) {
@@ -61,7 +62,7 @@ export default function ActivitySwiper({ type }) {
             <SwiperSlide key={index}>
               <div className={styles.swiper_container}>
                 {/* <img src={item.cover_image_url} alt="activity" /> */}
-                <Image src={item.cover_image_url && item.cover_image_url?.split('?')[0] + "?w=1080"} alt="activity" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
+                <Image src={item.cover_image_url ? item.cover_image_url?.split('?')[0] + "?w=1080" : Placeholder.src} alt="activity" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
                 <div className={styles.text_container}>
                   <h3>{item.title}</h3>
                   <p className={styles.description}>{item.description}</p>

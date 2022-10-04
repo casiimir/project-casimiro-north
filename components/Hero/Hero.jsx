@@ -171,11 +171,17 @@ if (!isStoppedInterval) {
           <div className={styles.slider_container}>
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
-              <img
+              {/* <img
                 className={type !== 'CityPage' ? styles.background : styles.background_city}
                 src={cities.cityData.cover_image_url}
                 alt="heroimg"
+              /> */}
+              <div className={type !== 'CityPage' ? styles.background : styles.background_city}>
+                <Image src={cities.cityData.cover_image_url}
+                alt="heroimg"
+                layout="fill"
               />
+              </div>
             </div>
           </div>
           <div className={styles.text_container_city}>
