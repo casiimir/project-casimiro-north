@@ -31,18 +31,30 @@ export default function Home() {
   // const deleteTest = (id) => {
   //   dispatch({type: "REMOVE_PRODUCT", payload: id});
   // }
-  const dispatch = useDispatch();
-const [loadVisible, setLoadVisible] = useState(true)
-  const [status, setStatus] = useState("")
+  const [loadVisible, setLoadVisible] = useState(true);
+  const [status, setStatus] = useState("");
 
+  useEffect(() => {
+    setStatus("disactive");
+    if (loadVisible) {
+      setTimeout(() => {
+        setLoadVisible(false);
+      }, 4200);
+    }
+  }, [loadVisible]);
 
   return (
     <div className={styles.Home}>
-      <div className={styles.overlayanimation}>
-        {" "}
-        <img src={star.src} className={styles.star} alt="starX" />{" "}
-        <img src={polari.src} className={styles.polari} alt="polari" />{" "}
-      </div>
+      {loadVisible && (
+        <div
+          className={`${styles.overlayanimation} ${styles[status]}`}
+          loadVisible={loadVisible}
+          setLoadVisible={setLoadVisible}
+        >
+          <img src={star.src} className={styles.star} alt="starX" />{" "}
+          <img src={polari.src} className={styles.polari} alt="polari" />{" "}
+        </div>
+      )}
       <Hero type="Home" />
       {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>
