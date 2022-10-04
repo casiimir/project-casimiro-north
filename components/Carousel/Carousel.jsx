@@ -40,11 +40,11 @@ export default function App () {
           slideShadows: true,
         }}
         style={{
-          "--swiper-navigation-color": "#052837",
-          "--swiper-pagination-color": "#052837",
+          "--swiper-navigation-color": "#024D5E",
+          "--swiper-pagination-color": "#024D5E",
         }}
         
-        modules={[EffectCoverflow, Pagination]}
+        modules={[Navigation, EffectCoverflow]}
         navigation={true}
       >
         {activities?.mediaData?.map((item, index)=><SwiperSlide className={styles.card} key={index}>

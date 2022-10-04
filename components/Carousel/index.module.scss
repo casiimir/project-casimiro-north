@@ -3,9 +3,23 @@
 
 .carousel_container {
 
-.Carousel { 
- img {
-    height: 200px;
- }
+    .Carousel { 
+        img {
+            height: 200px;
+        }
+    }
 }
+
+@media only screen and (min-width: 768px) {
+
+    .carousel_container {
+
+        .Carousel { 
+
+            img {
+                height: 400px;
+            }
+        }
+    }
+
 }
