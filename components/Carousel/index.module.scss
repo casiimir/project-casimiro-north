@@ -2,12 +2,10 @@
 @import "../../styles/_variables.scss";
 
 .carousel_container {
-    @include flex-container($align: center);
-    overflow: hidden;
-    height: 22vh;
-    box-sizing: border-box;  
+
 .Carousel { 
-    transform: scale(1.4);
-    height: 15vh;
+ img {
+    height: 200px;
+ }
 }
 }
