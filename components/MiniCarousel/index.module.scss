@@ -39,14 +39,15 @@
 @media only screen and (min-width: 767px) {
   .miniCarousel {
     @include flex-container($direction: column, $justify: center );
-    gap: 30px;
-    padding: 40px 100px;
-    height: auto;
+    gap: 8px;
+    padding: 20px 100px 30px 100px;
+    height: 30vh;
 
     .title {
       padding: 0;
 
       h3 {
+        @include flex-container($align: center);
         font-size: 1.2rem;
       }
     }

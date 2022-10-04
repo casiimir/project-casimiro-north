@@ -3,7 +3,7 @@
 
 .hero {
   position: relative;
-  height:75vh;
+  height:70vh;
   width: 100%;
   overflow: hidden;
 
@@ -76,30 +76,51 @@
     transform: scale(1);
   }
 
-  .maintext_sng_act {
-
-    @include flex-container($direction:column, $gap:10px);
+  .single_activity_container_text {
+    @include flex-container($justify: space-between, $align: center);
     position: absolute;
     z-index: 3;
     bottom: 4vh;
-    font-weight: 800;
-    font-size: 1.5rem;
-    width: 60%;
-    text-transform: capitalize;
-    left: 0;
-    color: rgba(255, 255, 255, 0.951);
-    transform: scale(1);
-    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.315);
+    width: 100%;
+    box-sizing: border-box;
 
-    h1 {
-      padding-left: 40px;
-      text-align: right;
+    .maintext_sng_act {
+
+      @include flex-container($direction:column, $gap:10px);
+      
+      font-weight: 800;
+      font-size: 1rem;
+      width: 54%;
+      text-transform: capitalize;
+      left: 0;
+      color: rgba(255, 255, 255, 0.951);
+      transform: scale(1);
+      text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.315);
+
+      h1 {
+        padding-left: 40px;
+        text-align: right;
+      }
+
+      .row_title {
+        height: 2px;
+        background-color: white;
+        width: 100%;
+      }
     }
 
-    .row_title {
-      height: 2px;
-      background-color: white;
-      width: 100%;
+    .category_marker {
+      @include flex-container($align:center, $justify:center);
+      @include border($radius: $MainBorderRadius);
+      background-color: rgb(230, 230, 230);
+      color: #29788a;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.65rem;
+      flex: 0 0 auto;
+      height: 20px;
+      padding: 0 12px;
+      margin-right: 30px;  
     }
   }
 
@@ -152,8 +173,8 @@
     
 
     .button_page {
-      width: 12px;
-      height: 12px;
+      width: 20px;
+      height: 20px;
       border-radius: 100%;
       border: none;
       background: rgba(255, 255, 255, 0.212);
@@ -226,7 +247,7 @@
     top: 0;
     right: 0;
     object-fit: contain;
-    height: 100vh;
+    height: 70vh;
 
     .background { 
       position: fixed;

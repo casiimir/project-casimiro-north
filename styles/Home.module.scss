@@ -2,6 +2,7 @@
 @import "./variables";
 
 .Home {
+
   .overlayanimation {
     background-color: rgba(9, 15, 17, 0.932);
     @include element-position(fixed, 0, 0, 0, 0, 99);
@@ -110,4 +111,8 @@
       }
     }
   }
+    .section {
+        height: 100vh;
+    }
+
 }

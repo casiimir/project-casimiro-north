@@ -60,7 +60,12 @@ export default function Home() {
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
       {cartData.cartList.map((el, index) => <li onClick={() => deleteTest(index)}>{el}</li>)} */}
-      <MiniCarousel />
+
+      <div className={styles.section}>
+        <Hero type="Home"/>
+        <MiniCarousel />
+      </div>
+
       <CityCardList />
       <ActivityCardList />
       <Newsletter />

@@ -103,10 +103,12 @@
 
 @media only screen and (min-width : 768px) {
     .newsletter {
-        padding: 0 100px;
-        padding-bottom: 50px;
-        padding-top: 20px;
+        padding: 0 300px;
+        padding-bottom: 80px;
+        padding-top: 80px;
+
         .container {
+            justify-content: space-between;
             .form {
                 flex: 0 0 auto;
                 width: 50%;
@@ -114,8 +116,7 @@
 
             .newsletter_img {
                 flex: 0 0 auto;
-                margin: 0 auto;
-                width: 400px;
+                width: 300px;
             }
         }
     }

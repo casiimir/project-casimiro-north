@@ -1,5 +1,4 @@
 import styles from "./index.module.scss";
-import { FaRegHeart} from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
+import Image from "next/image";
 
 const Hero = ({ type }) => {
   const [rightValue, setRightValue] = useState(0);
@@ -121,11 +121,16 @@ if (!isStoppedInterval) {
                 key={index}
               >
                 <div className={styles.overlay_gradient} />
-                <img
+
+                {/* <img
                   className={styles.background}
                   src={item.cover_image_url}
                   alt="heroimg"
-                />
+                /> */}
+
+                <div className={styles.background}>
+                  <Image src={item.cover_image_url} alt="heroimg" layout="fill"/>
+                </div>
               </div>
             ))}
           </div>
@@ -166,11 +171,17 @@ if (!isStoppedInterval) {
           <div className={styles.slider_container}>
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
-              <img
+              {/* <img
                 className={type !== 'CityPage' ? styles.background : styles.background_city}
                 src={cities.cityData.cover_image_url}
                 alt="heroimg"
+              /> */}
+              <div className={type !== 'CityPage' ? styles.background : styles.background_city}>
+                <Image src={cities.cityData.cover_image_url}
+                alt="heroimg"
+                layout="fill"
               />
+              </div>
             </div>
           </div>
           <div className={styles.text_container_city}>
@@ -217,16 +228,20 @@ if (!isStoppedInterval) {
               />
             </div>
           </div>
-          <div className={styles.maintext_sng_act}>
-            
-            <h1 onClick={handleOnCityClick}> {activities.activityData.title} </h1>
-            <span className={styles.row_title}/>
-            {/* <h2>{cities.cityData.headline}</h2> */}
+          <div className={styles.single_activity_container_text}>
+            <div className={styles.maintext_sng_act}>
+              <h1 onClick={handleOnCityClick}> {activities.activityData.title} </h1>
+              <span className={styles.row_title}/>
+              {/* <h2>{cities.cityData.headline}</h2> */}
+            </div>
+            <div className={styles.category_marker}>
+              {activities.activityData.categories ? activities?.activityData?.categories[0].name : ''}
+            </div>
           </div>
-
           {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
+      
     </div>
   );
 };

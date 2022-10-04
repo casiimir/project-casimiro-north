@@ -15,7 +15,6 @@ const ActivityCardList = () => {
   const {cityname, categoryname} = router.query
 
   useEffect(() => {
-
         GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
 
         if (categoryname) {
