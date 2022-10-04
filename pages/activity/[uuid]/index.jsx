@@ -15,9 +15,9 @@ export default function ActivityPage() {
   const { activities } = useSelector((state) => state);
 
   const handleOnCartClick = () => {
-    dispatch({type: "SET_TRUE"})
-    dispatch({type: "ADD_PRODUCT", payload: activities.activityData})
-  }
+    dispatch({ type: "SET_TRUE" });
+    dispatch({ type: "ADD_PRODUCT", payload: activities.activityData });
+  };
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
@@ -25,41 +25,67 @@ export default function ActivityPage() {
 
   return (
     <div className={styles.Activity}>
-
       <Hero type="SingleActivity" />
       <div className={styles.activityMainSection}>
-        {/* <h1 className={styles.activityTitle}>
-          {activities.activityData.title}
-        </h1> */}
-        <p className={styles.activityDescription}>
-          {activities.activityData.about}
-        </p>
+        <div className={styles.activityDescriptionDiv}>
+          <p className={styles.activityDescription}>
+            {activities.activityData.about}
+          </p>
+          <button className={styles.activityDescriptionBtn}>read more</button>
+        </div>
+
+        <div className={styles.activityInfo}>
+          <div className={styles.activityInfoTextDiv}>
+            <div className={styles.activityInfoText}>
+              <h2>WHEN</h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: activities?.activityData?.when_text,
+                }}
+                className={styles.activityInfoTimetable}
+              />
+            </div>
+
+            <div className={styles.activityInfoText}>
+              <h2>WHERE</h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: activities?.activityData?.where_text,
+                }}
+                className={styles.activityInfoTimetable}
+              />
+            </div>
+          </div>
+          <div className={styles.activityInfolanguagesDiv}>
+            <div>
+              <h2>LANGUAGES</h2>
+              🟥🟧🟨
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section className={styles.servicesSection}>
+        <div className={styles.servicesListDiv}>
+          <h2 className={styles.servicesListTitle}>SERVICES:</h2>
+          <ul className={styles.servicesList}>
+            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li>
+            <li className={styles.servicesListItem}>boh</li>
+          </ul>
+        </div>
         <div className={styles.activityPriceInfo}>
-          <span className={styles.activityPriceTitle}>PRICE</span>
           <span className={styles.activityPriceValue}>
             {activities?.activityData?.retail_price?.formatted_value}
           </span>
         </div>
-        <div className={styles.cartIconDiv}>
-          <BsCart onClick={handleOnCartClick} className={styles.cartIcon} />
-        </div>
-
-        <div className={styles.activityInfo}>
-          <h2 className={styles.activityInfoTitle}>TIMETABLE</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: activities?.activityData?.when_text,
-            }}
-            className={styles.activityInfoTimetable}
-          />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: activities?.activityData?.where_text,
-            }}
-            className={styles.activityInfoTimetable}
-          />
-        </div>
-      </div>
+        <button onClick={handleOnCartClick} className={styles.cartBtn}>
+          BUY NOW
+        </button>
+      </section>
     </div>
   );
 }

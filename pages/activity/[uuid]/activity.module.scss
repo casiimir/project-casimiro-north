@@ -1,65 +1,124 @@
 @import "../../../styles/_mixins.scss";
 @import "../../../styles/_variables.scss";
 
-.activityMainSection {
-  @include flex-container(column, $gap: 2.5rem);
+.Activity {
+  .activityMainSection {
+    @include flex-container(column, $gap: 2.5rem);
 
-  background-color: white;
-  box-sizing: border-box;
-  padding: 40px;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 40px;
 
-  .activityTitle {
-    color: rgba(2, 86, 104, 0.51);
-    font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
+    .activityDescriptionDiv {
+      @include flex-container(column, $align: flex-end, $gap: 1rem);
 
-  .activityDescription {
-    color: rgba(2, 25, 35, 1);
-    font-weight: 500;
-    line-height: 1.5rem;
-    text-align: justify;
-  }
+      .activityDescription {
+        color: rgba(2, 25, 35, 1);
+        font-weight: 500;
+        line-height: 1.5rem;
+        text-align: justify;
+      }
 
-  .activityPriceInfo {
-    @include flex-container($justify: space-between);
-
-    font-weight: 700;
-
-    .activityPriceTitle {
-      color: rgba(2, 86, 104, 0.51);
+      .activityDescriptionBtn {
+        color: #49686e;
+        background: none;
+        border: none;
+        text-decoration: underline;
+      }
     }
-    .activityPriceValue {
-      color: $MainButtonBlue;
+
+    .activityInfo {
+      @include flex-container($justify: space-between);
+
+      .activityInfoTextDiv {
+        @include flex-container(column, $gap: 1rem);
+
+        color: rgba(2, 85, 104, 0.79);
+
+        width: 60%;
+
+        .activityInfoText {
+          @include flex-container(column, $gap: 0.5rem);
+
+          h2 {
+            color: $MidBlue;
+            font-weight: 600;
+          }
+
+          .activityInfoTimetable {
+            line-height: 1.4rem;
+          }
+        }
+      }
+
+      .activityInfolanguagesDiv {
+        @include flex-container(column, $align: flex-end);
+
+        color: $MidBlue;
+        font-weight: 600;
+
+        div {
+          @include flex-container(column, $align: flex-end, $gap: 0.5rem);
+        }
+      }
     }
   }
 
-  .cartIconDiv {
-    @include flex-container($justify: flex-end);
+  .servicesSection {
+    @include flex-container(column, $align: center, $gap: 3rem);
 
-    .cartIcon {
-      color: rgba(2, 86, 104, 0.51);
-      height: 1.3rem;
-      width: 1.3rem;
-      cursor: pointer;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0 40px 40px;
+
+    .servicesListDiv {
+      @include flex-container(column, $gap: 1.5rem);
+
+      .servicesListTitle {
+        color: $MidBlue;
+        font-weight: 600;
+      }
+      .servicesList {
+        @include flex-container(
+          row,
+          $justify: space-between,
+          $wrap: wrap,
+          $gap: 1rem
+        );
+
+        .servicesListItem {
+          width: 47%;
+          color: rgba(2, 85, 104, 0.79);
+          &::before {
+            content: "●";
+            font-weight: 600;
+            margin-right: 10px;
+          }
+        }
+      }
     }
-  }
 
-  .activityInfo {
-    @include flex-container(column, $gap: 1rem);
+    .activityPriceInfo {
+      @include flex-container($justify: center);
 
-    color: rgba(2, 86, 104, 0.51);
-
-    .activityInfoTitle {
       font-weight: 700;
-      font-size: 1.1rem;
+
+      .activityPriceValue {
+        font-size: 1.5rem;
+        color: #6e939b;
+      }
     }
 
-    .activityInfoTimetable {
-      line-height: 1.4rem;
+    .cartBtn {
+      @include flex-container($justify: center, $align: center);
+
+      border: none;
+      border-radius: $MainBorderRadius;
+      color: white;
+      background-color: #6e939b;
+      height: 48px;
+      width: 145px;
+      font-weight: 700;
     }
   }
 }
@@ -68,28 +127,28 @@
 }
 
 @media only screen and (min-width: 1290px) {
-  .activityMainSection {
-    @include flex-container(column, $gap: 4rem);
+  //   .activityMainSection {
+  //     @include flex-container(column, $gap: 4rem);
 
-    padding: 100px;
+  //     padding: 100px;
 
-    .activityPriceInfo {
-      justify-content: flex-end;
-      align-items: center;
-      gap: 10px;
+  //     .activityPriceInfo {
+  //       justify-content: flex-end;
+  //       align-items: center;
+  //       gap: 10px;
 
-      .activityPriceTitle {
-        font-size: 1.2rem;
+  //       .activityPriceTitle {
+  //         font-size: 1.2rem;
 
-        &::after {
-          content: ":";
-        }
-      }
+  //         &::after {
+  //           content: ":";
+  //         }
+  //       }
 
-      .activityPriceValue {
-        box-sizing: border-box;
-        padding: 5px 0;
-      }
-    }
-  }
+  //       .activityPriceValue {
+  //         box-sizing: border-box;
+  //         padding: 5px 0;
+  //       }
+  //     }
+  //   }
 }
