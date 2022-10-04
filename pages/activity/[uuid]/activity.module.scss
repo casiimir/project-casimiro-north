@@ -19,6 +19,12 @@
         text-align: justify;
       }
 
+      .nameless {
+        background-color: rgb(54, 102, 142);
+        height: 30vh;
+        width: 100%;
+      }
+
       .activityDescriptionBtn {
         color: #49686e;
         background: none;
@@ -47,6 +53,16 @@
 
           .activityInfoTimetable {
             line-height: 1.4rem;
+
+           li {
+            padding: 5px 0;
+            &::before {
+              content: "•";
+              margin-right: 10px;
+              font-size: 2rem;
+              color: $MainBlue;
+            }
+           }
           }
         }
       }
@@ -138,11 +154,21 @@
       padding: 80px;
 
       .activityDescriptionDiv {
-        @include flex-container(column, $align: flex-end, $gap: 1rem);
+        @include flex-container(row, $justify: space-between, $gap: 50px);
+        height: 45vh;
 
         .activityDescription {
+          flex-grow: 1;
           font-weight: 500;
           line-height: 1.5rem;
+          width: 50%;
+        }
+
+        .nameless {
+          background-color: rgb(66, 113, 147);
+          flex: 0 0 auto;
+          height: 100%;
+          width: 50%;
         }
 
         .activityDescriptionBtn {

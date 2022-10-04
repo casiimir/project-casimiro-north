@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
+import {languages} from "../../../utils/mook";
 
 export default function ActivityPage() {
   const router = useRouter();
@@ -29,9 +30,12 @@ export default function ActivityPage() {
       <div className={styles.activityMainSection}>
         <div className={styles.activityDescriptionDiv}>
           <p className={styles.activityDescription}>
-            {activities.activityData.about}
+            {activities?.activityData?.description}
           </p>
-          <button className={styles.activityDescriptionBtn}>read more</button>
+          <div className={styles.nameless}>
+            
+          </div>
+          {/* <button className={styles.activityDescriptionBtn}>read more</button> */}
         </div>
 
         <div className={styles.activityInfo}>
@@ -57,10 +61,13 @@ export default function ActivityPage() {
             </div>
           </div>
           <div className={styles.activityInfolanguagesDiv}>
-            <div>
+            { activities.activityData.languages.length > 0 && <div>
               <h2>LANGUAGES</h2>
-              🟥🟧🟨
-            </div>
+              { 
+              // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
+              languages.filter(flag => activities?.activityData?.languages?.find((source) => source.code === flag.code))?.map((language)=> <span>{language.icon}</span>)
+              }
+            </div>}
           </div>
         </div>
       </div>
