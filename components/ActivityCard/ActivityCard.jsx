@@ -8,7 +8,8 @@ import { toBase64, shimmer } from "../../utils/shimmer";
 // import {POST_ITEM} from "../../utils/GET/CART_METHOD";
 
 const ActivityCard = ({catData}) => {
-  const { cover_image_url, retail_price,  title, uuid } = catData;
+  const { cover_image_url, retail_price,  title, uuid, reviews_avg
+  } = catData;
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -53,7 +54,7 @@ const ActivityCard = ({catData}) => {
         : <>
         {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
-          <p className={styles.hours}>12:00 - 13:00</p>
+          <p className={styles.rating}>{reviews_avg}</p>
           { !activities.favorites.find((item) => item.uuid === uuid) ? <FaRegHeart onClick={handleHeartClick} className={styles.Heart} /> : <FaHeart onClick={handleHeartClick} className={styles.Heart}/>}
         </div>
         </>}

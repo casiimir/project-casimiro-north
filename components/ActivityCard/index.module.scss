@@ -82,6 +82,14 @@
             .Heart {
                 font-size: 1.2rem;
             }
+            p {
+                font-weight: 600;
+
+                &::before {
+                    content: "Rating: ";
+                    color: rgba(255, 255, 255, 0.599);
+                }
+            }
         }
 
     }
