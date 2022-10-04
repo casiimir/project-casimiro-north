@@ -1,16 +1,17 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState} from 'react';
-import GET  from '../utils/GET/GET';
-import { IMPORT_URL } from '../utils/GET/URL';
-
-import Hero from '../components/Hero';
-import MiniCarousel from '../components/MiniCarousel';
-import CityCardList from '../components/CityCardList';
-import ActivityCardList from '../components/ActivityCardList';
-import Newsletter from '../components/Newsletter';
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import GET from "../utils/GET/GET";
+import { IMPORT_URL } from "../utils/GET/URL";
+import star from "../public/star.png";
+import polari from "../public/polari.png";
+import Hero from "../components/Hero";
+import MiniCarousel from "../components/MiniCarousel";
+import CityCardList from "../components/CityCardList";
+import ActivityCardList from "../components/ActivityCardList";
+import Newsletter from "../components/Newsletter";
 
 export default function Home() {
   // const dispatch = useDispatch();
@@ -30,10 +31,19 @@ export default function Home() {
   // const deleteTest = (id) => {
   //   dispatch({type: "REMOVE_PRODUCT", payload: id});
   // }
+  const dispatch = useDispatch();
+const [loadVisible, setLoadVisible] = useState(true)
+  const [status, setStatus] = useState("")
+
 
   return (
     <div className={styles.Home}>
-      <Hero type="Home"/>
+      <div className={styles.overlayanimation}>
+        {" "}
+        <img src={star.src} className={styles.star} alt="starX" />{" "}
+        <img src={polari.src} className={styles.polari} alt="polari" />{" "}
+      </div>
+      <Hero type="Home" />
       {/* <button onClick={() => console.log(cities.cityList)}>console.log</button> */}
       {/* <h1>Prova</h1>
       <button onClick={handleOnClick}>Add</button>
