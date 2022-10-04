@@ -2,6 +2,7 @@ import styles from "./activity.module.scss";
 import { useRouter } from "next/router";
 import { BsCart } from "react-icons/bs";
 import Hero from "../../../components/Hero/Hero";
+import Carousel from "../../../components/Carousel";
 // import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
 import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
@@ -76,6 +77,9 @@ export default function ActivityPage() {
               }
             </div>}
           </div>
+        </div>
+        <div className={styles.Carousel}> 
+          <Carousel />
         </div>
       </div>
 
