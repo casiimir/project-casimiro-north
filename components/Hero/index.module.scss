@@ -321,17 +321,20 @@
     }
 
     .slider_container {
+      
   
       .swiper_button_container {
         @include flex-container($align: center, $justify: space-between); 
         position: absolute;
         color: white;
-        top: 0;
+        bottom: 245px;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100vh - 245px);
         z-index: 3;
         pointer-events: none;
+        box-sizing: border-box;
+        overflow: hidden;
 
         button {
           color: rgba(255, 255, 255, 0.68);
@@ -343,6 +346,7 @@
           transition: all 0.2s;
           pointer-events: all;
           padding: 0;
+          box-sizing: border-box;
 
           &:hover {
             transform: scale(1.08);
