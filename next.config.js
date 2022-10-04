@@ -8,7 +8,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.musement.com',
-        pathname: '/cover/**',
       }
     ],
   }
