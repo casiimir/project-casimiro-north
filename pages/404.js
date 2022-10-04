@@ -10,13 +10,14 @@ export default function Custom404() {
 
   return (
     <div className={styles.page404}>
+    <div className={styles.maincontent}>
       <h1 className={styles.maintext}>
         <span>Lost </span> <span>your </span> <span>way? </span> <br></br>{" "}
         <br></br>
         <span>Look</span> <span>back at</span> <span>your</span>{" "}
         <span>guiding</span> <span>star!</span>
       </h1>
-      <button className={styles.btn} onClick={goHome}> GO HOME</button>
+      <button className={styles.btn} onClick={goHome}> GO HOME</button></div>
     </div>
   );
 }
