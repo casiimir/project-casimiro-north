@@ -33,7 +33,12 @@
       transform: scale(1);
     }
 
-   
+    .purchase {
+      color: $MainBlue;
+      font-weight: 600;
+      margin: 10px 100px;
+      filter: saturate(0.3);
+    }
 
     .mainText {
       text-align: center;

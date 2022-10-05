@@ -1,14 +1,12 @@
 import styles from "./index.module.scss";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { IMPORT_URL } from "../../utils/GET/URL";
-import Link from "next/link";
+import { useSelector } from "react-redux";
+
+import ItemCard from "../../components/ItemCard/ItemCard";
 
 export default function MyTripPage() {
-  // const router = useRouter();
-  // const dispatch = useDispatch();
-  // const data = useSelector((state) => state);
+  const {cartData} = useSelector((state) => state);
+
+  console.log(cartData.purchasedList)
 
   return (
     <div className={styles.MyTrip}>
@@ -19,6 +17,9 @@ export default function MyTripPage() {
       </div>
       <div className={styles.activity_container}>
         <div className={styles.row}/> 
+        <ul className={styles.trip_list}>
+          {cartData?.purchasedList?.map((item, index) => <ItemCard cardData={item} key={index}/>)}
+        </ul>
       </div>
     </div>
   );
