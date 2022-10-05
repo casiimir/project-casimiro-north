@@ -136,7 +136,7 @@ export default function ActivityPage() {
           <ul className={styles.reviewList}>
             
               {activities.reviewsData.filter((item) => 
-              Math.floor(item.rating_value) >= smileFilterValue && Math.floor(item.rating_value) === smileFilterValue + 2).length !== 0 
+              Math.floor(item.rating_value) >= smileFilterValue && Math.floor(item.rating_value) <= (smileFilterValue + 2)).length !== 0 
               ? 
               activities.reviewsData.filter((item) => 
                 Math.floor(item.rating_value) >= smileFilterValue && Math.floor(item.rating_value) <= (smileFilterValue + 2)).map((review, index) =>  
@@ -146,7 +146,7 @@ export default function ActivityPage() {
                     <i>
                       {Math.floor(review.rating_value) >= 8 && <RiEmotionFill className={styles.iconsmile} />}
                       {Math.floor(review.rating_value) >= 6 && Math.floor(review.rating_value) < 8 && <RiEmotionHappyFill className={styles.iconsmile} />}
-                      {Math.floor(review.rating_value) >= 3 && Math.floor(review.rating_value) <= 5 && <RiEmotionNormalFill className={styles.iconsmile} />}
+                      {Math.floor(review.rating_value) >= 3 && Math.floor(review.rating_value) < 6 && <RiEmotionNormalFill className={styles.iconsmile} />}
                       {Math.floor(review.rating_value) >= 0 && Math.floor(review.rating_value) < 3 && <RiEmotionUnhappyFill className={styles.iconsmile} />}
                     </i>
                     <h2 className={styles.nameUser}>Anonymous</h2>
