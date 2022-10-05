@@ -15,7 +15,8 @@
       .activityDescription {
         color: rgba(2, 25, 35, 1);
         font-weight: 500;
-        line-height: 1.5rem;
+        line-height: 1.6rem;
+        letter-spacing: 1.8px;
         text-align: justify;
       }
 
@@ -168,8 +169,9 @@
         .activityDescription {
           flex-grow: 1;
           font-weight: 500;
-          line-height: 1.5rem;
+          line-height: 1.8rem;
           width: 50%;
+          letter-spacing: 2px;
         }
 
         .nameless {
@@ -195,7 +197,7 @@
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(row, $gap: 0.5rem);
+            @include flex-container(row, $gap: 0.5rem, $align: center);
             width: 50%;
 
             .activityInfoTimetable {
@@ -219,7 +221,7 @@
     }
 
     .servicesSection {
-      @include flex-container(row, $align: stretch, $gap: 0%);
+      @include flex-container(row, $align: stretch, $gap: 0%, $justify: flex-end);
 
       background-color: white;
 

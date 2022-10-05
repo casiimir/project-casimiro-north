@@ -77,7 +77,7 @@
   }
 
   .single_activity_container_text {
-    @include flex-container($justify: space-between, $align: center);
+    @include flex-container($justify: space-between, $align: center, $gap: 20px);
     position: absolute;
     z-index: 3;
     bottom: 4vh;
@@ -116,7 +116,7 @@
       color: #29788a;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: 0.65rem;
+      font-size: 0.5rem;
       flex: 0 0 auto;
       height: 20px;
       padding: 0 12px;
@@ -272,6 +272,8 @@
       }
     }
 
+
+
     .maintext_act {
       top: 12vh;
       left: 45px;
@@ -283,9 +285,16 @@
       }
     }
 
-    .maintext_sng_act {
-      width: 50vw;
-    }
+    .single_activity_container_text {
+      .maintext_sng_act {
+        width: 50vw;
+      }    
+      .category_marker {
+        @include flex-container($align: center);
+        padding: 5px 10px;
+        font-size: 0.7rem;
+      }
+  }
 
     .text_container_city {
       @include flex-container($direction:column);
