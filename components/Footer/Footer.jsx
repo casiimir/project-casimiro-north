@@ -17,13 +17,11 @@ export default function Footer({lang, currency, setLang, setCurrency}) {
   const handleOnSelectionLangChange = (e) => {
       setLang(e.target.value);
       localStorage.setItem('lang', e.target.value);
-      location.reload();
   }
 
   const handleOnSelectionCurrencyChange = (e) => {
     setLang(e.target.value);
     localStorage.setItem('currency', e.target.value);
-    location.reload();
 }
 
   return (

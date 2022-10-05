@@ -13,7 +13,7 @@ const CityCardList = ({lang, currency}) => {
 
   useEffect(() => {
     GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST', lang, currency)
-  }, [dispatch]);
+  }, [dispatch, lang, currency]);
 
   return (
     <div className={styles.CityCardList}>

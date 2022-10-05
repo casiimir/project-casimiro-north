@@ -22,7 +22,7 @@ const Hero = ({ type, lang, currency }) => {
 
   console.log(localization)
 
-  const {cityname, uuid} = router.query
+  const {cityname} = router.query
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -97,7 +97,7 @@ if (!isStoppedInterval) {
 
   useEffect(() => {
     GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST", lang, currency);
-  }, [dispatch]);
+  }, [dispatch, lang, currency]);
 
   return (
     <div ref={heroRef} className={styles.hero} style={type === "SingleActivity" ? {height: "45vh"} : {}}>
@@ -212,10 +212,7 @@ if (!isStoppedInterval) {
           <div className={styles.maintext_act}>
             {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
             <DropdownComp heroRef={heroRef} lang={lang} currency={currency}/>
-            {/* <h2>{cities.cityData.headline}</h2> */}
           </div>
-
-          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
       {type === "SingleActivity" && (
@@ -240,7 +237,6 @@ if (!isStoppedInterval) {
               {activities.activityData.categories ? activities?.activityData?.categories[0].name : ''}
             </div>
           </div>
-          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
       

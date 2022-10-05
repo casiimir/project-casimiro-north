@@ -20,7 +20,7 @@ const ActivityCardList = ({lang, currency}) => {
         if (categoryname) {
         GET(IMPORT_URL.ACTIVITIES, `?category_in=${categoryname?.split('&=')[1]}&city_in=${cityname?.split('&=')[1]}`, dispatch, "SET_CAT_ACT", lang, currency)
         }
-  }, [cityname, dispatch, categoryname]);
+  }, [cityname, dispatch, categoryname, lang, currency]);
 
   return (
     <div className={styles.ActivityCardList} style={categoryname ? {paddingTop: '100px'} : {}}>

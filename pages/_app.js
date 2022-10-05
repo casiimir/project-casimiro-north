@@ -15,7 +15,7 @@ import { useAmp } from "next/amp";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const [lang, setLang] = useState('it-IT');
+  const [lang, setLang] = useState('en-US');
   const [currency, setCurrency] = useState('EUR');
 
   const [loadVisible, setLoadVisible] = useState(true);

@@ -36,7 +36,7 @@ export default function ActivitySwiper({ type, lang, currency }) {
         dispatch,
         "SET_TODAY_ACTIVITIES", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
 
   return (

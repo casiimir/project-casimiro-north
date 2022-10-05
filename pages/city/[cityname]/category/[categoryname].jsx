@@ -21,7 +21,7 @@ export default function CategoryPage({lang, currency}) {
         dispatch,
         "SET_CATEGORY_LIST", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
   return (
     <div className={styles.CategoryPage}>

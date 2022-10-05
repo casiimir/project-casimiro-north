@@ -7,7 +7,6 @@ import Hero from "../../../components/Hero/Hero";
 import Carousel from "../../../components/Carousel";
 import { RiEmotionFill, RiEmotionHappyFill, RiEmotionNormalFill, RiEmotionUnhappyFill} from 'react-icons/ri';
 import { MdOutlineStar } from "react-icons/md";
-// import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
 import { useEffect, useState } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
@@ -29,7 +28,7 @@ export default function ActivityPage({lang, currency}) {
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY", lang, currency);
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=50`, dispatch, "SET_REVIEWS", lang, currency)
-  }, [uuid, dispatch]);
+  }, [uuid, dispatch, lang, currency]);
 
   console.log(activities.reviewsData)
 

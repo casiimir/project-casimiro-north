@@ -1,25 +1,19 @@
 import styles from "./index.module.scss";
-import Modal from "../../components/Modal/Modal";
 import ItemCardList from "../../components/ItemCardList";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
-import { useDispatch, useSelector } from "react-redux";
-import { HiEmojiSad } from 'react-icons/hi';
-import { FaHeartBroken } from 'react-icons/fa';
+import { useDispatch } from "react-redux";
 
 export default function Favorites({lang, currency}) {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
-  const { activities } = useSelector((state) => state);
-
-  // console.log(activities.activityData);
   
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY", lang, currency);
-  }, [uuid, dispatch]);
+  }, [uuid, dispatch, lang, currency]);
 
   return (
     <div className={styles.Favorites}>

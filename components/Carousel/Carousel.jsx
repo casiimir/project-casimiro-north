@@ -23,7 +23,7 @@ export default function App ({lang, currency}) {
 
    useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/media`, dispatch, "SET_MEDIA_DATA", lang, currency);
-   }, [uuid, dispatch]);
+   }, [uuid, dispatch, lang, currency]);
 
   return (
     <div className={styles.carousel_container}>

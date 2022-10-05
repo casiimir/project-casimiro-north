@@ -13,7 +13,7 @@ const MiniCarousel = ({lang, currency}) => {
 
   useEffect(() => {
     GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=20', dispatch, "SET_DISCOUNT_LIST", lang, currency);
-  },[dispatch])
+  },[dispatch, lang, currency]);
 
   return (
     <div className={styles.miniCarousel}>

@@ -22,7 +22,7 @@ const CityMainSection = ({lang, currency}) => {
         dispatch,
         "SET_CATEGORY_LIST", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
   const handleActivityCatClick = (id) => {
     dispatch({ type: "SET_INDEX_CAT", payload: id });

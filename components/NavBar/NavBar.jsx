@@ -82,7 +82,7 @@ export default function NavBar ({lang, currency}) {
         if (searchInput.length > 3) {
             GET(IMPORT_URL.ACTIVITIES, `?text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS", lang, currency)
             } else {
-                dispatch({type: "CLEAN_SEARCH_RESULTS"})
+                dispatch({type: "CLEAN_SEARCH_RESULTS", lang, currency})
             }
     }, [searchInput])
 
@@ -92,17 +92,6 @@ export default function NavBar ({lang, currency}) {
         }
     return removeEventListener('scroll', () => eventScrollDown())
     }, [])
-
-    // useEffect(() => {
-    //     if (typeof window !== 'undefined' && !localStorage.getItem('cart_uuid')) {
-    //     POST().then(data => {
-    //         dispatch({type: "SET_UUID", payload: data.uuid})
-    //         if (typeof window !== 'undefined') {
-    //             localStorage.setItem('cart_uuid', data.uuid)
-    //         }
-    //     })
-    // } 
-    // }, [])
 
     return (
         <>
