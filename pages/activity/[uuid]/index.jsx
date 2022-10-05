@@ -45,24 +45,24 @@ export default function ActivityPage() {
               <div className={styles.icondiv}>
                 <AiOutlineFieldTime className={styles.iconTime} />
               </div>
-              <div
+              {activities.activityData.when_text ? <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.when_text,
                 }}
                 className={styles.activityInfoTimetable}
-              />
+              /> : <p className={styles.activityInfoTimetable}>Not specified!</p> }
             </div>
 
             <div className={styles.activityInfoText}>
               <div className={styles.icondiv}>
                 <FiMapPin className={styles.iconLocation} />
               </div>
-              <div
+              {activities.activityData.where_text ? <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.where_text,
                 }}
                 className={styles.activityInfoTimetable}
-              />
+              /> : <p className={styles.activityInfoTimetable}>Not specified!</p>}
             </div>
           </div>
           <div className={styles.activityInfolanguagesDiv}>
