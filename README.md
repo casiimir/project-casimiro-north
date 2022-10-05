@@ -1,9 +1,8 @@
 <p {align="center"}>
-  <img src="./public/polari.png" alt="polarix" width=350/>
-    <img src="./public/star.png" alt="polarix" width=350/>
+  <img src="./public/logo_readme.png" alt="polarix" width=500/>
 </p>
 
-<h2 {align="center"}>One app, one team.</h2>
+<h2 style={{align: center}}>One app, one team.</h2>
 
 <p {align="center"}>
   <!-- <img src="./public/mobile3.jpg" alt="explorience"/> -->
@@ -11,11 +10,17 @@
 
 <hr>
 
-<h2 {align="center"}>Polarix... your stellar portal to discover, book and manage your
-    travel experiences around the world. Created at Edgemony Coding Bootcamp #4</h2>
+<h2 {align="center"}>Polarix, your stellar portal to discover, book and manage your
+    travel experiences around the world. </h2>
+<h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4> 
+
 <!-- <img {align="right"} src="./public/mobile1.jpeg" alt="explorience" width=150/> -->
 
-<h2>Technologies used</h2>
+<br>
+
+<hr>
+
+<h2>Technologies used include:</h2>
   <ul>
     <li>HTML</li>
     <li>SASS</li>
@@ -24,7 +29,7 @@
     <li>Next.js</li>
     <li>Axios</li>
     <li>Musement API</li>
-    <li>Made with ❤️</li>
+    <li>Teamworking hard</li>
   </ul>
 
 <br>
@@ -34,7 +39,7 @@
 
 <br>
 
-<h2>Features</h2>
+<h2>Features:</h2>
 <ol>
   <li>Designed from zero</li>
   <li>Concept based</li>
@@ -46,7 +51,11 @@
 </ol>
 
 <br>
+<hr>
 
+<h2>Performance:</h2>
+
+<br>
 <hr>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -69,14 +78,15 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+<br>
 <hr>
 
 ## Presentation day
 
 <h4>Saturday, October 8th, 2022</h4>
 <a href="https://project-north.vercel.app/">Follow this link to visit it!</a>
-
-<h3>Made by</h3>
+<br>
+<h3>Made with ❤️ by:</h3>
 <ul>
   <li>
     <a href="https://www.linkedin.com/in/noemi-fazio/">
