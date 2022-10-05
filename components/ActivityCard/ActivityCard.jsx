@@ -13,9 +13,7 @@ const ActivityCard = ({catData}) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const {moneyValue, cartData, activities } = useSelector(state => state);
-
-  console.log(catData)
+  const { activities } = useSelector(state => state);
 
   const {cityname} = router.query
 
@@ -37,7 +35,6 @@ const ActivityCard = ({catData}) => {
 
     if (activities.favorites.find((item) => item.uuid === uuid)) {
       dispatch({type: "REMOVE_FAVORITE", payload: uuid});
-
     }
     
   }
