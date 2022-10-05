@@ -42,6 +42,7 @@ const CartSection = () => {
     if (paymentMethod && cartData.cartList.length > 0) {
       dispatch({type: "BUY_ITEMS"});
       dispatch({type: "CLEAR_PRODUCT"});
+      dispatch({type: "SET_TRUE"});
     } else {
       alert('Select a Pay Method please! or Insert products into the cart')
     }
@@ -65,7 +66,7 @@ const CartSection = () => {
               (a, b) =>
                 a + Number(b.retail_price.formatted_value.split(" ")[1]),
               0
-            )}
+            ).toFixed(2)}
           </h3>
         </div>
       </div>
