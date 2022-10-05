@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { HiEmojiSad } from 'react-icons/hi';
 import { FaHeartBroken } from 'react-icons/fa';
 
-export default function Favorites() {
+export default function Favorites({lang, currency}) {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ export default function Favorites() {
   // console.log(activities.activityData);
   
   useEffect(() => {
-    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY", lang, currency);
   }, [uuid, dispatch]);
 
   return (
@@ -27,9 +27,7 @@ export default function Favorites() {
       <h2 className={styles.FavoritesTitle}>FAVORITES</h2>
       <span className={styles.LineTitle}/>
     </div>
-      {/* {activities.favorites.length === 0 && <div className={styles.favorite_empty}><FaHeartBroken className={styles.broken}/><h2>Your Favorite List Seems Empty</h2> <HiEmojiSad className={styles.sad}/></div>} */}
-      <ItemCardList />
-      
+      <ItemCardList lang={lang} currency={currency}/>  
     </div>
   );
 }

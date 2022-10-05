@@ -12,7 +12,7 @@ import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
 // import { POST, GET_CART } from '../../utils/GET/CART_METHOD';
 
-export default function NavBar () {
+export default function NavBar ({lang, currency}) {
     const searchRef = useRef(null);
     const [isScrollDown, setIsScrollDown] = useState(false)
 
@@ -80,7 +80,7 @@ export default function NavBar () {
 
     useEffect(() => {
         if (searchInput.length > 3) {
-            GET(IMPORT_URL.ACTIVITIES, `?text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS")
+            GET(IMPORT_URL.ACTIVITIES, `?text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS", lang, currency)
             } else {
                 dispatch({type: "CLEAN_SEARCH_RESULTS"})
             }

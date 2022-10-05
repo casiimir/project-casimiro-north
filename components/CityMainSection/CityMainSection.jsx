@@ -7,7 +7,7 @@ import { IMPORT_URL } from "../../utils/GET/URL";
 import ActivitySwiper from "../ActivitySwiper/ActivitySwiper";
 import styles from "./index.module.scss";
 
-const CityMainSection = () => {
+const CityMainSection = ({lang, currency}) => {
   const { cities, activities } = useSelector((state) => state);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const CityMainSection = () => {
         IMPORT_URL.CITIES,
         `${cityname?.split("&=")[1]}/categories`,
         dispatch,
-        "SET_CATEGORY_LIST"
+        "SET_CATEGORY_LIST", lang, currency
       );
   }, [cityname, dispatch]);
 
@@ -62,7 +62,7 @@ const CityMainSection = () => {
         </div>
       </div>
 
-      <ActivitySwiper />
+      <ActivitySwiper lang={lang} currency={currency}/>
     </div>
   );
 };

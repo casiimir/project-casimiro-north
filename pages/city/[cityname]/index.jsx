@@ -7,7 +7,7 @@ import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 import CityMainSection from "../../../components/CityMainSection/CityMainSection";
 
-export default function CityPage() {
+export default function CityPage({lang, currency}) {
   const router = useRouter();
   const { cityname } = router.query;
   const dispatch = useDispatch();
@@ -20,14 +20,14 @@ export default function CityPage() {
         IMPORT_URL.CITIES,
         cityname?.split("&=")[1],
         dispatch,
-        "SET_CITY"
+        "SET_CITY", lang, currency
       );
   }, [cityname, dispatch]);
 
     return (
         <div className={styles.City}>
-            <Hero type="CityPage"/>
-            <CityMainSection />
+            <Hero type="CityPage" lang={lang} currency={currency}/>
+            <CityMainSection lang={lang} currency={currency} />
         </div>
     )
 }

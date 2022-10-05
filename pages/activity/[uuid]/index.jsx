@@ -14,7 +14,7 @@ import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 import { languages } from "../../../utils/mook";
 
-export default function ActivityPage() {
+export default function ActivityPage({lang, currency}) {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
@@ -27,19 +27,19 @@ export default function ActivityPage() {
   };
 
   useEffect(() => {
-    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
-    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=50`, dispatch, "SET_REVIEWS")
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY", lang, currency);
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=50`, dispatch, "SET_REVIEWS", lang, currency)
   }, [uuid, dispatch]);
 
   console.log(activities.reviewsData)
 
   const filterBySmile = (value) => {
-    setSmileFilterValue(prev => prev = value)
+    setSmileFilterValue(value)
   }
 
   return (
     <div className={styles.Activity}>
-      <Hero type="SingleActivity" />
+      <Hero type="SingleActivity" lang={lang} currency={currency} />
       <div className={styles.activityMainSection}>
         <div className={styles.activityDescriptionDiv}>
           <p className={styles.activityDescription}>
@@ -96,7 +96,7 @@ export default function ActivityPage() {
           </div>
         </div>
         <div className={styles.Carousel}>
-          <Carousel />
+          <Carousel lang={lang} currency={currency}/>
         </div>
       </div>
 

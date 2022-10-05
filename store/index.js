@@ -30,8 +30,6 @@ const initialState = {
     isInputActive: false,
   },
   modalVisibility: false,
-
-  moneyValue: '€'
 };
 
 function cartDataReducer(state = {}, action) {
@@ -119,10 +117,12 @@ function navBarStatusReducer(state = {}, action) {
   }
 }
 
-function moneyValueReducer(state = {}, action) {
+function currencyLanguageReducer(state = {}, action) {
     switch (action.type) {
-      case "SET_MONEY_VALUE":
-        return state = action.payload;
+      case "SET_CURRENCY":
+        return {...state, currency: action.payload};
+      case "SET_LANGUAGE":
+        return {...state, language: action.payload}
       default:
         return state;
     }
@@ -144,7 +144,7 @@ const rootReducer = combineReducers({
   activities: activitiesReducer,
   cities: cityReducer,
   navBarStatus: navBarStatusReducer,
-  moneyValue: moneyValueReducer,
+  localization: currencyLanguageReducer,
   modalVisibility: modalVisibilityChangeReducer,
 });
 

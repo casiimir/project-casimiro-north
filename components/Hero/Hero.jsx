@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
 import Image from "next/image";
 
-const Hero = ({ type }) => {
+const Hero = ({ type, lang, currency }) => {
   const [rightValue, setRightValue] = useState(0);
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();
@@ -17,8 +17,10 @@ const Hero = ({ type }) => {
 
   const interval = () => {}
 
-  const { cities, activities } = useSelector((state) => state);
+  const { cities, activities, localization } = useSelector((state) => state);
   const router = useRouter();
+
+  console.log(localization)
 
   const {cityname, uuid} = router.query
 
@@ -94,7 +96,7 @@ if (!isStoppedInterval) {
   }, [rightValue, isStoppedInterval]);
 
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
+    GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST", lang, currency);
   }, [dispatch]);
 
   return (
@@ -209,7 +211,7 @@ if (!isStoppedInterval) {
           </div>
           <div className={styles.maintext_act}>
             {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
-            <DropdownComp heroRef={heroRef}/>
+            <DropdownComp heroRef={heroRef} lang={lang} currency={currency}/>
             {/* <h2>{cities.cityData.headline}</h2> */}
           </div>
 
