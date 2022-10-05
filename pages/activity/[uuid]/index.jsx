@@ -1,6 +1,8 @@
 import styles from "./activity.module.scss";
 import { useRouter } from "next/router";
-import { BsCart } from "react-icons/bs";
+import { BiMapAlt } from "react-icons/bi";
+import { FiMapPin } from "react-icons/fi";
+import { AiOutlineFieldTime } from "react-icons/ai";
 import Hero from "../../../components/Hero/Hero";
 import Carousel from "../../../components/Carousel";
 // import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
@@ -8,7 +10,7 @@ import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
-import {languages} from "../../../utils/mook";
+import { languages } from "../../../utils/mook";
 
 export default function ActivityPage() {
   const router = useRouter();
@@ -33,16 +35,16 @@ export default function ActivityPage() {
           <p className={styles.activityDescription}>
             {activities?.activityData?.description}
           </p>
-          <div className={styles.nameless}>
-            
-          </div>
+          <div className={styles.nameless}></div>
           {/* <button className={styles.activityDescriptionBtn}>read more</button> */}
         </div>
 
         <div className={styles.activityInfo}>
           <div className={styles.activityInfoTextDiv}>
             <div className={styles.activityInfoText}>
-              <h2>WHEN</h2>
+              <div className={styles.icondiv}>
+                <AiOutlineFieldTime className={styles.iconTime} />
+              </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.when_text,
@@ -52,7 +54,9 @@ export default function ActivityPage() {
             </div>
 
             <div className={styles.activityInfoText}>
-              <h2>WHERE</h2>
+              <div className={styles.icondiv}>
+                <FiMapPin className={styles.iconLocation} />
+              </div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.where_text,
@@ -63,39 +67,48 @@ export default function ActivityPage() {
           </div>
           <div className={styles.activityInfolanguagesDiv}>
             <h2>LANGUAGES</h2>
-            { activities?.activityData?.languages?.length > 0 && <div>
-              
-              { 
-              // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
-              languages.filter(flag => activities?.activityData?.languages?.find((source) => source.code === flag.code))?.map((language, i)=> 
-              <img 
-                key={i} 
-                src={language.icon} 
-                alt={language.name} 
-                />
-                )
-              }
-            </div>}
+            {activities?.activityData?.languages?.length > 0 && (
+              <div>
+                {
+                  // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
+                  languages
+                    .filter((flag) =>
+                      activities?.activityData?.languages?.find(
+                        (source) => source.code === flag.code
+                      )
+                    )
+                    ?.map((language, i) => (
+                      <img key={i} src={language.icon} alt={language.name} />
+                    ))
+                }
+              </div>
+            )}
           </div>
         </div>
-        <div className={styles.Carousel}> 
+        <div className={styles.Carousel}>
           <Carousel />
         </div>
       </div>
 
       <section className={styles.servicesSection}>
-        {activities?.activityData?.services?.length > 0 && <div className={styles.servicesListDiv}>
-          <h2 className={styles.servicesListTitle}>SERVICES:</h2>
-          <ul className={styles.servicesList}>
-            {activities?.activityData?.services?.map((item, index) => <li key={index} className={styles.servicesListItem}>{item.name}</li>)}
-            {/* <li className={styles.servicesListItem}>boh</li>
+        {activities?.activityData?.services?.length > 0 && (
+          <div className={styles.servicesListDiv}>
+            <h2 className={styles.servicesListTitle}>SERVICES:</h2>
+            <ul className={styles.servicesList}>
+              {activities?.activityData?.services?.map((item, index) => (
+                <li key={index} className={styles.servicesListItem}>
+                  {item.name}
+                </li>
+              ))}
+              {/* <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li>
             <li className={styles.servicesListItem}>boh</li> */}
-          </ul>
-        </div>}
+            </ul>
+          </div>
+        )}
         <div className={styles.activityPriceInfoDiv}>
           <div className={styles.activityPriceInfo}>
             <span className={styles.activityPriceValue}>

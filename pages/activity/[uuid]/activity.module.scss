@@ -44,31 +44,38 @@
         width: 60%;
 
         .activityInfoText {
-          @include flex-container(column, $gap: 0.5rem);
+          @include flex-container(row, $gap: 0.5rem);
 
-          h2 {
-            color: $MidBlue;
-            font-weight: 600;
+          .icondiv {
+            min-width: 2.1rem;
+
+            .iconTime {
+              font-size: 2rem;
+            }
+
+            .iconLocation {
+              font-size: 1.8rem;
+            }
           }
 
           .activityInfoTimetable {
             line-height: 1.4rem;
 
-           li {
-            padding: 5px 0;
-            &::before {
-              content: "•";
-              margin-right: 10px;
-              font-size: 2rem;
-              color: $MainBlue;
+            li {
+              padding: 5px 0;
+              &::before {
+                content: "•";
+                margin-right: 10px;
+                font-size: 2rem;
+                color: $MainBlue;
+              }
             }
-           }
           }
         }
       }
 
       .activityInfolanguagesDiv {
-        @include flex-container(column, $align: flex-end, $gap:20px);
+        @include flex-container(column, $align: flex-end, $gap: 20px);
 
         color: $MidBlue;
         font-weight: 600;
@@ -147,8 +154,6 @@
   }
 }
 
-//PRIMA MEDIA QUERYYYYYYYY
-
 @media only screen and (min-width: 767px) {
   .Activity {
     .activityMainSection {
@@ -190,14 +195,8 @@
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(column, $gap: 0.5rem);
+            @include flex-container(row, $gap: 0.5rem);
             width: 50%;
-
-            h2 {
-              color: $MidBlue;
-              font-weight: 600;
-              text-align: start;
-            }
 
             .activityInfoTimetable {
               line-height: 1.4rem;
@@ -206,7 +205,7 @@
         }
 
         .activityInfolanguagesDiv {
-          @include flex-container(column, $align: center, $gap: 10px);
+          @include flex-container(column, $align: flex-end, $gap: 10px);
 
           color: $MidBlue;
           font-weight: 600;
@@ -253,7 +252,7 @@
         @include flex-container(
           column,
           $justify: flex-end,
-          $align: center,
+          $align: flex-end,
           $gap: 1.9rem
         );
 
