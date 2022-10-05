@@ -12,7 +12,6 @@ import polari from "../public/polari.png";
 
 // console.log(Router.router.state.pathname)
 function MyApp({ Component, pageProps }) {
-
   const router = useRouter();
 
   const [loadVisible, setLoadVisible] = useState(true);
@@ -37,18 +36,18 @@ function MyApp({ Component, pageProps }) {
         <meta name="dc.language" content="ita" scheme="RFC1766"></meta>
         <meta name="author" content="Fazio N., Gugliemino M., Mangano R., Rizzitello E., Venasco M."></meta>
         <link rel="icon" href="/favicon.ico" />
-      </Head> 
-      {router.pathname === "/" ? loadVisible && (
-        <div
-          className={`${styles.overlayanimation} ${styles[status]}`}
-        >
-          <img src={star.src} className={styles.star} alt="starX" />{" "}
-          <img src={polari.src} className={styles.polari} alt="polari" />{" "}
-        </div>
-      ) : ""}
-      {router.pathname !== "/404" ? <NavBar /> : ""}
+      </Head>
+      {router.pathname === "/"
+        ? loadVisible && (
+            <div className={`${styles.overlayanimation} ${styles[status]}`}>
+              <img src={star.src} className={styles.star} alt="starX" />{" "}
+              <img src={polari.src} className={styles.polari} alt="polari" />{" "}
+            </div>
+          )
+        : ""}
+      {(router.pathname !== "/404") & "/login" ? <NavBar /> : ""}
       <Component {...pageProps} />
-      {router.pathname !== "/404" ? <Footer /> : ""}
+      {(router.pathname !== "/404") & "/login" ? <Footer /> : ""}
     </Provider>
   );
 }
