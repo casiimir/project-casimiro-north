@@ -5,6 +5,8 @@ import { FiMapPin } from "react-icons/fi";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import Hero from "../../../components/Hero/Hero";
 import Carousel from "../../../components/Carousel";
+import { RiEmotionFill, RiEmotionHappyFill, RiEmotionNormalFill, RiEmotionUnhappyFill} from 'react-icons/ri';
+import { MdOutlineStar } from "react-icons/md";
 // import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
 import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
@@ -118,6 +120,39 @@ export default function ActivityPage() {
           <button onClick={handleOnCartClick} className={styles.cartBtn}>
             BUY NOW
           </button>
+        </div>
+        <div className={styles.reviewsContainer}>
+          <h2 className={styles.reviewTitle}> REVIEWS</h2>
+          <ul className={styles.reviewList}>
+            <li className={styles.review}>
+              <div className={styles.reviewsData}>
+                <div className={styles.user}>
+                  {" "}
+                  <i>
+                    <RiEmotionFill className={styles.iconsmile} />
+                  </i>
+                  <h2 className={styles.nameUser}> name</h2>{" "}
+                </div>
+                <div className={styles.rating}>
+                  <p>
+                    6{" "}
+                    <i>
+                      <MdOutlineStar className={styles.star} />
+                    </i>{" "}
+                  </p>
+                </div>
+              </div>
+              <div className={styles.reviewsComment}>
+                <p>
+                  {" "}
+                  excevfdseagvdellent ldvgergergregre
+                  wregergergregreswgersgbewteb
+                </p>
+              </div>
+            </li>
+
+
+          </ul>
         </div>
       </section>
     </div>
