@@ -30,7 +30,6 @@ export default function Home() {
   // const deleteTest = (id) => {
   //   dispatch({type: "REMOVE_PRODUCT", payload: id});
   // }
-  
 
   return (
     <div className={styles.Home}>
