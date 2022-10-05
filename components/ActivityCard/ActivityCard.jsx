@@ -47,7 +47,9 @@ const ActivityCard = ({catData}) => {
       {cityname && <h5 className={styles.title_cat_page}>{title}</h5>}
       <div className={styles.ActivityCard} style={cityname && {borderRadius: '2px'}}>
         {/* <img  className={styles.img} src={cover_image_url} alt="Activity photo" /> */}
-        <Image className={styles.img} src={cover_image_url} alt="Activity photo" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} />
+        <div className={styles.img} >
+        <Image src={cover_image_url} alt="Activity photo" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} />
+       </div>
        {!cityname ? <div onClick={handleActivityClick} className={styles.overlay} /> : <div className={styles.overlay} />}
         {!cityname ? 
         <h5 className={styles.title}>{title}</h5> 
