@@ -157,10 +157,43 @@
       background-color: #76939a1d;
       border-radius: 4px;
       padding: 20px;
+      width: 100%;
       .reviewTitle {
+        @include flex-container($justify: space-between);
         color: rgba(7, 45, 62, 0.568);
         font-weight: 800;
         font-size: 1.2rem;
+
+        .filter_by_rating {
+          @include flex-container($direction: row-reverse);
+
+
+            .iconsmile {
+               opacity: 0.4;
+
+               &.active {
+                opacity: 1;
+               }
+            }
+        }
+
+
+        .filter {
+          @include flex-container($align: center, $gap: 5px);
+          font-size: 0.9rem;
+          font-weight: 600;
+
+          
+
+          button {
+            background-color: #6e939b;
+            border: none;
+            color: white;
+            font-weight: 800;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
       margin: 80px 0 0 0;
       .reviewList {

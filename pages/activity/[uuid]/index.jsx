@@ -8,7 +8,7 @@ import Carousel from "../../../components/Carousel";
 import { RiEmotionFill, RiEmotionHappyFill, RiEmotionNormalFill, RiEmotionUnhappyFill} from 'react-icons/ri';
 import { MdOutlineStar } from "react-icons/md";
 // import ActivityMainSection from "../../../components/ActivityMainSection/ActivityMainSection";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +19,7 @@ export default function ActivityPage() {
   const { uuid } = router.query;
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
+  const [smileFilterValue, setSmileFilterValue] = useState(8);
 
   const handleOnCartClick = () => {
     dispatch({ type: "SET_TRUE" });
@@ -27,10 +28,14 @@ export default function ActivityPage() {
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
-    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=10`, dispatch, "SET_REVIEWS")
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=50`, dispatch, "SET_REVIEWS")
   }, [uuid, dispatch]);
 
   console.log(activities.reviewsData)
+
+  const filterBySmile = (value) => {
+    setSmileFilterValue(prev => prev = value)
+  }
 
   return (
     <div className={styles.Activity}>
@@ -119,35 +124,50 @@ export default function ActivityPage() {
           </button>
         </div>
         <div className={styles.reviewsContainer}>
-          <h2 className={styles.reviewTitle}> REVIEWS</h2>
+          <div className={styles.reviewTitle}> 
+            <h2>REVIEWS</h2>
+            <div className={styles.filter_by_rating}>
+              <RiEmotionFill onClick={() => filterBySmile(8)} className={`${styles.iconsmile} ${smileFilterValue >= 8 && styles.active}`}/>
+              <RiEmotionHappyFill onClick={() => filterBySmile(6)} className={`${styles.iconsmile} ${smileFilterValue >= 6 && smileFilterValue < 8 && styles.active}`} />
+              <RiEmotionNormalFill onClick={() => filterBySmile(3)} className={`${styles.iconsmile} ${smileFilterValue >= 3 && smileFilterValue < 6 && styles.active}`} /> 
+              <RiEmotionUnhappyFill onClick={() => filterBySmile(0)} className={`${styles.iconsmile} ${smileFilterValue >= 0 && smileFilterValue < 3 && styles.active}`} />
+            </div>
+          </div>
           <ul className={styles.reviewList}>
             
-              {activities.reviewsData.map((review, index) =>  
-              <li key={index} className={styles.review}>
-              <div className={styles.reviewsData}>
-                <div className={styles.user}>
-                  <i>
-                    <RiEmotionFill className={styles.iconsmile} />
-                  </i>
-                  <h2 className={styles.nameUser}>Anonymous</h2>
-                  { <img className={styles.user_lang} src={languages.find((lang) => lang.code === review.locale.slice(0, 2))?.icon} alt="lang icon" />}
-                </div>
-                <div className={styles.rating}>
-                  <p>
-                    {review.rating_value}/10
+              {activities.reviewsData.filter((item) => 
+              Math.floor(item.rating_value) >= smileFilterValue && Math.floor(item.rating_value) <= (smileFilterValue + 2)).length !== 0 
+              ? 
+              activities.reviewsData.filter((item) => 
+                Math.floor(item.rating_value) >= smileFilterValue && Math.floor(item.rating_value) <= (smileFilterValue + 2)).map((review, index) =>  
+                <li key={index} className={styles.review}>
+                <div className={styles.reviewsData}>
+                  <div className={styles.user}>
                     <i>
-                      <MdOutlineStar className={styles.star} />
-                    </i>{" "}
+                      {Math.floor(review.rating_value) >= 8 && <RiEmotionFill className={styles.iconsmile} />}
+                      {Math.floor(review.rating_value) >= 6 && Math.floor(review.rating_value) < 8 && <RiEmotionHappyFill className={styles.iconsmile} />}
+                      {Math.floor(review.rating_value) >= 3 && Math.floor(review.rating_value) < 6 && <RiEmotionNormalFill className={styles.iconsmile} />}
+                      {Math.floor(review.rating_value) >= 0 && Math.floor(review.rating_value) < 3 && <RiEmotionUnhappyFill className={styles.iconsmile} />}
+                    </i>
+                    <h2 className={styles.nameUser}>Anonymous</h2>
+                    { <img className={styles.user_lang} src={languages.find((lang) => lang.code === review.locale.slice(0, 2))?.icon} alt="lang icon" />}
+                  </div>
+                  <div className={styles.rating}>
+                    <p>
+                      {review.rating_value}/10
+                      <i>
+                        <MdOutlineStar className={styles.star} />
+                      </i>{" "}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.reviewsComment}>
+                  <p>
+                    {review.comment}
                   </p>
                 </div>
-              </div>
-              <div className={styles.reviewsComment}>
-                <p>
-                  {review.comment}
-                </p>
-              </div>
-            </li>     
-            )}
+              </li>     
+            ) : <p style={{opacity: "0.5", textAlign: "center", padding: "40px 0"}}>no results</p>}
 
 
 
