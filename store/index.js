@@ -4,6 +4,7 @@ const initialState = {
   cartData: {
     Uuid: "",
     cartList: [],
+    purchasedList: [],
   },
   activities: {
     activityData: {},
@@ -16,7 +17,8 @@ const initialState = {
     indexOfCat: 0,
     favorites: [],
     searchResults: {},
-    mediaData: []
+    mediaData: [],
+    
   },
   cities: {
     cityData: {},
@@ -39,10 +41,12 @@ function cartDataReducer(state = {}, action) {
     case "REMOVE_PRODUCT":
       return {
         ...state,
-        cartList: state.cartList.filter((_, id) => id !== action.payload),
+        cartList: state.cartList.filter((_, id) => id !== action.payload)
       };
     case "SET_UUID":
       return {...state, Uuid: action.payload}
+    case "BUY_ITEMS":
+      return { ...state, purchasedList: state.cartList}
     default:
       return state;
   }
