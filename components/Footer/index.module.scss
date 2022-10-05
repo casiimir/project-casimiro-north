@@ -17,21 +17,39 @@
   .FooterContainer {
     @include flex-container($align: center, $justify: space-between);
     .logo {
-      width: 150px;
+      width: 100px;
     }
 
     .icon_container {
       @include flex-container($gap: 8px);
       .icon {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         cursor: pointer;
       }
     }
   }
+
+  .zoneSelector {
+    @include flex-container($gap: 10px);
+    .lang {
+      border: none;
+      outline: none;
+      background-color: white;
+      color: $MainDarkBlue;
+    }
+
+    .currency {
+      border: none;
+      outline: none;
+      background-color: white;
+      color: $MainDarkBlue;
+    }
+  }
+
   p {
     position: absolute;
     left: 0;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: 200;
     text-align: center;
     bottom: 18%;

@@ -30,6 +30,16 @@ function MyApp({ Component, pageProps }) {
     }
   }, [loadVisible]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && localStorage.getItem('lang')) {
+      setLang(localStorage.getItem('lang'))
+    }
+
+    if (typeof window !== "undefined" && localStorage.getItem('currency')) {
+      setCurrency(localStorage.getItem('currency'))
+    }
+  })
+
   return (
     <Provider store={store}>
       <Head>

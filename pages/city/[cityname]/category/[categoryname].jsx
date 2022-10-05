@@ -25,7 +25,7 @@ export default function CategoryPage({lang, currency}) {
 
   return (
     <div className={styles.CategoryPage}>
-      <Hero type="ActivityPage" />
+      <Hero type="ActivityPage" lang={lang} currency={currency} />
 
       <ActivityCardList lang={lang} currency={currency} />
     </div>
