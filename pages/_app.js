@@ -34,6 +34,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="Polarix" content="Experience, travel,  e-commerce" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="keywords" content="e-commerce, experience, travel, musement, edgemony"></meta>
+        <meta name="dc.language" content="ita" scheme="RFC1766"></meta>
         <meta name="author" content="Fazio N., Gugliemino M., Mangano R., Rizzitello E., Venasco M."></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head> 
