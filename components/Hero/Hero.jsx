@@ -122,15 +122,15 @@ if (!isStoppedInterval) {
               >
                 <div className={styles.overlay_gradient} />
 
-                {/* <img
+                <img
                   className={styles.background}
                   src={item.cover_image_url}
                   alt="heroimg"
-                /> */}
+                />
 
-                <div className={styles.background}>
+                {/* <div className={styles.background}>
                   <Image src={item.cover_image_url} alt="heroimg" layout="fill"/>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
