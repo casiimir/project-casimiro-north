@@ -18,7 +18,7 @@ const initialState = {
     favorites: [],
     searchResults: {},
     mediaData: [],
-    
+    reviewsData: [],
   },
   cities: {
     cityData: {},
@@ -81,7 +81,9 @@ function activitiesReducer(state = {}, action) {
     case "CLEAN_SEARCH_RESULTS":
       return { ...state, searchResults: {}}   
     case "SET_MEDIA_DATA":
-      return { ...state, mediaData: action.payload} 
+      return { ...state, mediaData: action.payload}
+    case "SET_REVIEWS":
+      return { ...state, reviewsData: action.payload}
     default:
       return state;
   }

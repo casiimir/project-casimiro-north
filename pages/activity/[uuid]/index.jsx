@@ -27,7 +27,10 @@ export default function ActivityPage() {
 
   useEffect(() => {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}`, dispatch, "SET_ACTIVITY");
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=10`, dispatch, "SET_REVIEWS")
   }, [uuid, dispatch]);
+
+  console.log(activities.reviewsData)
 
   return (
     <div className={styles.Activity}>
@@ -102,12 +105,6 @@ export default function ActivityPage() {
                   {item.name}
                 </li>
               ))}
-              {/* <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li>
-            <li className={styles.servicesListItem}>boh</li> */}
             </ul>
           </div>
         )}
@@ -124,18 +121,20 @@ export default function ActivityPage() {
         <div className={styles.reviewsContainer}>
           <h2 className={styles.reviewTitle}> REVIEWS</h2>
           <ul className={styles.reviewList}>
-            <li className={styles.review}>
+            
+              {activities.reviewsData.map((review, index) =>  
+              <li className={styles.review}>
               <div className={styles.reviewsData}>
                 <div className={styles.user}>
-                  {" "}
                   <i>
                     <RiEmotionFill className={styles.iconsmile} />
                   </i>
-                  <h2 className={styles.nameUser}> name</h2>{" "}
+                  <h2 className={styles.nameUser}>Anonymous</h2>
+                  { <img className={styles.user_lang} src={languages.find((lang) => lang.code === review.locale.slice(0, 2))?.icon} alt="lang icon" />}
                 </div>
                 <div className={styles.rating}>
                   <p>
-                    6{" "}
+                    {review.rating_value}/10
                     <i>
                       <MdOutlineStar className={styles.star} />
                     </i>{" "}
@@ -144,12 +143,12 @@ export default function ActivityPage() {
               </div>
               <div className={styles.reviewsComment}>
                 <p>
-                  {" "}
-                  excevfdseagvdellent ldvgergergregre
-                  wregergergregreswgersgbewteb
+                  {review.comment}
                 </p>
               </div>
-            </li>
+            </li>     
+            )}
+
 
 
           </ul>

@@ -164,10 +164,11 @@
       }
       margin: 80px 0 0 0;
       .reviewList {
-        @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+        @include flex-container(column, $justify: space-between, $gap: 10px);
         .review {
           @include flex-container(column, $justify: space-between, $gap: 0);
           border-bottom: 1.5px solid rgb(255, 255, 255);
+          padding: 10px 0;
           .reviewsData {
             @include flex-container(
               row,
@@ -183,6 +184,7 @@
                 $align: center,
                 $gap: 0.3125rem
               );
+
               .iconsmile {
                 color: #6e939b;
                 font-size: 1rem;
@@ -190,8 +192,12 @@
               .nameUser {
                 font-weight: 600;
                 font-size: 0.7rem;
-                text-transform: uppercase;
                 color: $MainDarkBlue;
+              }
+
+              .user_lang {
+                width: 20px;
+                margin-left: 20px;
               }
             }
             .rating {
@@ -218,7 +224,9 @@
       .reviewsComment {
         padding: 5px;
         p {
-          font-size: 0.7rem;
+          font-size: 0.8rem;
+          line-height: 1.05rem;
+          letter-spacing: 1.3px;
           color: $MainDarkBlue;
         }
       }
@@ -359,9 +367,11 @@
         margin: 80px 0 0 0;
         .reviewList {
           @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+
           .review {
-            @include flex-container(column, $justify: space-between, $gap: 0);
+            @include flex-container(column, $justify: space-between, $gap: 5px);
             border-bottom: 2px solid rgb(255, 255, 255);
+
             .reviewsData {
               @include flex-container(
                 row,
@@ -377,14 +387,15 @@
                   $align: center,
                   $gap: 0.3125rem
                 );
+
                 .iconsmile {
                   color: #6e939b;
                   font-size: 1.7rem;
                 }
+
                 .nameUser {
                   font-weight: 600;
                   font-size: 1.3rem;
-                  text-transform: uppercase;
                   color: $MainDarkBlue;
                 }
               }
