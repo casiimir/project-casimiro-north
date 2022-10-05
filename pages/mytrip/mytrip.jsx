@@ -1,14 +1,9 @@
 import styles from "./index.module.scss";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { IMPORT_URL } from "../../utils/GET/URL";
-import Link from "next/link";
+import { useSelector } from "react-redux";
+
 import ItemCard from "../../components/ItemCard/ItemCard";
 
 export default function MyTripPage() {
-  // const router = useRouter();
-  // const dispatch = useDispatch();
   const {cartData} = useSelector((state) => state);
 
   console.log(cartData.purchasedList)
