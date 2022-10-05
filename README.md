@@ -27,7 +27,6 @@
     <li>Javascript</li>
     <li>React.js</li>
     <li>Next.js</li>
-    <li>Axios</li>
     <li>Musement API</li>
     <li>Teamworking hard</li>
   </ul>
