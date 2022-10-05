@@ -54,21 +54,21 @@
           .activityInfoTimetable {
             line-height: 1.4rem;
 
-           li {
-            padding: 5px 0;
-            &::before {
-              content: "•";
-              margin-right: 10px;
-              font-size: 2rem;
-              color: $MainBlue;
+            li {
+              padding: 5px 0;
+              &::before {
+                content: "•";
+                margin-right: 10px;
+                font-size: 2rem;
+                color: $MainBlue;
+              }
             }
-           }
           }
         }
       }
 
       .activityInfolanguagesDiv {
-        @include flex-container(column, $align: flex-end, $gap:20px);
+        @include flex-container(column, $align: flex-end, $gap: 20px);
 
         color: $MidBlue;
         font-weight: 600;
@@ -142,6 +142,77 @@
         height: 48px;
         width: 145px;
         font-weight: 700;
+      }
+    }
+    .reviewsContainer {
+      @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+      background-color: #76939a1d;
+      border-radius: 4px;
+      padding: 20px;
+      .reviewTitle {
+        color: rgba(7, 45, 62, 0.568);
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+      margin: 80px 0 0 0;
+      .reviewList {
+        @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+        .review {
+          @include flex-container(column, $justify: space-between, $gap: 0);
+          border-bottom: 1.5px solid rgb(255, 255, 255);
+          .reviewsData {
+            @include flex-container(
+              row,
+              $justify: space-between,
+              $align: center
+            );
+            width: 100%;
+            padding: 5px;
+            .user {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center,
+                $gap: 0.3125rem
+              );
+              .iconsmile {
+                color: #6e939b;
+                font-size: 1rem;
+              }
+              .nameUser {
+                font-weight: 600;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                color: $MainDarkBlue;
+              }
+            }
+            .rating {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center,
+                $gap: 0.3125rem
+              );
+              .star {
+                font-size: 0.9rem;
+                color: goldenrod;
+              }
+              p {
+                color: $MidBlue;
+                font-size: 0.7rem;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+      .reviewsComment {
+        padding: 5px;
+        p {
+          font-size: 0.7rem;
+          color: $MainDarkBlue;
+        }
       }
     }
   }
@@ -220,7 +291,7 @@
     }
 
     .servicesSection {
-      @include flex-container(row, $align: stretch, $gap: 0%);
+      @include flex-container(column, $align: stretch, $gap: 20%);
 
       background-color: white;
 
@@ -276,9 +347,82 @@
           cursor: pointer;
         }
       }
+      .reviewsContainer {
+        @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+        background-color: #76939a1d;
+        border-radius: 4px;
+        padding: 50px;
+        .reviewTitle {
+          color: rgba(7, 45, 62, 0.568);
+          font-weight: 800;
+          font-size: 1.8rem;
+        }
+        margin: 80px 0 0 0;
+        .reviewList {
+          @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+          .review {
+            @include flex-container(column, $justify: space-between, $gap: 0);
+            border-bottom: 2px solid rgb(255, 255, 255);
+            .reviewsData {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center
+              );
+              width: 100%;
+              padding: 5px;
+              .user {
+                @include flex-container(
+                  row,
+                  $justify: space-between,
+                  $align: center,
+                  $gap: 0.3125rem
+                );
+                .iconsmile {
+                  color: #6e939b;
+                  font-size: 1.7rem;
+                }
+                .nameUser {
+                  font-weight: 600;
+                  font-size: 1.3rem;
+                  text-transform: uppercase;
+                  color: $MainDarkBlue;
+                }
+              }
+              .rating {
+                @include flex-container(
+                  row,
+                  $justify: space-between,
+                  $align: center,
+                  $gap: 0.3125rem
+                );
+                .star {
+                  font-size: 1.6rem;
+                  color: goldenrod;
+                }
+                p {
+                  color: $MidBlue;
+                  font-size: 1.3rem;
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+        .reviewsComment {
+          padding: 5px;
+          p {
+            font-size: 1.1rem;
+            color: $MainDarkBlue;
+          }
+        }
+      }
     }
+    
   }
 }
 
 @media only screen and (min-width: 1290px) {
+
 }
