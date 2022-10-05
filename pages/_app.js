@@ -45,9 +45,9 @@ function MyApp({ Component, pageProps }) {
             </div>
           )
         : ""}
-      {(router.pathname !== "/404") & "/login" ? <NavBar /> : ""}
+      {(router.pathname !== "/404") && "/login" ? <NavBar /> : ""}
       <Component {...pageProps} />
-      {(router.pathname !== "/404") & "/login" ? <Footer /> : ""}
+      {(router.pathname !== "/404") && "/login" ? <Footer /> : ""}
     </Provider>
   );
 }
