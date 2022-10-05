@@ -10,7 +10,7 @@
   background-color: $GreyBackground;
 
   .title {
-    @include flex-container($justify: space-between);  
+    @include flex-container($justify: space-between);
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
@@ -21,11 +21,11 @@
       text-transform: uppercase;
     }
   }
-  
+
   .voucherDiv {
     @include flex-container(row, flex-start, stretch, nowrap, 20px);
     width: auto;
-    overflow-x: scroll; 
+    overflow-x: scroll;
     overflow-y: hidden;
     padding: 10px 20px;
     box-sizing: border-box;
@@ -38,10 +38,10 @@
 
 @media only screen and (min-width: 767px) {
   .miniCarousel {
-    @include flex-container($direction: column, $justify: center );
+    @include flex-container($direction: column, $justify: center);
     gap: 8px;
     padding: 20px 100px 30px 100px;
-    height: 30vh;
+    height: auto;
 
     .title {
       padding: 0;
