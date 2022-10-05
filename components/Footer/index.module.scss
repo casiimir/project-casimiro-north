@@ -63,7 +63,7 @@
     height: 12vh;
     box-sizing: border-box;
 
-    .FooterContainer {
+    .FooterContainer { 
       h2 {
         font-size: 1.8rem;
       }
@@ -72,6 +72,25 @@
         .icon {
           font-size: 1.8rem;
         }
+      }
+    }
+
+    .zoneSelector {
+      @include flex-container($gap: 10px, $justify: flex-start);
+      margin-top: 10px;
+
+      .lang {
+        border: none;
+        outline: none;
+        background-color: white;
+        color: $MainDarkBlue;
+      }
+  
+      .currency {
+        border: none;
+        outline: none;
+        background-color: white;
+        color: $MainDarkBlue;
       }
     }
   }
