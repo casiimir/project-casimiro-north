@@ -158,7 +158,8 @@
 
     .ActivityCard_main {
         width: 100%;
-        height: 180px;
+        aspect-ratio: 2 / 1.2;
+        
         
         .title_cat_page {
             @include flex-container($align: flex-end);
