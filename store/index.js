@@ -47,6 +47,8 @@ function cartDataReducer(state = {}, action) {
       return {...state, Uuid: action.payload}
     case "BUY_ITEMS":
       return { ...state, purchasedList: state.cartList}
+    case "CLEAR_PRODUCT":
+      return { ...state, cartList: []}
     default:
       return state;
   }

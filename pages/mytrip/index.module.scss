@@ -27,7 +27,7 @@
   }
 
   .container {
-    padding: 80px 200px;
+    padding: 40px 40px;
     
       .header {
         
@@ -45,10 +45,19 @@
     @include flex-container();
     .row {
           position: relative;
-          height: 40vh;
+          height: 50vh;
           width: 1px;
-          margin-left: 100px;
+          margin-left: 40px;
           background-color: rgb(255, 255, 255);
+        }
+
+        .trip_list {
+            @include flex-container($direction: column, $gap: 25px);
+            margin-left: -20px;
+            padding: 15px 0;
+            height: 50vh;
+            box-sizing: border-box;
+            overflow-y: auto;
         }
     }
 
@@ -59,5 +68,39 @@
     padding-left: 100px;
     padding-right: 100px;
     min-height: 76vh;
+
+    .container {
+      padding: 80px 200px;
+      
+        .header {
+          
+          min-width: 60vw;
+          font-size: 1.4rem;
+          color: white;
+          filter: opacity(73%);
+        }
+  
+       
+      
+    }    
+    
+    .activity_container {
+      @include flex-container();
+      .row {
+            position: relative;
+            height: 50vh;
+            width: 1px;
+            margin-left: 100px;
+            background-color: rgb(255, 255, 255);
+          }
+  
+          .trip_list {
+              @include flex-container($direction: column, $gap: 40px);
+              margin-left: -20px;
+              height: 50vh;
+              width: 100%;
+          }
+      }
+  
   }
 }

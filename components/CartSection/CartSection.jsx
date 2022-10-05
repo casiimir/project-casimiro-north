@@ -41,6 +41,7 @@ const CartSection = () => {
     console.log(paymentMethod);
     if (paymentMethod && cartData.cartList.length > 0) {
       dispatch({type: "BUY_ITEMS"});
+      dispatch({type: "CLEAR_PRODUCT"});
     } else {
       alert('Select a Pay Method please! or Insert products into the cart')
     }
