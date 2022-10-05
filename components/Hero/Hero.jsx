@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
 import Image from "next/image";
 
-const Hero = ({ type }) => {
+const Hero = ({ type, lang, currency }) => {
   const [rightValue, setRightValue] = useState(0);
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();
@@ -17,10 +17,12 @@ const Hero = ({ type }) => {
 
   const interval = () => {}
 
-  const { cities, activities } = useSelector((state) => state);
+  const { cities, activities, localization } = useSelector((state) => state);
   const router = useRouter();
 
-  const {cityname, uuid} = router.query
+  console.log(localization)
+
+  const {cityname} = router.query
 
   const touchStartX = 0;
   let touchEndX = 0;
@@ -94,8 +96,8 @@ if (!isStoppedInterval) {
   }, [rightValue, isStoppedInterval]);
 
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST");
-  }, [dispatch]);
+    GET(IMPORT_URL.CITIES, "?limit=8", dispatch, "SET_CITY_HERO_LIST", lang, currency);
+  }, [dispatch, lang, currency]);
 
   return (
     <div ref={heroRef} className={styles.hero} style={type === "SingleActivity" ? {height: "45vh"} : {}}>
@@ -209,11 +211,8 @@ if (!isStoppedInterval) {
           </div>
           <div className={styles.maintext_act}>
             {cityname && <h1 onClick={handleOnCityClick}> {cityname.split('&=')[0]} </h1>}
-            <DropdownComp heroRef={heroRef}/>
-            {/* <h2>{cities.cityData.headline}</h2> */}
+            <DropdownComp heroRef={heroRef} lang={lang} currency={currency}/>
           </div>
-
-          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
       {type === "SingleActivity" && (
@@ -238,7 +237,6 @@ if (!isStoppedInterval) {
               {activities.activityData.categories ? activities?.activityData?.categories[0].name : ''}
             </div>
           </div>
-          {/* <button className={styles.explorebtn}> EXPLORE </button> */}
         </>
       )}
       

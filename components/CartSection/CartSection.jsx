@@ -2,7 +2,7 @@ import CartSectionItem from "../CartSectionItem/CartSectionItem";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import styles from "./index.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { GET_CART } from "../../utils/GET/CART_METHOD";
 
@@ -11,16 +11,6 @@ const CartSection = () => {
   const dispatch = useDispatch();
 
   const { cartData } = useSelector((state) => state);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-
-  //   if (typeof window !== 'undefined' && localStorage.getItem('cart_uuid')) {
-  //     dispatch({type: "SET_UUID", payload: localStorage.getItem('cart_uuid')})
-  //     GET_CART(localStorage.getItem('cart_uuid'))
-  //   }
-
-  // }, [])
 
   const paymentmethods = [
     {

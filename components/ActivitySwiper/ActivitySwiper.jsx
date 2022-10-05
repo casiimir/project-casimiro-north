@@ -15,7 +15,7 @@ import { toBase64, shimmer } from "../../utils/shimmer";
 import Placeholder from "../../assets/placeholder.gif";
 
 
-export default function ActivitySwiper({ type }) {
+export default function ActivitySwiper({ type, lang, currency }) {
   const { activities } = useSelector((state) => state);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -34,9 +34,9 @@ export default function ActivitySwiper({ type }) {
         IMPORT_URL.CITIES,
         `${cityname?.split("&=")[1]}/activities?limit=10`,
         dispatch,
-        "SET_TODAY_ACTIVITIES"
+        "SET_TODAY_ACTIVITIES", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
 
   return (

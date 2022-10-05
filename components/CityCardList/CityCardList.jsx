@@ -6,14 +6,14 @@ import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import ScrollBtn from "../ScrollBtn";
 
-const CityCardList = () => {
+const CityCardList = ({lang, currency}) => {
   const dispatch = useDispatch();
   const { cities } = useSelector((state) => state);
   const cityListRef = useRef(null);
 
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST')
-  }, [dispatch]);
+    GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST', lang, currency)
+  }, [dispatch, lang, currency]);
 
   return (
     <div className={styles.CityCardList}>

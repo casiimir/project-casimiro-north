@@ -9,10 +9,14 @@ import { useEffect, useState } from "react";
 import styles from "../styles/app.module.scss";
 import star from "../public/star.png";
 import polari from "../public/polari.png";
+import { useAmp } from "next/amp";
 
 // console.log(Router.router.state.pathname)
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
+  const [lang, setLang] = useState('en-US');
+  const [currency, setCurrency] = useState('EUR');
 
   const [loadVisible, setLoadVisible] = useState(true);
   const [status, setStatus] = useState("");
@@ -25,6 +29,16 @@ function MyApp({ Component, pageProps }) {
       }, 3500);
     }
   }, [loadVisible]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && localStorage.getItem('lang')) {
+      setLang(localStorage.getItem('lang'))
+    }
+
+    if (typeof window !== "undefined" && localStorage.getItem('currency')) {
+      setCurrency(localStorage.getItem('currency'))
+    }
+  })
 
   return (
     <Provider store={store}>
@@ -45,9 +59,14 @@ function MyApp({ Component, pageProps }) {
             </div>
           )
         : ""}
-      {(router.pathname !== "/404") && "/login" ? <NavBar /> : ""}
-      <Component {...pageProps} />
-      {(router.pathname !== "/404") && "/login" ? <Footer /> : ""}
+      {(router.pathname !== "/404") && "/login" ? <NavBar lang={lang} currency={currency}/> : ""}
+      <Component {...pageProps} 
+        lang={lang}
+        setLang={setLang}
+        currency={currency}
+        setCurrency={setCurrency}
+      />
+      {(router.pathname !== "/404") && "/login" ? <Footer lang={lang} currency={currency} setLang={setLang} setCurrency={setCurrency}/> : ""}
     </Provider>
   );
 }

@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
