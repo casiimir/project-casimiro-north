@@ -123,7 +123,7 @@ export default function ActivityPage() {
           <ul className={styles.reviewList}>
             
               {activities.reviewsData.map((review, index) =>  
-              <li className={styles.review}>
+              <li key={index} className={styles.review}>
               <div className={styles.reviewsData}>
                 <div className={styles.user}>
                   <i>

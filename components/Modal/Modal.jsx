@@ -49,7 +49,7 @@ const Modal = () => {
         <div className={`${styles.modal} ${styles[status]}`}>
           <h2 className={styles.mainText}>{router.pathname === "/cart" ? "Thanks for purchasing!" : "ADDED TO CART!"}</h2>
           <div className={styles.cart_icon}>
-          {router.pathname === "/cart" ? <p className={styles.purchase}>"Check your Trip List!"</p> : <ModalIcon className={styles.carrello}/>}
+          {router.pathname === "/cart" ? <p className={styles.purchase}>Check your Trip List!</p> : <ModalIcon className={styles.carrello}/>}
           </div>
         </div>
       </div>
