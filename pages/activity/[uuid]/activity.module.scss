@@ -15,7 +15,8 @@
       .activityDescription {
         color: rgba(2, 25, 35, 1);
         font-weight: 500;
-        line-height: 1.5rem;
+        line-height: 1.6rem;
+        letter-spacing: 1.8px;
         text-align: justify;
       }
 
@@ -44,11 +45,18 @@
         width: 60%;
 
         .activityInfoText {
-          @include flex-container(column, $gap: 0.5rem);
+          @include flex-container(row, $gap: 0.5rem);
 
-          h2 {
-            color: $MidBlue;
-            font-weight: 600;
+          .icondiv {
+            min-width: 2.1rem;
+
+            .iconTime {
+              font-size: 2rem;
+            }
+
+            .iconLocation {
+              font-size: 1.8rem;
+            }
           }
 
           .activityInfoTimetable {
@@ -218,8 +226,6 @@
   }
 }
 
-//PRIMA MEDIA QUERYYYYYYYY
-
 @media only screen and (min-width: 767px) {
   .Activity {
     .activityMainSection {
@@ -234,8 +240,9 @@
         .activityDescription {
           flex-grow: 1;
           font-weight: 500;
-          line-height: 1.5rem;
+          line-height: 1.8rem;
           width: 50%;
+          letter-spacing: 2px;
         }
 
         .nameless {
@@ -261,14 +268,8 @@
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(column, $gap: 0.5rem);
+            @include flex-container(row, $gap: 0.5rem, $align: center);
             width: 50%;
-
-            h2 {
-              color: $MidBlue;
-              font-weight: 600;
-              text-align: start;
-            }
 
             .activityInfoTimetable {
               line-height: 1.4rem;
@@ -277,7 +278,7 @@
         }
 
         .activityInfolanguagesDiv {
-          @include flex-container(column, $align: center, $gap: 10px);
+          @include flex-container(column, $align: flex-end, $gap: 10px);
 
           color: $MidBlue;
           font-weight: 600;
@@ -292,9 +293,7 @@
 
     .servicesSection {
       @include flex-container(column, $align: stretch, $gap: 20%);
-
       background-color: white;
-
       padding: 0 80px 80px;
 
       .servicesListDiv {
@@ -324,7 +323,7 @@
         @include flex-container(
           column,
           $justify: flex-end,
-          $align: center,
+          $align: flex-end,
           $gap: 1.9rem
         );
 

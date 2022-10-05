@@ -1,5 +1,8 @@
 import styles from "./activity.module.scss";
 import { useRouter } from "next/router";
+import { BiMapAlt } from "react-icons/bi";
+import { FiMapPin } from "react-icons/fi";
+import { AiOutlineFieldTime } from "react-icons/ai";
 import Hero from "../../../components/Hero/Hero";
 import Carousel from "../../../components/Carousel";
 import { RiEmotionFill, RiEmotionHappyFill, RiEmotionNormalFill, RiEmotionUnhappyFill} from 'react-icons/ri';
@@ -41,23 +44,27 @@ export default function ActivityPage() {
         <div className={styles.activityInfo}>
           <div className={styles.activityInfoTextDiv}>
             <div className={styles.activityInfoText}>
-              <h2>WHEN</h2>
-              <div
+              <div className={styles.icondiv}>
+                <AiOutlineFieldTime className={styles.iconTime} />
+              </div>
+              {activities.activityData.when_text ? <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.when_text,
                 }}
                 className={styles.activityInfoTimetable}
-              />
+              /> : <p className={styles.activityInfoTimetable}>Not specified!</p> }
             </div>
 
             <div className={styles.activityInfoText}>
-              <h2>WHERE</h2>
-              <div
+              <div className={styles.icondiv}>
+                <FiMapPin className={styles.iconLocation} />
+              </div>
+              {activities.activityData.where_text ? <div
                 dangerouslySetInnerHTML={{
                   __html: activities?.activityData?.where_text,
                 }}
                 className={styles.activityInfoTimetable}
-              />
+              /> : <p className={styles.activityInfoTimetable}>Not specified!</p>}
             </div>
           </div>
           <div className={styles.activityInfolanguagesDiv}>

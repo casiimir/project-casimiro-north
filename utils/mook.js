@@ -38,5 +38,10 @@ export const languages = [
         code: "us",
         name: "Americano",
         icon: "https://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg"
+    },
+    {
+        code: "cn",
+        name: "Cinese",
+        icon: "https://purecatamphetamine.github.io/country-flag-icons/3x2/CN.svg",
     }
 ]

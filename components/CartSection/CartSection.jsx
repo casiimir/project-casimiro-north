@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const CartSection = () => {
   const [paymentMethod, setPaymentMethod] = useState();
+  const dispatch = useDispatch();
 
   const { cartData } = useSelector((state) => state);
   // const dispatch = useDispatch();
@@ -38,6 +39,13 @@ const CartSection = () => {
 
   const handleOnClickPay = () => {
     console.log(paymentMethod);
+    if (paymentMethod && cartData.cartList.length > 0) {
+      dispatch({type: "BUY_ITEMS"});
+      dispatch({type: "CLEAR_PRODUCT"});
+      dispatch({type: "SET_TRUE"});
+    } else {
+      alert('Select a Pay Method please! or Insert products into the cart')
+    }
   };
 
   return (
@@ -58,7 +66,7 @@ const CartSection = () => {
               (a, b) =>
                 a + Number(b.retail_price.formatted_value.split(" ")[1]),
               0
-            )}
+            ).toFixed(2)}
           </h3>
         </div>
       </div>
