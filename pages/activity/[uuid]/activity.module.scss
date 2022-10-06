@@ -167,6 +167,7 @@
         .Heart {
           font-size: 1.2rem;
           transition: all 0.55s;
+          cursor: pointer;
 
           @keyframes example {
             from {
@@ -203,6 +204,7 @@
 
           .iconsmile {
             opacity: 0.4;
+            cursor: pointer;
 
             &.active {
               opacity: 1;
