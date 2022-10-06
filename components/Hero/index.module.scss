@@ -3,14 +3,12 @@
 
 .hero {
   position: relative;
-  height:70vh;
+  height: 70vh;
   width: 100%;
   overflow: hidden;
 
-  
-
   .maintexthero {
-    @include flex-container($direction:column, $gap:10px);
+    @include flex-container($direction: column, $gap: 10px);
     z-index: 3;
     position: absolute;
     bottom: 10%;
@@ -28,7 +26,7 @@
       font-size: 3rem;
       flex: 0 0 auto;
     }
-    
+
     h2 {
       font-size: 1.5rem;
       flex: 0 0 auto;
@@ -42,7 +40,7 @@
       right: 1%;
       border-radius: $MainBorderRadius;
       overflow: hidden;
-      color: $MainButtonBlue ;
+      color: $MainButtonBlue;
       width: 80px;
       height: 40px;
       font-weight: 600;
@@ -56,7 +54,6 @@
       &:hover {
         background-color: #f7f7f7;
       }
-      
 
       &:active {
         transform: scale(0.9);
@@ -65,7 +62,7 @@
   }
 
   .maintext_act {
-    @include flex-container($direction:column, $gap:5px);
+    @include flex-container($direction: column, $gap: 5px);
     position: absolute;
     z-index: 3;
     top: 15vh;
@@ -77,7 +74,12 @@
   }
 
   .single_activity_container_text {
-    @include flex-container($justify: space-between, $align: center, $gap: 20px);
+    @include flex-container(
+      column,
+      $justify: space-between,
+      $align: flex-start,
+      $gap: 10px
+    );
     position: absolute;
     z-index: 3;
     bottom: 4vh;
@@ -85,20 +87,17 @@
     box-sizing: border-box;
 
     .maintext_sng_act {
-
-      @include flex-container($direction:column, $gap:10px);
-      
+      @include flex-container($direction: column, $gap: 10px);
       font-weight: 800;
       font-size: 1rem;
-      width: 54%;
+      width: 59%;
       text-transform: capitalize;
       left: 0;
       color: rgba(255, 255, 255, 0.951);
       transform: scale(1);
       text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.315);
-
       h1 {
-        padding-left: 40px;
+        padding-left: 20px;
         text-align: right;
       }
 
@@ -109,23 +108,59 @@
       }
     }
 
+    .reviewsContainer {
+      @include flex-container($justify: space-between, $gap: 16%);
+      margin-top: 5px;
+      .category_marker {
+        text-align: center;
+        font-size: 0.7rem;
+        flex: 0 0 auto;
+        margin-left: 10px;
+      }
+      .previewReviewsContainer {
+        @include flex-container($justify: flex-end);
+        margin-right: 6%;
+        color: white;
+      
+        .rating {
+          @include flex-container($align:flex-end);
+          margin-top: 5px;  width: 100px;
+          h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            color: white;
+            font-size: 0.8rem;
+            margin: 0;
+          }
+          .star {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #29788a;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
     .category_marker {
-      @include flex-container($align:center, $justify:center);
+      @include flex-container($align: center, $justify: flex-end);
       @include border($radius: $MainBorderRadius);
-      background-color: rgb(230, 230, 230);
+      background-color: rgba(230, 230, 230, 0.764);
       color: #29788a;
       font-weight: 700;
       text-transform: uppercase;
       font-size: 0.5rem;
       flex: 0 0 auto;
       height: 20px;
-      padding: 0 12px;
-      margin-right: 30px;  
+      width: 200px;
+      padding: 2px 5px;
     }
   }
 
   .text_container_city {
-    @include flex-container($direction:column);
+    @include flex-container($direction: column);
     z-index: 3;
     position: absolute;
     bottom: 10%;
@@ -135,7 +170,6 @@
     padding: 20px 0;
     color: white;
     text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
-    
 
     h1 {
       font-weight: 800;
@@ -170,7 +204,6 @@
     bottom: 2%;
     left: 0;
     width: 100%;
-    
 
     .button_page {
       width: 20px;
@@ -197,47 +230,49 @@
       display: none;
     }
 
-    .img_container{
+    .img_container {
       position: relative;
       width: 100vw;
       height: 100%;
       right: 0vw;
       transition: right 0.3s ease-in-out;
-      
 
-      .overlay_gradient { 
+      .overlay_gradient {
         position: absolute;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100%;
         z-index: 1;
-        background: rgb(5,40,55);
-        background: linear-gradient(180deg, rgba(5,40,55,0.8519782913165266) 0%, rgba(9,9,121,0) 100%);
+        background: rgb(5, 40, 55);
+        background: linear-gradient(
+          180deg,
+          rgba(5, 40, 55, 0.8519782913165266) 0%,
+          rgba(9, 9, 121, 0) 100%
+        );
       }
 
-    .background {
-      flex: 0 0 auto;
-      width: 100vw;
-      height:100%;
-      
-      object-fit: cover;
-      filter: blur(1px);
-    }
+      .background {
+        flex: 0 0 auto;
+        width: 100vw;
+        height: 100%;
 
-    .background_city {
-      flex: 0 0 auto;
-      width: 100%;
-      height:100%;
-      position: fixed;
-          z-index: -1;
-      
-      object-fit: cover;
-      filter: blur(0.6px);
+        object-fit: cover;
+        filter: blur(1px);
+      }
 
+      .background_city {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: -1;
+
+        object-fit: cover;
+        filter: blur(0.6px);
+      }
     }
-    }
-}      
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -249,7 +284,7 @@
     object-fit: contain;
     height: 80vh;
 
-    .background { 
+    .background {
       position: fixed;
       z-index: -1;
     }
@@ -259,7 +294,7 @@
       position: absolute;
       bottom: 8%;
       left: 0;
-      padding: 50px;
+      padding: 20px;
       color: white;
       text-shadow: 0px 2px 2px rgba(11, 47, 63, 0.69);
 
@@ -272,8 +307,6 @@
       }
     }
 
-
-
     .maintext_act {
       top: 12vh;
       left: 45px;
@@ -285,19 +318,50 @@
       }
     }
 
+    @include flex-container(row, $justify: space-between);
     .single_activity_container_text {
-      .maintext_sng_act {
-        width: 50vw;
-      }    
-      .category_marker {
-        @include flex-container($align: center);
-        padding: 5px 10px;
-        font-size: 0.7rem;
-      }
-  }
+      @include flex-container(column, $gap: 10%);
 
+      .maintext_sng_act {
+        width: 43vw;
+      }
+      .reviewsContainer {
+        @include flex-container($justify: space-between);
+        margin-top: 15px;
+        .category_marker {
+          text-align: center;
+          font-size: 0.7rem;
+          flex: 0 0 auto;
+          width: 200px;
+          margin-left: 27%;
+        }
+        .previewReviewsContainer {
+          @include flex-container($justify: flex-end);
+          margin-right: 6%;
+          color: white;
+
+          cursor: pointer;
+          .rating {
+            @include flex-container($justify: space-between);
+            h2 {
+              font-weight: 700;
+              text-transform: uppercase;
+              font-size: 1rem;
+              margin: 0;
+            }
+            .star {
+              font-size: 1.1rem;
+              margin: 0;
+              color: #29788a;
+            }
+            p { font-size: 1rem;}
+          }
+        }
+      }
+    }
+    
     .text_container_city {
-      @include flex-container($direction:column);
+      @include flex-container($direction: column);
       z-index: 3;
       position: absolute;
       bottom: 10%;
@@ -351,9 +415,8 @@
     }
 
     .slider_container {
-  
       .swiper_button_container {
-        @include flex-container($align: center, $justify: space-between); 
+        @include flex-container($align: center, $justify: space-between);
         position: absolute;
         color: white;
         top: 0;
@@ -381,7 +444,7 @@
         }
       }
 
-      .img_container{
+      .img_container {
         flex: 0 0 auto;
 
         .background_city {
@@ -389,7 +452,7 @@
           z-index: -1;
         }
       }
-  }
+    }
 
     .explorebtn {
       z-index: 4;
@@ -403,14 +466,13 @@
       height: 60px;
       font-weight: 600;
       font-size: 1.1rem;
-      background-color: white ;
+      background-color: white;
       border: none;
 
       &:hover {
         background-color: #f3f3f3;
         transform: scale(1.05);
       }
+    }
   }
 }
-}
-

@@ -31,18 +31,19 @@
 
   .zoneSelector {
     @include flex-container($gap: 10px);
+
     .lang {
       border: none;
       outline: none;
-      background-color: white;
-      color: $MainDarkBlue;
+      background-color:#2247579f;
+      color: white;
     }
 
     .currency {
       border: none;
       outline: none;
-      background-color: white;
-      color: $MainDarkBlue;
+      background-color:#2247579f;
+      color: white;
     }
   }
 
@@ -60,7 +61,7 @@
 @media only screen and (min-width: 768px) {
   .Footer {
     padding: 40px;
-    height: 12vh;
+    height: 14vh;
     box-sizing: border-box;
 
     .FooterContainer { 
@@ -77,20 +78,18 @@
 
     .zoneSelector {
       @include flex-container($gap: 10px, $justify: flex-start);
-      margin-top: 10px;
-
       .lang {
         border: none;
         outline: none;
-        background-color: white;
-        color: $MainDarkBlue;
+        background-color:#2247579f;
+        color:white;
       }
   
       .currency {
         border: none;
         outline: none;
-        background-color: white;
-        color: $MainDarkBlue;
+        background-color:#2247579f;
+        color: white;
       }
     }
   }
