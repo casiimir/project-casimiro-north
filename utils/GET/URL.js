@@ -8,5 +8,8 @@ export const IMPORT_URL = {
     },
     get LISTS () {
         return this.BASE_URL + "lists/"
+    },
+    get SEARCH () {
+        return this.BASE_URL + "autocomplete"
     }
 }

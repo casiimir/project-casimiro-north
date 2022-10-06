@@ -79,12 +79,12 @@ export default function NavBar ({lang, currency}) {
     }, [navBarStatus.isActive])
 
     useEffect(() => {
-        if (searchInput.length > 3) {
-            GET(IMPORT_URL.ACTIVITIES, `?text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS", lang, currency)
+        if (searchInput.length >= 3) {
+            GET(IMPORT_URL.SEARCH, `?activity_limit=10&text=${searchInput}`, dispatch, "SET_SEARCH_RESULTS", lang, currency)
             } else {
                 dispatch({type: "CLEAN_SEARCH_RESULTS", lang, currency})
             }
-    }, [searchInput])
+    }, [searchInput, lang, currency])
 
     useEffect(()=> {
         if (typeof window !== 'undefined') {
@@ -125,7 +125,7 @@ export default function NavBar ({lang, currency}) {
                     <input ref={searchRef} type='text' value={searchInput} onChange={(e) => handleOnChangeSearchInput(e)} className={`${styles.search_input} ${navBarStatus.isInputActive ? styles.active : ''}`} placeholder="Search"/>
                     <div className={`${styles.results} ${searchInput ? styles.active : ''}`} >
                         <ul>
-                            {data?.activities?.searchResults?.data?.map((item) => <Link key={item.uuid} href={`/../activity/${item.uuid}`}><li  onClick={handleResultLinkClick}>{item.title}</li></Link>)}
+                            {data?.activities?.searchResults[0]?.items?.map((item) => <Link key={item.uuid} href={`/../activity/${item.id}`}><li  onClick={handleResultLinkClick}>{item.title}</li></Link>)}
                         </ul>
                     </div>
                 </div>

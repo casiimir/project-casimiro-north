@@ -16,15 +16,13 @@ export default function NavigatorLink() {
         router.push(`/city/${activities.activityData.city.name}&=${activities.activityData.city.id}`);
     }
 
-    console.log(activities.activityData.city.name)
-
     return (
         <div className={styles.NavigatorLink}>
             <span onClick={handleOnHomeClick}>Home</span>
             <span>{">"}</span>
-            <span onClick={handleOnCityClick}>{activities.activityData.city.name}</span>
+            <span onClick={handleOnCityClick}>{activities?.activityData?.city?.name}</span>
             <span>{">"}</span>
-            <span onClick={handleOnCityClick}>{activities.activityData.title.split(" ").splice(0, 3).join(" ")}</span>
+            <span onClick={handleOnCityClick}>{activities?.activityData?.title?.split(" ")?.splice(0, 3)?.join(" ")}</span>
         </div>
     );
 }
