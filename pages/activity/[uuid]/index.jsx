@@ -7,7 +7,7 @@ import Hero from "../../../components/Hero/Hero";
 import Carousel from "../../../components/Carousel";
 import { RiEmotionFill, RiEmotionHappyFill, RiEmotionNormalFill, RiEmotionUnhappyFill} from 'react-icons/ri';
 import { MdOutlineStar } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,7 @@ export default function ActivityPage({lang, currency}) {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
   const [smileFilterValue, setSmileFilterValue] = useState(8);
-
+ const reviewsList = useRef(null)
   const handleOnCartClick = () => {
     dispatch({ type: "SET_TRUE" });
     dispatch({ type: "ADD_PRODUCT", payload: activities.activityData });
@@ -122,7 +122,7 @@ export default function ActivityPage({lang, currency}) {
             BUY NOW
           </button>
         </div>
-        <div className={styles.reviewsContainer}>
+        <div ref={reviewsList} className={styles.reviewsContainer}>
           <div className={styles.reviewTitle}> 
             <h2>REVIEWS</h2>
             <div className={styles.filter_by_rating}>
