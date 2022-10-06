@@ -122,7 +122,6 @@ export default function ActivityPage({ lang, currency, reviewRef }) {
             {activities?.activityData?.languages?.length > 0 && (
               <div>
                 {
-                  // activities?.activityData?.languages?.filter((source)=> languages.find((flag) => flag.code === source.code))?.map((language)=> <span>{language.icon}</span>)
                   languages
                     .filter((flag) =>
                       activities?.activityData?.languages?.find(

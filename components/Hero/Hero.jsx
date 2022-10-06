@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
 import Image from "next/image";
 
-const Hero = ({ type, lang, currency, reviewsList, reviewRef }) => {
+const Hero = ({ type, lang, currency, reviewRef }) => {
   const [rightValue, setRightValue] = useState(0);
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();

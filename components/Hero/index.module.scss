@@ -111,11 +111,13 @@
     .reviewsContainer {
       @include flex-container($justify: space-between, $gap: 16%);
       margin-top: 5px;
+      width: 100%;
       .category_marker {
         text-align: center;
         font-size: 0.7rem;
         flex: 0 0 auto;
         margin-left: 10px;
+        width: max-content;
       }
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
@@ -123,7 +125,7 @@
         color: white;
       
         .rating {
-          @include flex-container($align:flex-end);
+          @include flex-container($justify:flex-end, $align: center, $gap: 5px);
           margin-top: 5px;  width: 100px;
           h2 {
             font-weight: 700;
@@ -135,7 +137,8 @@
           .star {
             font-size: 0.9rem;
             margin: 0;
-            color: #29788a;
+            color: goldenrod;
+            
           }
           p {
             font-size: 0.8rem;
