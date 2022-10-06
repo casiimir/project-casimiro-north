@@ -15,8 +15,7 @@
       .activityDescription {
         color: rgba(2, 25, 35, 1);
         font-weight: 500;
-        line-height: 1.6rem;
-        letter-spacing: 1.8px;
+        line-height: 1.2rem;
         text-align: justify;
       }
 
@@ -92,7 +91,7 @@
   }
 
   .servicesSection {
-    @include flex-container(column, $align: center, $gap: 3rem);
+    @include flex-container(column, $align: center);
 
     background-color: white;
     box-sizing: border-box;
@@ -151,6 +150,41 @@
         font-weight: 700;
       }
     }
+
+    .favouritesBtnDiv {
+      @include flex-container($align: center);
+      position: relative;
+      right: -7rem;
+      bottom: 2.5rem;
+      width: max-content;
+
+      .favouritesBtn {
+        background: none;
+        border: none;
+        color: #536f75;
+        font-size: 1.6rem;
+
+        .Heart {
+          font-size: 1.2rem;
+          transition: all 0.55s;
+
+          @keyframes example {
+            from {
+              transform: scale(2);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+
+          &.active {
+            animation-name: example;
+            animation-duration: 0.55s;
+          }
+        }
+      }
+    }
+
     .reviewsContainer {
       @include flex-container(column, $justify: space-between, $gap: 1.5rem);
       background-color: #76939a1d;
@@ -395,6 +429,11 @@
           cursor: pointer;
         }
       }
+
+      .favouritesBtnDiv {
+        left: 102.5%;
+      }
+
       .reviewsContainer {
         @include flex-container(column, $justify: space-between, $gap: 1.5rem);
         background-color: #76939a1d;
