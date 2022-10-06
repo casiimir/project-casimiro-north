@@ -339,6 +339,7 @@
           margin-right: 6%;
           color: white;
           width: 40%;
+          cursor: pointer;
           .rating {
             @include flex-container($justify: space-between);
             h2 {
