@@ -4,7 +4,7 @@
 .Activity {
   .activityMainSection {
     @include flex-container(column, $gap: 2.5rem);
-
+    position: relative;
     background-color: white;
     box-sizing: border-box;
     padding: 40px;

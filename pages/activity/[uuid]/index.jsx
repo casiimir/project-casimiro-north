@@ -12,6 +12,7 @@ import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 import { languages } from "../../../utils/mook";
+import NavigatorLink from "../../../components/NavigatorLink/NavigatorLink";
 
 export default function ActivityPage({lang, currency}) {
   const router = useRouter();
@@ -40,6 +41,7 @@ export default function ActivityPage({lang, currency}) {
     <div className={styles.Activity}>
       <Hero type="SingleActivity" lang={lang} currency={currency} />
       <div className={styles.activityMainSection}>
+        <NavigatorLink />
         <div className={styles.activityDescriptionDiv}>
           <p className={styles.activityDescription}>
             {activities?.activityData?.description}

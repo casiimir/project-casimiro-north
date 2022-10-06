@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.NavigatorLink {
+    color: $MainDarkBlue;
+    position: absolute;
+    top: 12px;
+    @include flex-container($gap: 10px);
+
+    span {
+        font-weight: 600;
+        transition: all 0.25s;
+        cursor: pointer;
+
+        &:nth-child(1):hover {
+            border-bottom: 1px solid $MainDarkBlue;
+            transform: scale(1.04);
+        }
+
+        &:nth-child(3):hover {
+            border-bottom: 1px solid $MainDarkBlue;
+            transform: scale(1.04);
+        }
+    }
+}
