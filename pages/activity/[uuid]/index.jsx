@@ -21,13 +21,13 @@ import { languages } from "../../../utils/mook";
 import NavigatorLink from "../../../components/NavigatorLink/NavigatorLink";
 import MapComponent from "../../../components/Map";
 
-export default function ActivityPage({ lang, currency }) {
+export default function ActivityPage({ lang, currency, reviewRef }) {
   const router = useRouter();
   const { uuid } = router.query;
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
   const [smileFilterValue, setSmileFilterValue] = useState(8);
- const reviewsList = useRef(null)
+
   const handleOnCartClick = () => {
     dispatch({ type: "SET_TRUE" });
     dispatch({ type: "ADD_PRODUCT", payload: activities.activityData });
@@ -68,7 +68,7 @@ export default function ActivityPage({ lang, currency }) {
 
   return (
     <div className={styles.Activity}>
-      <Hero type="SingleActivity" lang={lang} currency={currency} />
+      <Hero type="SingleActivity" lang={lang} currency={currency} reviewRef={reviewRef} />
       <div className={styles.activityMainSection}>
         <NavigatorLink />
         <div className={styles.activityDescriptionDiv}>
@@ -179,7 +179,7 @@ export default function ActivityPage({ lang, currency }) {
           </button>
         </div>
 
-        <div className={styles.reviewsContainer}>
+        <div ref={reviewRef} className={styles.reviewsContainer}>
           <div className={styles.reviewTitle}>
             <h2>REVIEWS</h2>
             <div className={styles.filter_by_rating}>

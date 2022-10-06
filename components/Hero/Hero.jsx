@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import DropdownComp from "../Dropdown/DropdownComp";
 import Image from "next/image";
 
-const Hero = ({ type, lang, currency, reviewsList }) => {
+const Hero = ({ type, lang, currency, reviewsList, reviewRef }) => {
   const [rightValue, setRightValue] = useState(0);
   const [isStoppedInterval, setIsStoppedInterval] = useState(false);
   const dispatch = useDispatch();
@@ -92,6 +92,16 @@ const Hero = ({ type, lang, currency, reviewsList }) => {
     // router.push(`/../city/${cityname.split('&=')[0]}`)
     router.back();
   };
+
+  const handleReviewClick = () => {
+    if (typeof window !== "undefined") {
+    window.scrollTo({
+      top: reviewRef.current.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    })
+    }
+  }
 
   useEffect(() => {
     if (type === "Home") {
@@ -303,7 +313,7 @@ const Hero = ({ type, lang, currency, reviewsList }) => {
                 // onClick={scrollToReviews}
                 className={styles.previewReviewsContainer}
               >
-                <div className={styles.rating}>
+                <div onClick={handleReviewClick} className={styles.rating}>
                   {" "}
                   <i>
                     <MdOutlineStar className={styles.star} />

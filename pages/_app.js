@@ -5,7 +5,7 @@ import store from "../store";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles/app.module.scss";
 import star from "../public/star.png";
 import polari from "../public/polari.png";
@@ -20,6 +20,8 @@ function MyApp({ Component, pageProps }) {
 
   const [loadVisible, setLoadVisible] = useState(true);
   const [status, setStatus] = useState("");
+
+  const reviewRef = useRef(null)
 
   useEffect(() => {
     setStatus("disactive");
@@ -65,6 +67,7 @@ function MyApp({ Component, pageProps }) {
         setLang={setLang}
         currency={currency}
         setCurrency={setCurrency}
+        reviewRef={reviewRef}
       />
       {(router.pathname !== "/404") && router.pathname !== "/login" ? <Footer lang={lang} currency={currency} setLang={setLang} setCurrency={setCurrency}/> : ""}
     </Provider>

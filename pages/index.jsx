@@ -9,7 +9,7 @@ import ModalLogin from "../components/ModalLogin";
 export default function Home({ lang, currency }) {
   return (
     <div className={styles.Home}>
-      <ModalLogin />
+      {/* <ModalLogin /> */}
       <div className={styles.section}>
         <Hero type="Home" lang={lang} currency={currency} />
         <MiniCarousel lang={lang} currency={currency} />
