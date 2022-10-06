@@ -109,23 +109,22 @@
     }
 
     .reviewsContainer {
-      @include flex-container($justify: space-between, $gap: 26%);
+      @include flex-container($justify: space-between, $gap: 16%);
       margin-top: 5px;
       .category_marker {
         text-align: center;
         font-size: 0.7rem;
         flex: 0 0 auto;
-        width: 200px;
         margin-left: 10px;
       }
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
         margin-right: 6%;
         color: white;
-        width: 40%;
+      
         .rating {
-          @include flex-container($justify: space-between);
-          margin-top: 5px;
+          @include flex-container($align:flex-end);
+          margin-top: 5px;  width: 100px;
           h2 {
             font-weight: 700;
             text-transform: uppercase;
@@ -340,7 +339,7 @@
           @include flex-container($justify: flex-end);
           margin-right: 6%;
           color: white;
-          width: 40%;
+
           cursor: pointer;
           .rating {
             @include flex-container($justify: space-between);
