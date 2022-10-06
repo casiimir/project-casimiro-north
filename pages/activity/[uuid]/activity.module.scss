@@ -140,35 +140,25 @@
         }
       }
 
-      .cartBtn {
-        @include flex-container($justify: center, $align: center);
-        border: none;
-        border-radius: $MainBorderRadius;
-        color: white;
-        background-color: #6e939b;
-        height: 48px;
-        width: 145px;
-        font-weight: 700;
-      }
-    }
+      .buttons_container{
+        @include flex-container(row, $align: center, $gap: 20px);
 
-    .favouritesBtnDiv {
-      @include flex-container($align: center);
-      position: relative;
-      right: -7rem;
-      bottom: 2.5rem;
-      width: max-content;
-
-      .favouritesBtn {
-        background: none;
-        border: none;
-        color: #536f75;
-        font-size: 1.6rem;
+        .cartBtn {
+          @include flex-container($justify: center, $align: center);
+          border: none;
+          border-radius: $MainBorderRadius;
+          color: white;
+          background-color: #6e939b;
+          height: 48px;
+          width: 145px;
+          font-weight: 700;
+        }
 
         .Heart {
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           transition: all 0.55s;
           cursor: pointer;
+          color: #6e939b;
 
           @keyframes example {
             from {
@@ -184,6 +174,12 @@
             animation-duration: 0.55s;
           }
         }
+    }
+  
+
+      
+
+        
       }
     }
 
@@ -306,7 +302,7 @@
       }
     }
   }
-}
+
 
 @media only screen and (min-width: 767px) {
   .Activity {
@@ -423,6 +419,8 @@
           }
         }
 
+        .buttons_container{
+          flex-direction: row-reverse;
         .cartBtn {
           @include flex-container($justify: center, $align: center);
 
@@ -432,10 +430,8 @@
           cursor: pointer;
         }
       }
+    }
 
-      .favouritesBtnDiv {
-        left: 102.5%;
-      }
 
       .reviewsContainer {
         @include flex-container(column, $justify: space-between, $gap: 1.5rem);
@@ -526,7 +522,4 @@
       }
     }
   }
-}
-
-@media only screen and (min-width: 1290px) {
 }
