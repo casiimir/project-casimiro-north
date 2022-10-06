@@ -1,0 +1,118 @@
+@import "../../styles/_variables.scss";
+@import "../../styles/mixins.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+
+  .ModalLogin {
+    @include flex-container(column, $align: center, $justify: center);
+
+    height: 100vh;
+    background: rgb(4, 43, 52);
+    background: linear-gradient(
+      180deg,
+      rgba(4, 43, 52, 1) 0%,
+      rgba(13, 100, 119, 1) 100%
+    );
+
+    .logoSection {
+      .logoDiv {
+        @include flex-container($align: flex-start, $justify: center);
+
+        .logo {
+          width: 200px;
+          margin-top: 10%;
+        }
+      }
+    }
+
+    .loginSection {
+      height: 70%;
+      width: 80%;
+      border-top: 1px solid rgba(255, 255, 255, 0.516);
+
+      .iconDiv {
+        @include flex-container($align: center, $justify: center, $gap: 0.7rem);
+
+        padding-top: 2.5rem;
+        color: rgba(255, 255, 255, 0.612);
+
+        h2 {
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+        .icon {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+      }
+
+      .login_icons {
+        height: 20%;
+        @include flex-container($align: center, $justify: center);
+
+        .icons {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .overlay {
+    .ModalLogin {
+      @include flex-container($align: center, $justify: flex-start);
+
+      .logoSection {
+        width: 50%;
+
+        .logoDiv {
+          @include flex-container($align: center, $justify: center);
+
+          .logo {
+            margin: 0;
+            // opacity: 0;
+            width: 400px;
+          }
+        }
+      }
+
+      .loginSection {
+        height: 70%;
+        width: 50%;
+        border-left: 1px solid rgba(255, 255, 255, 0.516);
+        border-top: 0;
+
+        .iconDiv {
+          @include flex-container(
+            $align: center,
+            $justify: flex-start,
+            $gap: 0.7rem
+          );
+
+          padding-top: 2.5rem;
+          color: rgba(255, 255, 255, 0.612);
+
+          h2 {
+            text-align: start;
+            font-size: 1.5rem;
+
+            padding: 0 0 0 2.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.612);
+          }
+        }
+      }
+    }
+  }
+}
