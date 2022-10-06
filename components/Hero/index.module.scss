@@ -113,6 +113,8 @@
       @include flex-container($justify: space-between, $gap: 16%);
       margin-top: 5px;
       width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
 
       .category_marker {
         text-align: center;
@@ -122,7 +124,6 @@
       }
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
-        margin-right: 6%;
         color: white;
       
         .rating {
@@ -286,7 +287,7 @@
     top: 0;
     right: 0;
     object-fit: contain;
-    height: 80vh;
+    height: 100vh;
 
     .background {
       position: fixed;
@@ -296,7 +297,7 @@
     .maintexthero {
       z-index: 3;
       position: absolute;
-      bottom: 8%;
+      bottom: 260px;
       left: 0;
       padding: 20px;
       color: white;
@@ -340,9 +341,9 @@
           flex: 0 0 auto;
           width: max-content;
         }
+        
         .previewReviewsContainer {
           @include flex-container($justify: flex-end);
-          margin-right: 6%;
           color: white;
 
           cursor: pointer;
@@ -406,7 +407,7 @@
       @include flex-container(row, center, stretch, nowrap, 5px);
       z-index: 1;
       position: absolute;
-      bottom: 3%;
+      bottom: 240px;
       left: 0;
       width: 100%;
 

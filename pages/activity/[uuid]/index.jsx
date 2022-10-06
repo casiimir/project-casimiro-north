@@ -160,13 +160,10 @@ export default function ActivityPage({ lang, currency, reviewRef }) {
               {activities?.activityData?.retail_price?.formatted_value}
             </span>
           </div>
-
-          <button onClick={handleOnCartClick} className={styles.cartBtn}>
-            BUY NOW
-          </button>
-        </div>
-        <div className={styles.favouritesBtnDiv}>
-          <button className={styles.favouritesBtn}>
+          <div className={styles.buttons_container}>
+            <button onClick={handleOnCartClick} className={styles.cartBtn}>
+              BUY NOW
+            </button>
             {!activities.favorites.find((item) => item.uuid === uuid) ? (
               <FaRegHeart onClick={handleHeartClick} className={styles.Heart} />
             ) : (
@@ -175,9 +172,8 @@ export default function ActivityPage({ lang, currency, reviewRef }) {
                 className={`${styles.Heart} ${styles.active}`}
               />
             )}
-          </button>
+          </div>
         </div>
-
         <div ref={reviewRef} className={styles.reviewsContainer}>
           <div className={styles.reviewTitle}>
             <h2>REVIEWS</h2>
