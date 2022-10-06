@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "css": "^3.0.0",
+    "firebase": "^9.10.0",
     "google-map-react": "^2.2.0",
     "modules": "^0.4.0",
     "next": "12.3.1",

@@ -4,7 +4,7 @@
 .Activity {
   .activityMainSection {
     @include flex-container(column, $gap: 2.5rem);
-
+    position: relative;
     background-color: white;
     box-sizing: border-box;
     padding: 40px;
@@ -329,8 +329,8 @@
         .nameless {
           background-color: rgb(66, 113, 147);
           flex: 0 0 auto;
-          height: 20vh;
-          width: 30%;
+          height: 25vh;
+          width: 40%;
         }
 
         .activityDescriptionBtn {

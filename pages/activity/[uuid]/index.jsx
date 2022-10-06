@@ -18,6 +18,8 @@ import GET from "../../../utils/GET/GET";
 import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 import { languages } from "../../../utils/mook";
+import NavigatorLink from "../../../components/NavigatorLink/NavigatorLink";
+import MapComponent from "../../../components/Map";
 
 export default function ActivityPage({ lang, currency }) {
   const router = useRouter();
@@ -60,8 +62,6 @@ export default function ActivityPage({ lang, currency }) {
       );
   }, [uuid, dispatch, lang, currency]);
 
-  console.log(activities.reviewsData);
-
   const filterBySmile = (value) => {
     setSmileFilterValue(value);
   };
@@ -70,11 +70,17 @@ export default function ActivityPage({ lang, currency }) {
     <div className={styles.Activity}>
       <Hero type="SingleActivity" lang={lang} currency={currency} />
       <div className={styles.activityMainSection}>
+        <NavigatorLink />
         <div className={styles.activityDescriptionDiv}>
           <p className={styles.activityDescription}>
             {activities?.activityData?.description}
           </p>
-          <div className={styles.nameless}></div>
+          {activities?.activityData?.latitude && <div className={styles.nameless}>
+            <MapComponent
+             latitude={activities?.activityData?.latitude}
+            longitude={activities?.activityData?.longitude}
+             />
+          </div>}
         </div>
 
         <div className={styles.activityInfo}>
