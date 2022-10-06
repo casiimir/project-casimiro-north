@@ -35,15 +35,15 @@
     .lang {
       border: none;
       outline: none;
-      background-color: white;
-      color: $MainDarkBlue;
+      background-color:#2247579f;
+      color: white;
     }
 
     .currency {
       border: none;
       outline: none;
-      background-color: white;
-      color: $MainDarkBlue;
+      background-color:#2247579f;
+      color: white;
     }
   }
 
@@ -78,19 +78,18 @@
 
     .zoneSelector {
       @include flex-container($gap: 10px, $justify: flex-start);
-
       .lang {
         border: none;
         outline: none;
-        background-color: white;
-        color: $MainDarkBlue;
+        background-color:#2247579f;
+        color:white;
       }
   
       .currency {
         border: none;
         outline: none;
-        background-color: white;
-        color: $MainDarkBlue;
+        background-color:#2247579f;
+        color: white;
       }
     }
   }
