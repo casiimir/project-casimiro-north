@@ -286,7 +286,7 @@
     top: 0;
     right: 0;
     object-fit: contain;
-    height: 80vh;
+    height: 100vh;
 
     .background {
       position: fixed;
@@ -296,7 +296,7 @@
     .maintexthero {
       z-index: 3;
       position: absolute;
-      bottom: 8%;
+      bottom: 260px;
       left: 0;
       padding: 20px;
       color: white;
@@ -406,7 +406,7 @@
       @include flex-container(row, center, stretch, nowrap, 5px);
       z-index: 1;
       position: absolute;
-      bottom: 3%;
+      bottom: 240px;
       left: 0;
       width: 100%;
 
