@@ -25,6 +25,7 @@ const Hero = ({ type, lang, currency, reviewsList }) => {
   const router = useRouter();
 
   console.log(localization);
+  console.log(activities.activityData)
 
   const { cityname } = router.query;
 
@@ -307,7 +308,7 @@ const Hero = ({ type, lang, currency, reviewsList }) => {
                   <i>
                     <MdOutlineStar className={styles.star} />
                   </i>{" "}
-                  <h2> /10 </h2> <p> (568)</p>
+                  <h2> {activities.activityData.reviews_avg}/10 </h2> <p> (568)</p>
                 </div>
               </div>
             </div>
