@@ -13,6 +13,7 @@ import { IMPORT_URL } from "../../../utils/GET/URL";
 import { useDispatch, useSelector } from "react-redux";
 import { languages } from "../../../utils/mook";
 import NavigatorLink from "../../../components/NavigatorLink/NavigatorLink";
+import MapComponent from "../../../components/Map";
 
 export default function ActivityPage({lang, currency}) {
   const router = useRouter();
@@ -31,7 +32,7 @@ export default function ActivityPage({lang, currency}) {
     uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/reviews?limit=50`, dispatch, "SET_REVIEWS", lang, currency)
   }, [uuid, dispatch, lang, currency]);
 
-  console.log(activities.reviewsData)
+  console.log(activities.activityData)
 
   const filterBySmile = (value) => {
     setSmileFilterValue(value)
@@ -46,7 +47,12 @@ export default function ActivityPage({lang, currency}) {
           <p className={styles.activityDescription}>
             {activities?.activityData?.description}
           </p>
-          <div className={styles.nameless}></div>
+          {activities?.activityData?.latitude && <div className={styles.nameless}>
+            <MapComponent
+             latitude={activities?.activityData?.latitude}
+            longitude={activities?.activityData?.longitude}
+             />
+          </div>}
           {/* <button className={styles.activityDescriptionBtn}>read more</button> */}
         </div>
 
