@@ -20,7 +20,11 @@ export default function NavigatorLink() {
 
     return (
         <div className={styles.NavigatorLink}>
-            <span onClick={handleOnHomeClick}>Home</span><span>{">"}</span><span onClick={handleOnCityClick}>{activities.activityData.city.name}</span><span>{">"}</span>
+            <span onClick={handleOnHomeClick}>Home</span>
+            <span>{">"}</span>
+            <span onClick={handleOnCityClick}>{activities.activityData.city.name}</span>
+            <span>{">"}</span>
+            <span onClick={handleOnCityClick}>{activities.activityData.title.split(" ").splice(0, 3).join(" ")}</span>
         </div>
     );
 }
