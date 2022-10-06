@@ -34,6 +34,7 @@ export default function ArrowUp() {
         
         <div className={`${styles.arrow} ${isVisible ? styles.active : ''}`}>
             <IoMdArrowDropupCircle onClick={handleOnArrowClick} className={styles.icon}/>
+            <div className={styles.overlay} />
         </div>
 
     )
