@@ -21,22 +21,10 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
 
   const interval = () => {};
 
-  const { cities, activities, localization } = useSelector((state) => state);
+  const { cities, activities } = useSelector((state) => state);
   const router = useRouter();
 
-  console.log(localization);
-  console.log(activities.activityData)
-
   const { cityname } = router.query;
-
-  // const scrollToReviews = (e) => {
-  //   e.preventDefault();
-  //   window.scrollTo({
-  //     top: reviewsList.current.offsetTop,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
 
   const touchStartX = 0;
   let touchEndX = 0;
