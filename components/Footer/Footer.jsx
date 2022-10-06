@@ -44,16 +44,16 @@ export default function Footer({lang, currency, setLang, setCurrency}) {
       </div>
 
       <div className={styles.zoneSelector}>
-        <select onChange={(e) => handleOnSelectionLangChange(e)} className={styles.lang}>
-          <option value="en-US" selected={lang === "en-US"}>En</option>
-          <option value="es-ES" selected={lang === "es-ES"}>Sp</option>
-          <option value="fr-FR" selected={lang === "fr-FR"}>Fr</option>
-          <option value="it-IT" selected={lang === "it-IT"}>It</option>
+        <select value={lang} onChange={(e) => handleOnSelectionLangChange(e)} className={styles.lang}>
+          <option value="en-US" >En</option>
+          <option value="es-ES" >Sp</option>
+          <option value="fr-FR" >Fr</option>
+          <option value="it-IT" >It</option>
         </select>
-        <select onChange={(e) => handleOnSelectionCurrencyChange(e)} className={styles.currency}>
-          <option value="GBP" selected={currency === "GBP"}>£</option>
-          <option value="EUR" selected={currency === "EUR"}>€</option>
-          <option value="USD" selected={currency === "USD"}>$</option>
+        <select defaultValue={currency} onChange={(e) => handleOnSelectionCurrencyChange(e)} className={styles.currency}>
+          <option value="GBP" >£</option>
+          <option value="EUR" >€</option>
+          <option value="USD" >$</option>
         </select>
       </div>
 
