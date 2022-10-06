@@ -308,7 +308,7 @@ const Hero = ({ type, lang, currency, reviewsList }) => {
                   <i>
                     <MdOutlineStar className={styles.star} />
                   </i>{" "}
-                  <h2> {activities.activityData.reviews_avg}/10 </h2> <p> (568)</p>
+                  <h2> {activities.activityData.reviews_avg}/10 </h2> <p>( {activities.activityData.reviews_number})</p>
                 </div>
               </div>
             </div>
