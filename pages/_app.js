@@ -59,14 +59,14 @@ function MyApp({ Component, pageProps }) {
             </div>
           )
         : ""}
-      {(router.pathname !== "/404") && "/login" ? <NavBar lang={lang} currency={currency}/> : ""}
+      {(router.pathname !== "/404") && router.pathname !== "/login" ? <NavBar lang={lang} currency={currency}/> : ""}
       <Component {...pageProps} 
         lang={lang}
         setLang={setLang}
         currency={currency}
         setCurrency={setCurrency}
       />
-      {(router.pathname !== "/404") && "/login" ? <Footer lang={lang} currency={currency} setLang={setLang} setCurrency={setCurrency}/> : ""}
+      {(router.pathname !== "/404") && router.pathname !== "/login" ? <Footer lang={lang} currency={currency} setLang={setLang} setCurrency={setCurrency}/> : ""}
     </Provider>
   );
 }

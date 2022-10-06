@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  future: {
+    webpack5: true,
+  },
   reactStrictMode: false,
   swcMinify: true,
   images: {
@@ -10,7 +13,13 @@ const nextConfig = {
         hostname: 'images.musement.com',
       }
     ],
-  }
+  },
+  webpack: function (config, options) {
+    config.experiments = {
+      topLevelAwait: true,
+    };
+    return config;
+  },
 }
 
 module.exports = nextConfig
