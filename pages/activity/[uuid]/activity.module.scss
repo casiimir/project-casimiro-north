@@ -167,21 +167,19 @@
         .filter_by_rating {
           @include flex-container($direction: row-reverse);
 
-            .iconsmile {
-               opacity: 0.4;
+          .iconsmile {
+            opacity: 0.4;
 
-               &.active {
-                opacity: 1;
-               }
+            &.active {
+              opacity: 1;
             }
+          }
         }
 
         .filter {
           @include flex-container($align: center, $gap: 5px);
           font-size: 0.9rem;
           font-weight: 600;
-
-          
 
           button {
             background-color: #6e939b;
@@ -275,7 +273,6 @@
 
 @media only screen and (min-width: 767px) {
   .Activity {
-
     .activityMainSection {
       gap: 80px;
 
@@ -301,7 +298,6 @@
         }
 
         .activityDescriptionBtn {
-
           cursor: pointer;
         }
       }
@@ -310,15 +306,19 @@
         @include flex-container($justify: flex-start);
 
         .activityInfoTextDiv {
-          @include flex-container(row, $gap: 2rem);
+          @include flex-container(column, $gap: 2rem);
 
           color: rgba(2, 85, 104, 0.79);
 
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(row, $gap: 0.5rem, $align: center);
-            width: 50%;
+            @include flex-container(
+              row,
+              flex-start,
+              $gap: 0.5rem,
+              $align: flex-start
+            );
 
             .activityInfoTimetable {
               line-height: 1.4rem;
@@ -408,9 +408,13 @@
           font-weight: 800;
           font-size: 1.8rem;
         }
-        
+
         .reviewList {
-          @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+          @include flex-container(
+            column,
+            $justify: space-between,
+            $gap: 1.5rem
+          );
 
           .review {
             @include flex-container(column, $justify: space-between, $gap: 5px);
@@ -479,10 +483,8 @@
         }
       }
     }
-    
   }
 }
 
 @media only screen and (min-width: 1290px) {
-
 }
