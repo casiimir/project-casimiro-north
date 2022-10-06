@@ -113,6 +113,8 @@
       @include flex-container($justify: space-between, $gap: 16%);
       margin-top: 5px;
       width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
 
       .category_marker {
         text-align: center;
@@ -122,7 +124,6 @@
       }
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
-        margin-right: 6%;
         color: white;
       
         .rating {
@@ -340,9 +341,9 @@
           flex: 0 0 auto;
           width: max-content;
         }
+        
         .previewReviewsContainer {
           @include flex-container($justify: flex-end);
-          margin-right: 6%;
           color: white;
 
           cursor: pointer;
