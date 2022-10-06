@@ -2,7 +2,8 @@
 @import "../../styles/mixins.scss";
 
 .login {
-  @include flex-container(column, $align: center, $justify: flex-start);
+  @include flex-container(column, $align: center, $justify: center);
+
 
   height: 100vh;
   background: rgb(4, 43, 52);
@@ -92,6 +93,15 @@
       .icon {
         font-size: 1.6rem;
         margin: 0;
+      }
+    }
+
+    .login_icons {
+      height: 20%;
+      @include flex-container($align: center, $justify: center);
+
+      .icons {
+        font-size: 2rem;
       }
     }
   }
