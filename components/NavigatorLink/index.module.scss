@@ -2,10 +2,11 @@
 @import '../../styles/variables';
 
 .NavigatorLink {
-    color: $MainDarkBlue;
+    color: #0255689c;
     position: absolute;
     top: 12px;
     @include flex-container($gap: 10px);
+    font-size: 0.8rem;
 
     span {
         font-weight: 500;
@@ -13,12 +14,12 @@
         cursor: pointer;
 
         &:nth-child(1):hover {
-            border-bottom: 1px solid $MainDarkBlue;
+            border-bottom: 1px solid #0255689c;
             transform: scale(1.04);
         }
 
         &:nth-child(3):hover {
-            border-bottom: 1px solid $MainDarkBlue;
+            border-bottom: 1px solid #0255689c;
             transform: scale(1.04);
         }
 
@@ -32,5 +33,6 @@
 @media only screen and (min-width: 767px) {
     .NavigatorLink {
         top: 28px;
+        font-size: 1.0rem;
     }
 }
