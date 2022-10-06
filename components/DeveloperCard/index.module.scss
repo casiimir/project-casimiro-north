@@ -40,10 +40,11 @@
 
 @media only screen and (min-width: 767px) {
   .DeveloperCard {
-    @include flex-container(column, center, center, $gap: 15px);
+    @include flex-container(column, $align: center, $justify: space-between, $gap: 15px);
     transform: scale(1);
     padding: 30px 0px;
     width: 300px;
+    height: 270px;
 
     .personalImg {
       height: 120px;

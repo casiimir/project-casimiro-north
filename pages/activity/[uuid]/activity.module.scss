@@ -3,7 +3,8 @@
 
 .Activity {
   .activityMainSection {
-    @include flex-container(column, $gap: 2.5rem);
+    @include flex-container(column, $gap: 4.5rem);
+    position: relative;
 
     background-color: white;
     box-sizing: border-box;
@@ -15,8 +16,7 @@
       .activityDescription {
         color: rgba(2, 25, 35, 1);
         font-weight: 500;
-        line-height: 1.6rem;
-        letter-spacing: 1.8px;
+        line-height: 1.2rem;
         text-align: justify;
       }
 
@@ -35,14 +35,14 @@
     }
 
     .activityInfo {
-      @include flex-container($justify: space-between);
+      @include flex-container(column, $justify: space-between, $gap: 2.5rem);
 
       .activityInfoTextDiv {
         @include flex-container(column, $gap: 1rem);
 
         color: rgba(2, 85, 104, 0.79);
 
-        width: 60%;
+        width: 95%;
 
         .activityInfoText {
           @include flex-container(row, $gap: 0.5rem);
@@ -92,7 +92,7 @@
   }
 
   .servicesSection {
-    @include flex-container(column, $align: center, $gap: 3rem);
+    @include flex-container(column, $align: center);
 
     background-color: white;
     box-sizing: border-box;
@@ -151,6 +151,42 @@
         font-weight: 700;
       }
     }
+
+    .favouritesBtnDiv {
+      @include flex-container($align: center);
+      position: relative;
+      right: -7rem;
+      bottom: 2.5rem;
+      width: max-content;
+
+      .favouritesBtn {
+        background: none;
+        border: none;
+        color: #536f75;
+        font-size: 1.6rem;
+
+        .Heart {
+          font-size: 1.2rem;
+          transition: all 0.55s;
+          cursor: pointer;
+
+          @keyframes example {
+            from {
+              transform: scale(2);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+
+          &.active {
+            animation-name: example;
+            animation-duration: 0.55s;
+          }
+        }
+      }
+    }
+
     .reviewsContainer {
       @include flex-container(column, $justify: space-between, $gap: 1.5rem);
       background-color: #76939a1d;
@@ -167,21 +203,20 @@
         .filter_by_rating {
           @include flex-container($direction: row-reverse);
 
-            .iconsmile {
-               opacity: 0.4;
+          .iconsmile {
+            opacity: 0.4;
+            cursor: pointer;
 
-               &.active {
-                opacity: 1;
-               }
+            &.active {
+              opacity: 1;
             }
+          }
         }
 
         .filter {
           @include flex-container($align: center, $gap: 5px);
           font-size: 0.9rem;
           font-weight: 600;
-
-          
 
           button {
             background-color: #6e939b;
@@ -275,7 +310,6 @@
 
 @media only screen and (min-width: 767px) {
   .Activity {
-
     .activityMainSection {
       gap: 80px;
 
@@ -296,12 +330,11 @@
         .nameless {
           background-color: rgb(66, 113, 147);
           flex: 0 0 auto;
-          height: 20vh;
-          width: 30%;
+          height: 25vh;
+          width: 40%;
         }
 
         .activityDescriptionBtn {
-
           cursor: pointer;
         }
       }
@@ -310,15 +343,19 @@
         @include flex-container($justify: flex-start);
 
         .activityInfoTextDiv {
-          @include flex-container(row, $gap: 2rem);
+          @include flex-container(column, $gap: 2rem);
 
           color: rgba(2, 85, 104, 0.79);
 
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(row, $gap: 0.5rem, $align: center);
-            width: 50%;
+            @include flex-container(
+              row,
+              flex-start,
+              $gap: 0.5rem,
+              $align: flex-start
+            );
 
             .activityInfoTimetable {
               line-height: 1.4rem;
@@ -395,6 +432,11 @@
           cursor: pointer;
         }
       }
+
+      .favouritesBtnDiv {
+        left: 102.5%;
+      }
+
       .reviewsContainer {
         @include flex-container(column, $justify: space-between, $gap: 1.5rem);
         background-color: #76939a1d;
@@ -408,9 +450,13 @@
           font-weight: 800;
           font-size: 1.8rem;
         }
-        
+
         .reviewList {
-          @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+          @include flex-container(
+            column,
+            $justify: space-between,
+            $gap: 1.5rem
+          );
 
           .review {
             @include flex-container(column, $justify: space-between, $gap: 5px);
@@ -479,10 +525,8 @@
         }
       }
     }
-    
   }
 }
 
 @media only screen and (min-width: 1290px) {
-
 }
