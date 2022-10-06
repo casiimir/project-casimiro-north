@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 import logo from "../../public/logo_readme.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
+import { BsFacebook, BsApple } from "react-icons/bs";
 import { loginGoogle } from "../../services/firebase";
 import { userData } from "../../services/auth_google";
 import { useRouter } from "next/router";
@@ -29,11 +30,16 @@ const ModalLogin = ({}) => {
           </div>
         </div>
         <div className={styles.loginSection}>
-          <div className={styles.iconDiv}>
-            <h2>login</h2> <AiOutlineUser className={styles.icon} />
+          <div className={styles.loginDiv}>
+            <h2>login</h2>
+            <div className={styles.loginIconDiv}>
+              <AiOutlineUser className={styles.icon} />
+            </div>
           </div>
           <div className={styles.login_icons}>
-            <FcGoogle className={styles.icons} onClick={loginGoogle} />
+            <FcGoogle className={styles.icon} onClick={loginGoogle} />
+            <BsFacebook className={styles.icon} />
+            <BsApple className={styles.icon} />
           </div>
         </div>
       </div>
