@@ -90,7 +90,7 @@
       @include flex-container($direction: column, $gap: 10px);
       font-weight: 800;
       font-size: 1rem;
-      width: 53%;
+      width: 59%;
       text-transform: capitalize;
       left: 0;
       color: rgba(255, 255, 255, 0.951);
@@ -116,6 +116,7 @@
         font-size: 0.7rem;
         flex: 0 0 auto;
         width: 200px;
+        margin-left: 10px;
       }
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
@@ -333,6 +334,7 @@
           font-size: 0.7rem;
           flex: 0 0 auto;
           width: 200px;
+          margin-left: 27%;
         }
         .previewReviewsContainer {
           @include flex-container($justify: flex-end);
