@@ -3,7 +3,7 @@
 
 .Activity {
   .activityMainSection {
-    @include flex-container(column, $gap: 4.5rem);
+    @include flex-container(column, $gap: 45px);
     position: relative;
 
     background-color: white;
@@ -76,15 +76,15 @@
       }
 
       .activityInfolanguagesDiv {
-        @include flex-container(column, $align: flex-end, $gap: 20px);
+        @include flex-container(column, $align: flex-end, $gap: 8px);
 
         color: $MidBlue;
         font-weight: 600;
 
         div {
-          @include flex-container(column, $align: flex-end, $gap: 8px);
+          @include flex-container(row, $align: flex-end, $gap: 8px);
           img {
-            width: 40px;
+            width: 30px;
           }
         }
       }
@@ -400,7 +400,7 @@
           column,
           $justify: flex-end,
           $align: flex-end,
-          $gap: 1.9rem
+          $gap: 10px
         );
 
         .activityPriceInfo {
