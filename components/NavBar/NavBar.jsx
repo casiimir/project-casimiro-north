@@ -11,6 +11,7 @@ import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
 import {RiUserSharedLine, RiUserFill} from 'react-icons/ri';
 import ModalLogin from '../ModalLogin';
+import { userData } from "../../services/auth_google";
 
 import {
     AiFillHome,
@@ -24,13 +25,11 @@ export default memo(function NavBar ({lang, currency}) {
     const searchRef = useRef(null);
     const [isScrollDown, setIsScrollDown] = useState(false)
 
-    const {navBarStatus, modalVisibility} = useSelector(state => state)
+    const {navBarStatus, modalVisibility, cartData, activities, loginModalVisibility, user_data} = useSelector(state => state)
     const dispatch = useDispatch();
     const router = useRouter();
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
-
-    const { cartData, activities } = data
 
     console.clear()
     console.log(activities.favorites)
@@ -115,6 +114,7 @@ export default memo(function NavBar ({lang, currency}) {
     const handleOnClickLog = () => {
         console.log('login ci si tu');
         dispatch({type: 'SET_CLOSE'})
+        dispatch({type: "SET_LOGIN_TRUE"})
     }
 
     useEffect(() => {
@@ -141,6 +141,11 @@ export default memo(function NavBar ({lang, currency}) {
     return removeEventListener('scroll', () => eventScrollDown())
     }, [])
 
+    useEffect(() => {
+
+        userData && dispatch({type: "SET_USERNAME", payload: userData.user.displayName.split(" ")[0]})
+    }, [userData])
+
     return (
         <>
         <div className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ''}`}>
@@ -159,8 +164,17 @@ export default memo(function NavBar ({lang, currency}) {
                         </Link>
                     )}
                     <div onClick={handleOnClickLog} className={styles.user_box}>
-                        <RiUserSharedLine className={styles.user_icon} />
-                        <span className={styles.user_name}>Login</span>
+                        {!user_data.userName.length  
+                        ? 
+                        <>
+                            <RiUserSharedLine className={styles.user_icon} />
+                            <span className={styles.user_name}>Login</span>
+                        </> 
+                        : 
+                        <>
+                            <RiUserFill className={styles.user_icon} />
+                            <span className={styles.user_name}>{user_data.userName}</span>
+                        </>}
                     </div>
                     
                     <div className={styles.row} >
@@ -193,7 +207,7 @@ export default memo(function NavBar ({lang, currency}) {
         <div className={styles.overlay} onClick={handleOverlayClick} style={navBarStatus.isInputActive ? {display: 'block'} :{display: 'none', pointerEvents: "none"} }/>
         <ArrowUp />
         {modalVisibility && <Modal />}
-        <ModalLogin />
+        {loginModalVisibility && <ModalLogin />}
         </>
     )
 })
