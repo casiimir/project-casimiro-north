@@ -1,6 +1,5 @@
 import styles from './index.module.scss';
 import {HiSearch} from 'react-icons/hi';
-import { menu } from '../../constants';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
@@ -11,6 +10,14 @@ import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
 
+import {
+    AiFillHome,
+    AiFillCompass,
+    AiOutlineStar,
+    AiFillInfoCircle,
+  } from "react-icons/ai";
+  import { FaShoppingCart } from "react-icons/fa";
+
 export default memo(function NavBar ({lang, currency}) {
     const searchRef = useRef(null);
     const [isScrollDown, setIsScrollDown] = useState(false)
@@ -20,6 +27,37 @@ export default memo(function NavBar ({lang, currency}) {
     const router = useRouter();
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
+
+    const { cartData } = data
+
+    const menu = [
+        {
+          name: "Home",
+          path: "/",
+          icon: <AiFillHome className={styles.icon} />,
+        },
+        {
+          name: "My Trip",
+          path: "/mytrip",
+          icon: <AiFillCompass className={styles.icon} />,
+        },
+        {
+          name: "Favorites",
+          path: "/favorites",
+          icon: <AiOutlineStar className={styles.icon} />,
+        },
+        {
+          name: "Cart",
+          path: "/cart",
+          icon: <FaShoppingCart className={styles.icon} />,
+          quantity: cartData.cartList.length,
+        },
+        {
+          name: "About us",
+          path: "/aboutus",
+          icon: <AiFillInfoCircle className={styles.icon} />,
+        },
+      ];
 
     const eventScrollDown = () => {
         
@@ -104,6 +142,7 @@ export default memo(function NavBar ({lang, currency}) {
                             <li onClick={() => dispatch({type: 'SET_CLOSE'})} >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
+                                <span className={styles.quantity}>{item.quantity ? item.quantity : null}</span>
                                 <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>
                             </li>
                         </Link>

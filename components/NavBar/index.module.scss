@@ -190,6 +190,20 @@
           .circle {
             display: none;
           }
+
+          &:nth-child(4) {
+            .quantity {
+              @include flex-container($align: center, $justify: center);
+              background-color: white;
+              border-radius: 100%;
+              width: 25px;
+              height: 25px;
+              font-size: 1.2rem;
+              font-weight: 400;
+              color: black;
+              transform: scale(0.8);
+            }
+          }
         }
       }
 
@@ -310,6 +324,7 @@
       }
 
       .menu {
+        @include flex-container($justify:center, $align: center);
         position: static;
         width: 100%;
         height: auto;
@@ -327,6 +342,7 @@
           @include flex-container($justify: space-evenly);
           box-sizing: border-box;
           position: relative;
+          width: 75%;
 
           .row {
             position: absolute;
@@ -350,12 +366,88 @@
             flex: 0 0 auto;
             font-weight: 400;
 
-            &:hover {
-              color: white;
-              transform: scale(1.01);
-              text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
-              font-weight: 500;
+            &:nth-child(1) {
+              &:hover {
+                color: white;
+                transform: scale(1.01);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                font-weight: 500;
+              }
+              .quantity {
+                display: none;
+              }
             }
+
+            &:nth-child(2) {
+              &:hover {
+                color: white;
+                transform: scale(1.01);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                font-weight: 500;
+              }
+              .quantity {
+                display: none;
+              }
+            }
+
+            &:nth-child(3) {
+              &:hover {
+                color: white;
+                transform: scale(1.01);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                font-weight: 500;
+              }
+              .quantity {
+                display: none;
+              }
+            }
+
+            &:nth-child(4) {
+              position: fixed;
+              top: 0;
+              right: 40px;
+              height: 100%;
+              color: rgba(255, 255, 255, 0);
+
+              .circle {
+                display: none;
+              }
+
+              .quantity {
+                background-color: rgba(255, 255, 255, 0);
+                color: white;
+                position: absolute;
+                left: 22px;
+                font-weight: 500;
+                font-size: 0.9rem;
+              }
+
+              .icon {
+                display: block;
+                color: rgba(255, 255, 255, 0.76);
+                font-size: 1.4rem;
+                transition: all .25s;
+
+                &:hover {
+                  color: white;
+                  transform: scale(1.1);
+                }
+              }
+
+              &:hover {
+                color: rgba(255, 255, 255, 0);
+              }
+            }
+
+            &:nth-child(5) {
+              &:hover {
+                color: white;
+                transform: scale(1.01);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                font-weight: 500;
+              }
+            }
+
             .icon {
               display: none;
             }
