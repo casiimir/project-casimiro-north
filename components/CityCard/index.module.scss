@@ -4,13 +4,12 @@
 .CityCard {
   @include flex-container();
   @include border($radius: $MainBorderRadius);
+  @include dimensions ($width: 185px,$height: 280px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.615);
   cursor: pointer;
   overflow: hidden;
   position: relative;
   flex: 0 0 auto;
-  width: 185px;
-  height: 280px;
 
   &:hover {
     transform: scale(1.01, 1.01);
@@ -20,11 +19,7 @@
   }
 
   .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include element-position(absolute, 0, 0, 0, 0);
     background: linear-gradient(
       180deg,
       rgba(16, 43, 49, 0) 55.21%,
@@ -33,70 +28,52 @@
   }
 
   .Image {
-    height: 100%;
+    @include dimensions ($height: 100%, $width: 100%);
     object-fit: cover;
-    width: 100%;
   }
 
   .Content {
     @include flex-container($direction: column, $gap: 3px);
-    bottom: 5%;
+    @include element-position (absolute, $bottom: 5%, $right: 0, $z-index: 1);
     color: white;
-    right: 0;
-    position: absolute;
-    z-index: 1;
     min-width: 50%;
 
     .Text {
-      box-sizing: border-box;
+      @include text($weight: 700, $size: 1rem);
+      @include box-model ($sizing: border-box, $padding: 0 5px);
       color: white;
       font-style: normal;
-      font-weight: 700;
-      font-size: 1rem;
       line-height: 15px;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.72);
       width: 100%;
       text-align: left;
-      padding: 0 5px;
     }
 
     .Row {
-      height: 1.5px;
-      width: 100%;
+      @include dimensions ($height: 1.5px, $width: 100%);
       background-color: white;
     }
 
     .Description {
-      box-sizing: border-box;
+      @include box-model ($sizing: border-box, $padding: 0 5px);
+      @include text ($size: 0.6rem, $weight: 400);
       color: white;
-      font-size: 0.6rem;
       font-style: normal;
-      font-weight: 400;
       position: relative;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.72);
       width: 100%;
       text-align: left;
-      padding: 0 5px;
     }
-  }
-
-  .Heart {
-    background: none;
-    color: white;
-    position: absolute;
-    top: 8px;
-    left: 8px;
   }
 }
 
 @media only screen and (min-width: 767px) {
   .CityCard {
     @include border($radius: $MainBorderRadius);
+    @include dimensions ($height: 280px, $width: 50%);
     box-sizing: border-box;
     flex: 0 0 auto;
-    width: 50%;
     max-width: 200px;
-    height: 280px;
     transition: all 0.35s;
 
     &:hover {
@@ -112,8 +89,7 @@
         text-align: left;
       }
       .Row {
-        height: 1px;
-        width: 100%;
+        @include dimensions ($height: 1px, $width: 100%);
         background-color: white;
       }
       .Description {
