@@ -31,9 +31,6 @@ export default memo(function NavBar ({lang, currency}) {
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
 
-    console.clear()
-    console.log(activities.favorites)
-
     const menu = [
         {
           name: "Home",
