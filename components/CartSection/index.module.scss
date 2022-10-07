@@ -3,10 +3,9 @@
 
 .cartSection {
   @include flex-container(column, $gap: 2.5rem);
+  @include box-model($padding: 40px);
 
   color: white;
-  box-sizing: border-box;
-  padding: 40px;
 
   .one_side {
     @include flex-container(column, $gap: 2.5rem);

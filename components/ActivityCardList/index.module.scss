@@ -9,17 +9,13 @@
   background-color: white;
 
   .Title {
-    @include text(1.2rem, 700, uppercase);
+    @include text(1.2rem, 700, uppercase, $color: $MainDarkBlue);
     @include box-model($margin: 0 0 0 20px);
-
-    color: $MainDarkBlue;
   }
 
   .Title_cat_page {
-    @include text(1.2rem, 700, uppercase);
+    @include text(1.2rem, 700, uppercase, $color: $MainDarkBlue);
     @include box-model($padding: 20px 30px 0);
-
-    color: $MainDarkBlue;
 
     span:nth-child(1) {
       font-weight: 400;
