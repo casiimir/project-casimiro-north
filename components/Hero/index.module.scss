@@ -23,12 +23,12 @@
 
     h1 {
       font-weight: 800;
-      font-size: 3rem;
+      font-size: 2.5rem;
       flex: 0 0 auto;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.0rem;
       flex: 0 0 auto;
     }
 
@@ -299,7 +299,7 @@
       position: absolute;
       bottom: 260px;
       left: 0;
-      padding: 20px;
+      padding: 20px 80px;
       color: white;
       text-shadow: 0px 2px 2px rgba(11, 47, 63, 0.69);
 
@@ -428,8 +428,8 @@
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
-        z-index: 3;
+        bottom: 228px;
+        z-index: 2;
         pointer-events: none;
 
         button {
