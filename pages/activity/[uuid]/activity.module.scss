@@ -3,7 +3,8 @@
 
 .Activity {
   .activityMainSection {
-    @include flex-container(column, $gap: 2.5rem);
+    @include flex-container(column, $gap: 45px);
+    position: relative;
 
     background-color: white;
     box-sizing: border-box;
@@ -15,7 +16,7 @@
       .activityDescription {
         color: rgba(2, 25, 35, 1);
         font-weight: 500;
-        line-height: 1.5rem;
+        line-height: 1.2rem;
         text-align: justify;
       }
 
@@ -34,49 +35,56 @@
     }
 
     .activityInfo {
-      @include flex-container($justify: space-between);
+      @include flex-container(column, $justify: space-between, $gap: 2.5rem);
 
       .activityInfoTextDiv {
         @include flex-container(column, $gap: 1rem);
 
         color: rgba(2, 85, 104, 0.79);
 
-        width: 60%;
+        width: 95%;
 
         .activityInfoText {
-          @include flex-container(column, $gap: 0.5rem);
+          @include flex-container(row, $gap: 0.5rem);
 
-          h2 {
-            color: $MidBlue;
-            font-weight: 600;
+          .icondiv {
+            min-width: 2.1rem;
+
+            .iconTime {
+              font-size: 2rem;
+            }
+
+            .iconLocation {
+              font-size: 1.8rem;
+            }
           }
 
           .activityInfoTimetable {
             line-height: 1.4rem;
 
-           li {
-            padding: 5px 0;
-            &::before {
-              content: "•";
-              margin-right: 10px;
-              font-size: 2rem;
-              color: $MainBlue;
+            li {
+              padding: 5px 0;
+              &::before {
+                content: "•";
+                margin-right: 10px;
+                font-size: 2rem;
+                color: $MainBlue;
+              }
             }
-           }
           }
         }
       }
 
       .activityInfolanguagesDiv {
-        @include flex-container(column, $align: flex-end, $gap:20px);
+        @include flex-container(column, $align: flex-end, $gap: 8px);
 
         color: $MidBlue;
         font-weight: 600;
 
         div {
-          @include flex-container(column, $align: flex-end, $gap: 8px);
+          @include flex-container(row, $align: flex-end, $gap: 8px);
           img {
-            width: 40px;
+            width: 30px;
           }
         }
       }
@@ -84,7 +92,7 @@
   }
 
   .servicesSection {
-    @include flex-container(column, $align: center, $gap: 3rem);
+    @include flex-container(column, $align: center, $gap: 40px);
 
     background-color: white;
     box-sizing: border-box;
@@ -132,22 +140,163 @@
         }
       }
 
-      .cartBtn {
-        @include flex-container($justify: center, $align: center);
+      .buttons_container{
+        @include flex-container(row, $align: center, $gap: 20px);
 
-        border: none;
-        border-radius: $MainBorderRadius;
-        color: white;
-        background-color: #6e939b;
-        height: 48px;
-        width: 145px;
-        font-weight: 700;
+        .cartBtn {
+          @include flex-container($justify: center, $align: center);
+          border: none;
+          border-radius: $MainBorderRadius;
+          color: white;
+          background-color: #6e939b;
+          height: 48px;
+          width: 145px;
+          font-weight: 700;
+        }
+
+        .Heart {
+          font-size: 1.5rem;
+          transition: all 0.55s;
+          cursor: pointer;
+          color: #6e939b;
+
+          @keyframes example {
+            from {
+              transform: scale(2);
+            }
+            to {
+              transform: scale(1);
+            }
+          }
+
+          &.active {
+            animation-name: example;
+            animation-duration: 0.55s;
+          }
+        }
+    }  
+      }
+    }
+
+    .reviewsContainer {
+      @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+      background-color: #76939a1d;
+      border-radius: 4px;
+      padding: 20px;
+      width: 100%;
+
+      .reviewTitle {
+        @include flex-container($justify: space-between);
+        color: rgba(7, 45, 62, 0.568);
+        font-weight: 800;
+        font-size: 1.2rem;
+
+        .filter_by_rating {
+          @include flex-container($direction: row-reverse);
+
+          .iconsmile {
+            opacity: 0.4;
+            cursor: pointer;
+
+            &.active {
+              opacity: 1;
+            }
+          }
+        }
+
+        .filter {
+          @include flex-container($align: center, $gap: 5px);
+          font-size: 0.9rem;
+          font-weight: 600;
+
+          button {
+            background-color: #6e939b;
+            border: none;
+            color: white;
+            font-weight: 800;
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      .reviewList {
+        @include flex-container(column, $justify: space-between, $gap: 10px);
+
+        .review {
+          @include flex-container(column, $justify: space-between, $gap: 0);
+          border-bottom: 1.5px solid rgb(255, 255, 255);
+          padding: 10px 0;
+
+          .reviewsData {
+            @include flex-container(
+              row,
+              $justify: space-between,
+              $align: center
+            );
+            width: 100%;
+            padding: 5px;
+
+            .user {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center,
+                $gap: 0.3125rem
+              );
+
+              .iconsmile {
+                color: #6e939b;
+                font-size: 1rem;
+              }
+
+              .nameUser {
+                font-weight: 600;
+                font-size: 0.7rem;
+                color: $MainDarkBlue;
+              }
+
+              .user_lang {
+                width: 20px;
+                margin-left: 20px;
+              }
+            }
+            .rating {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center,
+                $gap: 0.3125rem
+              );
+
+              .star {
+                font-size: 0.9rem;
+                color: goldenrod;
+              }
+
+              p {
+                color: $MidBlue;
+                font-size: 0.7rem;
+                margin: 0;
+                padding: 0;
+              }
+            }
+          }
+        }
+      }
+      .reviewsComment {
+        padding: 5px;
+
+        p {
+          font-size: 0.8rem;
+          line-height: 1.05rem;
+          letter-spacing: 1.3px;
+          color: $MainDarkBlue;
+        }
       }
     }
   }
-}
 
-//PRIMA MEDIA QUERYYYYYYYY
 
 @media only screen and (min-width: 767px) {
   .Activity {
@@ -163,15 +312,16 @@
         .activityDescription {
           flex-grow: 1;
           font-weight: 500;
-          line-height: 1.5rem;
+          line-height: 1.8rem;
           width: 50%;
+          letter-spacing: 2px;
         }
 
         .nameless {
           background-color: rgb(66, 113, 147);
           flex: 0 0 auto;
-          height: 20vh;
-          width: 30%;
+          height: 25vh;
+          width: 40%;
         }
 
         .activityDescriptionBtn {
@@ -183,21 +333,19 @@
         @include flex-container($justify: flex-start);
 
         .activityInfoTextDiv {
-          @include flex-container(row, $gap: 2rem);
+          @include flex-container(column, $gap: 2rem);
 
           color: rgba(2, 85, 104, 0.79);
 
           width: 66.66%;
 
           .activityInfoText {
-            @include flex-container(column, $gap: 0.5rem);
-            width: 50%;
-
-            h2 {
-              color: $MidBlue;
-              font-weight: 600;
-              text-align: start;
-            }
+            @include flex-container(
+              row,
+              flex-start,
+              $gap: 0.5rem,
+              $align: flex-start
+            );
 
             .activityInfoTimetable {
               line-height: 1.4rem;
@@ -206,7 +354,7 @@
         }
 
         .activityInfolanguagesDiv {
-          @include flex-container(column, $align: center, $gap: 10px);
+          @include flex-container(column, $align: flex-end, $gap: 10px);
 
           color: $MidBlue;
           font-weight: 600;
@@ -220,10 +368,8 @@
     }
 
     .servicesSection {
-      @include flex-container(row, $align: stretch, $gap: 0%);
-
+      @include flex-container(column, $align: stretch, $gap: 40px);
       background-color: white;
-
       padding: 0 80px 80px;
 
       .servicesListDiv {
@@ -253,8 +399,8 @@
         @include flex-container(
           column,
           $justify: flex-end,
-          $align: center,
-          $gap: 1.9rem
+          $align: flex-end,
+          $gap: 10px
         );
 
         .activityPriceInfo {
@@ -267,6 +413,8 @@
           }
         }
 
+        .buttons_container{
+          flex-direction: row-reverse;
         .cartBtn {
           @include flex-container($justify: center, $align: center);
 
@@ -277,8 +425,94 @@
         }
       }
     }
-  }
-}
 
-@media only screen and (min-width: 1290px) {
+
+      .reviewsContainer {
+        @include flex-container(column, $justify: space-between, $gap: 1.5rem);
+        background-color: #76939a1d;
+        border-radius: 4px;
+        padding: 50px;
+        width: auto;
+
+        .reviewTitle {
+          color: rgba(7, 45, 62, 0.568);
+          font-weight: 800;
+          font-size: 1.8rem;
+        }
+
+        .reviewList {
+          @include flex-container(
+            column,
+            $justify: space-between,
+            $gap: 1.5rem
+          );
+
+          .review {
+            @include flex-container(column, $justify: space-between, $gap: 5px);
+            border-bottom: 2px solid rgb(255, 255, 255);
+
+            .reviewsData {
+              @include flex-container(
+                row,
+                $justify: space-between,
+                $align: center
+              );
+              width: 100%;
+              padding: 5px;
+
+              .user {
+                @include flex-container(
+                  row,
+                  $justify: space-between,
+                  $align: center,
+                  $gap: 0.3125rem
+                );
+
+                .iconsmile {
+                  color: #6e939b;
+                  font-size: 1.7rem;
+                }
+
+                .nameUser {
+                  font-weight: 600;
+                  font-size: 1.3rem;
+                  color: $MainDarkBlue;
+                }
+              }
+
+              .rating {
+                @include flex-container(
+                  row,
+                  $justify: space-between,
+                  $align: center,
+                  $gap: 0.3125rem
+                );
+
+                .star {
+                  font-size: 1.6rem;
+                  color: goldenrod;
+                }
+
+                p {
+                  color: $MidBlue;
+                  font-size: 1.3rem;
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .reviewsComment {
+          padding: 5px;
+
+          p {
+            font-size: 1.1rem;
+            color: $MainDarkBlue;
+          }
+        }
+      }
+    }
+  }
 }

@@ -19,18 +19,18 @@
   $size: medium,
   $weight: normal,
   $transform: none,
-  $decoration: none
+  $decoration: none,
+  $color: none
 ) {
   font-size: $size;
   font-weight: $weight;
   text-transform: $transform;
   text-decoration: $decoration;
+  color: $color;
 }
-@mixin box-model($margin: 0, $padding: 0, $border: 0, $sizing: border-box) {
+@mixin box-model($margin: 0, $padding: 0, $sizing: border-box) {
   margin: $margin;
   padding: $padding;
-  border: $border;
-  box-shadow: none;
   box-sizing: $sizing;
 }
 
@@ -55,18 +55,15 @@
   z-index: $z-index;
 }
 
-@mixin border(
-  $border: auto,
-  $radius: 0,
-  $top-right: auto,
-  $bottom-right: auto,
-  $bottom-left: auto,
-  $top-left: auto
-) {
+@mixin border($border: auto, $radius: 0, $bottom: 0) {
   border: $border;
   border-radius: $radius;
-  border-top-right-radius: $top-right;
-  border-bottom-right-radius: $bottom-right;
-  border-bottom-left-radius: $bottom-left;
-  border-top-left-radius: $top-left;
+  border-bottom: $bottom;
+}
+
+
+@mixin color($color: auto, $background-color: auto, $background: auto) {
+  color: $color;
+  background-color: $background-color;
+  background: $background;
 }

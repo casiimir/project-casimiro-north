@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import {developersData} from "../../constants";
@@ -14,12 +14,18 @@ import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
 import Placeholder from "../../assets/placeholder.gif";
 
-
-export default function ActivitySwiper({ type }) {
+export default memo(function ActivitySwiper({ type, lang, currency }) {
   const { activities } = useSelector((state) => state);
-  const rotuer = useRouter();
+  const router = useRouter();
   const dispatch = useDispatch();
-  const { cityname } = rotuer.query;
+  const { cityname } = router.query;
+
+  const handleOnClickToday = (uuid) => {
+    router.push({
+      pathname: `/../activity/[uuid]`,
+      query: {uuid: uuid}
+    });
+  }
 
   useEffect(() => {
     cityname?.split("&=")[1] &&
@@ -27,10 +33,9 @@ export default function ActivitySwiper({ type }) {
         IMPORT_URL.CITIES,
         `${cityname?.split("&=")[1]}/activities?limit=10`,
         dispatch,
-        "SET_TODAY_ACTIVITIES"
+        "SET_TODAY_ACTIVITIES", lang, currency
       );
-  }, [cityname, dispatch]);
-
+  }, [cityname, dispatch, lang, currency]);
 
   return (
     <div className={styles.ActivitySwiper}>
@@ -58,11 +63,11 @@ export default function ActivitySwiper({ type }) {
           </>
         ) : (
           !activities.activitiesTodayList.message &&
-          activities?.activitiesTodayList?.data?.map((item, index) => (
-            <SwiperSlide key={index}>
+          activities?.activitiesTodayList?.map((item, index) => (
+            <SwiperSlide onClick={() => handleOnClickToday(item.uuid)} key={index}>
               <div className={styles.swiper_container}>
-                {/* <img src={item.cover_image_url} alt="activity" /> */}
-                <Image src={item.cover_image_url ? item.cover_image_url?.split('?')[0] + "?w=1080" : Placeholder.src} alt="activity" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
+                
+                <Image  src={item.cover_image_url ? item.cover_image_url?.split('?')[0] + "?w=1080" : Placeholder.src} alt="activity" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
                 <div className={styles.text_container}>
                   <h3>{item.title}</h3>
                   <p className={styles.description}>{item.description}</p>
@@ -74,6 +79,4 @@ export default function ActivitySwiper({ type }) {
       </Swiper>
     </div>
   );
-}
-
-// https://api.musement.com/api/v3/cities/{cityId}/activities/today
+})

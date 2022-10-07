@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { memo } from 'react';
 import styles from "./index.module.scss";
 
 const CartSectionItem = ({ cartData, id }) => {
@@ -27,4 +28,4 @@ const CartSectionItem = ({ cartData, id }) => {
   );
 };
 
-export default CartSectionItem;
+export default memo(CartSectionItem);

@@ -1,8 +1,8 @@
 import styles from './index.module.scss';
 import {IoMdArrowDropupCircle} from 'react-icons/io';
-import { useEffect, useState, useRef} from 'react';
+import { useEffect, useState, memo} from 'react';
 
-export default function ArrowUp() {
+export default memo(function ArrowUp() {
 
     const [isVisible, setIsVisible] = useState(false)
 
@@ -34,7 +34,8 @@ export default function ArrowUp() {
         
         <div className={`${styles.arrow} ${isVisible ? styles.active : ''}`}>
             <IoMdArrowDropupCircle onClick={handleOnArrowClick} className={styles.icon}/>
+            <div className={styles.overlay} />
         </div>
 
     )
-}
+})

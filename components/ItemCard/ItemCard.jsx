@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { memo } from 'react';
 import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 
@@ -7,6 +8,8 @@ const ItemCard = ({ cardData }) => {
 
   const dispatch = useDispatch();
   const router = useRouter();
+
+  console.log(router.pathname)
 
   const handleOnDeleteBtn = () => {
     dispatch({type: "REMOVE_FAVORITE", payload: uuid})
@@ -26,7 +29,7 @@ const ItemCard = ({ cardData }) => {
 
   return (
     <div className={styles.CardContainer}>
-      <span onClick={handleOnDeleteBtn} className={styles.DeleteFavorite}>x</span>
+      {router.pathname !== "/mytrip" ? <span onClick={handleOnDeleteBtn} className={styles.DeleteFavorite}>x</span> : null}
       <div className={styles.ItemCard}>
         <div className={styles.imgContainer}>
         <div className={styles.overlayimg}/>
@@ -35,16 +38,15 @@ const ItemCard = ({ cardData }) => {
         <div className={styles.all_text_container}>
           <div className={styles.MainText}>
             <h1 onClick={handleActivityClick} className={styles.ActivityTitle}>{title}</h1>
-            {/* <p className={styles.ActivityDescription}>{description}</p> */}
           </div>
-          <div className={styles.CartItem}>
+         {router.pathname !== "/mytrip" ? <div className={styles.CartItem}>
             <h1 className={styles.retailprice}>{retail_price.formatted_value}</h1>
               <p className={styles.addCart}  onClick={handleOnAddCartClick}> add to cart </p>
-          </div>
+          </div> : null}
         </div>
       </div>
     </div>
   );
 };
 
-export default ItemCard;
+export default memo(ItemCard);

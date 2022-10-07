@@ -3,14 +3,12 @@
 
 .DeveloperCard {
   @include flex-container(column, center, center, $gap: 10px);
-
   color: rgba(255, 255, 255, 0.749);
   padding: 20px 60px;
   height: 100%;
 
   .personalImg {
-    height: 120px;
-    width: 120px;
+    @include dimensions ($height: 120px, $width: 120px);
     border-radius: 100px;
   }
 
@@ -26,8 +24,7 @@
     @include flex-container($gap: 10px);
 
     .icon {
-      height: 1.3rem;
-      width: 1.3rem;
+      @include dimensions ($height: 1.3rem, $width: 1.3rem);
       cursor: pointer;
       transition: 0.45s;
 
@@ -40,20 +37,17 @@
 
 @media only screen and (min-width: 767px) {
   .DeveloperCard {
-    @include flex-container(column, center, center, $gap: 15px);
+    @include flex-container(column, $align: center, $justify: space-between, $gap: 15px);
+    @include dimensions($width: 300px, $height: 270px);
     transform: scale(1);
     padding: 30px 0px;
-    width: 300px;
 
     .personalImg {
-      height: 120px;
-      width: 120px;
+      @include dimensions($width: 120px, $height: 120px);
     }
 
-
     h2 {
-      font-weight: 600;
-      font-size: 1.1rem;
+      @include text ($weight: 600, $size: 1.1rem);
       text-align: center;
     }
 
@@ -66,8 +60,7 @@
       @include flex-container($gap: 10px);
 
       .icon {
-        height: 1.5rem;
-        width: 1.5rem;
+        @include dimensions($width: 1.5rem, $height: 1.5rem);
       }
     }
   }

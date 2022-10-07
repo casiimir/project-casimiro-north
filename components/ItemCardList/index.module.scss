@@ -6,7 +6,6 @@
   box-sizing: border-box;
   position: relative;
   padding: 0;
-  
 
   .FavoritesSublist {
     @include flex-container(column, $gap: 20px);
@@ -15,7 +14,7 @@
     width: 100%;
     height: 58vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 20px 0px;
 
     .favorite_empty {
@@ -29,55 +28,51 @@
       color: white;
       font-weight: 200;
       text-align: center;
-  
+
       h2 {
         flex: 0 0 auto;
         font-size: 1.2rem;
       }
-  
+
       .broken {
         font-size: 1.2rem;
       }
-  
+
       .sad {
         font-size: 1.5rem;
       }
     }
-    
   }
 }
 
 @media only screen and (min-width: 767px) {
-    .ItemCardList {
-        @include flex-container(column, flex-start, stretch, nowrap, 10px);
+  .ItemCardList {
+    @include flex-container(column, flex-start, stretch, nowrap, 10px);
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 100px;
+
+    .LineTitle {
+      position: absolute;
+      width: 192px;
+      height: 2px;
+      color: white;
+    }
+    .FavoritesSublist {
+      @include flex-container(column, $gap: 20px);
+      padding: 40px 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 64vh;
+      background-color: transparent;
+
+      .FavoritesTitle {
+        font-weight: 700;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.73);
         box-sizing: border-box;
-        position: relative;
-        padding: 0 100px;
-      
-        
-        .LineTitle {
-          position: absolute;
-          width: 192px;
-          height: 2px;
-          color: white;
-        }
-        .FavoritesSublist {
-          @include flex-container(column, $gap: 20px);
-          padding: 40px 0;
-          box-sizing: border-box;
-          width: 100%;
-          height: 64vh;
-         
-          // padding: 0 70px;
-          background-color: transparent;
-      
-          .FavoritesTitle {
-          font-weight: 700;
-          font-size: 1.5rem;
-          text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.73);
-          box-sizing: border-box;
-        }
-        }
       }
+    }
+  }
 }

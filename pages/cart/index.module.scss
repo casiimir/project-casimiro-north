@@ -14,7 +14,7 @@
 
 @media only screen and (min-width: 767px) {
   .cart {
-    min-height: 76vh;
+    min-height: 74vh;
     @include flex-container($align: center)
   }
 }

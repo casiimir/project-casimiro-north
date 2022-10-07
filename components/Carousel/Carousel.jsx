@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
-import { useEffect } from "react";
+import { EffectCoverflow, Navigation } from "swiper";
+import { useEffect, memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 
-export default function App () {
+export default memo(function App ({lang, currency}) {
 
   const dispatch = useDispatch();
    const {activities} = useSelector(state => state);
@@ -22,8 +22,8 @@ export default function App () {
    const {uuid} = router.query
 
    useEffect(() => {
-    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/media`, dispatch, "SET_MEDIA_DATA");
-   }, [uuid, dispatch]);
+    uuid && GET(IMPORT_URL.ACTIVITIES, `/${uuid}/media`, dispatch, "SET_MEDIA_DATA", lang, currency);
+   }, [uuid, dispatch, lang, currency]);
 
   return (
     <div className={styles.carousel_container}>
@@ -50,20 +50,7 @@ export default function App () {
         {activities?.mediaData?.map((item, index)=><SwiperSlide className={styles.card} key={index}>
           <img src={item.url} alt={item.title}/>
         </SwiperSlide>)}
-
-        {/* <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );
-}
+})

@@ -3,12 +3,6 @@
 
 .MyTrip {
   min-height: 71vh;
-  background: rgba(4, 43, 52, 0.388);
-  background: linear-gradient(
-    180deg,
-    rgba(4, 43, 52, 1) 0%,
-    rgba(13, 100, 119, 1) 100%
-  );
   padding-top: 12vh;
 
   .background {
@@ -17,7 +11,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
     object-fit: cover;
     filter: blur(2px);
   }
@@ -28,51 +22,85 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -1;
     background: rgba(4, 43, 52, 0.721);
   }
 
   .container {
-    padding: 5% 10%;
+    padding: 40px 40px;
     
-  .header {
-    min-width: 60vw;
-    margin-top: 5%;
-    font-size: x-large;
-    color: white;
-    filter: opacity(73%);
-    .city{
-        font-weight: bold;
+      .header {
+        
+        min-width: 60vw;
+        font-size: 1.4rem;
+        color: white;
+        filter: opacity(73%);
       }
-  }
 
-  .row{
-    height: 1.5px;
-    width: 80vw;
-    background-color: white;
-    margin-top: 5%;
-  }
-
-  .activities {
-    @include flex-container(column, $gap: 4rem);
-    margin-top: 5%;
-    list-style-type: disc;
-    color: white;
-    filter: opacity(73%);
-
-    .activity {
-        font-size: large;
-        padding: 0 0 20% 0;
-      }
-  }
-
+     
     
   }    
+  
+  .activity_container {
+    @include flex-container();
+    .row {
+          position: relative;
+          height: 50vh;
+          width: 1px;
+          margin-left: 40px;
+          background-color: rgb(255, 255, 255);
+        }
+
+        .trip_list {
+            @include flex-container($direction: column, $gap: 25px);
+            margin-left: -20px;
+            padding: 15px 0;
+            height: 50vh;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+    }
 
 }
 
 @media only screen and (min-width: 767px) {
   .MyTrip {
-    min-height: 76vh;
+    padding-left: 100px;
+    padding-right: 100px;
+    min-height: 74vh;
+
+    .container {
+      padding: 80px 200px;
+      
+        .header {
+          
+          min-width: 60vw;
+          font-size: 1.4rem;
+          color: white;
+          filter: opacity(73%);
+        }
+  
+       
+      
+    }    
+    
+    .activity_container {
+      @include flex-container();
+      .row {
+            position: relative;
+            height: 50vh;
+            width: 1px;
+            margin-left: 100px;
+            background-color: rgb(255, 255, 255);
+          }
+  
+          .trip_list {
+              @include flex-container($direction: column, $gap: 40px);
+              margin-left: -20px;
+              height: 50vh;
+              width: 100%;
+          }
+      }
+  
   }
 }

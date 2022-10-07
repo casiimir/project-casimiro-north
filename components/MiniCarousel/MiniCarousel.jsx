@@ -1,19 +1,19 @@
 import MiniCard from "../MiniCard/MiniCard";
 import styles from "./index.module.scss";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import GET from "../../utils/GET/GET";
 import { useSelector, useDispatch } from "react-redux";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import ScrollBtn from "../ScrollBtn";
 
-const MiniCarousel = () => {
+const MiniCarousel = ({lang, currency}) => {
   const miniCarouselRef = useRef(null);
   const dispatch = useDispatch();
   const {activities} = useSelector(state => state);
 
   useEffect(() => {
-    GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=20', dispatch, "SET_DISCOUNT_LIST");
-  },[dispatch])
+    GET(IMPORT_URL.ACTIVITIES, '?discounted=YES&limit=20', dispatch, "SET_DISCOUNT_LIST", lang, currency);
+  },[dispatch, lang, currency]);
 
   return (
     <div className={styles.miniCarousel}>
@@ -30,4 +30,4 @@ const MiniCarousel = () => {
   );
 };
 
-export default MiniCarousel;
+export default memo(MiniCarousel);

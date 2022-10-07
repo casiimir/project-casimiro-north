@@ -1,12 +1,12 @@
 import styles from "./index.module.scss";
 import ActivityCard from "../ActivityCard/ActivityCard";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import { useRouter } from "next/router";
 
-const ActivityCardList = () => {
+const ActivityCardList = ({lang, currency}) => {
   const dispatch = useDispatch();
   const { activities } = useSelector((state) => state);
 
@@ -15,12 +15,12 @@ const ActivityCardList = () => {
   const {cityname, categoryname} = router.query
 
   useEffect(() => {
-        GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST");
+        GET(IMPORT_URL.ACTIVITIES, "", dispatch, "SET_ACTIVITY_LIST", lang, currency);
 
         if (categoryname) {
-        GET(IMPORT_URL.ACTIVITIES, `?category_in=${categoryname?.split('&=')[1]}&city_in=${cityname?.split('&=')[1]}`, dispatch, "SET_CAT_ACT")
+        GET(IMPORT_URL.ACTIVITIES, `?category_in=${categoryname?.split('&=')[1]}&city_in=${cityname?.split('&=')[1]}`, dispatch, "SET_CAT_ACT", lang, currency)
         }
-  }, [cityname, dispatch, categoryname]);
+  }, [cityname, dispatch, categoryname, lang, currency]);
 
   return (
     <div className={styles.ActivityCardList} style={categoryname ? {paddingTop: '100px'} : {}}>
@@ -44,4 +44,4 @@ const ActivityCardList = () => {
   );
 };
 
-export default ActivityCardList;
+export default memo(ActivityCardList);

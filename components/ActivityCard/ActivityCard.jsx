@@ -5,7 +5,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
-// import {POST_ITEM} from "../../utils/GET/CART_METHOD";
+import { memo } from "react";
 
 const ActivityCard = ({catData}) => {
   const { cover_image_url, retail_price,  title, uuid, reviews_avg
@@ -13,9 +13,7 @@ const ActivityCard = ({catData}) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const {moneyValue, cartData, activities } = useSelector(state => state);
-
-  console.log(catData)
+  const { activities } = useSelector(state => state);
 
   const {cityname} = router.query
 
@@ -29,30 +27,29 @@ const ActivityCard = ({catData}) => {
   const handleOnAddCart = () => {
     dispatch({type: "SET_TRUE"})
     dispatch({type: "ADD_PRODUCT", payload: catData})
-    // POST_ITEM(catData, localStorage.getItem('cart_uuid'))
   }
 
   const handleHeartClick = () => {
     dispatch({type: "SET_FAVORITE", payload: catData});
+    localStorage.setItem('favorites', JSON.stringify(activities.favorites));
 
     if (activities.favorites.find((item) => item.uuid === uuid)) {
       dispatch({type: "REMOVE_FAVORITE", payload: uuid});
-
-    }
-    
+    } 
   }
+
 
   return (
     <div className={styles.ActivityCard_main} style={cityname && {width: '100%'}}>
       {cityname && <h5 className={styles.title_cat_page}>{title}</h5>}
       <div className={styles.ActivityCard} style={cityname && {borderRadius: '2px'}}>
-        {/* <img  className={styles.img} src={cover_image_url} alt="Activity photo" /> */}
-        <Image className={styles.img} src={cover_image_url} alt="Activity photo" height={100} width={100} layout="responsive" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} />
+        <div className={styles.img} >
+        <Image src={cover_image_url} alt="Activity photo" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} />
+       </div>
        {!cityname ? <div onClick={handleActivityClick} className={styles.overlay} /> : <div className={styles.overlay} />}
         {!cityname ? 
-        <h5 className={styles.title}>{title}</h5> 
+        <h3 className={styles.title}>{title}</h3> 
         : <>
-        {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>
           <p className={styles.rating}>{reviews_avg}</p>
           { !activities.favorites.find((item) => item.uuid === uuid) ? <FaRegHeart onClick={handleHeartClick} className={styles.Heart} /> : <FaHeart onClick={handleHeartClick} className={`${styles.Heart} ${styles.active}`}/>}
@@ -76,4 +73,4 @@ const ActivityCard = ({catData}) => {
   );
 };
 
-export default ActivityCard;
+export default memo(ActivityCard);

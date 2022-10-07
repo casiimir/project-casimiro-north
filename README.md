@@ -8,34 +8,35 @@
 
 <h2 style="text-align: center;">Polarix, your stellar portal to discover, book and manage your
     travel experiences around the world. </h2>
-<h4 style="text-align: center;"> Created at Edgemony Coding Bootcamp #04 </h4> 
+
+<h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4>
+
 
 <br>
 
 <hr>
 
-<div>
-  <h2>Technologies used include:</h2>
-    <ul>
-      <li>HTML</li>
-      <li>SASS</li>
-      <li>Javascript</li>
-      <li>React.js</li>
-      <li>Next.js</li>
-      <li>Axios</li>
-      <li>Musement API</li>
-      <li>Teamworking hard</li>
-    </ul>
-</div>
+<h2>Technologies used include:</h2>
+  <ul>
+    <li>HTML</li>
+    <li>SASS</li>
+    <li>Javascript</li>
+    <li>React.js</li>
+    <li>Next.js</li>
+    <li>Musement API</li>
+    <li>Great Teamwork</li>
+  </ul>
 
 <br>
 <hr>
 
 <!-- <img {align="right"} src="./public/mobile2.jpeg" alt="less-than-3" width=150/> -->
 
+<br>
+
 <h2>Features:</h2>
 <ol>
-  <li>Designed from zero</li>
+  <li>Designed from scratch</li>
   <li>Concept based</li>
   <li>Mobile First</li>
   <li>SEO optimized</li>

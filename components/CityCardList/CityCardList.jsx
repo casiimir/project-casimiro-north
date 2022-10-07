@@ -1,19 +1,19 @@
 import styles from "./index.module.scss";
 import CityCard from "../CityCard/CityCard";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import ScrollBtn from "../ScrollBtn";
 
-const CityCardList = () => {
+const CityCardList = ({lang, currency}) => {
   const dispatch = useDispatch();
   const { cities } = useSelector((state) => state);
   const cityListRef = useRef(null);
 
   useEffect(() => {
-    GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST')
-  }, [dispatch]);
+    GET(IMPORT_URL.CITIES, '?limit=30', dispatch, 'SET_CITY_LIST', lang, currency)
+  }, [dispatch, lang, currency]);
 
   return (
     <div className={styles.CityCardList}>
@@ -28,4 +28,4 @@ const CityCardList = () => {
   );
 };
 
-export default CityCardList;
+export default memo(CityCardList);

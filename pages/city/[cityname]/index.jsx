@@ -4,15 +4,13 @@ import { useEffect } from "react";
 import GET from "../../../utils/GET/GET";
 import styles from "./city.module.scss";
 import { IMPORT_URL } from "../../../utils/GET/URL";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import CityMainSection from "../../../components/CityMainSection/CityMainSection";
 
-export default function CityPage() {
+export default function CityPage({lang, currency}) {
   const router = useRouter();
   const { cityname } = router.query;
   const dispatch = useDispatch();
-
-  const data = useSelector((state) => state);
 
   useEffect(() => {
     cityname?.split("&=")[1] &&
@@ -20,14 +18,14 @@ export default function CityPage() {
         IMPORT_URL.CITIES,
         cityname?.split("&=")[1],
         dispatch,
-        "SET_CITY"
+        "SET_CITY", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
     return (
         <div className={styles.City}>
-            <Hero type="CityPage"/>
-            <CityMainSection />
+            <Hero type="CityPage" lang={lang} currency={currency}/>
+            <CityMainSection lang={lang} currency={currency} />
         </div>
     )
 }

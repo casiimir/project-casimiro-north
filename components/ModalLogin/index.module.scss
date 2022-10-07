@@ -1,0 +1,211 @@
+@import "../../styles/_variables.scss";
+@import "../../styles/mixins.scss";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+
+  .ModalLogin {
+    @include flex-container(column, $align: center, $justify: center, $gap: 40px);
+    height: 100%;
+    background: #024d5e;
+    position: relative;
+
+    .close {
+      position: absolute;
+      color: white;
+      top: 40px;
+      left: 40px;
+      font-weight: 200;
+      font-size: 1.5rem;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    .logoSection {
+
+      .logoDiv {
+        @include flex-container($direction: column, $align: center, $justify: center);
+
+        .logo {
+          width: 200px;
+        }
+
+        p {
+          padding: 0 40px;
+          line-height: 1.2rem;
+          color: rgba(255, 255, 255, 0.445);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .row {
+      height: 1px;
+      width: 70%;
+      background-color: rgba(255, 255, 255, 0.37);
+    }
+
+    .loginSection {
+      @include flex-container(column, $gap: 2rem);
+      // height: 70%;
+      width: 60%;
+
+      .loginDiv {
+        @include flex-container($align: center, $justify: center, $gap: 0.7rem);
+        width: 99%;
+        color: rgba(255, 255, 255, 0.612);
+        box-sizing: border-box;
+        
+        .loginTextContainer {
+          @include flex-container($justify: center);
+
+        h2 {
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        .loginIconDiv { 
+          .icon {
+            font-size: 1.6rem;
+            margin: 0;
+          }
+        }
+      }
+      }
+
+      .login_icons {
+        @include flex-container($align: center, $justify: center, $gap: 20px);
+        height: 20%;
+        pointer-events: all;
+
+        .icon {
+          font-size: 1.5rem;
+          &:nth-child(3) {
+            color: #b6c2d1;
+          }
+        }
+
+        .fb {
+          position: relative;
+          .background {
+            position: absolute;
+            top: 0.5px;
+            left: 1px;
+            right: 0.5px;
+            bottom: 3px;
+            z-index: 0;
+            background-color: white;
+            border-radius: 100%;
+          }
+
+          .icon {
+            position: relative;
+            z-index: 1;
+            color: #3465a0;
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .overlay {
+    padding: 200px;
+    background-color: rgba(0, 0, 0, 0.61);
+    backdrop-filter: blur(10px);
+
+    .overlay_close {
+      background-color: rgba(255, 0, 0, 0);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      pointer-events: all;
+    }
+
+    .ModalLogin {
+      @include flex-container($align: center, $justify: flex-start, $gap: 0);
+      pointer-events: all;
+
+      .logoSection {
+        width: 50%;
+
+        .logoDiv {
+          @include flex-container($direction: column,$align: center, $justify: center, $gap: 20px);
+
+          .logo {
+            margin: 0;
+            // opacity: 0;
+            width: 200px;
+          }
+          p {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .row {
+        height: 70%;
+        width: 1px;
+      }
+
+      .loginSection {
+        @include flex-container(column, $align: flex-start, $justify: center, $gap: 80px);
+        height: 70%;
+        width: 50%;
+        border-top: 0;
+
+        .loginDiv {
+          @include flex-container(
+            $align: center,
+            $justify: center,
+          );
+          color: rgba(255, 255, 255, 0.612);
+
+          h2 {
+            @include flex-container($align: center);
+            text-align: start;
+            font-size: 1.5rem;
+            // margin-left: 10%;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.612);
+            margin-right: 20px;
+          }
+
+          .loginIconDiv { 
+            
+            .icon {
+              font-size: 1.6rem;
+              margin: 0;
+            }
+          }
+        }
+
+        .login_icons {
+          @include flex-container($align: center, $justify: center, $gap: 20px);
+          width: 100%;
+          height: auto;
+
+          .icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

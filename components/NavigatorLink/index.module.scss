@@ -1,0 +1,36 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.NavigatorLink {
+  @include flex-container($gap: 10px);
+  @include text($color: #0255689c, $size: 0.8rem);
+  @include element-position($position: absolute, $top: 12px);
+
+  span {
+    font-weight: 500;
+    transition: all 0.25s;
+    cursor: pointer;
+
+    &:nth-child(1):hover {
+      border-bottom: 1px solid #0255689c;
+      transform: scale(1.04);
+    }
+
+    &:nth-child(3):hover {
+      border-bottom: 1px solid #0255689c;
+      transform: scale(1.04);
+    }
+
+    &:nth-child(5) {
+      cursor: default;
+      font-weight: 700;
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .NavigatorLink {
+    top: 28px;
+    font-size: 1rem;
+  }
+}

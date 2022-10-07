@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import ActivitySwiper from "../ActivitySwiper/ActivitySwiper";
 import styles from "./index.module.scss";
 
-const CityMainSection = () => {
+const CityMainSection = ({lang, currency}) => {
   const { cities, activities } = useSelector((state) => state);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -20,9 +20,9 @@ const CityMainSection = () => {
         IMPORT_URL.CITIES,
         `${cityname?.split("&=")[1]}/categories`,
         dispatch,
-        "SET_CATEGORY_LIST"
+        "SET_CATEGORY_LIST", lang, currency
       );
-  }, [cityname, dispatch]);
+  }, [cityname, dispatch, lang, currency]);
 
   const handleActivityCatClick = (id) => {
     dispatch({ type: "SET_INDEX_CAT", payload: id });
@@ -61,10 +61,9 @@ const CityMainSection = () => {
           </div>
         </div>
       </div>
-
-      <ActivitySwiper />
+      <ActivitySwiper lang={lang} currency={currency}/>
     </div>
   );
 };
 
-export default CityMainSection;
+export default memo(CityMainSection);
