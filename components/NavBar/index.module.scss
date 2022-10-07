@@ -204,6 +204,20 @@
               transform: scale(0.8);
             }
           }
+
+          &:nth-child(3) {
+            .quantity {
+              @include flex-container($align: center, $justify: center);
+              background-color: white;
+              border-radius: 100%;
+              width: 25px;
+              height: 25px;
+              font-size: 1.2rem;
+              font-weight: 400;
+              color: black;
+              transform: scale(0.8);
+            }
+          }
         }
       }
 
@@ -398,7 +412,12 @@
                 font-weight: 500;
               }
               .quantity {
-                display: none;
+                position: absolute;
+                @include flex-container($align: center);
+                background: none;
+                color: rgba(255, 255, 255, 0.85);
+                font-weight: 500;
+                font-size: 0.9rem;
               }
             }
 
@@ -415,7 +434,7 @@
 
               .quantity {
                 background-color: rgba(255, 255, 255, 0);
-                color: white;
+                color: rgba(255, 255, 255, 0.85);
                 position: absolute;
                 left: 22px;
                 font-weight: 500;

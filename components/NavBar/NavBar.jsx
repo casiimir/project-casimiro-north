@@ -28,7 +28,10 @@ export default memo(function NavBar ({lang, currency}) {
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
 
-    const { cartData } = data
+    const { cartData, activities } = data
+
+    console.clear()
+    console.log(activities.favorites)
 
     const menu = [
         {
@@ -45,12 +48,13 @@ export default memo(function NavBar ({lang, currency}) {
           name: "Favorites",
           path: "/favorites",
           icon: <AiOutlineStar className={styles.icon} />,
+          quantity: activities.favorites?.length,
         },
         {
           name: "Cart",
           path: "/cart",
           icon: <FaShoppingCart className={styles.icon} />,
-          quantity: cartData.cartList.length,
+          quantity: cartData.cartList?.length,
         },
         {
           name: "About us",
