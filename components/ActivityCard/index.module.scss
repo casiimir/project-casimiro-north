@@ -9,11 +9,8 @@
 
     .title_cat_page {
         @include flex-container($align: flex-start);
-        text-transform: uppercase;        
+        @include text ($size: 0.7rem, $weight:700,$transform: uppercase);
         color: $MainDarkBlue;
-        height: auto;
-        font-size: 0.7rem;
-        font-weight: 700;
         z-index: 2;
         flex: 0 0 auto;
         height: 30px;
@@ -35,49 +32,31 @@
             filter: saturate(1.3) contrast(1.1);
         }
 
-        .img {
-            width: 100%;
-            height: 250px;
+        .img {@include dimensions(  $width: 100%,
+            $height: 250px);
             object-fit: cover;
         }
 
         .overlay {
-            position: absolute;
+            @include element-position(absolute, 0,0,0,0,1);
             background: linear-gradient(180deg, rgba(15, 79, 94, 0) 55.21%, rgba(5, 52, 72, 0.97) 100%);
-            right: 0;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            z-index: 1;
         }
 
         .title {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            text-align: center;
-            text-transform: uppercase;        
+            @include element-position(absolute,auto,0,0,0,2);
+            @include text($size: 0.7rem, $weight: 500, $transform: uppercase);
+            text-align: center;       
             color: rgb(255, 255, 255);
             text-shadow: 0px 2px 2px rgba(11, 47, 63, 0.75);
-            height: auto;
-            font-size: 0.7rem;
-            font-weight: 700;
-            z-index: 2;
             height: 30%;
             padding: 10px;
         }
 
         .data_fav_container {
             @include flex-container($justify: space-between, $align: flex-end);
-            position: absolute;
-            bottom: 10px;
-            right: 12px;
-            left: 12px;
+            @include element-position(absolute,auto,12px,10px,12px,1);
+            @include text($size: 0.8rem, $weight: 200);
             color: rgba(255, 255, 255, 0.79);
-            z-index: 1;
-            font-size: 0.8rem;
-            font-weight: 200;
 
             .Heart {
                 font-size: 1.2rem;
@@ -95,9 +74,9 @@
                 }
 
             }
+
             p {
                 font-weight: 600;
-
                 &::before {
                     content: "Rating: ";
                     color: rgba(255, 255, 255, 0.599);
@@ -116,10 +95,9 @@
             box-sizing: border-box;
 
             h3:nth-child(1) {
+                @include text($weight: 700, $transform: uppercase);
                 color: $MidBlue;
                 opacity: 0.55;
-                font-weight: 700;
-                text-transform: uppercase;
             }
 
             h3:nth-child(2) {
@@ -135,11 +113,9 @@
         .more_details {
             @include flex-container($justify: space-between, $align: flex-end);
 
-            p {
-                font-size: 0.8rem;
+            p { @include text ($size: 0.8rem, $weight: 600);
                 color: $MainDarkBlue;
                 border-bottom: 1px solid $MainDarkBlue;
-                font-weight: 600;
                 cursor: pointer;
             }
 
@@ -158,9 +134,8 @@
 
     .ActivityCard_main {
         width: 100%;
-        aspect-ratio: 2 / 1.2;
-        
-        
+        aspect-ratio: 1.42;
+  
         .title_cat_page {
             @include flex-container($align: flex-end);
             margin-bottom: 3px;

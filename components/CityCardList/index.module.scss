@@ -3,8 +3,7 @@
 
 .CityCardList {
   @include flex-container($direction: column, $gap: 10px);
-  box-sizing: border-box;
-  padding: 20px 0;
+  @include box-model ($sizing: border-box, $padding: 20px 0);
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: white;
@@ -13,23 +12,21 @@
     padding: 0 20px;
 
     h2 {
+      @include text ($weight: 700, $size: 1.2rem);
       font-style: normal;
-    font-weight: 700;
-    font-size: 1.2rem;
-    line-height: 17px;
-    color: $MainDarkBlue;
-    text-transform: uppercase;
-    // margin-left: 20px;
+      line-height: 17px;
+      color: $MainDarkBlue;
+      text-transform: uppercase;
     }
   }
+
   .List {
     @include flex-container($direction: row, $gap: 16px, $align: flex-start);
+    @include box-model ($sizing: border-box, $padding: 10px 20px);
     width: 100vw;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    box-sizing: border-box;
-    padding: 10px 20px;
-
+    
     &::-webkit-scrollbar {
       display: none;
     }
