@@ -165,7 +165,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                 <div className={styles.overlay_gradient} />
                 <img
                   className={styles.background}
-                  src={item.cover_image_url}
+                  src={item.cover_image_url + "?w=1080"}
                   alt="heroimg"
                 />
               </div>
