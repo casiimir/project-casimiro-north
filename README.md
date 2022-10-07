@@ -1,16 +1,16 @@
-<p {align="center"}>
+<div align="center">
   <img src="./public/logo_readme.png" alt="polarix" width=500/>
-</p>
+</div>
 
-<h2 style={{align: center}}>One app, one team.</h2>
-
-<p {align="center"}></p>
+<h2 style="text-align: center;">One app, one team.</h2>
 
 <hr>
 
-<h2 {align="center"}>Polarix, your stellar portal to discover, book and manage your
+<h2 style="text-align: center;">Polarix, your stellar portal to discover, book and manage your
     travel experiences around the world. </h2>
+
 <h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4>
+
 
 <br>
 
@@ -30,6 +30,8 @@
 <br>
 <hr>
 
+<!-- <img {align="right"} src="./public/mobile2.jpeg" alt="less-than-3" width=150/> -->
+
 <br>
 
 <h2>Features:</h2>
@@ -43,11 +45,17 @@
   <li>Scalable and best practices</li>
 </ol>
 
-<br>
-<hr>
+
+  <p align="right">
+    <img src="./public/Polarix-home.jpg" alt="Polarix" width=100px/>
+    <img src="./public/Polarix-activity.jpg" alt="Polarix" width=100px/>
+    <img src="./public/Polarix-favourites.jpg" alt="Polarix" width=100px />
+    <img src="./public/Polarix-mytrip.jpg" alt="Polarix" width=100px/>
+</p>
 
 <h2>Performance:</h2>
 <img src="./public/performance.png" alt="performance" width=500 />
+
 <br>
 <hr>
 
@@ -78,7 +86,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 <h4>Saturday, October 8th, 2022</h4>
 <a href="https://project-north.vercel.app/">Follow this link to visit it!</a>
-<br>
+<hr>
 <h3>Made with ❤️ by:</h3>
 <ul>
   <li>
