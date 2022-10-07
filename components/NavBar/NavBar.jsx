@@ -10,6 +10,7 @@ import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
 import {RiUserSharedLine, RiUserFill} from 'react-icons/ri';
+import ModalLogin from '../ModalLogin';
 
 import {
     AiFillHome,
@@ -192,6 +193,7 @@ export default memo(function NavBar ({lang, currency}) {
         <div className={styles.overlay} onClick={handleOverlayClick} style={navBarStatus.isInputActive ? {display: 'block'} :{display: 'none', pointerEvents: "none"} }/>
         <ArrowUp />
         {modalVisibility && <Modal />}
+        <ModalLogin />
         </>
     )
 })

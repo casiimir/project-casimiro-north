@@ -38,7 +38,10 @@ const ModalLogin = ({}) => {
           </div>
           <div className={styles.login_icons}>
             <FcGoogle className={styles.icon} onClick={loginGoogle} />
-            <BsFacebook className={styles.icon} />
+            <div className={styles.fb} >
+              <BsFacebook className={styles.icon} />
+              <div className={styles.background} />
+            </div>
             <BsApple className={styles.icon} />
           </div>
         </div>
