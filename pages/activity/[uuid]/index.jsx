@@ -1,6 +1,5 @@
 import styles from "./activity.module.scss";
 import { useRouter } from "next/router";
-import { BiMapAlt } from "react-icons/bi";
 import { FiMapPin } from "react-icons/fi";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { AiOutlineFieldTime } from "react-icons/ai";

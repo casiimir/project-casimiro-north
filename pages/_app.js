@@ -9,9 +9,7 @@ import { useEffect, useState, useRef } from "react";
 import styles from "../styles/app.module.scss";
 import star from "../public/star.png";
 import polari from "../public/polari.png";
-import { useAmp } from "next/amp";
 
-// console.log(Router.router.state.pathname)
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -28,7 +26,7 @@ function MyApp({ Component, pageProps }) {
     if (loadVisible) {
       setTimeout(() => {
         setLoadVisible(false);
-      }, 3500);
+      }, 2450);
     }
   }, [loadVisible]);
 
@@ -49,9 +47,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="Polarix" content="Experience, travel,  e-commerce" />
         <meta name="description" content="Experience, travel,  e-commerce"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="keywords" content="e-commerce, experience, travel, musement, edgemony"></meta>
+        <meta name="keywords" content="e-commerce, experience, travel, musement, edgemony"></meta>
         <meta name="dc.language" content="ita" scheme="RFC1766"></meta>
-        <meta name="author" content="Fazio N., Gugliemino M., Mangano R., Rizzitello E., Venasco M."></meta>
+        <meta name="author" content="Fazio N., Gugliemino M., Mangano R., Rizzitello E., Venasco M."></meta>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>

@@ -1,10 +1,9 @@
 import styles from "../styles/404.module.scss";
 import router from "next/router";
-import { useRouter } from "next/router";
-import star from '../public/star.png'
+import star from '../public/star.png';
+
 export default function Custom404() {
     const goHome = () => {
-        // router.push(`/../city/${cityname.split('&=')[0]}`)
         router.push("/");
       }
 

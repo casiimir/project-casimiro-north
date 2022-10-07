@@ -370,7 +370,8 @@
 
             &:nth-child(1) {
               &:hover {
-                @include text($color: white, $weight: 500);
+                color: white;
+                font-weight: 500;
                 text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
                 transform: scale(1.01);
               }
