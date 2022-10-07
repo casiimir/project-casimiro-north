@@ -47,11 +47,17 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Polarix</title>
         <meta name="Polarix" content="Experience, travel,  e-commerce" />
+        <meta name="description" content="Experience, travel,  e-commerce"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="keywords" content="e-commerce, experience, travel, musement, edgemony"></meta>
         <meta name="dc.language" content="ita" scheme="RFC1766"></meta>
         <meta name="author" content="Fazio N., Gugliemino M., Mangano R., Rizzitello E., Venasco M."></meta>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://www.googleapis.com"></link>
+        <link rel="preconnect" href="https://project-north-1e510.firebaseapp.com"></link>
+        <link rel="preconnect" href="https://apis.google.com"></link>
       </Head>
       {router.pathname === "/"
         ? loadVisible && (

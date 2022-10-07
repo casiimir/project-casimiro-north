@@ -1,19 +1,12 @@
 @import "../../styles/mixins";
 
 .overlay {
-  position: fixed;
-  top: 12vh;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
+  @include element-position(fixed, 12vh, 0, 0, 0, 2);
 }
 
 .Main_Navbar {
-  position: absolute;
-  z-index: 999;
-  width: 100%;
-  padding: 0 30px;
+  @include element-position($position: absolute, $z-index: 999);
+  @include box-model($sizing: border-box, $padding: 0 30px);
   background: rgb(5, 40, 55);
   background: linear-gradient(
     180deg,
@@ -21,22 +14,20 @@
     rgba(9, 9, 121, 0) 100%
   );
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.267);
-  box-sizing: border-box;
+  width: 100%;
 
   .NavBar {
-    position: relative;
     @include flex-container($justify: space-between, $align: center);
     height: 12vh;
     color: white;
+    position: relative;
 
     .logo {
       cursor: pointer;
-      width: 180px;
     }
 
     h2 {
-      font-weight: 800;
-      font-size: 1.4rem;
+      @include text($weight: 800, $size: 1.4rem);
       cursor: pointer;
     }
 
@@ -44,54 +35,53 @@
       @include flex-container($align: center);
 
       .search_container {
-        position: absolute;
+        @include element-position($position: absolute, $right: 0, $z-index: 2);
         @include flex-container($justify: flex-start);
-        right: 0;
-        height: 40px;
-        width: 100.2%;
+        @include dimensions($height: 40px, $width: 100.2%);
         pointer-events: none;
-        z-index: 2;
 
         .search_icon {
-          position: absolute;
-          color: rgba(255, 255, 255, 0.814);
-          font-size: 1.8rem;
-          height: 100%;
-          z-index: 2;
+          @include element-position(
+            $position: absolute,
+            $top: 0,
+            $left: 80%,
+            $z-index: 0
+          );
+          @include text($color: rgba(255, 255, 255, 0.814), $size: 1.8rem);
+          height: 40px;
           transition: all 0.5s;
           pointer-events: all;
-          left: 80%;
 
           &.active {
-            top: 0;
-            left: 4px;
+            @include element-position($position: absolute, $top: 0, $left: 4px);
           }
         }
 
         .search_input {
-          position: absolute;
-          z-index: 1;
-          right: 0;
-          background-color: rgba(0, 0, 0, 0);
-          border: none;
-          outline: none;
-          height: 100%;
-          box-sizing: border-box;
-          width: 0;
-          transition: all 0.5s;
-          padding: 0 0 0 34px;
-          color: rgba(255, 255, 255, 0.801);
-          pointer-events: none;
-          opacity: 0;
+          @include element-position(
+            $position: absolute,
+            $right: 0,
+            $z-index: 0
+          );
+          @include box-model($sizing: border-box, $padding: 0 0 0 34px);
+          @include dimensions(0, 100%);
+          @include color(
+            $color: rgba(255, 255, 255, 0.801),
+            $background-color: rgba(0, 0, 0, 0)
+          );
           backdrop-filter: blur(6px);
-          
+          border: none;
+          opacity: 0;
+          outline: none;
+          transition: all 0.5s;
+          pointer-events: none;
 
           &.active {
             right: 0;
             background-color: rgba(0, 0, 0, 0.766);
             width: 100%;
             pointer-events: all;
-            opacity: 1;   
+            opacity: 1;
           }
 
           &::placeholder {
@@ -100,21 +90,22 @@
         }
 
         .results {
-          position: relative;
-          top: 40px;
-          height: 0;
+          @include element-position(
+            $position: relative,
+            $top: 40px,
+            $z-index: 0
+          );
+          @include dimensions(100%, 0);
+          backdrop-filter: blur(6px);
           background-color: rgba(0, 0, 0, 0.629);
-          width: 100%;
-          transition: all 0.35s;
           opacity: 0;
           pointer-events: none;
-          z-index: 0;
-          backdrop-filter: blur(6px);
+          transition: all 0.35s;
 
           &.active {
             height: fit-content;
-            pointer-events: all;
             opacity: 1;
+            pointer-events: all;
 
             ul {
               @include flex-container($direction: column);
@@ -135,52 +126,46 @@
           $justify: space-around,
           $align: flex-end
         );
-        height: 35px;
-        width: 35px;
-        padding: 4px 0;
-        box-sizing: border-box;
+        @include dimensions(35px, 35px);
+        @include box-model($padding: 4px 0, $sizing: border-box);
 
         span:nth-child(1) {
+          @include dimensions(80%, 1.4px);
           background-color: rgb(255, 255, 255);
           display: block;
-          height: 1.4px;
-          width: 80%;
         }
 
         span:nth-child(2) {
+          @include dimensions(60%, 1.4px);
           background-color: rgb(255, 255, 255);
           display: block;
-          height: 1.4px;
-          width: 60%;
         }
 
         span:nth-child(3) {
+          @include dimensions(40%, 1.4px);
           background-color: rgb(255, 255, 255);
           display: block;
-          height: 1.4px;
-          width: 40%;
         }
       }
     }
 
     .menu {
-      position: absolute;
-      top: 12vh;
-      height: calc(100vh - 12vh);
+      @include color(
+        $color: rgba(255, 255, 255, 0),
+        $background-color: rgba(0, 0, 0, 0.767)
+      );
+      @include dimensions(0, calc(100vh - 12vh));
+      @include element-position($position: absolute, $top: 12vh, $right: -30px);
+
       box-sizing: border-box;
-      width: 0;
       overflow: hidden;
-      right: -30px;
-      background-color: rgba(0, 0, 0, 0.767);
       backdrop-filter: blur(2px);
       transition: all 0.35s;
-      color: rgba(255, 255, 255, 0);
       opacity: 0;
 
       .navbar_list {
         @include flex-container($direction: column, $gap: 40px);
-        font-weight: 300;
-        font-size: 1.6rem;
+        @include text($size: 1.6rem, $weight: 300);
         margin: 45px;
 
         li {
@@ -193,36 +178,36 @@
 
           &:nth-child(4) {
             .quantity {
+              @include color(
+                $color: black,
+                $background-color: rgba(255, 255, 255, 0.85)
+              );
+              @include dimensions(25px, 25px);
               @include flex-container($align: center, $justify: center);
-              background-color: rgba(255, 255, 255, 0.85);
+              @include text($size: 1.2rem, $weight: 400);
               border-radius: 100%;
-              width: 25px;
-              height: 25px;
-              font-size: 1.2rem;
-              font-weight: 400;
-              color: black;
               transform: scale(0.8);
             }
           }
 
           &:nth-child(3) {
             .quantity {
+              @include color(
+                $color: black,
+                $background-color: rgba(255, 255, 255, 0.85)
+              );
+              @include dimensions(25px, 25px);
               @include flex-container($align: center, $justify: center);
-              background-color: rgba(255, 255, 255, 0.85);
+              @include text(25px, 25px);
               border-radius: 100%;
-              width: 25px;
-              height: 25px;
-              font-size: 1.2rem;
-              font-weight: 400;
-              color: black;
               transform: scale(0.8);
             }
           }
         }
 
         .user_box {
-            @include flex-container($gap: 20px, $align: center);
-            cursor: pointer;
+          @include flex-container($gap: 20px, $align: center);
+          cursor: pointer;
         }
       }
 
@@ -240,23 +225,24 @@
 }
 
 @media only screen and (min-width: 992px) {
-
   .overlay {
-    position: fixed;
+    @include element-position(
+      $position: fixed,
+      $top: 8vh,
+      $bottom: 0,
+      $left: 0,
+      $z-index: 3
+    );
     display: block !important;
-    top: 8vh;
-    bottom: 0;
-    left: 0; 
     width: 100vw !important;
-    z-index: 3;
   }
 
   .Main_Navbar {
-    position: fixed;
-    padding: 0 45px;
+    backdrop-filter: blur(6px);
     box-shadow: none;
     height: 8vh;
-    backdrop-filter: blur(6px);
+    padding: 0 45px;
+    position: fixed;
     transition: all 0.35s;
 
     &.active {
@@ -264,11 +250,9 @@
     }
 
     .NavBar {
-      height: 8vh;
       box-sizing: border-box;
       justify-content: flex-start;
-
-      
+      height: 8vh;
 
       .navbar_container {
         position: static;
@@ -278,27 +262,25 @@
         }
 
         .search_container {
-          position: static;
-          margin: 0;
-          padding: 0;
-          top: auto;
-          left: auto;
-          right: auto;
-          bottom: auto;
-          
+          @include box-model($margin: 0, $padding: 0);
+          @include element-position();
 
           .search_icon {
-            position: fixed;
-            right: 40px;
-            top: 0;
-            left: auto;
-            width: 40px;
+            @include element-position(
+              $position: fixed,
+              $right: 40px,
+              $top: 0,
+              $left: auto
+            );
             color: rgba(255, 255, 255, 0.811);
             cursor: pointer;
             font-size: 1rem;
             transform: scale(0.6);
+            height: 8vh;
+            width: 40px;
 
             &.active {
+              position: fixed;
               left: auto;
               right: 45px;
             }
@@ -310,19 +292,23 @@
           }
 
           .search_input {
-            padding: 0 0 0 15px;
-            height: 40px;
             font-size: 1.1rem;
+            height: 40px;
+            padding: 0 0 0 15px;
           }
 
           .results {
-            position: absolute;
-            top: 40px;
-            padding-top: 30px;
-            left: 0;
-            width: 100%;
+            @include element-position(
+              $position: absolute,
+              $top: 40px,
+              $left: 0,
+              $z-index: -1
+            );
             box-sizing: border-box;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px) !important;
+            padding-top: 30px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.872);
 
             &.active {
               ul {
@@ -343,21 +329,16 @@
       }
 
       .menu {
-        @include flex-container($justify:center, $align: center);
-        position: static;
-        width: 100% !important;
-        padding-right: 180px;
-        box-sizing: border-box;
-        height: auto;
-        bottom: auto;
-        left: auto;
-        right: auto;
-        width: auto;
-        color: rgba(255, 255, 255, 0.726);
-        background: none;
+        @include color($color: rgba(255, 255, 255, 0.85), $background: none);
+        @include element-position();
+        @include flex-container($justify: center, $align: center);
         backdrop-filter: none;
+        box-sizing: border-box;
         opacity: 1;
-        // flex-grow: 1;
+        padding-right: 180px;
+        width: 100% !important;
+        width: auto;
+        height: 100%;
 
         .navbar_list {
           @include flex-container($justify: space-evenly, $gap: 15px);
@@ -366,10 +347,12 @@
           width: 75%;
 
           .row {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -100%;
+            @include element-position(
+              $position: absolute,
+              $left: 0,
+              $right: 0,
+              $bottom: -100%
+            );
             display: block;
             height: 1px;
             margin: 0;
@@ -377,22 +360,19 @@
           }
 
           li {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            transition: all 0.35s;
-            position: relative;
-            padding: 0;
-            margin: 0;
+            @include text($size: 0.8rem, $weight: 400);
+            @include box-model($padding: 0, $margin: 0);
             flex: 0 0 auto;
-            font-weight: 400;
+            letter-spacing: 4px;
+            position: relative;
+            text-transform: uppercase;
+            transition: all 0.35s;
 
             &:nth-child(1) {
               &:hover {
-                color: white;
-                transform: scale(1.01);
+                @include text($color: white, $weight: 500);
                 text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
-                font-weight: 500;
+                transform: scale(1.01);
               }
               .quantity {
                 display: none;
@@ -402,9 +382,9 @@
             &:nth-child(2) {
               &:hover {
                 color: white;
-                transform: scale(1.01);
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
                 font-weight: 500;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                transform: scale(1.01);
               }
               .quantity {
                 display: none;
@@ -414,25 +394,28 @@
             &:nth-child(3) {
               &:hover {
                 color: white;
-                transform: scale(1.01);
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
                 font-weight: 500;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                transform: scale(1.01);
               }
               .quantity {
-                position: absolute;
+                @include color(
+                  $color: rgba(255, 255, 255, 0.85),
+                  $background: none
+                );
                 @include flex-container($align: center);
-                background: none;
-                color: rgba(255, 255, 255, 0.85);
-                font-weight: 500;
-                font-size: 0.9rem;
+                @include text($weight: 500, $size: 0.9rem);
+                position: absolute;
               }
             }
 
             &:nth-child(4) {
-              position: fixed;
-              top: 0;
-              right: 34px;
-              height: 100%;
+              @include element-position(
+                $position: fixed,
+                $top: 0,
+                $right: 34px
+              );
+              height: 8vh;
               color: rgba(255, 255, 255, 0);
 
               .circle {
@@ -440,19 +423,19 @@
               }
 
               .quantity {
-                background-color: rgba(255, 255, 255, 0);
-                color: rgba(255, 255, 255, 0.85);
-                position: absolute;
-                left: 22px;
-                font-weight: 500;
-                font-size: 0.9rem;
+                @include color(
+                  $color: rgba(255, 255, 255, 0.85),
+                  $background-color: rgba(255, 255, 255, 0)
+                );
+                @include element-position($position: absolute, $left: 22px);
+                @include text($weight: 500, $size: 0.9rem);
               }
 
               .icon {
                 display: block;
                 color: rgba(255, 255, 255, 0.76);
                 font-size: 1.4rem;
-                transition: all .25s;
+                transition: all 0.25s;
 
                 &:hover {
                   color: white;
@@ -468,9 +451,9 @@
             &:nth-child(5) {
               &:hover {
                 color: white;
-                transform: scale(1.01);
-                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
                 font-weight: 500;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.642);
+                transform: scale(1.01);
               }
             }
 
@@ -479,14 +462,15 @@
             }
 
             .circle {
-              position: absolute;
-              left: 52%;
-              bottom: -136%;
-              display: block;
-              height: 10px;
-              width: 10px;
+              @include dimensions(10px, 10px);
+              @include element-position(
+                $position: absolute,
+                $left: 52%,
+                $bottom: -136%
+              );
               background-color: rgba(255, 255, 255, 0);
               border-radius: 100%;
+              display: block;
 
               &.active {
                 background-color: rgb(255, 255, 255);
@@ -495,11 +479,9 @@
           }
 
           .user_box {
-            position: fixed;
-            right: 145px;
-            top: 0;
-            height: 100%;
+            @include element-position($position: fixed, $right: 145px, $top: 0);
             @include flex-container($gap: 5px, $align: center);
+            height: 8vh;
             cursor: pointer;
 
             .user_name {
@@ -509,7 +491,7 @@
             .user_icon {
               font-size: 1.4rem;
             }
-        }
+          }
         }
       }
     }

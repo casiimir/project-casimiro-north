@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import CityCard from "../CityCard/CityCard";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -28,4 +28,4 @@ const CityCardList = ({lang, currency}) => {
   );
 };
 
-export default CityCardList;
+export default memo(CityCardList);

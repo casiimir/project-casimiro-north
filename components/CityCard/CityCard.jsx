@@ -21,7 +21,6 @@ const CityCard = ({ data }) => {
 
   return (
     <div className={styles.CityCard}>
-      {/* <img className={styles.Image} src={cover_image_url} alt="CityPhoto" /> */}
       <Image className={styles.Image} src={cover_image_url} alt="CityPhoto" layout="fill" placeholder="blur" blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}/>
       <div onClick={handleCityClick} className={styles.overlay} />
       <div className={styles.Content}>
@@ -30,7 +29,6 @@ const CityCard = ({ data }) => {
         <div className={styles.Row} />
         <p className={styles.Description}>{activities_count} Experiences</p>
       </div>
-      {/* <FaRegHeart className={styles.Heart} onClick={onBtnClick} /> */}
     </div>
   );
 };

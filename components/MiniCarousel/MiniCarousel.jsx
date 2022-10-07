@@ -1,6 +1,6 @@
 import MiniCard from "../MiniCard/MiniCard";
 import styles from "./index.module.scss";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import GET from "../../utils/GET/GET";
 import { useSelector, useDispatch } from "react-redux";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -30,4 +30,4 @@ const MiniCarousel = ({lang, currency}) => {
   );
 };
 
-export default MiniCarousel;
+export default memo(MiniCarousel);

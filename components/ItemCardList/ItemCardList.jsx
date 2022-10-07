@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import ItemCard from "../ItemCard";
+import {memo } from "react";
 import { useSelector } from "react-redux";
 import { FaHeartBroken } from "react-icons/fa";
 import { HiEmojiSad } from "react-icons/hi";
@@ -22,4 +23,4 @@ const ItemCardList = ({modalVisibility}) => {
   );
 };
 
-export default ItemCardList;
+export default memo(ItemCardList);

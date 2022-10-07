@@ -3,17 +3,15 @@
 
 .cartSection {
   @include flex-container(column, $gap: 2.5rem);
-
+  @include box-model($padding: 40px);
   color: white;
-  box-sizing: border-box;
-  padding: 40px;
 
   .one_side {
     @include flex-container(column, $gap: 2.5rem);
 
     .title {
+      @include flex-container(column, $gap: 10px);
       font-size: 1.7rem;
-
       span {
         color: rgba(255, 255, 255, 0.47);
         font-weight: bold;
@@ -22,12 +20,11 @@
 
     .cartList {
       @include flex-container(column, $gap: 40px);
-
       margin-bottom: 2rem;
     }
+
     .cartTotal {
       @include flex-container($align: center);
-
       border-top: 1px solid rgba(255, 255, 255, 0.333);
       border-bottom: 2px solid rgba(255, 255, 255, 0.663);
       height: 2.9rem;
@@ -89,9 +86,8 @@
         }
       }
       .paymentBtn {
+        @include text ($weight: 700,$size: 0.9rem);
         color: $MainButtonBlue;
-        font-weight: 700;
-        font-size: 0.9rem;
         align-self: flex-end;
         padding: 6px;
         width: 65px;
@@ -113,10 +109,9 @@
 
 @media only screen and (min-width: 767px) {
   .cartSection {
+    @include flex-container($gap: 80px);
     flex-grow: 1;
-    flex-direction: row;
     padding: 100px;
-    gap: 80px;
 
     .one_side {
       width: 50%;

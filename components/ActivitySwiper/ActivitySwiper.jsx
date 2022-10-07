@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
 import {developersData} from "../../constants";
@@ -14,8 +14,7 @@ import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
 import Placeholder from "../../assets/placeholder.gif";
 
-
-export default function ActivitySwiper({ type, lang, currency }) {
+export default memo(function ActivitySwiper({ type, lang, currency }) {
   const { activities } = useSelector((state) => state);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -37,7 +36,6 @@ export default function ActivitySwiper({ type, lang, currency }) {
         "SET_TODAY_ACTIVITIES", lang, currency
       );
   }, [cityname, dispatch, lang, currency]);
-
 
   return (
     <div className={styles.ActivitySwiper}>
@@ -81,6 +79,4 @@ export default function ActivitySwiper({ type, lang, currency }) {
       </Swiper>
     </div>
   );
-}
-
-// https://api.musement.com/api/v3/cities/{cityId}/activities/today
+})

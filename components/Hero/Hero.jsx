@@ -4,8 +4,7 @@ import {
   MdArrowBackIosNew,
   MdOutlineStar,
 } from "react-icons/md";
-import { memo } from 'react';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -191,10 +190,14 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
             {cities?.cityListHero?.map((_, index) => (
               <button
                 onClick={() => handleRoundButtonClick(index)}
+                role="button"
+                aria-label="rounded_selector"
+                title="round_selector"
                 className={`${styles.button_page} ${
                   index === rightValue && styles.active
                 }`}
                 key={index}
+                id={index}
               ></button>
             ))}
           </div>

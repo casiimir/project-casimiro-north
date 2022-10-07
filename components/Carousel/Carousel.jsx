@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
-import { useEffect } from "react";
+import { EffectCoverflow, Navigation } from "swiper";
+import { useEffect, memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 
-export default function App ({lang, currency}) {
+export default memo(function App ({lang, currency}) {
 
   const dispatch = useDispatch();
    const {activities} = useSelector(state => state);
@@ -53,4 +53,4 @@ export default function App ({lang, currency}) {
       </Swiper>
     </div>
   );
-}
+})

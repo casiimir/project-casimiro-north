@@ -4,17 +4,13 @@
 
 <h2 style={{align: center}}>One app, one team.</h2>
 
-<p {align="center"}>
-  <!-- <img src="./public/mobile3.jpg" alt="explorience"/> -->
-</p>
+<p {align="center"}></p>
 
 <hr>
 
 <h2 {align="center"}>Polarix, your stellar portal to discover, book and manage your
     travel experiences around the world. </h2>
-<h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4> 
-
-<!-- <img {align="right"} src="./public/mobile1.jpeg" alt="explorience" width=150/> -->
+<h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4>
 
 <br>
 
@@ -28,19 +24,17 @@
     <li>React.js</li>
     <li>Next.js</li>
     <li>Musement API</li>
-    <li>Teamworking hard</li>
+    <li>Great Teamwork</li>
   </ul>
 
 <br>
 <hr>
 
-<!-- <img {align="right"} src="./public/mobile2.jpeg" alt="less-than-3" width=150/> -->
-
 <br>
 
 <h2>Features:</h2>
 <ol>
-  <li>Designed from zero</li>
+  <li>Designed from scratch</li>
   <li>Concept based</li>
   <li>Mobile First</li>
   <li>SEO optimized</li>
