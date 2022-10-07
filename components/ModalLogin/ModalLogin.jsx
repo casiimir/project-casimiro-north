@@ -37,6 +37,7 @@ const ModalLogin = ({}) => {
     <div className={styles.overlay}>
       <div className={styles.overlay_close} onClick={handleOnOverlayClick}/>
       <div className={styles.ModalLogin}>
+        <p onClick={handleOnOverlayClick} className={styles.close}>X</p>
         <div className={styles.logoSection}>
           <div className={styles.logoDiv}>
             <img src={logo.src} className={styles.logo} alt="logoPolarix" />

@@ -31,9 +31,6 @@ export default memo(function NavBar ({lang, currency}) {
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
 
-    console.clear()
-    console.log(activities.favorites)
-
     const menu = [
         {
           name: "Home",
@@ -145,6 +142,20 @@ export default memo(function NavBar ({lang, currency}) {
 
         userData && dispatch({type: "SET_USERNAME", payload: userData.user.displayName.split(" ")[0]})
     }, [userData])
+
+    useEffect(() => {
+        if (localStorage.getItem('cart')) {
+                dispatch({type: "RESTORE_CART", payload: JSON.parse(localStorage.getItem('cart'))})
+        }
+
+        if (localStorage.getItem('favorites')) {
+            dispatch({type: "RESTORE_FAVORITE", payload: JSON.parse(localStorage.getItem('favorites'))})
+        } 
+    },[])
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(activities.favorites));
+      }, [activities.favorites])
 
     return (
         <>

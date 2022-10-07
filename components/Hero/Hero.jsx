@@ -241,7 +241,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                 }
                 src={
                   activities?.categoryList[activities?.indexOfCat]
-                    ?.cover_image_url
+                    ?.cover_image_url.split('?w')[0]
                 }
                 alt="heroimg"
               />
@@ -266,7 +266,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                     ? styles.background
                     : styles.background_city
                 }
-                src={activities.activityData.cover_image_url}
+                src={activities.activityData.cover_image_url.split('?w')[0]}
                 alt="heroimg"
               />
             </div>
@@ -281,9 +281,9 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
               <span className={styles.row_title} />
             </div>
             <div className={styles.reviewsContainer}>
-              <div className={styles.category_marker}>
+              <div style={activities?.activityData?.categories?.length  ? {} : {opacity: '0'}} className={styles.category_marker}>
                 {activities.activityData.categories
-                  ? activities?.activityData?.categories[0].name
+                  ? activities?.activityData?.categories[0]?.name
                   : ""}
               </div>
               <div

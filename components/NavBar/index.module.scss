@@ -360,7 +360,7 @@
         // flex-grow: 1;
 
         .navbar_list {
-          @include flex-container($justify: space-evenly);
+          @include flex-container($justify: space-evenly, $gap: 15px);
           box-sizing: border-box;
           position: relative;
           width: 75%;

@@ -15,11 +15,17 @@
     @include flex-container(column, $align: center, $justify: center, $gap: 40px);
     height: 100%;
     background: #024d5e;
-    // background: linear-gradient(
-    //   180deg,
-    //   rgba(4, 43, 52, 1) 0%,
-    //   rgba(13, 100, 119, 1) 100%
-    // );
+    position: relative;
+
+    .close {
+      position: absolute;
+      color: white;
+      top: 40px;
+      left: 40px;
+      font-weight: 200;
+      font-size: 1.5rem;
+      pointer-events: all;
+    }
 
     .logoSection {
 
