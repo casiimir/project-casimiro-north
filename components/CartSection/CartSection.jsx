@@ -2,9 +2,8 @@ import CartSectionItem from "../CartSectionItem/CartSectionItem";
 import { BsPaypal, BsFillCreditCard2BackFill } from "react-icons/bs";
 import { AiOutlineGooglePlus } from "react-icons/ai";
 import styles from "./index.module.scss";
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { GET_CART } from "../../utils/GET/CART_METHOD";
 
 const CartSection = () => {
   const [paymentMethod, setPaymentMethod] = useState();
@@ -88,4 +87,4 @@ const CartSection = () => {
   );
 };
 
-export default CartSection;
+export default memo(CartSection);

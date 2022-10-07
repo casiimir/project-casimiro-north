@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
+import { memo } from "react";
 
-export default function ScrollBtn({ itemRef }) {
+export default memo(function ScrollBtn({ itemRef }) {
   const onNextClick = () => {
     itemRef.current.scrollTo({
       top: 0,
@@ -27,4 +28,4 @@ export default function ScrollBtn({ itemRef }) {
       </button>
     </div>
   );
-}
+})

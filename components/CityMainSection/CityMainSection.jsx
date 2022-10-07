@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -61,10 +61,9 @@ const CityMainSection = ({lang, currency}) => {
           </div>
         </div>
       </div>
-
       <ActivitySwiper lang={lang} currency={currency}/>
     </div>
   );
 };
 
-export default CityMainSection;
+export default memo(CityMainSection);

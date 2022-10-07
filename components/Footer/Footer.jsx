@@ -3,9 +3,10 @@ import Logo from "../../assets/Logo.png";
 import { AiFillTwitterCircle, AiFillGithub } from "react-icons/ai";
 import { MdFacebook } from "react-icons/md";
 import { useRouter } from "next/router";
+import { memo } from 'react';
 import Image from "next/image";
 
-export default function Footer({lang, currency, setLang, setCurrency}) {
+export default memo(function Footer({lang, currency, setLang}) {
   const router = useRouter();
 
   const handleIconClick = () => {
@@ -57,4 +58,4 @@ export default function Footer({lang, currency, setLang, setCurrency}) {
       <p>Built with Next.js ❤️</p>
     </div>
   );
-}
+})

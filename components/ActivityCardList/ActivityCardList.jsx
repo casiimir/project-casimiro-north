@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import ActivityCard from "../ActivityCard/ActivityCard";
-import { useEffect } from "react";
+import { useEffect, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
@@ -44,4 +44,4 @@ const ActivityCardList = ({lang, currency}) => {
   );
 };
 
-export default ActivityCardList;
+export default memo(ActivityCardList);

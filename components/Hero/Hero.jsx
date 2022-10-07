@@ -4,8 +4,7 @@ import {
   MdArrowBackIosNew,
   MdOutlineStar,
 } from "react-icons/md";
-import { memo } from 'react';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
 import { IMPORT_URL } from "../../utils/GET/URL";
