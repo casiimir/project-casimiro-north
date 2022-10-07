@@ -9,6 +9,7 @@ import Logo from '../../assets/Logo.png';
 import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
+import {RiUserSharedLine, RiUserFill} from 'react-icons/ri';
 
 import {
     AiFillHome,
@@ -110,6 +111,11 @@ export default memo(function NavBar ({lang, currency}) {
         
     }
 
+    const handleOnClickLog = () => {
+        console.log('login ci si tu');
+        dispatch({type: 'SET_CLOSE'})
+    }
+
     useEffect(() => {
         if (navBarStatus.isActive === true ) {
             window.document.body.style.overflowY = 'hidden'
@@ -151,6 +157,10 @@ export default memo(function NavBar ({lang, currency}) {
                             </li>
                         </Link>
                     )}
+                    <div onClick={handleOnClickLog} className={styles.user_box}>
+                        <RiUserSharedLine className={styles.user_icon} />
+                        <span className={styles.user_name}>Login</span>
+                    </div>
                     
                     <div className={styles.row} >
         </div>
