@@ -146,6 +146,12 @@ export default memo(function NavBar ({lang, currency}) {
         userData && dispatch({type: "SET_USERNAME", payload: userData.user.displayName.split(" ")[0]})
     }, [userData])
 
+    useEffect(() => {
+        if (localStorage.getItem('cart')) {
+                dispatch({type: "RESTORE_CART", payload: JSON.parse(localStorage.getItem('cart'))})
+        }
+    },[])
+
     return (
         <>
         <div className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ''}`}>

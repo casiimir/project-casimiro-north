@@ -41,11 +41,15 @@ const initialState = {
 function cartDataReducer(state = {}, action) {
   switch (action.type) {
     case "ADD_PRODUCT": 
-      return { ...state, cartList: [...state.cartList, action.payload] };
+      state.cartList = [...state.cartList, action.payload]
+      localStorage.setItem("cart", JSON.stringify(state.cartList))
+      return { ...state, cartList: state.cartList };
     case "REMOVE_PRODUCT":
+      state.cartList = state.cartList.filter((_, id) => id !== action.payload)
+      localStorage.setItem("cart", JSON.stringify(state.cartList))
       return {
         ...state,
-        cartList: state.cartList.filter((_, id) => id !== action.payload)
+        cartList: state.cartList
       };
     case "SET_UUID":
       return {...state, Uuid: action.payload}
@@ -53,6 +57,8 @@ function cartDataReducer(state = {}, action) {
       return { ...state, purchasedList: state.cartList}
     case "CLEAR_PRODUCT":
       return { ...state, cartList: []}
+    case "RESTORE_CART":
+      return { ...state, cartList: action.payload}
     default:
       return state;
   }
