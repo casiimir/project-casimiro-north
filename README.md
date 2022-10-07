@@ -1,43 +1,37 @@
-<p {align="center"}>
+<div align="center">
   <img src="./public/logo_readme.png" alt="polarix" width=500/>
-</p>
+</div>
 
-<h2 style={{align: center}}>One app, one team.</h2>
-
-<p {align="center"}>
-  <!-- <img src="./public/mobile3.jpg" alt="explorience"/> -->
-</p>
+<h2 style="text-align: center;">One app, one team.</h2>
 
 <hr>
 
-<h2 {align="center"}>Polarix, your stellar portal to discover, book and manage your
+<h2 style="text-align: center;">Polarix, your stellar portal to discover, book and manage your
     travel experiences around the world. </h2>
-<h4 {align="center"}> Created at Edgemony Coding Bootcamp #4 </h4> 
-
-<!-- <img {align="right"} src="./public/mobile1.jpeg" alt="explorience" width=150/> -->
+<h4 style="text-align: center;"> Created at Edgemony Coding Bootcamp #04 </h4> 
 
 <br>
 
 <hr>
 
-<h2>Technologies used include:</h2>
-  <ul>
-    <li>HTML</li>
-    <li>SASS</li>
-    <li>Javascript</li>
-    <li>React.js</li>
-    <li>Next.js</li>
-    <li>Axios</li>
-    <li>Musement API</li>
-    <li>Teamworking hard</li>
-  </ul>
+<div>
+  <h2>Technologies used include:</h2>
+    <ul>
+      <li>HTML</li>
+      <li>SASS</li>
+      <li>Javascript</li>
+      <li>React.js</li>
+      <li>Next.js</li>
+      <li>Axios</li>
+      <li>Musement API</li>
+      <li>Teamworking hard</li>
+    </ul>
+</div>
 
 <br>
 <hr>
 
 <!-- <img {align="right"} src="./public/mobile2.jpeg" alt="less-than-3" width=150/> -->
-
-<br>
 
 <h2>Features:</h2>
 <ol>
@@ -50,10 +44,13 @@
   <li>Scalable and best practices</li>
 </ol>
 
-<br>
-<hr>
 
-<h2>Performance:</h2>
+  <p align="right">
+    <img src="./public/Polarix-home.jpg" alt="Polarix" width=100px/>
+    <img src="./public/Polarix-activity.jpg" alt="Polarix" width=100px/>
+    <img src="./public/Polarix-favourites.jpg" alt="Polarix" width=100px />
+    <img src="./public/Polarix-mytrip.jpg" alt="Polarix" width=100px/>
+</p>
 
 <br>
 <hr>
@@ -85,7 +82,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 <h4>Saturday, October 8th, 2022</h4>
 <a href="https://project-north.vercel.app/">Follow this link to visit it!</a>
-<br>
+<hr>
 <h3>Made with ❤️ by:</h3>
 <ul>
   <li>
