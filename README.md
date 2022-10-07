@@ -53,6 +53,9 @@
     <img src="./public/Polarix-mytrip.jpg" alt="Polarix" width=100px/>
 </p>
 
+<h2>Performance:</h2>
+<img src="./public/performance.png" alt="performance" width=500 />
+
 <br>
 <hr>
 

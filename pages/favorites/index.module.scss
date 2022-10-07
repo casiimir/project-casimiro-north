@@ -60,8 +60,6 @@
 }}
 }
 
-
-
 @media only screen and (min-width: 767px) {
   .Favorites {
     @include flex-container($direction: column, $gap: 60px);

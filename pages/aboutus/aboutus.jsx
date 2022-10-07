@@ -19,7 +19,6 @@ export default function AboutUsPage() {
             <h2 className={styles.titleText}>ABOUT US</h2>
           </div>
           <p className={styles.description}>
-            {/* breve descrizione di quanto siamo bravi ❤️ */}
             Polarix is the stellar portal to discover, book and manage your
             travel experiences around the world.
             </p>

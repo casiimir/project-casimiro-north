@@ -28,7 +28,7 @@
         opacity: 0.9;
       }
       50% {
-        transition: opacity 2s;
+        transition: opacity 1.8s;
       }
       100% {
         opacity: 0;
@@ -36,13 +36,13 @@
     }
 
     &.disactive {
-      animation: fade-out 2.2s 1.2s forwards cubic-bezier(0.22, 0, 0, 0);
-	  transition: all 0.35s;
+      animation: fade-out 1.4s 1.0s forwards cubic-bezier(0.22, 0, 0, 0);
+	  transition: all 0.20s;
     }
     .polari {
       opacity: 0;
-      animation: fade-in2 2s forwards cubic-bezier(0, 0, 1, 1);
-      transition: all 0.35s;
+      animation: fade-in2 1.5s forwards cubic-bezier(0, 0, 1, 1);
+      transition: all 0.20s;
       width: 200px;
     }
     @keyframes fade-in2 {
@@ -70,8 +70,8 @@
 
       .star {
         width: 300px;
-        animation: fade-in 2s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        transition: all 0.25s;
+        animation: fade-in 1.5s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+        transition: all 0.20s;
       }
       @keyframes fade-in {
         30% {
@@ -90,8 +90,8 @@
       }
       .polari {
         opacity: 0;
-        animation: fade-in2 2s forwards cubic-bezier(0, 0, 1, 1);
-        transition: all 0.25s;
+        animation: fade-in2 1.5s forwards cubic-bezier(0, 0, 1, 1);
+        transition: all 0.45s;
         width: 400px;
       }
       @keyframes fade-in2 {
