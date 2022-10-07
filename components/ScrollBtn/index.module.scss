@@ -1,35 +1,33 @@
-@import '../../styles/mixins';
-@import '../../styles/variables';
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .button_container_scroll {
-    display: none;
-  }
+  display: none;
+}
 
-  @media only screen and (min-width: 767px) {
-    .button_container_scroll {
-        @include flex-container($gap: 8px);
+@media only screen and (min-width: 767px) {
+  .button_container_scroll {
+    @include flex-container($gap: 8px);
 
-        button {
-          @include border($radius: 100%, $border: none);
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.391);
-          font-size: 1.4rem;
-          font-weight: 200;
-          color: rgba(0, 0, 0, 0.525);
-          height: 40px;
-          width: 40px;
-          background-color: white;
-          cursor: pointer;
-          transition: all .25s;
+    button {
+      @include border($radius: 100%, $border: none);
+      @include text($size: 1.4rem, $weight: 200);
+      @include dimensions($height: 40px, $width: 40px);
+      background-color: white;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.391);
+      color: rgba(0, 0, 0, 0.525);
 
-          &:hover {
-            transform: scale(1.08);
-          }
+      cursor: pointer;
+      transition: all 0.25s;
 
-          &:active {
-            transform: scale(0.9);
-            background-color: rgb(241, 241, 241);
-          }
-
-        }
+      &:hover {
+        transform: scale(1.08);
       }
+
+      &:active {
+        background-color: rgb(241, 241, 241);
+        transform: scale(0.9);
+      }
+    }
   }
+}
