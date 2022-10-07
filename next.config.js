@@ -10,7 +10,6 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images: {
-    // domains: ['images.musement.com'],
     remotePatterns: [
       {
         protocol: 'https',

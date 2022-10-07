@@ -1,8 +1,6 @@
 @import "../../styles/_mixins.scss";
 @import "../../styles/_variables.scss";
 
-//ricorda che lo hai importato in [cityname].jsx
-
 .CityMainSection {
   @include flex-container(column, flex-start, stretch, nowrap, 35px);
 

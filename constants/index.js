@@ -1,4 +1,3 @@
-// export const pippo = "ciao";    ---sample of variables
 import MarcoImg from "../assets/marco.jpg";
 import MartinaImg from "../assets/martina.jpg";
 import NoemiImg from "../assets/noemi.jpg";
