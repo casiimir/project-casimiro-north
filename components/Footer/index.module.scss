@@ -9,14 +9,8 @@
   position: relative;
   box-shadow: 0px 0px 8px 6px $MainDarkBlue;
 
-  .logo {
-    cursor: pointer;
-  }
   .FooterContainer {
     @include flex-container($align: center, $justify: space-between);
-    .logo {
-      width: 100px;
-    }
 
     .icon_container {
       @include flex-container($gap: 8px);

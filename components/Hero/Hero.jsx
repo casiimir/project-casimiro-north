@@ -191,11 +191,14 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
             {cities?.cityListHero?.map((_, index) => (
               <button
                 onClick={() => handleRoundButtonClick(index)}
+                role="button"
+                aria-label="rounded_selector"
+                title="round_selector"
                 className={`${styles.button_page} ${
                   index === rightValue && styles.active
                 }`}
                 key={index}
-                id="btn-slider"
+                id={index}
               ></button>
             ))}
           </div>

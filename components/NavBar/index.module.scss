@@ -24,7 +24,6 @@
 
     .logo {
       cursor: pointer;
-      width: 180px;
     }
 
     h2 {
@@ -54,7 +53,7 @@
           pointer-events: all;
 
           &.active {
-            @include element-position($top: 0, $left: 4px);
+            @include element-position($position: absolute, $top: 0, $left: 4px);
           }
         }
 
@@ -281,6 +280,7 @@
             width: 40px;
 
             &.active {
+              position: fixed;
               left: auto;
               right: 45px;
             }
@@ -301,12 +301,14 @@
             @include element-position(
               $position: absolute,
               $top: 40px,
-              $left: 0
+              $left: 0,
+              $z-index: -1
             );
             box-sizing: border-box;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px) !important;
             padding-top: 30px;
             width: 100%;
+            background-color: rgba(0, 0, 0, 0.872);
 
             &.active {
               ul {
@@ -336,6 +338,7 @@
         padding-right: 180px;
         width: 100% !important;
         width: auto;
+        height: 100%;
 
         .navbar_list {
           @include flex-container($justify: space-evenly, $gap: 15px);

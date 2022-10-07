@@ -85,6 +85,7 @@
 
     .newsletter_img {
       width: 150px;
+      aspect-ratio: 1.31;
     }
   }
 }
@@ -97,6 +98,7 @@
 
     .container {
       justify-content: space-between;
+      gap: 20px;
       .form {
         flex: 0 0 auto;
         width: 50%;
@@ -105,6 +107,7 @@
       .newsletter_img {
         flex: 0 0 auto;
         width: 300px;
+        aspect-ratio: 1.31;
       }
     }
   }

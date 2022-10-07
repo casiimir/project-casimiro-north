@@ -19,6 +19,7 @@ import {
   AiOutlineStar,
   AiFillInfoCircle,
 } from "react-icons/ai";
+import Image from "next/image";
 
 export default memo(function NavBar({ lang, currency }) {
   const searchRef = useRef(null);
@@ -181,12 +182,7 @@ export default memo(function NavBar({ lang, currency }) {
         className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ""}`}
       >
         <div className={styles.NavBar}>
-          <img
-            src={Logo.src}
-            onClick={handleLogoClick}
-            className={styles.logo}
-            alt=""
-          />
+          <Image onClick={handleLogoClick} className={styles.logo} src={Logo.src} width={180} height={68} alt="logo" />
           <div
             className={`${styles.menu} ${
               navBarStatus.isActive && styles.active
@@ -220,6 +216,7 @@ export default memo(function NavBar({ lang, currency }) {
                   </li>
                 </Link>
               ))}
+              <li>
               <div onClick={handleOnClickLog} className={styles.user_box}>
                 {!user_data.userName.length ? (
                   <>
@@ -235,8 +232,8 @@ export default memo(function NavBar({ lang, currency }) {
                   </>
                 )}
               </div>
-
-              <div className={styles.row}></div>
+              </li>
+              <li className={styles.row}></li>
             </ul>
           </div>
           <div className={styles.navbar_container}>

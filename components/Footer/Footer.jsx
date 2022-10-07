@@ -3,13 +3,11 @@ import Logo from "../../assets/Logo.png";
 import { AiFillTwitterCircle, AiFillGithub } from "react-icons/ai";
 import { MdFacebook } from "react-icons/md";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function Footer({lang, currency, setLang, setCurrency}) {
   const router = useRouter();
 
-  const handleLogoClick = () => {
-    router.push("/");
-  };
   const handleIconClick = () => {
     router.push("/aboutus");
   };
@@ -27,11 +25,10 @@ export default function Footer({lang, currency, setLang, setCurrency}) {
   return (
     <div className={styles.Footer}>
       <div className={styles.FooterContainer}>
-        <img
-          className={styles.logo}
+        <Image 
           src={Logo.src}
           alt="logo"
-          onClick={handleLogoClick}
+          width={100} height={36}
         />
         <div className={styles.icon_container}>
           <MdFacebook className={styles.icon} onClick={handleIconClick} />
