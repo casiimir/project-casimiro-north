@@ -23,10 +23,9 @@
   }
 
   .overlay {
+    @include dimensions(30px, 30px);
     position: absolute;
     background-color: rgb(255, 255, 255);
-    width: 30px;
-    height: 30px;
     z-index: -1;
   }
 }
