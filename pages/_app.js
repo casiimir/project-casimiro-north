@@ -47,6 +47,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Polarix</title>
         <meta name="Polarix" content="Experience, travel,  e-commerce" />
+        <meta name="description" content="Experience, travel,  e-commerce"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="keywords" content="e-commerce, experience, travel, musement, edgemony"></meta>
         <meta name="dc.language" content="ita" scheme="RFC1766"></meta>

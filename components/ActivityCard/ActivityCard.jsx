@@ -51,7 +51,7 @@ const ActivityCard = ({catData}) => {
        </div>
        {!cityname ? <div onClick={handleActivityClick} className={styles.overlay} /> : <div className={styles.overlay} />}
         {!cityname ? 
-        <h5 className={styles.title}>{title}</h5> 
+        <h3 className={styles.title}>{title}</h3> 
         : <>
         {/* <h5 className={styles.title_cat_page}>{title}</h5> */}
         <div className={styles.data_fav_container}>

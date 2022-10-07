@@ -1,123 +1,111 @@
-@import '../../styles/mixins';
-@import '../../styles/variables';
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .newsletter {
-    @include flex-container(column, flex-start, stretch, nowrap, 40px);
-    box-sizing: border-box;
-    position: relative;
-    padding: 0 5% 10% 5%;
-    background-color: white;
+  @include flex-container(column, flex-start, stretch, nowrap, 40px);
+  @include box-model($sizing: border-box, $padding: 0 5% 10% 5%);
+  background-color: white;
+  position: relative;
 
-    .newsletter_main_title {
-        @include flex-container($direction: column, $gap: 8px);
-        h2 {
-            font-weight: 700;
-            font-size: 1.2rem;
+  .main_title {
+    @include flex-container($direction: column, $gap: 8px);
+
+    h2 {
+      @include text($weight: 700, $size: 1.2rem);
+      color: $MainDarkBlue;
+    }
+
+    p {
+      font-size: 0.8rem;
+      .coupon {
+        color: $MainDarkBlue;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .container {
+    @include flex-container();
+
+    .form {
+      @include flex-container(column, $gap: 20px, $justify: space-evenly);
+      width: 60%;
+
+      .fullname {
+        @include flex-container(row, $gap: 1rem);
+
+        input {
+          @include border($border: none, $bottom: 1px solid #05283789);
+          @include text($weight: 500, $color: $MainDarkBlue);
+          @include box-model($sizing: border-box, $padding: 0 0 10px 0);
+          width: 50%;
+
+          outline: none;
+
+          &::placeholder {
             color: $MainDarkBlue;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      button {
+        @include border($radius: 1px, $border: none);
+        @include text($size: 0.6rem, $color: white);
+        background-color: $MainButtonBlue;
+        padding: 8px 0;
+        width: 55px;
+        align-self: flex-end;
+        cursor: pointer;
+        transition: all 0.25s;
+
+        &:hover {
+          background-color: #0b697e;
+          transform: scale(1.1);
         }
 
-        p {
-        font-size: .8rem;
-            .coupon{
-                font-weight: bold;
-                color: $MainDarkBlue;
-            }
+        &:active {
+          transform: scale(0.9);
         }
+      }
+
+      .email {
+        @include border($border: none, $bottom: 1px solid #05283789);
+        @include text($color: $MainDarkBlue, $weight: 500);
+        @include box-model($sizing: border-box, $padding: 0 0 10px 0);
+        outline: none;
+        width: 100%;
+
+        &::placeholder {
+          color: $MainDarkBlue;
+          font-size: 0.8rem;
+        }
+      }
     }
 
-    .container {
-        @include flex-container();
-
-        .form {
-            @include flex-container(column, $gap: 20px, $justify: space-evenly);
-            width: 60%;
-
-            .fullname {
-                @include flex-container(row, $gap: 1rem);
-            
-            input{
-                border: none;
-                border-bottom: 1px solid #05283789;
-                color: $MainDarkBlue;
-                width: 50%;
-                padding: 0 0 10px 0;
-                font-weight: 500;
-                outline: none;
-                box-sizing: border-box;
-
-                &::placeholder {
-                    color: $MainDarkBlue;
-                    font-size: 0.8rem;
-                }
-            }
-        }
-
-            button {
-                border-radius: 1px;
-                background-color: $MainButtonBlue;
-                color: white;
-                font-size: .6rem;
-                padding: 8px 0;
-                width: 55px;
-                border: none;
-                align-self: flex-end;
-                cursor: pointer;
-                transition: all 0.25s;
-                    &:hover {
-                    background-color: #0b697e;
-                    transform: scale(1.1);
-                    }
-                
-            
-                    &:active {
-                    transform: scale(0.9);
-                    }
-                }
-
-
-                .email { 
-                    border: none;
-                    border-bottom: 1px solid #05283789;
-                    color: $MainDarkBlue;
-                    padding: 0 0 10px 0;
-                    font-weight: 500;
-                    outline: none;
-                    box-sizing: border-box;
-                    width: 100%;
-                    
-                    &::placeholder {
-                            color: $MainDarkBlue;
-                            font-size: 0.8rem;
-                        }
-                }
-            }
-
-            .newsletter_img {
-                width: 150px;
-              
-            }
-
-            
+    .newsletter_img {
+      width: 150px;
     }
+  }
 }
 
-@media only screen and (min-width : 768px) {
-    .newsletter {
-        padding: 0 300px;
-        padding-bottom: 80px;
-        padding-top: 80px;
+@media only screen and (min-width: 768px) {
+  .newsletter {
+    padding: 0 300px;
+    padding-bottom: 80px;
+    padding-top: 80px;
 
-        .container {
-            justify-content: space-between;
-            .form {
-                flex: 0 0 auto;
-                width: 50%;
-            }
+    .container {
+      justify-content: space-between;
+      .form {
+        flex: 0 0 auto;
+        width: 50%;
+      }
 
-            .newsletter_img {
-                flex: 0 0 auto;
-                width: 300px;
-            }
-        }
+      .newsletter_img {
+        flex: 0 0 auto;
+        width: 300px;
+      }
     }
+  }
 }

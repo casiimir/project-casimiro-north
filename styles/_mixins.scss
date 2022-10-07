@@ -61,6 +61,7 @@
   border-bottom: $bottom;
 }
 
+
 @mixin color($color: auto, $background-color: auto, $background: auto) {
   color: $color;
   background-color: $background-color;

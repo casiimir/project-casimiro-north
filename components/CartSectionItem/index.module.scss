@@ -3,7 +3,6 @@
 
 .cartItem {
   @include flex-container(column, $gap: 5px);
-
   color: white;
 
   .ticketType {
@@ -14,14 +13,8 @@
     }
 
     .ticketName {
-      text-transform: uppercase;
-      font-size: 1rem;
+      @include text ( $transform: uppercase,$size: 1rem);
       width: 60%;
-
-      // &::before {
-      //   content: "●";
-      //   margin-right: 20px;
-      // }
     }
 
     .ticketPrice {
@@ -37,11 +30,11 @@
   }
   .ticketAmount {
     @include flex-container();
+
     .ticketAmountText {
+      @include text($size: 0.8rem, $weight: 200);
       margin-left: 32px;
       width: 50%;
-      font-size: 0.8rem;
-      font-weight: 200;
       color: rgba(255, 255, 255, 0.838);
     }
 
@@ -51,12 +44,10 @@
       font-size: 0.8rem;
 
       .removeBtn {
+        @include text($weight: 700, $size: 0.8rem);
         background-color: rgba(255, 255, 255, 0.895);
-        border: none;
-        border-radius: 15px;
+        @include border ($border: none, $radius: 15px);
         color: $MainDarkBlue;
-        font-weight: 700;
-        font-size: 0.8rem;
         padding: 5px 8px;
         cursor: pointer;
         transition: all 0.35s;
