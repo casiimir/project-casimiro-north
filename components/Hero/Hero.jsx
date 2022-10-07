@@ -281,7 +281,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
               <span className={styles.row_title} />
             </div>
             <div className={styles.reviewsContainer}>
-              <div style={activities?.activityData?.categories[0]?.name ? {} : {opacity: '0'}} className={styles.category_marker}>
+              <div style={activities?.activityData?.categories?.length  ? {} : {opacity: '0'}} className={styles.category_marker}>
                 {activities.activityData.categories
                   ? activities?.activityData?.categories[0]?.name
                   : ""}
