@@ -37,8 +37,7 @@
         input {
           @include border($border: none, $bottom: 1px solid #05283789);
           @include text($weight: 500, $color: $MainDarkBlue);
-          box-sizing: border-box;
-          padding: 0 0 10px 0;
+          @include box-model($sizing: border-box, $padding: 0 0 10px 0);
           width: 50%;
 
           outline: none;
@@ -73,9 +72,8 @@
       .email {
         @include border($border: none, $bottom: 1px solid #05283789);
         @include text($color: $MainDarkBlue, $weight: 500);
-        box-sizing: border-box;
+        @include box-model($sizing: border-box, $padding: 0 0 10px 0);
         outline: none;
-        padding: 0 0 10px 0;
         width: 100%;
 
         &::placeholder {

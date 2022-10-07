@@ -28,11 +28,9 @@
   text-decoration: $decoration;
   color: $color;
 }
-@mixin box-model($margin: 0, $padding: 0, $border: 0, $sizing: border-box) {
+@mixin box-model($margin: 0, $padding: 0, $sizing: border-box) {
   margin: $margin;
   padding: $padding;
-  border: $border;
-  box-shadow: none;
   box-sizing: $sizing;
 }
 
@@ -61,4 +59,10 @@
   border: $border;
   border-radius: $radius;
   border-bottom: $bottom;
+}
+
+@mixin color($color: auto, $background-color: auto, $background: auto) {
+  color: $color;
+  background-color: $background-color;
+  background: $background;
 }
