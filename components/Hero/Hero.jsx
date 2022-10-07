@@ -195,6 +195,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                   index === rightValue && styles.active
                 }`}
                 key={index}
+                alt="btn-slider"
               ></button>
             ))}
           </div>

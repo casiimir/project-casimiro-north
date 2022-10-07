@@ -2,28 +2,22 @@
 @import "../../styles/variables";
 
 .hero {
+  @include dimensions($height: 70vh, $width: 100%);
   position: relative;
-  height: 70vh;
-  width: 100%;
   overflow: hidden;
 
   .maintexthero {
     @include flex-container($direction: column, $gap: 10px);
-    z-index: 3;
-    position: absolute;
-    bottom: 10%;
-    left: 0;
+    @include element-position($z-index: 3,
+    $position: absolute, $bottom: 10%, $left: 0);
+    @include box-model($sizing: border-box, $padding: 0 30px);
     color: white;
     text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
-    padding: 0 30px;
-    box-sizing: border-box;
     width: 100%;
-    pointer-events: none;
     pointer-events: none;
 
     h1 {
-      font-weight: 800;
-      font-size: 2.5rem;
+      @include text($weight: 800, $size: 2.5rem);
       flex: 0 0 auto;
     }
 
@@ -33,18 +27,13 @@
     }
 
     .explorebtn {
-      z-index: 4;
-      position: relative;
+      @include element-position($position: relative, $bottom: 10%, $right: 1%, $z-index: 4);
+      @include dimensions ($width: 80px, $height: 40px);
+      @include text($weight:600, $size: 0.7rem);
       align-self: flex-end;
-      bottom: 10%;
-      right: 1%;
       border-radius: $MainBorderRadius;
       overflow: hidden;
       color: $MainButtonBlue;
-      width: 80px;
-      height: 40px;
-      font-weight: 600;
-      font-size: 0.7rem;
       background-color: rgba(255, 255, 255, 0.898);
       border: none;
       transition: all 0.25s;
@@ -63,36 +52,23 @@
 
   .maintext_act {
     @include flex-container($direction: column, $gap: 5px);
-    position: absolute;
-    z-index: 3;
-    top: 15vh;
-    font-weight: 800;
-    font-size: 2rem;
-    left: 30px;
+    @include text($weight:800, $size: 2rem);
+    @include element-position($position: absolute, $top: 15vh, $left: 30px, $z-index: 3);
     color: rgba(255, 255, 255, 0.486);
     transform: scale(1);
   }
 
   .single_activity_container_text {
-    @include flex-container(
-      column,
-      $justify: space-between,
-      $align: flex-start,
-      $gap: 10px
-    );
-    position: absolute;
-    z-index: 3;
-    bottom: 4vh;
+    @include flex-container(column, $justify: space-between, $align: flex-start, $gap: 10px);
+    @include element-position($position: absolute, $bottom: 4vh, $right: 1%, $z-index: 3);
     width: 100%;
     box-sizing: border-box;
 
     .maintext_sng_act {
       @include flex-container($direction: column, $gap: 10px);
-      font-weight: 800;
-      font-size: 1rem;
+      @include text($weight:800, $size: 1rem);
       width: 59%;
       text-transform: capitalize;
-      left: 0;
       color: rgba(255, 255, 255, 0.951);
       transform: scale(1);
       text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.315);
@@ -103,18 +79,16 @@
       }
 
       .row_title {
-        height: 2px;
+        @include dimensions($height: 2px, $width: 100%);
         background-color: white;
-        width: 100%;
       }
     }
 
     .reviewsContainer {
       @include flex-container($justify: space-between, $gap: 16%);
+      @include box-model($padding: 0 20px, $sizing: border-box);
       margin-top: 5px;
       width: 100%;
-      padding: 0 20px;
-      box-sizing: border-box;
 
       .category_marker {
         text-align: center;
@@ -122,26 +96,28 @@
         flex: 0 0 auto;
         width: max-content;
       }
+
       .previewReviewsContainer {
         @include flex-container($justify: flex-end);
         color: white;
       
         .rating {
           @include flex-container($justify:flex-end, $align: center, $gap: 5px);
-          margin-top: 5px;  width: 100px;
+          margin-top: 5px;  
+          width: 100px;
+
           h2 {
-            font-weight: 700;
-            text-transform: uppercase;
+            @include text($weight: 700, $transform: uppercase, $size: 0.8rem);
             color: white;
-            font-size: 0.8rem;
             margin: 0;
           }
+
           .star {
             font-size: 0.9rem;
             margin: 0;
             color: goldenrod;
-            
           }
+
           p {
             font-size: 0.8rem;
           }
@@ -152,33 +128,26 @@
     .category_marker {
       @include flex-container($align: center, $justify: flex-end);
       @include border($radius: $MainBorderRadius);
+      @include text($weight: 700, $transform: uppercase, $size: 0.5rem);
+      @include dimensions($height: 20px, $width: 200px);
       background-color: rgba(230, 230, 230, 0.764);
       color: #29788a;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.5rem;
       flex: 0 0 auto;
-      height: 20px;
-      width: 200px;
       padding: 2px 5px;
     }
   }
 
   .text_container_city {
     @include flex-container($direction: column);
-    z-index: 3;
-    position: absolute;
-    bottom: 10%;
+    @include element-position($position: absolute, $bottom: 10%, $left: 0%, $z-index: 3);
     width: 50%;
     gap: 8px;
-    left: 0;
     padding: 20px 0;
     color: white;
     text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
 
     h1 {
-      font-weight: 800;
-      font-size: 2rem;
+      @include text($weight: 800, $size: 2rem);
       padding-left: 50px;
       text-align: right;
       box-sizing: border-box;
@@ -187,32 +156,25 @@
     }
 
     .row_title {
-      height: 2px;
+      @include dimensions($height: 2px, $width: 100%);
       background-color: white;
-      width: 100%;
     }
 
     h2 {
-      font-size: 1rem;
+      @include text($weight: 200, $transform: uppercase, $size: 1rem);
       padding-left: 50px;
       text-align: right;
       box-sizing: border-box;
-      font-weight: 200;
       width: 100%;
-      text-transform: uppercase;
     }
   }
   .buttonslider {
     @include flex-container(row, center, stretch, nowrap, 3px);
-    z-index: 1;
-    position: absolute;
-    bottom: 2%;
-    left: 0;
+    @include element-position($position: absolute, $bottom: 2%, $left: 0, $z-index: 1);
     width: 100%;
 
     .button_page {
-      width: 20px;
-      height: 20px;
+      @include dimensions($width: 20px, $height: 20px );
       border-radius: 100%;
       border: none;
       background: rgba(255, 255, 255, 0.212);
@@ -227,8 +189,8 @@
 
   .slider_container {
     @include flex-container();
-    height: 100%;
-    width: 100vw;
+    @include dimensions($height: 100%,
+    $width: 100vw);
     overflow: hidden;
 
     .swiper_button_container {
@@ -236,19 +198,16 @@
     }
 
     .img_container {
-      position: relative;
+      @include element-position($position: relative, $right: 0, $z-index:-1);
       width: 100vw;
       height: 100%;
       right: 0vw;
       transition: right 0.3s ease-in-out;
 
       .overlay_gradient {
+        @include element-position(absolute, $top:0, $left:0);
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100%;
-        z-index: 1;
+        @include dimensions($width: 100vw, $height: 100%);
         background: rgb(5, 40, 55);
         background: linear-gradient(
           180deg,
@@ -258,21 +217,17 @@
       }
 
       .background {
+        @include dimensions($width: 100vw, $height: 100%);
         flex: 0 0 auto;
-        width: 100vw;
-        height: 100%;
-
         object-fit: cover;
         filter: blur(1px);
       }
 
       .background_city {
+        @include dimensions($width: 100%, $height: 100%);
         flex: 0 0 auto;
-        width: 100%;
-        height: 100%;
         position: fixed;
         z-index: -1;
-
         object-fit: cover;
         filter: blur(0.6px);
       }
@@ -283,9 +238,7 @@
 @media only screen and (min-width: 768px) {
   .hero {
     @include flex-container(column, flex-start);
-    left: 0%;
-    top: 0;
-    right: 0;
+    @include element-position($left: 0%, $top: 0,$right: 0);
     object-fit: contain;
     height: 100vh;
 
@@ -295,17 +248,13 @@
     }
 
     .maintexthero {
-      z-index: 3;
-      position: absolute;
-      bottom: 260px;
-      left: 0;
+      @include element-position(absolute, $bottom:260px, $left:0, $z-index: 3);
       padding: 20px 80px;
       color: white;
       text-shadow: 0px 2px 2px rgba(11, 47, 63, 0.69);
 
       h1 {
-        font-weight: 800;
-        font-size: 2.3rem;
+        @include text($weight: 800, $size: 2.3rem);
       }
       h2 {
         font-size: 1.2rem;
@@ -322,19 +271,22 @@
         cursor: pointer;
       }
     }
-
-    @include flex-container(row, $justify: space-between);
+   
     .single_activity_container_text {
       @include flex-container(column, $gap: 10%);
+      position: static;
+      margin-bottom: 2%;
 
       .maintext_sng_act {
         width: 43vw;
       }
+
       .reviewsContainer {
         @include flex-container($justify: space-between);
         margin-top: 15px;
         padding: 0 60px;
         box-sizing: border-box;
+
         .category_marker {
           text-align: center;
           font-size: 0.7rem;
@@ -345,21 +297,22 @@
         .previewReviewsContainer {
           @include flex-container($justify: flex-end);
           color: white;
-
           cursor: pointer;
+
           .rating {
             @include flex-container($justify: space-between);
+
             h2 {
-              font-weight: 700;
-              text-transform: uppercase;
-              font-size: 1rem;
+              @include text($weight: 700, $transform: uppercase, $size: 1rem);
               margin: 0;
             }
+
             .star {
               font-size: 1.1rem;
               margin: 0;
               color: goldenrod;
             }
+
             p { font-size: 1rem;}
           }
         }
@@ -368,19 +321,15 @@
     
     .text_container_city {
       @include flex-container($direction: column);
-      z-index: 3;
-      position: absolute;
-      bottom: 10%;
+      @include element-position(absolute, $bottom:10%, $left: 0, $z-index: 3);
       width: 40%;
       gap: 16px;
-      left: 0;
       padding: 50px 0;
       color: white;
       text-shadow: 0px 4px 4px rgba(11, 47, 63, 0.69);
 
       h1 {
-        font-weight: 800;
-        font-size: 4rem;
+        @include text($weight: 800, $size: 4rem);
         padding-left: 50px;
         text-align: right;
         box-sizing: border-box;
@@ -389,9 +338,8 @@
       }
 
       .row_title {
-        height: 2px;
+        @include dimensions($height: 2px, $width: 100%);
         background-color: white;
-        width: 100%;
       }
 
       h2 {
@@ -405,15 +353,11 @@
 
     .buttonslider {
       @include flex-container(row, center, stretch, nowrap, 5px);
-      z-index: 1;
-      position: absolute;
-      bottom: 240px;
-      left: 0;
+      @include element-position(absolute, $bottom:240px, $left:0);
       width: 100%;
 
       button {
-        width: 20px;
-        height: 20px;
+        @include dimensions($width: 20px, $height: 20px);
         border-radius: 100%;
         border: none;
         background: rgba(255, 255, 255, 0.34);
@@ -423,13 +367,8 @@
     .slider_container {
       .swiper_button_container {
         @include flex-container($align: center, $justify: space-between);
-        position: absolute;
+        @include element-position(absolute, $top:0, $left: 0, $right:0, $z-index:2, $bottom: 228px);
         color: white;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 228px;
-        z-index: 2;
         pointer-events: none;
 
         button {
@@ -461,17 +400,12 @@
     }
 
     .explorebtn {
-      z-index: 4;
-      position: relative;
-      width: max-content;
+      @include element-position(relative, $z-index:4);
+      @include dimensions($width: 140px, $height: 60px);
+      @include box-model($padding: 0, $margin: 0 );
+      @include text($weight: 600, $size: 1.1rem);
       overflow: hidden;
-      padding: 0;
-      margin: 0;
       color: $MainButtonBlue;
-      width: 140px;
-      height: 60px;
-      font-weight: 600;
-      font-size: 1.1rem;
       background-color: white;
       border: none;
 
