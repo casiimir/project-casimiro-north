@@ -1,34 +1,32 @@
-@import '../../styles/mixins';
-@import '../../styles/variables';
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .arrow {
-    @include flex-container($align: center, $justify: center);
-    position: fixed;
-    bottom: 12px;
-    right: 20px;
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.35s;
-    cursor: pointer;
-    color: $MainButtonBlue;
-    
-    border-radius: 100%;
+  @include flex-container($align: center, $justify: center);
+  @include element-position(fixed, auto, 20px, 12px);
 
-    .icon {
-        font-size: 4rem;
-    }
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s;
+  cursor: pointer;
+  color: $MainButtonBlue;
+  border-radius: 100%;
 
-    &.active {
-        opacity: 1;
-        pointer-events: all;
-    }
+  .icon {
+    font-size: 4rem;
+  }
 
-    .overlay {
-        position: absolute;
-        background-color: rgb(255, 255, 255);
-        width: 30px;
-        height: 30px;
-        z-index: -1;
-    }
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .overlay {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 30px;
+    height: 30px;
+    z-index: -1;
+  }
 }
