@@ -5,7 +5,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 // import {POST_ITEM} from "../../utils/GET/CART_METHOD";
 
 const ActivityCard = ({catData}) => {
@@ -33,12 +33,13 @@ const ActivityCard = ({catData}) => {
 
   const handleHeartClick = () => {
     dispatch({type: "SET_FAVORITE", payload: catData});
+    localStorage.setItem('favorites', JSON.stringify(activities.favorites));
 
     if (activities.favorites.find((item) => item.uuid === uuid)) {
       dispatch({type: "REMOVE_FAVORITE", payload: uuid});
-    }
-    
+    } 
   }
+
 
   return (
     <div className={styles.ActivityCard_main} style={cityname && {width: '100%'}}>

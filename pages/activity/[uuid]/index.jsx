@@ -35,9 +35,11 @@ export default function ActivityPage({ lang, currency, reviewRef }) {
 
   const handleHeartClick = () => {
     dispatch({ type: "SET_FAVORITE", payload: activities.activityData });
+    localStorage.setItem('favorites', JSON.stringify(activities.favorites));
 
     if (activities.favorites.find((item) => item.uuid === uuid)) {
-      dispatch({ type: "REMOVE_FAVORITE", payload: uuid });
+      dispatch({ type: "REMOVE_FAVORITE", payload: uuid })
+      localStorage.setItem('favorites', JSON.stringify(activities.favorites));
     }
   };
 

@@ -150,7 +150,15 @@ export default memo(function NavBar ({lang, currency}) {
         if (localStorage.getItem('cart')) {
                 dispatch({type: "RESTORE_CART", payload: JSON.parse(localStorage.getItem('cart'))})
         }
+
+        if (localStorage.getItem('favorites')) {
+            dispatch({type: "RESTORE_FAVORITE", payload: JSON.parse(localStorage.getItem('favorites'))})
+        } 
     },[])
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(activities.favorites));
+      }, [activities.favorites])
 
     return (
         <>
