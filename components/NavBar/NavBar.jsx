@@ -4,15 +4,14 @@ import { menu } from '../../constants';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 import Modal from '../Modal/Modal';
 import Logo from '../../assets/Logo.png';
 import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
-// import { POST, GET_CART } from '../../utils/GET/CART_METHOD';
 
-export default function NavBar ({lang, currency}) {
+export default memo(function NavBar ({lang, currency}) {
     const searchRef = useRef(null);
     const [isScrollDown, setIsScrollDown] = useState(false)
 
@@ -97,10 +96,7 @@ export default function NavBar ({lang, currency}) {
         <>
         <div className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ''}`}>
         <div className={styles.NavBar}>
-            {/* <h2 onClick={handleLogoClick}>LOGO</h2> */}
             <img src={Logo.src} onClick={handleLogoClick} className={styles.logo} alt=""/>
-            
-            
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
                 <ul className={styles.navbar_list}>
                     {menu.map((item, index)=> 
@@ -145,4 +141,4 @@ export default function NavBar ({lang, currency}) {
         {modalVisibility && <Modal />}
         </>
     )
-}
+})

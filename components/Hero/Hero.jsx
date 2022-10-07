@@ -4,6 +4,7 @@ import {
   MdArrowBackIosNew,
   MdOutlineStar,
 } from "react-icons/md";
+import { memo } from 'react';
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GET from "../../utils/GET/GET";
@@ -77,7 +78,6 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
   };
 
   const handleOnCityClick = () => {
-    // router.push(`/../city/${cityname.split('&=')[0]}`)
     router.back();
   };
 
@@ -163,16 +163,11 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                 key={index}
               >
                 <div className={styles.overlay_gradient} />
-
                 <img
                   className={styles.background}
                   src={item.cover_image_url}
                   alt="heroimg"
                 />
-
-                {/* <div className={styles.background}>
-                  <Image src={item.cover_image_url} alt="heroimg" layout="fill"/>
-                </div> */}
               </div>
             ))}
           </div>
@@ -210,11 +205,6 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
           <div className={styles.slider_container}>
             <div className={styles.img_container}>
               <div className={styles.overlay_gradient} />
-              {/* <img
-                className={type !== 'CityPage' ? styles.background : styles.background_city}
-                src={cities.cityData.cover_image_url}
-                alt="heroimg"
-              /> */}
               <div
                 className={
                   type !== "CityPage"
@@ -289,7 +279,6 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                 {activities.activityData.title}{" "}
               </h1>
               <span className={styles.row_title} />
-              {/* <h2>{cities.cityData.headline}</h2> */}
             </div>
             <div className={styles.reviewsContainer}>
               <div className={styles.category_marker}>
@@ -298,7 +287,6 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                   : ""}
               </div>
               <div
-                // onClick={scrollToReviews}
                 className={styles.previewReviewsContainer}
               >
                 <div onClick={handleReviewClick} className={styles.rating}>
@@ -317,4 +305,4 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
