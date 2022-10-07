@@ -241,7 +241,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                 }
                 src={
                   activities?.categoryList[activities?.indexOfCat]
-                    ?.cover_image_url
+                    ?.cover_image_url.split('?w')[0]
                 }
                 alt="heroimg"
               />
@@ -266,7 +266,7 @@ const Hero = ({ type, lang, currency, reviewRef }) => {
                     ? styles.background
                     : styles.background_city
                 }
-                src={activities.activityData.cover_image_url}
+                src={activities.activityData.cover_image_url.split('?w')[0]}
                 alt="heroimg"
               />
             </div>
