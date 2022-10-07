@@ -146,7 +146,7 @@ export default memo(function NavBar ({lang, currency}) {
                             <li onClick={() => dispatch({type: 'SET_CLOSE'})} >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
-                                <span className={styles.quantity}>{item.quantity ? item.quantity : null}</span>
+                                <span style={item.name === "Cart" && cartData.cartList?.length === 0 ? {background: "none"} : {} && item.name === "Favorites" && activities.favorites?.length === 0 ? {background: "none"} : {} } className={styles.quantity}>{item.quantity ? item.quantity : null}</span>
                                 <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>
                             </li>
                         </Link>
