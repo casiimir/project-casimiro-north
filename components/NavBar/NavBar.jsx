@@ -1,26 +1,68 @@
 import styles from './index.module.scss';
 import {HiSearch} from 'react-icons/hi';
-import { menu } from '../../constants';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from "next/router"
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, memo } from 'react';
 import Modal from '../Modal/Modal';
 import Logo from '../../assets/Logo.png';
 import GET from '../../utils/GET/GET';
 import { IMPORT_URL } from '../../utils/GET/URL';
 import ArrowUp from '../ArrowUp';
-// import { POST, GET_CART } from '../../utils/GET/CART_METHOD';
+import {RiUserSharedLine, RiUserFill} from 'react-icons/ri';
+import ModalLogin from '../ModalLogin';
+import { userData } from "../../services/auth_google";
 
-export default function NavBar ({lang, currency}) {
+import {
+    AiFillHome,
+    AiFillCompass,
+    AiOutlineStar,
+    AiFillInfoCircle,
+  } from "react-icons/ai";
+  import { FaShoppingCart } from "react-icons/fa";
+
+export default memo(function NavBar ({lang, currency}) {
     const searchRef = useRef(null);
     const [isScrollDown, setIsScrollDown] = useState(false)
 
-    const {navBarStatus, modalVisibility} = useSelector(state => state)
+    const {navBarStatus, modalVisibility, cartData, activities, loginModalVisibility, user_data} = useSelector(state => state)
     const dispatch = useDispatch();
     const router = useRouter();
     const [searchInput, setSearchInpt] = useState("")
     const data = useSelector((state) => state);
+
+    console.clear()
+    console.log(activities.favorites)
+
+    const menu = [
+        {
+          name: "Home",
+          path: "/",
+          icon: <AiFillHome className={styles.icon} />,
+        },
+        {
+          name: "My Trip",
+          path: "/mytrip",
+          icon: <AiFillCompass className={styles.icon} />,
+        },
+        {
+          name: "Favorites",
+          path: "/favorites",
+          icon: <AiOutlineStar className={styles.icon} />,
+          quantity: activities.favorites?.length,
+        },
+        {
+          name: "Cart",
+          path: "/cart",
+          icon: <FaShoppingCart className={styles.icon} />,
+          quantity: cartData.cartList?.length,
+        },
+        {
+          name: "About us",
+          path: "/aboutus",
+          icon: <AiFillInfoCircle className={styles.icon} />,
+        },
+      ];
 
     const eventScrollDown = () => {
         
@@ -69,6 +111,12 @@ export default function NavBar ({lang, currency}) {
         
     }
 
+    const handleOnClickLog = () => {
+        console.log('login ci si tu');
+        dispatch({type: 'SET_CLOSE'})
+        dispatch({type: "SET_LOGIN_TRUE"})
+    }
+
     useEffect(() => {
         if (navBarStatus.isActive === true ) {
             window.document.body.style.overflowY = 'hidden'
@@ -93,14 +141,16 @@ export default function NavBar ({lang, currency}) {
     return removeEventListener('scroll', () => eventScrollDown())
     }, [])
 
+    useEffect(() => {
+
+        userData && dispatch({type: "SET_USERNAME", payload: userData.user.displayName.split(" ")[0]})
+    }, [userData])
+
     return (
         <>
         <div className={`${styles.Main_Navbar} ${isScrollDown ? styles.active : ''}`}>
         <div className={styles.NavBar}>
-            {/* <h2 onClick={handleLogoClick}>LOGO</h2> */}
             <img src={Logo.src} onClick={handleLogoClick} className={styles.logo} alt=""/>
-            
-            
             <div className={`${styles.menu} ${navBarStatus.isActive && styles.active}`}>
                 <ul className={styles.navbar_list}>
                     {menu.map((item, index)=> 
@@ -108,10 +158,24 @@ export default function NavBar ({lang, currency}) {
                             <li onClick={() => dispatch({type: 'SET_CLOSE'})} >
                                 <span>{item.icon}</span>
                                 <span>{item.name}</span>
+                                <span style={item.name === "Cart" && cartData.cartList?.length === 0 ? {background: "none"} : {} && item.name === "Favorites" && activities.favorites?.length === 0 ? {background: "none"} : {} } className={styles.quantity}>{item.quantity ? item.quantity : null}</span>
                                 <span className={`${styles.circle} ${router.asPath === item.path ? styles.active : ''}`}/>
                             </li>
                         </Link>
                     )}
+                    <div onClick={handleOnClickLog} className={styles.user_box}>
+                        {!user_data.userName.length  
+                        ? 
+                        <>
+                            <RiUserSharedLine className={styles.user_icon} />
+                            <span className={styles.user_name}>Login</span>
+                        </> 
+                        : 
+                        <>
+                            <RiUserFill className={styles.user_icon} />
+                            <span className={styles.user_name}>{user_data.userName}</span>
+                        </>}
+                    </div>
                     
                     <div className={styles.row} >
         </div>
@@ -143,6 +207,7 @@ export default function NavBar ({lang, currency}) {
         <div className={styles.overlay} onClick={handleOverlayClick} style={navBarStatus.isInputActive ? {display: 'block'} :{display: 'none', pointerEvents: "none"} }/>
         <ArrowUp />
         {modalVisibility && <Modal />}
+        {loginModalVisibility && <ModalLogin />}
         </>
     )
-}
+})

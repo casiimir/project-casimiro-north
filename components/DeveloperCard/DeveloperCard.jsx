@@ -1,6 +1,5 @@
 import styles from "./index.module.scss";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
+import { memo } from "react";
 import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
@@ -32,4 +31,4 @@ const DeveloperCard = ({ data }) => {
   );
 };
 
-export default DeveloperCard;
+export default memo(DeveloperCard);

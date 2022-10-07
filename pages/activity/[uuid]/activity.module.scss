@@ -3,7 +3,7 @@
 
 .Activity {
   .activityMainSection {
-    @include flex-container(column, $gap: 4.5rem);
+    @include flex-container(column, $gap: 45px);
     position: relative;
 
     background-color: white;
@@ -76,15 +76,15 @@
       }
 
       .activityInfolanguagesDiv {
-        @include flex-container(column, $align: flex-end, $gap: 20px);
+        @include flex-container(column, $align: flex-end, $gap: 8px);
 
         color: $MidBlue;
         font-weight: 600;
 
         div {
-          @include flex-container(column, $align: flex-end, $gap: 8px);
+          @include flex-container(row, $align: flex-end, $gap: 8px);
           img {
-            width: 40px;
+            width: 30px;
           }
         }
       }
@@ -92,7 +92,7 @@
   }
 
   .servicesSection {
-    @include flex-container(column, $align: center);
+    @include flex-container(column, $align: center, $gap: 40px);
 
     background-color: white;
     box-sizing: border-box;
@@ -174,12 +174,7 @@
             animation-duration: 0.55s;
           }
         }
-    }
-  
-
-      
-
-        
+    }  
       }
     }
 
@@ -224,7 +219,6 @@
           }
         }
       }
-      margin: 80px 0 0 0;
 
       .reviewList {
         @include flex-container(column, $justify: space-between, $gap: 10px);
@@ -374,7 +368,7 @@
     }
 
     .servicesSection {
-      @include flex-container(column, $align: stretch, $gap: 20%);
+      @include flex-container(column, $align: stretch, $gap: 40px);
       background-color: white;
       padding: 0 80px 80px;
 
@@ -406,7 +400,7 @@
           column,
           $justify: flex-end,
           $align: flex-end,
-          $gap: 1.9rem
+          $gap: 10px
         );
 
         .activityPriceInfo {
@@ -439,7 +433,6 @@
         border-radius: 4px;
         padding: 50px;
         width: auto;
-        margin: 80px 0 0 0;
 
         .reviewTitle {
           color: rgba(7, 45, 62, 0.568);

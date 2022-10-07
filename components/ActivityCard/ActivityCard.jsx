@@ -5,6 +5,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { BsCart2 } from "react-icons/bs";
 import Image from "next/image";
 import { toBase64, shimmer } from "../../utils/shimmer";
+import { memo } from "react";
 // import {POST_ITEM} from "../../utils/GET/CART_METHOD";
 
 const ActivityCard = ({catData}) => {
@@ -75,4 +76,4 @@ const ActivityCard = ({catData}) => {
   );
 };
 
-export default ActivityCard;
+export default memo(ActivityCard);

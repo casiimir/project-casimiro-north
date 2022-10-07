@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
-import { FaRegHeart } from "react-icons/fa";
+
+import { memo } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -34,4 +35,4 @@ const CityCard = ({ data }) => {
   );
 };
 
-export default CityCard;
+export default memo(CityCard);
